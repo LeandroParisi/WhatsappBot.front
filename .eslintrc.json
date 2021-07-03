@@ -19,6 +19,16 @@
         "react",
         "only-warn"
     ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "moduleDirectory": [
+                    "node_modules",
+                    "src/"
+                ]
+            }
+        }
+    },
     "rules": {
         "semi": ["error", "never"]
     }

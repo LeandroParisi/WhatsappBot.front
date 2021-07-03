@@ -1,2 +1,3 @@
+export const container: string;
 export const fullPage: string;
-export const teste: string;
+export const loginPage: string;

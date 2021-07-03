@@ -2,3 +2,17 @@
   width: 100vw;
   height: 100vh;
 }
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px $primary solid;
+  text-align: center;
+  color: white;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6)
+  }
+
+
+}
