@@ -6,17 +6,20 @@
 .loginPage {
   @extend .fullPage;
   @include flexBox(column);
-  background-image:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../../assets/images/bgs/bg1.jpg');
-  background-size: cover;
+  // background-image:
+  //   linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+  //   url('../../assets/images/bgs/bg3.jpg');
+  // background-size: cover;
+  // background-position: 0px;
+  // background-repeat: no-repeat;
 
   .container {
-    @include flexBox(column);
-    color: white;
+    @include flexBox(column, space-around);
+    // color: white;
+    color: $dark2;
     width: 50%;
     min-width: 350px;
-    height: 80%;
+    height: 60%;
     border-radius: 10px;
     position: relative;
     
@@ -25,6 +28,15 @@
       width: 100px;
       position: absolute;
       top: -50px;
+    }
+
+    .buttonContainer {
+      @include flexBox(row);
+      width: 100%;
+
+      >button:nth-child(1) {
+        margin-right: 40px;
+      }
     }
   }
 }

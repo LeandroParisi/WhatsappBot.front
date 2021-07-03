@@ -1,3 +1,7 @@
+* {
+  font-family: monospace;
+}
+
 .fullPage {
   width: 100vw;
   height: 100vh;
@@ -6,13 +10,38 @@
 input {
   background-color: transparent;
   border: none;
-  border-bottom: 1px $primary solid;
+  border-bottom: 1px $dark solid;
   text-align: center;
-  color: white;
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.6)
+    // color: rgba(255, 255, 255, 0.6)
+
   }
 
+  &:focus {
+    outline: none;
+    border-bottom: 2px $dark solid;
 
+  }
+  
+  &:hover {
+    transition: 1s;
+    border-bottom: 2px $dark solid;
+  }
+}
+
+button {
+  padding: 10px;
+  background-color: $dark2;
+  color: $ternary;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+
+  &:hover {
+    transition: 1s;
+    background-color: $primary;
+    color: $dark2;
+  }
 }
