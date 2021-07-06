@@ -1,0 +1,19 @@
+@import '../scss/colors.scss';
+@import '../scss/mixins.scss';
+
+.loader {
+  @include flexBox(column, space-around);
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  position: absolute;
+  background-color: $primaryLighter;
+
+  img {
+    max-width: 100%;
+  }
+
+  .loaderMessage {
+    color: $dark;
+  }
+}

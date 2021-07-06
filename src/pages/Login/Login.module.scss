@@ -6,17 +6,16 @@
 .loginPage {
   @extend .fullPage;
   @include flexBox(column);
-  // background-image:
-  //   linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-  //   url('../../assets/images/bgs/bg3.jpg');
-  // background-size: cover;
-  // background-position: 0px;
+  background-image:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('../../assets/images/bgs/bg6.png');
+  background-size: repeat;
+  background-position: 0px;
   // background-repeat: no-repeat;
 
   .container {
     @include flexBox(column, space-around);
-    // color: white;
-    color: $dark2;
+    color: white;
     width: 50%;
     min-width: 350px;
     height: 60%;
@@ -25,9 +24,17 @@
     
 
     > img {
-      width: 100px;
+      width: 200px;
       position: absolute;
       top: -50px;
+    }
+
+    .inputContainer {
+      @include flexBox(column, space-around);
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      height: 35%;
+      padding: 10px 100px;
     }
 
     .buttonContainer {
