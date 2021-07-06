@@ -1,11 +1,16 @@
-const setState = (setter, field, value) => {
-  console.log(field)
-  console.log(value)
-
+const setState = (setter) => (field, value) => {
   setter((prev) => ({
     ...prev,
     [field]: value,
   }))
 }
 
-export { setState }
+const validateInput = (validation, value, setter) => {
+  const isValid = validation(value)
+  setter((prev) => ({
+    ...prev,
+    error: !isValid,
+  }))
+}
+
+export { setState, validateInput }

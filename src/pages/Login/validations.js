@@ -9,7 +9,7 @@ const inputs = {
   },
   passwordInput: {
     value: '',
-    errorMessage: 'Email inválido',
+    errorMessage: 'Senha inválida',
     error: false,
     validation: () => true,
   },

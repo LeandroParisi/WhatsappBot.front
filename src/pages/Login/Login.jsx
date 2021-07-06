@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import logo from 'assets/images/logos/logo_transparent.png'
 import { Input, Button } from 'components'
 import useLoader from 'hooks/useLoader'
-import { setState } from 'store/generalActions'
+import { setState, validateInput } from 'store/generalActions'
 import styles from './Login.module.scss'
 import inputs from './validations'
 
@@ -21,13 +21,8 @@ const Login = () => {
     }
   }, [email, password])
 
-  const validateInput = (validation, value, setter) => {
-    const isValid = validation(value)
-    setter((prev) => ({
-      ...prev,
-      error: !isValid,
-    }))
-  }
+  const emailSetter = setState(setEmail)
+  const passwordSetter = setState(setPassword)
 
   return (
     <>
@@ -43,18 +38,18 @@ const Login = () => {
               value={email.value}
               placeholder="E-mail"
               error={{ error: email.error, errorMessage: email.errorMessage }}
-              onChange={(e) => setState(setEmail, 'value', e.target.value)}
+              onChange={(e) => emailSetter('value', e.target.value)}
               onBlur={() => validateInput(email.validation, email.value, setEmail)}
-              onFocus={() => setState(setEmail, 'error', false)}
+              onFocus={() => emailSetter('error', false)}
             />
             <Input
               type="password"
               value={password.value}
               placeholder="Password"
               error={{ error: password.error, errorMessage: password.errorMessage }}
-              onChange={(e) => setState(setPassword, 'value', e.target.value)}
+              onChange={(e) => passwordSetter('value', e.target.value)}
               onBlur={() => validateInput(password.validation, password.value, setPassword)}
-              onFocus={() => setState(setPassword, 'error', false)}
+              onFocus={() => passwordSetter('error', false)}
             />
           </div>
 
