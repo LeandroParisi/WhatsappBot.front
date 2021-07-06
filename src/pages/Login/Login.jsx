@@ -55,7 +55,7 @@ const Login = () => {
 
           <div className={styles.buttonContainer}>
             <Button disabled={isDisabled}>Login</Button>
-            <Button>Register</Button>
+            {/* <Button>Register</Button> */}
           </div>
         </main>
       </div>

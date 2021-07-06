@@ -48,7 +48,8 @@ button {
   }
 
   &:disabled {
-    background-color: rgb(155, 155, 155);
+    background-color: $gray;
+    opacity: 0.5;
     color:white;
     text-shadow: none;
     cursor: not-allowed;
