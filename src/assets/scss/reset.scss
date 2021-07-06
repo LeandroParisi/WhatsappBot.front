@@ -30,7 +30,7 @@ input {
   }
 }
 
-button {
+button:not([class*=Toastify]) {
   padding: 10px;
   background-color: $dark2;
   color: $primary;
@@ -55,3 +55,4 @@ button {
     cursor: not-allowed;
   }
 }
+

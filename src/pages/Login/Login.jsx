@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import logo from 'assets/images/logos/logo_transparent.png'
 import { Input, Button } from 'components'
 import useLoader from 'hooks/useLoader'
+import userLogin from 'services/userLogin'
 import { setState, validateInput } from 'store/generalActions'
 import styles from './Login.module.scss'
 import inputs from './validations'
@@ -12,6 +13,10 @@ const Login = () => {
   const [email, setEmail] = useState(emailInput)
   const [password, setPassword] = useState(passwordInput)
   const [isDisabled, setIsDisabled] = useState(true)
+
+  useEffect(() => {
+    userLogin()
+  }, [])
 
   useEffect(() => {
     const { validation: emailValidation, value: emailValue } = email

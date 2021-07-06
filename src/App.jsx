@@ -1,5 +1,6 @@
 import React from 'react'
 import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { RootProvider } from './store'
 import { Login } from './pages'

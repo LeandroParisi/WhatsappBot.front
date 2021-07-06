@@ -20,10 +20,7 @@ const api = async ({
   }
 
   const response = await axios(options)
-  if (response.ok) {
-    return [response, null]
-  }
-  return [null, 'error']
+  return response
 }
 
 export default api
