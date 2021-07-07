@@ -11,9 +11,17 @@
 
   img {
     max-width: 100%;
+
+    &.centered {
+      width: auto
+    }
   }
 
   .loaderMessage {
     color: $dark;
+  }
+
+  &.dark {
+    background-color: $dark;
   }
 }

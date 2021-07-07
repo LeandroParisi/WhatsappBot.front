@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import useLoading from 'hooks/useLoading'
 import { Route, useHistory } from 'react-router-dom'
 import userAuth from '../services/userAuth'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const [isLoading, setIsLoading] = useState(true)
   const history = useHistory()
 
   useEffect(() => {
@@ -11,18 +13,23 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
       const response = await userAuth()
       if (response.status !== 200) {
         history.push('/app/login')
+      } else {
+        setIsLoading(false)
       }
     }
     authenticate()
   }, [])
 
   return (
-    <Route
-      {...rest}
-      render={
+    <>
+      {useLoading(isLoading)}
+      <Route
+        {...rest}
+        render={
       (props) => <Component {...rest} {...props} />
     }
-    />
+      />
+    </>
   )
 }
 
