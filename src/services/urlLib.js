@@ -13,6 +13,7 @@ const routes = {
 const endpoints = {
   users: {
     login: '/login',
+    auth: '/auth',
   },
 }
 

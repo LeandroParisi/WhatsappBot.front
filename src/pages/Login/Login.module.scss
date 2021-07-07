@@ -28,21 +28,12 @@
       top: -50px;
     }
 
-    .inputContainer {
-      @include flexBox(column, space-around);
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
-      height: 35%;
-      padding: 10px 100px;
-    }
 
     .buttonContainer {
       @include flexBox(row);
       width: 100%;
 
-      // >button:nth-child(1) {
-      //   margin-right: 40px;
-      // }
+ 
     }
   }
 }

@@ -10,13 +10,14 @@ const axios = require('axios')
  * @returns Object { ...responsePayload } Any relevant information returned by the API. It will always include a key message (even on errors)
  */
 const api = async ({
-  method, url, body = null, headers = null,
+  method, url, body = null, headers = null, ...otherOptions
 }) => {
   const options = {
     method,
     headers: headers && { ...headers },
     url,
     data: body && { ...body },
+    ...otherOptions,
   }
 
   const response = await axios(options)

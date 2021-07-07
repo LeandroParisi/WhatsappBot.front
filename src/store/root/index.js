@@ -5,7 +5,6 @@ import useCreateStore from '../useCreateStore'
 
 const initialState = {
   teste: 1,
-
 }
 
 const RootStore = useCreateStore(() => {

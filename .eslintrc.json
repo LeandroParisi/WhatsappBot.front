@@ -30,7 +30,8 @@
         }
     },
     "rules": {
-        "semi": ["error", "never"]
+        "semi": ["error", "never"],
+        "react/jsx-props-no-spreading": "off"
     }
 
 }

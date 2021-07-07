@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import logo from 'assets/images/logos/logo_transparent.png'
-import { Input, Button } from 'components'
+import { Button, LoginInputs } from 'components'
 import useLoader from 'hooks/useLoader'
 import userLogin from 'services/userLogin'
-import { setState, validateInput } from 'store/generalActions'
 import styles from './Login.module.scss'
 import inputs from './validations'
 
@@ -13,10 +13,7 @@ const Login = () => {
   const [email, setEmail] = useState(emailInput)
   const [password, setPassword] = useState(passwordInput)
   const [isDisabled, setIsDisabled] = useState(true)
-
-  useEffect(() => {
-    userLogin()
-  }, [])
+  const history = useHistory()
 
   useEffect(() => {
     const { validation: emailValidation, value: emailValue } = email
@@ -26,8 +23,13 @@ const Login = () => {
     }
   }, [email, password])
 
-  const emailSetter = setState(setEmail)
-  const passwordSetter = setState(setPassword)
+  const handleLogin = async () => {
+    const body = { email: email.value, password: password.value }
+    const response = await userLogin({ body })
+    if (response.status === 200) {
+      history.push('/app/dashboard')
+    }
+  }
 
   return (
     <>
@@ -37,29 +39,15 @@ const Login = () => {
           <img src={logo} alt="logo" />
           <h1>Painel Admnistrativo</h1>
 
-          <div className={styles.inputContainer}>
-            <Input
-              type="text"
-              value={email.value}
-              placeholder="E-mail"
-              error={{ error: email.error, errorMessage: email.errorMessage }}
-              onChange={(e) => emailSetter('value', e.target.value)}
-              onBlur={() => validateInput(email.validation, email.value, setEmail)}
-              onFocus={() => emailSetter('error', false)}
-            />
-            <Input
-              type="password"
-              value={password.value}
-              placeholder="Password"
-              error={{ error: password.error, errorMessage: password.errorMessage }}
-              onChange={(e) => passwordSetter('value', e.target.value)}
-              onBlur={() => validateInput(password.validation, password.value, setPassword)}
-              onFocus={() => passwordSetter('error', false)}
-            />
-          </div>
+          <LoginInputs
+            email={email}
+            password={password}
+            setEmail={setEmail}
+            setPassword={setPassword}
+          />
 
           <div className={styles.buttonContainer}>
-            <Button disabled={isDisabled}>Login</Button>
+            <Button disabled={isDisabled} onClick={handleLogin}>Login</Button>
             {/* <Button>Register</Button> */}
           </div>
         </main>
