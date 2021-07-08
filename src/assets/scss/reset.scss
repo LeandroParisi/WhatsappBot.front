@@ -1,5 +1,8 @@
+@import './fonts.scss';
+
 * {
   font-family: monospace;
+  font-size: $font-med;
 }
 
 .fullPage {
@@ -55,4 +58,7 @@ button:not([class*=Toastify]) {
     cursor: not-allowed;
   }
 }
+
+$header-height: 8vh;
+
 

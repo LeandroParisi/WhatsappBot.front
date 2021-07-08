@@ -1,0 +1,13 @@
+@import '../../assets/scss/colors.scss';
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/reset.scss';
+@import '../../assets/scss/fonts.scss';
+
+.header {
+  position: fixed;
+  height: $header-height;
+  background-color: $primary2;
+  color: white;
+  width: 100vw;
+  top: 0;
+}
