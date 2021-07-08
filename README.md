@@ -24,21 +24,34 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 3) scss:
 
 <hr />
+
 ### Components:
 1) Main Components: 
 
+<hr />
+
 ### Containers:
+
+<hr />
 
 ### Hooks:
 
+<hr />
+
 ### Libs:
 
+<hr />
+
 ### Pages:
+
+<hr />
 
 ### Services:
 1) api:
 
 2) errorHandler:
+
+<hr />
 
 ### Store:
 1) index:
@@ -51,6 +64,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 5) serializers:
 
+<hr />
+
 ### templates:
+
+<hr />
 
 ### utils:
