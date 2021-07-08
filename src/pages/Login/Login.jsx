@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import logo from 'assets/images/logos/logo_transparent.png'
+import routes from 'libs/routes'
+
 import { Button, LoginInputs } from 'components'
 import useLoader from 'hooks/useLoader'
 import userLogin from 'services/userLogin'
@@ -27,7 +29,7 @@ const Login = () => {
     const body = { email: email.value, password: password.value }
     const response = await userLogin({ body })
     if (response.status === 200) {
-      history.push('/app/dashboard')
+      history.push(routes.dashboard)
     }
   }
 

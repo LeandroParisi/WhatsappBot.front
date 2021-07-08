@@ -1,6 +1,8 @@
+@import '../../../assets/scss/colors.scss';
+
 .overlay {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: $overlay;
 }

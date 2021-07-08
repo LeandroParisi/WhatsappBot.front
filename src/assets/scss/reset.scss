@@ -1,6 +1,6 @@
 @import './fonts.scss';
 @import './colors.scss';
-
+@import './mixins.scss';
 
 * {
   font-family: monospace;
@@ -43,9 +43,8 @@ button:not([class*=Toastify]) {
   
   
   &:hover {
-    transition: 1s;
+    @include textShadow();
     background-color: $primary;
-    text-shadow: 1px 1px 3px $dark2;
     color: $dark2;
   }
 

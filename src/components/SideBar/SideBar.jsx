@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import classNames from 'classnames'
 import styles from './SideBar.module.scss'
+import menu from './menu'
 
 const SideBar = ({ isOpened }) => {
   const nothing = 0
@@ -10,7 +12,7 @@ const SideBar = ({ isOpened }) => {
       [styles.opened]: isOpened,
     })}
     >
-      SideBar
+      {menu.map((option) => <Link to={option.path}>{ option.name }</Link>)}
     </aside>
   )
 }

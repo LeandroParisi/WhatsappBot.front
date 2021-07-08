@@ -3,18 +3,31 @@
 @import '../../assets/scss/fonts.scss';
 @import '../../assets/scss/globals.scss';
 
+$padding: 15px;
 
 .sideBar{
+  @include flexBox(column, space-between, flex-start);
+  padding: $padding;
   position: fixed;
   height: calc(100vh - #{$header-height});
-  background-color: red;
+  background-color: $primary2;
   top: $header-height;
+  border-top: 2px solid $overlay;
   width: $sideBar-width;
   z-index: 2;
-  transform: translateX(-$sideBar-width);
+  transform: translateX(-$sideBar-width -$padding * 2);
   transition: transform 1s ease-out;
-
+  
   &.opened {
     transform: translateY(0);
+  }
+  
+  > a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      @include textShadow()
+    }
   }
 }
