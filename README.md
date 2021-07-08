@@ -23,6 +23,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 3) scss:
 
+<hr />
 ### Components:
 1) Main Components: 
 
