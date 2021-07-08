@@ -7,6 +7,7 @@ import ProtectedRoute from 'templates/ProtectedRoute'
 import { RootProvider } from './store'
 import { Login, Dashboard } from './pages'
 import 'react-toastify/dist/ReactToastify.css'
+import 'assets/scss/reset.scss'
 
 function App() {
   return (

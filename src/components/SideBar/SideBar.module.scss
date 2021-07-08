@@ -1,0 +1,20 @@
+@import '../../assets/scss/colors.scss';
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/fonts.scss';
+@import '../../assets/scss/globals.scss';
+
+
+.sideBar{
+  position: fixed;
+  height: calc(100vh - #{$header-height});
+  background-color: red;
+  top: $header-height;
+  width: $sideBar-width;
+  z-index: 2;
+  transform: translateX(-$sideBar-width);
+  transition: transform 1s ease-out;
+
+  &.opened {
+    transform: translateY(0);
+  }
+}

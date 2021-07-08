@@ -1,14 +1,13 @@
 @import './fonts.scss';
+@import './colors.scss';
+
 
 * {
   font-family: monospace;
   font-size: $font-med;
 }
 
-.fullPage {
-  width: 100vw;
-  height: 100vh;
-}
+
 
 input {
   background-color: transparent;
@@ -58,7 +57,4 @@ button:not([class*=Toastify]) {
     cursor: not-allowed;
   }
 }
-
-$header-height: 8vh;
-
 

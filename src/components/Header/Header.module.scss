@@ -1,6 +1,6 @@
 @import '../../assets/scss/colors.scss';
 @import '../../assets/scss/mixins.scss';
-@import '../../assets/scss/reset.scss';
+@import '../../assets/scss/globals.scss';
 @import '../../assets/scss/fonts.scss';
 
 .header {
@@ -8,6 +8,7 @@
   height: $header-height;
   background-color: $primary2;
   color: white;
+  z-index: 2;
   width: 100vw;
   top: 0;
 }
