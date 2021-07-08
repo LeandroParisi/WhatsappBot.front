@@ -29,5 +29,9 @@ $padding: 15px;
     &:hover {
       @include textShadow()
     }
+
+    &:visited {
+      color: white;
+    }
   }
 }
