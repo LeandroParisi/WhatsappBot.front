@@ -17,8 +17,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Architecture
 
 ### Assets:
+1) images:
+
+2) Loaders:
+
+3) scss:
 
 ### Components:
+1) Main Components: 
 
 ### Containers:
 
@@ -29,8 +35,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Pages:
 
 ### Services:
+1) api:
+
+2) errorHandler:
 
 ### Store:
+1) index:
+
+2) actions:
+
+3) provider:
+
+4) selectors:
+
+5) serializers:
 
 ### templates:
 
