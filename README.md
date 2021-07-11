@@ -17,6 +17,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Architecture
 
 ### Assets:
+Arquivos relacionados a parte visual: Mídia ou configurações gerais de CSS
 1) images:
 
 2) Loaders:
@@ -26,11 +27,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 <hr />
 
 ### Components:
+Components gerais
 1) Main Components: 
 
 <hr />
 
 ### Containers:
+Caixa maiores que tem componentes dentro...
+OBS.: Os container se comunicam com o estado global
 
 <hr />
 

@@ -2,6 +2,10 @@ import routes from 'libs/routes'
 
 const menu = [
   {
+    name: 'Filiais',
+    path: routes.branches,
+  },
+  {
     name: 'Menus',
     path: routes.menus,
   },
@@ -16,10 +20,6 @@ const menu = [
   {
     name: 'Cupons',
     path: routes.coupons,
-  },
-  {
-    name: 'Filiais',
-    path: routes.branches,
   },
   {
     name: 'Conta',
