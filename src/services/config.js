@@ -3,17 +3,21 @@ require('dotenv').config()
 const env = process.env.REACT_APP_ENV
 
 const backendUrl = {
-  dev: `${process.env.REACT_APP_LOCAL_URL}${process.env.REACT_APP_LOCAL_PORT}`,
+  dev: `${process.env.REACT_APP_LOCAL_URL}`,
 }
 
 const routes = {
   users: '/users',
+  branches: '/branches',
 }
 
 const endpoints = {
   users: {
     login: '/login',
     auth: '/auth',
+  },
+  branches: {
+    findAll: '',
   },
 }
 

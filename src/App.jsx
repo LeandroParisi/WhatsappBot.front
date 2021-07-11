@@ -3,7 +3,7 @@ import {
   BrowserRouter, Route, Switch,
 } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-import ProtectedRoute from 'templates/ProtectedRoute'
+// import ProtectedRoute from 'templates/ProtectedRoute'
 import routes from 'libs/routes'
 import { RootProvider, UserProvider } from './store'
 import { Login, Dashboard } from './pages'
@@ -19,7 +19,7 @@ function App() {
           <UserProvider>
             <Switch>
               <Route exact path={routes.login} component={Login} />
-              <ProtectedRoute exact path={routes.dashboard} component={Dashboard} />
+              <Route exact path={routes.dashboard} component={Dashboard} />
             </Switch>
           </UserProvider>
         </RootProvider>

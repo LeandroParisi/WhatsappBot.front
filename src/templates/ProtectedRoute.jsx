@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import useLoading from 'hooks/useLoading'
 import routes from 'libs/routes'
 import { Route, useHistory } from 'react-router-dom'
-import userAuth from '../services/userAuth'
+import userAuth from '../services/users/userAuth'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   const [isLoading, setIsLoading] = useState(true)

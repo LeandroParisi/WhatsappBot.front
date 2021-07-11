@@ -5,7 +5,7 @@ import routes from 'libs/routes'
 
 import { Button, LoginInputs } from 'components'
 import useLoader from 'hooks/useLoader'
-import userLogin from 'services/userLogin'
+import userLogin from 'services/users/userLogin'
 import styles from './Login.module.scss'
 import inputs from './validations'
 
@@ -27,8 +27,8 @@ const Login = () => {
 
   const handleLogin = async () => {
     const body = { email: email.value, password: password.value }
-    const response = await userLogin({ body })
-    if (response.status === 200) {
+    const { status } = await userLogin({ body })
+    if (status === 200) {
       history.push(routes.dashboard)
     }
   }

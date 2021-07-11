@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 const axios = require('axios')
 
+const withCredentials = process.env.REACT_APP_ENV === 'dev'
+
 /**
  * Default fetcher for entire application
  * @param {string} method HTTP method to be used on request
@@ -17,6 +19,7 @@ const api = async ({
     headers: headers && { ...headers },
     url,
     data: body && { ...body },
+    withCredentials,
     ...otherOptions,
   }
 

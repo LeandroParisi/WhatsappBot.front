@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BaseLayout from 'templates/BaseLayout/BaseLayout'
+import { useUser } from 'store'
 
-const Dashboard = () => (
-  <BaseLayout>
-    <main>
-      Dashboard
-    </main>
-  </BaseLayout>
-)
+const Dashboard = () => {
+  const { getUserBranches } = useUser()
+  useEffect(() => {
+    getUserBranches()
+  }, [])
+  const teste = 1
+  return (
+
+    <BaseLayout>
+      <main>
+        Dashboard
+      </main>
+    </BaseLayout>
+  )
+}
 
 export default Dashboard

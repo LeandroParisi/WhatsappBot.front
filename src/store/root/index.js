@@ -4,7 +4,7 @@ import rootSelectors from './selectors'
 import useCreateStore from '../useCreateStore'
 
 const initialState = {
-  teste: 1,
+  error: '',
 }
 
 const RootStore = useCreateStore(() => {
