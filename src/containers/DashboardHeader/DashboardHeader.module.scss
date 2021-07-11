@@ -1,0 +1,9 @@
+@import '../../assets/scss/colors.scss';
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/fonts.scss';
+
+.header {
+  @include flexBox();
+  padding: 15px;
+  width: 100%;
+}

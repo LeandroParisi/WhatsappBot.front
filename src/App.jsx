@@ -5,7 +5,7 @@ import {
 import { ToastContainer } from 'react-toastify'
 // import ProtectedRoute from 'templates/ProtectedRoute'
 import routes from 'libs/routes'
-import { RootProvider, UserProvider } from './store'
+import { RootProvider, DashboardProvider } from './store'
 import { Login, Dashboard } from './pages'
 import 'react-toastify/dist/ReactToastify.css'
 import 'assets/scss/reset.scss'
@@ -16,12 +16,12 @@ function App() {
       <ToastContainer />
       <BrowserRouter>
         <RootProvider>
-          <UserProvider>
+          <DashboardProvider>
             <Switch>
               <Route exact path={routes.login} component={Login} />
               <Route exact path={routes.dashboard} component={Dashboard} />
             </Switch>
-          </UserProvider>
+          </DashboardProvider>
         </RootProvider>
       </BrowserRouter>
     </>

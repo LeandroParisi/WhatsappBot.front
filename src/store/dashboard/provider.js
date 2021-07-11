@@ -1,13 +1,12 @@
-import api from '../api'
-import getRoute from '../config'
-import METHODS from '../methods'
-import errorHandler from '../errorHandler'
+import api from 'services/api'
+import getRoute from 'services/config'
+import METHODS from 'services/methods'
 
 const url = getRoute('branches', 'findAll')
 
 const query = '?columns=id,isActive,managerName,branchName'
 
-const getUserBranches = async (options) => {
+const fetchUserBranches = async (options) => {
   const response = await api({
     ...options,
     url: `${url}${query}`,
@@ -15,4 +14,4 @@ const getUserBranches = async (options) => {
   })
   return response
 }
-export default errorHandler(getUserBranches)
+export { fetchUserBranches }

@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify'
 
-const errorHandler = (fetcher) => async (options) => {
+const responseHandler = (fetcher) => async (options) => {
   try {
     const response = await fetcher(options)
     return { response: response.data.data, status: response.status }
@@ -10,4 +10,4 @@ const errorHandler = (fetcher) => async (options) => {
   }
 }
 
-export default errorHandler
+export default responseHandler

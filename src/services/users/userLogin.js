@@ -1,7 +1,7 @@
 import api from '../api'
 import getRoute from '../config'
 import METHODS from '../methods'
-import errorHandler from '../errorHandler'
+import responseHandler from '../responseHandler'
 
 const url = getRoute('users', 'login')
 
@@ -11,4 +11,4 @@ const userLogin = async (options) => {
   })
   return response
 }
-export default errorHandler(userLogin)
+export default responseHandler(userLogin)
