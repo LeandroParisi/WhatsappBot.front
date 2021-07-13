@@ -1,4 +1,5 @@
 import { setState } from 'store/generalActions'
+import assembleQuery from 'services/helpers/assembleQuery'
 import * as providers from './provider'
 
 export default (setStore, useRoot) => {
@@ -16,7 +17,11 @@ export default (setStore, useRoot) => {
     }
   }
 
-  // const fetch
+  const fetchBranchOrders = async (queryObject) => {
+    const query = assembleQuery(queryObject)
+    const { response } = await errorHandler(providers.fetchBranchOrders(query))
+    setField('orders', response)
+  }
 
-  return { fetchUserBranches, setField }
+  return { fetchUserBranches, setField, fetchBranchOrders }
 }

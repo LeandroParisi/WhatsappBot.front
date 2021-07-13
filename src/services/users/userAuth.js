@@ -1,13 +1,12 @@
 import api from '../api'
 import getRoute from '../config'
-import METHODS from '../methods'
 import responseHandler from '../responseHandler'
 
-const url = getRoute('users', 'auth')
+const { url, method } = getRoute('users', 'auth')
 
 const userAuth = async (options) => {
   const response = await api({
-    ...options, url, method: METHODS.GET,
+    ...options, url, method,
   })
   return response
 }
