@@ -11,7 +11,7 @@ export default (setStore, useRoot) => {
     const { response } = await errorHandler(providers.fetchUserBranches)
     setField('branches', response)
 
-    if (response.length === 1) {
+    if (response?.length === 1) {
       const { branchName, id } = response[0]
       setField('selectedBranch', { name: branchName, id })
     }
