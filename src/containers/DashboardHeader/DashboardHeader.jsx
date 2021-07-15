@@ -6,6 +6,7 @@ import styles from './DashboardHeader.module.scss'
 
 const DashboardHeader = () => {
   const { getBranchesNames, $dashboard: { selectedBranch }, setField } = useDashboard()
+
   return (
     <header className={styles.header}>
       <Select

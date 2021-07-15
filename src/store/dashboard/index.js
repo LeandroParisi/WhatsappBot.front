@@ -6,7 +6,13 @@ import useCreateStore from '../useCreateStore'
 
 const initialState = {
   branches: [],
-  orders: [],
+  orders: {
+    dispatched: [],
+    inProduction: [],
+    placed: [],
+    readyToDeliver: [],
+    toDo: [],
+  },
   selectedBranch: { name: '', id: '' },
 }
 
@@ -19,8 +25,9 @@ const DashboardStore = useCreateStore(() => {
 
   useEffect(() => {
     if (selectedBranch.name) {
-      console.log('fetch orders')
-      actions.fetchBranchOrders({ branchId: selectedBranch.id })
+      actions.fetchBranchOrders({
+        branchId: selectedBranch.id, status: '!fullfilled',
+      })
     }
   }, [selectedBranch.name])
 

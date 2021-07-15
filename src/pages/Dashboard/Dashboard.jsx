@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
 import BaseLayout from 'templates/BaseLayout/BaseLayout'
 import { useDashboard } from 'store'
-import { DashboardHeader } from 'containers'
+import { DashboardContainer, DashboardHeader } from 'containers'
 
 const Dashboard = () => {
-  const { fetchUserBranches, $dashboard } = useDashboard()
-
-  const { branches } = $dashboard
+  const { fetchUserBranches } = useDashboard()
 
   useEffect(() => {
     fetchUserBranches()
@@ -14,10 +12,8 @@ const Dashboard = () => {
 
   return (
     <BaseLayout>
-      <main>
-        <DashboardHeader />
-        Dashboard
-      </main>
+      <DashboardHeader />
+      <DashboardContainer />
     </BaseLayout>
   )
 }

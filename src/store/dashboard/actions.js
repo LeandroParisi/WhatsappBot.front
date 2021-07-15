@@ -9,17 +9,21 @@ export default (setStore, useRoot) => {
 
   const fetchUserBranches = async () => {
     const { response } = await errorHandler(providers.fetchUserBranches)
-    setField('branches', response)
 
-    if (response?.length === 1) {
-      const { branchName, id } = response[0]
-      setField('selectedBranch', { name: branchName, id })
+    if (response?.length) {
+      setField('branches', response)
+
+      if (response?.length === 1) {
+        const { branchName, id } = response[0]
+        setField('selectedBranch', { name: branchName, id })
+      }
     }
   }
 
   const fetchBranchOrders = async (queryObject) => {
     const query = assembleQuery(queryObject)
     const { response } = await errorHandler(providers.fetchBranchOrders(query))
+    delete response.fullfilled
     setField('orders', response)
   }
 

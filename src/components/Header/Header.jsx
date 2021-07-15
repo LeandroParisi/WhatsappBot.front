@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Squash as Hamburger } from 'hamburger-react'
-import { SideBar } from 'components'
+import SideBar from 'components/SideBar/SideBar'
 import styles from './Header.module.scss'
 
 const Header = ({
