@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,7 +14,6 @@ const Icon = ({
     style={{ fontSize: size }}
     role="button"
     tabIndex={0}
-    onKeyDown={onClick}
   >
     <FontAwesomeIcon icon={icon} color={color} size={size} />
   </div>
