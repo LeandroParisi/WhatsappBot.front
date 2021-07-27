@@ -2,12 +2,12 @@
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/fonts.scss';
 
-$sidePadding: 10px;
-$sideMargin: 10px;
+$sidePadding: 5px;
+$sideMargin: 5px;
 
 .column {
   @include flexBox(column);
-  width: calc(100% / 5 - #{$sidePadding * 2} - #{$sideMargin * 2});
+  width: calc(100% / 3 - #{$sidePadding * 2} - #{$sideMargin * 2});
   text-align: center;
   padding: 0 $sidePadding;
   margin: 0 $sideMargin;

@@ -8,7 +8,7 @@ import classNames from 'classnames'
 import orderStatus from 'interfaces/orders/orderStatus'
 import styles from './OrderCard.module.scss'
 
-const OrderCard = ({ order: { orderNumber }, column }) => {
+const OrderCard = ({ order: { orderNumber, totalPrice }, column }) => {
   const [isOpened, setIsOpened] = useState(false)
 
   const openCard = () => {
@@ -36,7 +36,7 @@ const OrderCard = ({ order: { orderNumber }, column }) => {
 
       <footer classNames={styles.cardFooter}>
         <Icon icon={price} className={styles.mainIcon} size="20px" />
-
+        <span>{totalPrice}</span>
       </footer>
     </article>
   )
@@ -45,6 +45,7 @@ const OrderCard = ({ order: { orderNumber }, column }) => {
 OrderCard.propTypes = {
   order: PropTypes.shape({
     orderNumber: PropTypes.number.isRequired,
+    totalPrice: PropTypes.string.isRequired,
   }).isRequired,
   column: PropTypes.number.isRequired,
 }

@@ -1,10 +1,10 @@
-const orderStatus = {
-  1: 'placed',
-  2: 'toDo',
-  3: 'inProduction',
-  4: 'readyToDeliver',
-  5: 'dispatched',
-  6: 'fullfilled',
-}
+const orderStatus = [
+  'placed',
+  // 'toDo',
+  'inProduction',
+  // 'readyToDeliver',
+  'dispatched',
+  // 'fullfilled',
+]
 
 export default orderStatus
