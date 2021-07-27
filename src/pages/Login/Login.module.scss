@@ -29,14 +29,14 @@
       top: -50px;
     }
 
-    // form {
-    //   height: 60%;
-    //   @include flexBox(column, space-around);
+    form {
+      height: 60%;
+      @include flexBox(column, space-around);
 
       .buttonContainer {
         @include flexBox(row);
         width: 100%;
       }
-    // }
+    }
   }
 }

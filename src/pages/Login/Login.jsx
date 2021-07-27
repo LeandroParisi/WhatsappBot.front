@@ -25,7 +25,8 @@ const Login = () => {
     }
   }, [email, password])
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault()
     const body = { email: email.value, password: password.value }
     const { status } = await userLogin({ body })
     if (status === 200) {
@@ -40,24 +41,23 @@ const Login = () => {
         <main className={styles.container}>
           <img src={logo} alt="logo" />
           <h1>Painel Admnistrativo</h1>
-          {/* <form> */}
-          <LoginInputs
-            email={email}
-            password={password}
-            setEmail={setEmail}
-            setPassword={setPassword}
-          />
+          <form onSubmit={handleLogin}>
+            <LoginInputs
+              email={email}
+              password={password}
+              setEmail={setEmail}
+              setPassword={setPassword}
+            />
 
-          <div className={styles.buttonContainer}>
-            <Button
-              disabled={isDisabled}
-              onClick={handleLogin}
-              onKeyPress={(e) => (e.which === 13 || e.keyCode === 13) && handleLogin()}
-            >
-              Login
-            </Button>
-          </div>
-          {/* </form> */}
+            <div className={styles.buttonContainer}>
+              <Button
+                disabled={isDisabled}
+                type="submit"
+              >
+                Login
+              </Button>
+            </div>
+          </form>
         </main>
       </div>
     </>
