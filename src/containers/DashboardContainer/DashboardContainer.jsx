@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDashboard } from 'store'
-import PropTypes from 'prop-types'
 import DashboardColumn from '../../components/DashboardColumn/DashboardColumn'
 import styles from './DashboardContainer.module.scss'
 

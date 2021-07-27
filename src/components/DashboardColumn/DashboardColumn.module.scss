@@ -11,36 +11,18 @@ $sideMargin: 10px;
   text-align: center;
   padding: 0 $sidePadding;
   margin: 0 $sideMargin;
-  position: relative;
+  
+  .columnHeader {
+    @include dashboardColors();
+    position: relative;
+    width: 100%;
 
-  .ordersCount {
-    color: white;
-    position: absolute;
-    font-size: $font-small;
-    top: 5px;
-    left: 5px;
+    .ordersCount {
+      color: white;
+      position: absolute;
+      font-size: $font-small;
+      top: 5px;
+      left: 5px;
+    }
   }
-
-
-  &.placed {
-    background-color: $placed;
-  };
-  
-  &.toDo {
-    background-color: $toDo;
-  };
-  
-  &.inProduction {
-    background-color: $inProduction;
-  };
-  
-  &.readyToDeliver {
-    background-color: $readyToDeliver;
-  };
-  
-  &.dispatched {
-    background-color: $dispatched;
-  };
-  
-
 }

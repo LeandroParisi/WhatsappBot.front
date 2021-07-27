@@ -22,17 +22,17 @@ const Select = ({
         {placeholder}
       </option>
       {options && options.map(({ name, id }) => (
-        <option value={name} id={id} selected={name === selected}>{name}</option>
+        <option value={name} id={id} key={id} selected={name === selected}>{name}</option>
       ))}
     </select>
   )
 }
 
 Select.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   setOption: PropTypes.func.isRequired,
-  placeholder: PropTypes.func,
-  selected: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  selected: PropTypes.shape({}).isRequired,
 }
 
 Select.defaultProps = {

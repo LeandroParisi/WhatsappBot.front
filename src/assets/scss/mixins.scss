@@ -112,3 +112,25 @@
   text-shadow: 1px 1px 3px $color;
   transition: 0.7s;
 }
+
+@mixin dashboardColors() {
+  &.placed {
+    background-color: $placed;
+  };
+  
+  &.toDo {
+    background-color: $toDo;
+  };
+  
+  &.inProduction {
+    background-color: $inProduction;
+  };
+  
+  &.readyToDeliver {
+    background-color: $readyToDeliver;
+  };
+  
+  &.dispatched {
+    background-color: $dispatched;
+  };
+}

@@ -40,7 +40,7 @@ const Login = () => {
         <main className={styles.container}>
           <img src={logo} alt="logo" />
           <h1>Painel Admnistrativo</h1>
-
+          {/* <form> */}
           <LoginInputs
             email={email}
             password={password}
@@ -49,9 +49,15 @@ const Login = () => {
           />
 
           <div className={styles.buttonContainer}>
-            <Button disabled={isDisabled} onClick={handleLogin}>Login</Button>
-            {/* <Button>Register</Button> */}
+            <Button
+              disabled={isDisabled}
+              onClick={handleLogin}
+              onKeyPress={(e) => (e.which === 13 || e.keyCode === 13) && handleLogin()}
+            >
+              Login
+            </Button>
           </div>
+          {/* </form> */}
         </main>
       </div>
     </>

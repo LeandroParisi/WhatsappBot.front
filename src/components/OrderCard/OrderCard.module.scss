@@ -1,3 +1,57 @@
 @import '../../assets/scss/colors.scss';
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/fonts.scss';
+
+.orderCard {
+  @include dashboardColors();
+  width: calc(100% - 10px);
+  padding: 5px;
+  margin: 10px 0;
+
+  .cardHeader, footer {
+    @include flexBox(row, flex-start);
+    padding: 0 5px;
+  }
+
+  .cardHeader {
+    position: relative;
+
+    > h2 {
+      font-size: $font-small;
+      margin-left: 5px;
+    }
+    
+    .arrowIcon {
+      margin-left: auto;
+      margin-top: 6px;
+      padding: 6px;
+      width: 15px;
+      height: 15px;
+      align-self: flex-start;
+      cursor: pointer;
+    }
+  }
+
+  .cardBody {
+    display: none;
+
+    &.opened {
+      display: flex;
+    }
+  }
+
+  footer {
+    margin-top: 25px;
+    
+    .mainIcon {
+      width: 20px;
+      height: 20px
+    }
+  }
+}
+
+.mainIcon, .arrowIcon {
+  border-radius: 100%;
+  background-color: $dark-transparent;
+}
+

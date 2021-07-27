@@ -12,7 +12,7 @@ const SideBar = ({ isOpened }) => {
       [styles.opened]: isOpened,
     })}
     >
-      {menu.map((option) => <Link to={option.path}>{ option.name }</Link>)}
+      {menu.map(({ path, name }) => <Link to={path} key={path}>{ name }</Link>)}
     </aside>
   )
 }

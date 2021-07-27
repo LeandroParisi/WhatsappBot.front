@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  BrowserRouter, Route, Switch,
+  BrowserRouter, Redirect, Route, Switch,
 } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 // import ProtectedRoute from 'templates/ProtectedRoute'
@@ -20,6 +20,9 @@ function App() {
             <Switch>
               <Route exact path={routes.login} component={Login} />
               <Route exact path={routes.dashboard} component={Dashboard} />
+              <Route exact path="*">
+                <Redirect to={routes.login} />
+              </Route>
             </Switch>
           </DashboardProvider>
         </RootProvider>

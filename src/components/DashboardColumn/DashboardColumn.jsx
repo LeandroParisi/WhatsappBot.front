@@ -10,16 +10,18 @@ const DashboardColumn = ({ orders, step }) => {
   const nothing = 0
 
   return (
-    <div className={classNames(styles.column, styles[orderStatus[step]])}>
-      <h2 className={styles.columnTitle}>
-        {stepNames[step]}
-      </h2>
-      <span className={styles.ordersCount}>
-        {orders.length}
-      </span>
+    <div className={styles.column}>
+      <header className={classNames(styles.columnHeader, styles[orderStatus[step]])}>
+        <h2 className={styles.columnTitle}>
+          {stepNames[step]}
+        </h2>
+        <span className={styles.ordersCount}>
+          {orders.length}
+        </span>
+      </header>
 
       {orders.map((order) => (
-        <OrderCard order={order} />
+        <OrderCard order={order} column={step} />
       ))}
     </div>
   )
