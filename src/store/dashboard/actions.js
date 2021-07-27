@@ -1,8 +1,10 @@
 import { setState } from 'store/generalActions'
 import assembleQuery from 'services/helpers/assembleQuery'
+import orderStatus from 'interfaces/orders/orderStatus'
+import { extractNextStatus } from './utils'
 import * as providers from './provider'
 
-export default (setStore, useRoot) => {
+export default (store, setStore, useRoot) => {
   const { errorHandler } = useRoot()
 
   const setField = setState(setStore)
@@ -27,5 +29,20 @@ export default (setStore, useRoot) => {
     setField('orders', response)
   }
 
-  return { fetchUserBranches, setField, fetchBranchOrders }
+  const updateOrder = async (id, currentStep, type) => {
+    const nextStatus = extractNextStatus(currentStep, type)
+
+    const payload = { body: { status: nextStatus }, id }
+    const { response } = await errorHandler(providers.updateOrder(payload))
+
+    if (response) {
+      await fetchBranchOrders({
+        branchId: store.selectedBranch.id, status: '!fullfilled',
+      })
+    }
+  }
+
+  return {
+    fetchUserBranches, setField, fetchBranchOrders, updateOrder,
+  }
 }

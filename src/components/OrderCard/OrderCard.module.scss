@@ -2,34 +2,35 @@
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/fonts.scss';
 
+$iconTextMargin: 5px;
+$innerMargin: 15px;
+
 .orderCard {
   @include dashboardColors();
+  @include boxShadow();
+  @include flexBox(column);
   width: calc(100% - 10px);
   padding: 5px;
   margin: 10px 0;
 
   .cardHeader, footer {
     @include flexBox(row, flex-start);
-    padding: 0 5px;
+    width: 100%;
   }
 
   .cardHeader {
     position: relative;
+    margin-bottom: $innerMargin;
 
     > h2 {
       font-size: $font-small;
-      margin-left: 5px;
+      margin-left: $iconTextMargin;
     }
-    
+
     .arrowIcon {
       margin-left: auto;
-      margin-top: 6px;
-      padding: 6px;
-      width: 15px;
-      height: 15px;
-      align-self: flex-start;
-      cursor: pointer;
     }
+    
   }
 
   .cardBody {
@@ -41,17 +42,53 @@
   }
 
   footer {
-    margin-top: 25px;
-    
+    margin-top: $innerMargin;
+
+    .iconContainer {
+      @include flexBox();
+      margin-left: auto;
+
+      .firstIcon {
+        margin-right: 10px;
+      }
+    }
+
     .mainIcon {
       width: 20px;
-      height: 20px
+      height: 20px;
+      background-color: $gold;
     }
+
+    > span {
+      margin-left: $iconTextMargin
+    }
+  }
+
+  &:hover {
+    @include boxShadow(4px, 10px);
+    transition: .3s;
   }
 }
 
 .mainIcon, .arrowIcon {
   border-radius: 100%;
-  background-color: $dark-transparent;
 }
 
+.mainIcon {
+  background-color: $primary2;
+}
+
+.arrowIcon {
+  @include boxShadow(1px, 1px);
+  background-color: $primary2;
+  margin-top: 6px;
+  padding: 6px;
+  width: 15px;
+  height: 15px;
+  align-self: flex-start;
+  cursor: pointer;
+
+  &:hover {
+    @include boxShadow(3px, 3px);
+  }
+}

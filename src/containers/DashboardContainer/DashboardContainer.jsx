@@ -5,14 +5,14 @@ import DashboardColumn from '../../components/DashboardColumn/DashboardColumn'
 import styles from './DashboardContainer.module.scss'
 
 const DashboardContainer = () => {
-  const { getOrders } = useDashboard()
+  const { getOrders, updateOrder } = useDashboard()
 
   const orders = getOrders()
 
   return (
     <main className={styles.dashboardContainer}>
       {orderStatus.map((status, index) => (
-        <DashboardColumn orders={orders[status]} step={index} />
+        <DashboardColumn orders={orders[status]} step={index} updateOrder={updateOrder} />
       ))}
     </main>
   )

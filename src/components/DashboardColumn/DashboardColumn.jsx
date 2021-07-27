@@ -6,7 +6,7 @@ import stepNames from './libs'
 import styles from './DashboardColumn.module.scss'
 import orderStatus from '../../interfaces/orders/orderStatus'
 
-const DashboardColumn = ({ orders, step }) => {
+const DashboardColumn = ({ orders, step, updateOrder }) => {
   const nothing = 0
 
   return (
@@ -21,7 +21,7 @@ const DashboardColumn = ({ orders, step }) => {
       </header>
 
       {orders.map((order) => (
-        <OrderCard order={order} column={step} />
+        <OrderCard order={order} column={step} updateOrder={updateOrder} />
       ))}
     </div>
   )
@@ -30,6 +30,7 @@ const DashboardColumn = ({ orders, step }) => {
 DashboardColumn.propTypes = {
   orders: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   step: PropTypes.oneOf([1, 2, 3, 4, 5]).isRequired,
+  updateOrder: PropTypes.func.isRequired,
 }
 
 export default DashboardColumn

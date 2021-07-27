@@ -18,6 +18,7 @@ export default (setRoot) => {
       history.push(routes.login)
       return { response: null }
     }
+
     return response
   }
 

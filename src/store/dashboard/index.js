@@ -18,7 +18,7 @@ const initialState = {
 
 const DashboardStore = useCreateStore(() => {
   const [$dashboard, setDashboard] = useState(initialState)
-  const actions = storeActions(setDashboard, useRoot)
+  const actions = storeActions($dashboard, setDashboard, useRoot)
   const selectors = storeSelectors($dashboard)
 
   const { selectedBranch } = $dashboard

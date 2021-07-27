@@ -7,7 +7,6 @@ $primaryTransarent: rgba(5, 242, 88, 0.5);
 
 $secondary: #46B477;
 
-
 $dark: #0E1E2F;
 $dark2: #0D0D0D;
 $dark-transparent:rgba(0, 0, 0, 0.5);
@@ -17,12 +16,14 @@ $gray: rgb(155, 155, 155);
 
 $light: #F2F2F2;
 
+$gold: #E5CA00;
+
 
 $placed: red;
-$toDo: orange;
-$inProduction: yellow; 
-$readyToDeliver: green;
-$dispatched: blue;
+// $toDo: orange;
+$inProduction: orange; 
+// $readyToDeliver: $primary2;
+$dispatched: $primary2;
 
 
 

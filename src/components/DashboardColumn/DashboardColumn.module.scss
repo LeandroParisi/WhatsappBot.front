@@ -13,7 +13,7 @@ $sideMargin: 5px;
   margin: 0 $sideMargin;
   
   .columnHeader {
-    @include dashboardColors();
+    @include dashboardHeaderColors();
     position: relative;
     width: 100%;
 

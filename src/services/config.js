@@ -28,18 +28,20 @@ const endpoints = {
     },
   },
   branches: {
-    findAll:
-      {
-        endpoint: '',
-        method: METHODS.GET,
-      },
+    findAll: {
+      endpoint: '',
+      method: METHODS.GET,
+    },
   },
   orders: {
-    findAll:
-      {
-        endpoint: '',
-        method: METHODS.GET,
-      },
+    findAll: {
+      endpoint: '',
+      method: METHODS.GET,
+    },
+    updateOne: {
+      endpoint: '',
+      method: METHODS.PUT,
+    },
   },
 }
 

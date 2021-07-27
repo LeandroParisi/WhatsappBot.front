@@ -23,4 +23,15 @@ const fetchBranchOrders = (query) => async () => {
   return response
 }
 
-export { fetchUserBranches, fetchBranchOrders }
+const updateOrder = ({ body, id }) => async () => {
+  const { url, method } = getRoute('orders', 'updateOne')
+
+  const endpoint = `${url}/${id}`
+
+  const response = await api({
+    body, url: endpoint, method,
+  })
+  return response
+}
+
+export { fetchUserBranches, fetchBranchOrders, updateOrder }
