@@ -2,7 +2,7 @@ const stepNames = [
   'A fazer',
   'Em Produção',
   // 'Aguardando envio',
-  'Enviados',
+  'Aguardando envio / retirada',
 ]
 
 export default stepNames

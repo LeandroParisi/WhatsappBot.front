@@ -1,18 +1,21 @@
 import React from 'react'
 import classNames from 'classnames'
 import {
-  price, arrowRight, arrowLeft,
+  price, arrowRight, arrowLeft, checkMark,
 } from 'assets/icons/iconsLib'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
+import orderStatus from 'interfaces/orders/orderStatus'
 import styles from '../OrderCard.module.scss'
 
 const OrderFooter = ({
   column,
-  totalPrice,
+  order,
   changeOrderStatus,
 }) => {
+  const { totalPrice } = order
   const isMiddleColumn = column !== 0
+  const isLastColumn = column === orderStatus.length - 1
 
   return (
     <footer classNames={styles.cardFooter}>
@@ -28,7 +31,7 @@ const OrderFooter = ({
         />
         )}
         <Icon
-          icon={arrowRight}
+          icon={isLastColumn ? checkMark : arrowRight}
           className={styles.arrowIcon}
           size="15px"
           onClick={() => changeOrderStatus('forth')}
@@ -39,8 +42,10 @@ const OrderFooter = ({
 }
 
 OrderFooter.propTypes = {
+  order: PropTypes.shape({
+    totalPrice: PropTypes.string.isRequired,
+  }).isRequired,
   column: PropTypes.number.isRequired,
-  totalPrice: PropTypes.string.isRequired,
   changeOrderStatus: PropTypes.func.isRequired,
 }
 

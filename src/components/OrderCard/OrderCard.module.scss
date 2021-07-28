@@ -21,23 +21,61 @@ $innerMargin: 15px;
   .cardHeader {
     position: relative;
     margin-bottom: $innerMargin;
-
-    > h2 {
+    
+    *:not(svg) {
       font-size: $font-small;
+    }
+    
+    > h2 {
       margin-left: $iconTextMargin;
     }
 
-    .arrowIcon {
+    .right {
+      @include flexBox();
       margin-left: auto;
+
+      .hourContainer {
+        @include flexBox();
+        margin-right: 20px;
+      }
+
+      .clock {
+        background-color: transparent;
+      }
+
     }
     
   }
 
   .cardBody {
-    display: none;
+    @include flexBox(column, center, flex-start);
+    width: calc(100% - 30px);
+    padding: 0 15px;
+    margin: 15px 0;
 
-    &.opened {
-      display: flex;
+    * {
+      font-size: $font-small;
+    }
+
+    > div {
+      @include flexBox(row, flex-start, center);
+      width: calc(100% - 20px);
+      background-color: rgba(155, 155, 155, 0.2);
+      border-radius: 15px;
+      padding: 10px;
+
+
+    }
+
+    .addressContainer {
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    
+    &.closed {
+      display: none;
     }
   }
 

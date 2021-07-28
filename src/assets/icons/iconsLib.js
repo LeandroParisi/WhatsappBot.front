@@ -1,5 +1,14 @@
 import {
-  faTruck, faStore, faAngleDown, faAngleUp, faHands, faDollarSign, faArrowRight, faArrowLeft,
+  faTruck,
+  faStore,
+  faAngleDown,
+  faAngleUp,
+  faHands,
+  faDollarSign,
+  faArrowRight,
+  faArrowLeft,
+  faCheck,
+  faClock,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const truck = faTruck
@@ -10,3 +19,5 @@ export const arrowUp = faAngleUp
 export const price = faDollarSign
 export const arrowRight = faArrowRight
 export const arrowLeft = faArrowLeft
+export const checkMark = faCheck
+export const clock = faClock
