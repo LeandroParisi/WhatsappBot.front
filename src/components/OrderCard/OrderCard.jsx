@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import orderStatus from 'interfaces/orders/orderStatus'
-import OrderHeader from './subComponents/OrderHeader'
-import OrderFooter from './subComponents/OrderFooter'
-import OrderBody from './subComponents/OrderBody'
+import { OrderHeader, OrderFooter, OrderBody } from './subComponents'
 import styles from './OrderCard.module.scss'
 
 const OrderCard = ({

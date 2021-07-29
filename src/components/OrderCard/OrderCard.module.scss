@@ -5,6 +5,11 @@
 $iconTextMargin: 5px;
 $innerMargin: 15px;
 
+@mixin headerFooterStyles() {
+  @include flexBox(row, flex-start);
+  width: 100%;
+}
+
 .orderCard {
   @include dashboardColors();
   @include boxShadow();
@@ -12,95 +17,6 @@ $innerMargin: 15px;
   width: calc(100% - 10px);
   padding: 5px;
   margin: 10px 0;
-
-  .cardHeader, footer {
-    @include flexBox(row, flex-start);
-    width: 100%;
-  }
-
-  .cardHeader {
-    position: relative;
-    margin-bottom: $innerMargin;
-    
-    *:not(svg) {
-      font-size: $font-small;
-    }
-    
-    > h2 {
-      margin-left: $iconTextMargin;
-    }
-
-    .right {
-      @include flexBox();
-      margin-left: auto;
-
-      .hourContainer {
-        @include flexBox();
-        margin-right: 20px;
-      }
-
-      .clock {
-        background-color: transparent;
-      }
-
-    }
-    
-  }
-
-  .cardBody {
-    @include flexBox(column, center, flex-start);
-    width: calc(100% - 30px);
-    padding: 0 15px;
-    margin: 15px 0;
-
-    * {
-      font-size: $font-small;
-    }
-
-    > div {
-      @include flexBox(row, flex-start, center);
-      width: calc(100% - 20px);
-      background-color: rgba(155, 155, 155, 0.2);
-      border-radius: 15px;
-      padding: 10px;
-
-
-    }
-
-    .addressContainer {
-      p {
-        margin: 0;
-        padding: 0;
-      }
-    }
-    
-    &.closed {
-      display: none;
-    }
-  }
-
-  footer {
-    margin-top: $innerMargin;
-
-    .iconContainer {
-      @include flexBox();
-      margin-left: auto;
-
-      .firstIcon {
-        margin-right: 10px;
-      }
-    }
-
-    .mainIcon {
-      width: 20px;
-      height: 20px;
-      background-color: $gold;
-    }
-
-    > span {
-      margin-left: $iconTextMargin
-    }
-  }
 
   &:hover {
     @include boxShadow(4px, 10px);

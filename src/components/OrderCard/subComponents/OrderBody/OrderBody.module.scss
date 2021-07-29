@@ -1,0 +1,46 @@
+@import '../../../../assets/scss/colors.scss';
+@import '../../../../assets/scss/mixins.scss';
+@import '../../../../assets/scss/fonts.scss';
+@import '../../OrderCard.module.scss';
+
+.cardBody {
+  @include flexBox(column, center, flex-start);
+  width: calc(100% - 30px);
+  padding: 0 15px;
+  margin: 15px 0;
+
+  * {
+    font-size: $font-small;
+  }
+
+  > div {
+    @include flexBox(row, flex-start, center);
+    width: calc(100% - 20px);
+  }
+
+  .addressContainer {
+    @include flexBox(row, flex-start, center);
+
+    .addressDisplay {
+      background-color: rgba(155, 155, 155, 0.2);
+      border-radius: 15px;
+      padding: 10px;
+      width: 85%;
+    };
+
+    p {
+      margin: 0;
+      padding: 0;
+      line-height: 1.3rem;
+    }
+
+    .deliveryPrice {
+      background-color: transparent;
+      margin-left: auto;
+    }
+  }
+  
+  &.closed {
+    display: none;
+  }
+}

@@ -1,0 +1,34 @@
+@import '../../../../assets/scss/colors.scss';
+@import '../../../../assets/scss/mixins.scss';
+@import '../../../../assets/scss/fonts.scss';
+@import '../../OrderCard.module.scss';
+
+.cardHeader {
+  @include headerFooterStyles();
+  position: relative;
+  margin-bottom: $innerMargin;
+  
+  *:not(svg) {
+    font-size: $font-small;
+  }
+  
+  > h2 {
+    margin-left: $iconTextMargin;
+  }
+
+  .right {
+    @include flexBox();
+    margin-left: auto;
+
+    .hourContainer {
+      @include flexBox();
+      margin-right: 20px;
+    }
+
+    .clock {
+      background-color: transparent;
+    }
+
+  }
+  
+}

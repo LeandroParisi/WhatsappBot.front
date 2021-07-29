@@ -5,8 +5,8 @@ import {
 import formatDate from 'utils/formatDate'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
-import { deliveryIcon } from '../lib'
-import styles from '../OrderCard.module.scss'
+import { deliveryIcon } from '../../lib'
+import styles from './OrderHeader.module.scss'
 
 const OrderHeader = ({
   order,

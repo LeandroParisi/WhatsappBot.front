@@ -1,13 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
 import {
-  price, arrowRight, arrowLeft, checkMark,
+  price,
 } from 'assets/icons/iconsLib'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
-import { deliveryTranslation } from '../lib'
-import styles from '../OrderCard.module.scss'
-import assembleAddress from '../../../utils/assembleAddress'
+import { deliveryTranslation } from '../../lib'
+import styles from './OrderBody.module.scss'
+import assembleAddress from '../../../../utils/assembleAddress'
 
 const OrderBody = ({
   order,
@@ -21,6 +21,7 @@ const OrderBody = ({
         <p>
           <strong>Entrega: </strong>
           {assembleAddress(customer)}
+
         </p>
       )
     }
@@ -38,7 +39,12 @@ const OrderBody = ({
         <div className={styles.addressDisplay}>
           {renderAddress()}
         </div>
-
+        <Icon
+          icon={price}
+          className={styles.deliveryPrice}
+          size="15px"
+          color="rgba(90, 90, 90)"
+        />
       </div>
     </section>
   )

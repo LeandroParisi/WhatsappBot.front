@@ -6,7 +6,7 @@ import {
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
 import orderStatus from 'interfaces/orders/orderStatus'
-import styles from '../OrderCard.module.scss'
+import styles from './OrderFooter.module.scss'
 
 const OrderFooter = ({
   column,
@@ -18,7 +18,7 @@ const OrderFooter = ({
   const isLastColumn = column === orderStatus.length - 1
 
   return (
-    <footer classNames={styles.cardFooter}>
+    <footer className={styles.cardFooter}>
       <Icon icon={price} className={styles.mainIcon} size="20px" />
       <span>{totalPrice}</span>
       <div className={styles.iconContainer}>
