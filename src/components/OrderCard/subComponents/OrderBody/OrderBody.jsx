@@ -9,6 +9,7 @@ import { deliveryTranslation } from '../../lib'
 import styles from './OrderBody.module.scss'
 import assembleAddress from '../../../../utils/assembleAddress'
 import ProductSection from './ProductSection/ProductSection'
+import PriceTag from '../../../MainComponents/PriceTag/PriceTag'
 
 const OrderBody = ({
   order,
@@ -42,15 +43,7 @@ const OrderBody = ({
         <div className={styles.addressDisplay}>
           {renderAddress()}
         </div>
-        <div className={styles.deliveryPriceContainer}>
-          <Icon
-            icon={price}
-            className={styles.deliveryPriceIcon}
-            size="15px"
-            color="rgba(90, 90, 90)"
-          />
-          <p>{deliveryFee}</p>
-        </div>
+        <PriceTag value={deliveryFee} className={styles.priceTag} />
       </div>
 
       <div className={styles.productsContainer}>

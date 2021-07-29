@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import styles from './ProductSection.module.scss'
 import { attributeIcons, categoryIcon } from '../../../lib'
 import { extractAttributesTypes, getAttributeText, groupAttributesByType } from './utils'
+import PriceTag from '../../../../MainComponents/PriceTag/PriceTag'
 
 const ProductSection = ({
   product: {
@@ -51,6 +52,10 @@ const ProductSection = ({
           </ul>
         </div>
       ))}
+
+      <footer className={styles.productFooter}>
+        <PriceTag value="addTotalPriceToBack" className={styles.priceTag} />
+      </footer>
     </article>
   )
 }

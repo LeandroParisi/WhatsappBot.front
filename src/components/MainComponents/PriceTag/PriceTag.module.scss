@@ -1,0 +1,16 @@
+@import '../../../assets/scss/mixins.scss';
+@import '../../../assets/scss/fonts.scss';
+
+
+.priceTag {
+  @include flexBox();
+
+
+  .priceIcon {
+    background-color: transparent;
+  }
+
+  > p {
+    font-size: $font-xsmall;
+  }
+}
