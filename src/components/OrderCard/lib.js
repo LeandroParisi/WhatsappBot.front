@@ -1,5 +1,12 @@
 import {
-  pickUp, truck, store,
+  pickUp,
+  truck,
+  store,
+  food,
+  drink,
+  alcooholicDrink,
+  plus,
+  list,
 } from 'assets/icons/iconsLib'
 
 export const deliveryIcon = {
@@ -13,3 +20,16 @@ export const deliveryTranslation = {
   counter_pickup: 'Retirada por conta do cliente',
   on_spot_consumption: 'Consumo no local',
 }
+
+export const categoryIcon = {
+  Comida: food,
+  Sucos: drink,
+  'Bebidas alcoólicas': alcooholicDrink,
+}
+
+export const attributeIcons = {
+  sizes: list,
+  additionals: plus,
+}
+
+export const attributesWithoutQuantity = new Set(['sizes'])

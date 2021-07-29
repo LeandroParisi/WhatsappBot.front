@@ -7,37 +7,52 @@
   @include flexBox(column, center, flex-start);
   width: calc(100% - 30px);
   padding: 0 15px;
-  margin: 15px 0;
 
-  * {
-    font-size: $font-small;
-  }
 
   > div {
     @include flexBox(row, flex-start, center);
-    width: calc(100% - 20px);
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: rgba(155, 155, 155, 0.2) 1px solid;
   }
 
   .addressContainer {
     @include flexBox(row, flex-start, center);
+    position: relative;
 
     .addressDisplay {
       background-color: rgba(155, 155, 155, 0.2);
       border-radius: 15px;
       padding: 10px;
-      width: 85%;
+      width: 80%;
     };
+
+    strong {
+      font-size: $font-small;
+    }
 
     p {
       margin: 0;
       padding: 0;
       line-height: 1.3rem;
+      font-size: $font-xsmall
     }
 
-    .deliveryPrice {
-      background-color: transparent;
+    .deliveryPriceContainer {
+      @include flexBox();
+      position: absolute;
+      right: 0px;
       margin-left: auto;
+
+      .deliveryPriceIcon {
+        background-color: transparent;
+      }
+
     }
+  }
+
+  .productsContainer {
+    @include flexBox(row, flex-start, flex-start)
   }
   
   &.closed {

@@ -8,12 +8,16 @@ import PropTypes from 'prop-types'
 import { deliveryTranslation } from '../../lib'
 import styles from './OrderBody.module.scss'
 import assembleAddress from '../../../../utils/assembleAddress'
+import ProductSection from './ProductSection/ProductSection'
 
 const OrderBody = ({
   order,
   isOpened,
 }) => {
-  const { totalPrice, deliveryType, customer } = order
+  const {
+    deliveryType, customer, deliveryFee, ordersProducts,
+  } = order
+  console.log(ordersProducts)
 
   const renderAddress = () => {
     if (deliveryType === 'delivery') {
@@ -21,7 +25,6 @@ const OrderBody = ({
         <p>
           <strong>Entrega: </strong>
           {assembleAddress(customer)}
-
         </p>
       )
     }
@@ -39,12 +42,19 @@ const OrderBody = ({
         <div className={styles.addressDisplay}>
           {renderAddress()}
         </div>
-        <Icon
-          icon={price}
-          className={styles.deliveryPrice}
-          size="15px"
-          color="rgba(90, 90, 90)"
-        />
+        <div className={styles.deliveryPriceContainer}>
+          <Icon
+            icon={price}
+            className={styles.deliveryPriceIcon}
+            size="15px"
+            color="rgba(90, 90, 90)"
+          />
+          <p>{deliveryFee}</p>
+        </div>
+      </div>
+
+      <div className={styles.productsContainer}>
+        {ordersProducts.map((product) => <ProductSection product={product} />)}
       </div>
     </section>
   )
@@ -53,6 +63,10 @@ const OrderBody = ({
 OrderBody.propTypes = {
   order: PropTypes.shape({
     totalPrice: PropTypes.string.isRequired,
+    deliveryType: PropTypes.arrayOf(PropTypes.any).isRequired,
+    customer: PropTypes.shape({}).isRequired,
+    deliveryFee: PropTypes.string.isRequired,
+    ordersProducts: PropTypes.arrayOf(PropTypes.any).isRequired,
   }).isRequired,
   isOpened: PropTypes.bool.isRequired,
 }

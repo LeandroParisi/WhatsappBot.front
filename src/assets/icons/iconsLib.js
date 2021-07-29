@@ -9,6 +9,11 @@ import {
   faArrowLeft,
   faCheck,
   faClock,
+  faUtensils,
+  faWineGlassAlt,
+  faGlassWhiskey,
+  faPlus,
+  faListUl,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const truck = faTruck
@@ -21,3 +26,8 @@ export const arrowRight = faArrowRight
 export const arrowLeft = faArrowLeft
 export const checkMark = faCheck
 export const clock = faClock
+export const food = faUtensils
+export const drink = faGlassWhiskey
+export const alcooholicDrink = faWineGlassAlt
+export const plus = faPlus
+export const list = faListUl
