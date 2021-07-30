@@ -40,6 +40,7 @@ $horizontalPadding: 20px;
       color: white;
       text-decoration: none;
       margin-left: 10px;
+      transition: 0.5s;
   
       &:hover {
         @include textShadow()

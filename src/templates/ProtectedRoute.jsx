@@ -19,11 +19,11 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
       }
     }
     authenticate()
-  }, [])
+  }, [history.location.pathname])
 
   return (
     <>
-      {useLoading(isLoading)}
+      {/* {useLoading(isLoading)} */}
       <Route
         {...rest}
         render={
