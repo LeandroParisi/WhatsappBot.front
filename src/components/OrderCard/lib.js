@@ -7,6 +7,8 @@ import {
   alcooholicDrink,
   plus,
   list,
+  creditCard,
+  price,
 } from 'assets/icons/iconsLib'
 
 export const deliveryIcon = {
@@ -31,5 +33,14 @@ export const attributeIcons = {
   sizes: list,
   additionals: plus,
 }
+
+export const paymentIcons = {
+  credit: creditCard,
+  debit: creditCard,
+  pix: 'pix',
+  money: price,
+}
+
+export const customPaymentIcons = new Set(['pix'])
 
 export const attributesWithoutQuantity = new Set(['sizes'])

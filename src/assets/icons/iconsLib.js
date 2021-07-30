@@ -16,6 +16,7 @@ import {
   faListUl,
   faUser,
   faPhoneAlt,
+  faCreditCard,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const truck = faTruck
@@ -35,3 +36,4 @@ export const plus = faPlus
 export const list = faListUl
 export const user = faUser
 export const phone = faPhoneAlt
+export const creditCard = faCreditCard

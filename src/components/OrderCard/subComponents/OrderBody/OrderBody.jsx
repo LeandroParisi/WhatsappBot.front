@@ -20,7 +20,6 @@ const OrderBody = ({
   const {
     deliveryType, customer, deliveryFee, ordersProducts,
   } = order
-  console.log(customer)
 
   const renderAddress = () => {
     if (deliveryType === 'delivery') {
