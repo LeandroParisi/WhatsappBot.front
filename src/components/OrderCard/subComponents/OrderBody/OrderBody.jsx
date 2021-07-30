@@ -1,8 +1,10 @@
 import React from 'react'
 import classNames from 'classnames'
 import {
-  price,
+  user, phone,
 } from 'assets/icons/iconsLib'
+import assembleUserName from 'utils/assembleUserName'
+import assemblePhoneNumber from 'utils/assemblePhoneNumber'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
 import { deliveryTranslation } from '../../lib'
@@ -18,7 +20,7 @@ const OrderBody = ({
   const {
     deliveryType, customer, deliveryFee, ordersProducts,
   } = order
-  console.log(ordersProducts)
+  console.log(customer)
 
   const renderAddress = () => {
     if (deliveryType === 'delivery') {
@@ -48,6 +50,27 @@ const OrderBody = ({
 
       <div className={styles.productsContainer}>
         {ordersProducts.map((product) => <ProductSection product={product} />)}
+      </div>
+
+      <div className={styles.customerSection}>
+        <div className={styles.userHeader}>
+          <Icon
+            icon={user}
+            size="25px"
+            color="rgba(90, 90, 90)"
+          />
+          <p className={styles.userName}>{assembleUserName(customer)}</p>
+        </div>
+
+        <div className={styles.userInfo}>
+          <Icon
+            icon={phone}
+            size="15px"
+            color="rgba(90, 90, 90)"
+          />
+          <p className={styles.userPhone}>{assemblePhoneNumber(customer)}</p>
+
+        </div>
       </div>
     </section>
   )

@@ -49,6 +49,26 @@
   .productsContainer {
     @include flexBox(row, flex-start, flex-start)
   }
+
+  .customerSection {
+    @include flexBox(column, center, flex-start);
+    width: 100%;
+
+    .userHeader {
+      @include flexBox(row, flex-start);
+    }
+
+    .userInfo {
+      @include flexBox();
+      margin-left: 35px;
+
+      > p {
+        font-size: $font-xsmall;
+      }
+
+    }
+
+  }
   
   &.closed {
     display: none;

@@ -14,6 +14,8 @@ import {
   faGlassWhiskey,
   faPlus,
   faListUl,
+  faUser,
+  faPhoneAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const truck = faTruck
@@ -31,3 +33,5 @@ export const drink = faGlassWhiskey
 export const alcooholicDrink = faWineGlassAlt
 export const plus = faPlus
 export const list = faListUl
+export const user = faUser
+export const phone = faPhoneAlt

@@ -10,7 +10,7 @@ import PriceTag from '../../../../MainComponents/PriceTag/PriceTag'
 const ProductSection = ({
   product: {
     attributes,
-    basePrice,
+    totalPrice,
     categoryName,
     description,
     quantity,
@@ -21,7 +21,6 @@ const ProductSection = ({
 }) => {
   const attributesByType = groupAttributesByType(attributes)
   const attributesLib = attributesByType && Object.entries(attributesByType)
-  console.log(attributesLib)
 
   return (
     <article className={styles.productSection}>
@@ -54,7 +53,7 @@ const ProductSection = ({
       ))}
 
       <footer className={styles.productFooter}>
-        <PriceTag value="addTotalPriceToBack" className={styles.priceTag} />
+        <PriceTag value={totalPrice} className={styles.priceTag} />
       </footer>
     </article>
   )
@@ -63,7 +62,7 @@ const ProductSection = ({
 ProductSection.propTypes = {
   product: PropTypes.shape({
     attributes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-    basePrice: PropTypes.string.isRequired,
+    totalPrice: PropTypes.string.isRequired,
     categoryName: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
