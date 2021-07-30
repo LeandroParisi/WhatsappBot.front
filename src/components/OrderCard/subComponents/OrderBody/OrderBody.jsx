@@ -44,7 +44,7 @@ const OrderBody = ({
         <div className={styles.addressDisplay}>
           {renderAddress()}
         </div>
-        <PriceTag value={deliveryFee} className={styles.priceTag} />
+        <PriceTag value={deliveryFee || '-'} className={styles.priceTag} />
       </div>
 
       <div className={styles.productsContainer}>

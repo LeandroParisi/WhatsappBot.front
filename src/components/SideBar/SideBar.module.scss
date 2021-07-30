@@ -3,35 +3,51 @@
 @import '../../assets/scss/fonts.scss';
 @import '../../assets/scss/globals.scss';
 
-$padding: 15px;
+$verticalPadding: 60px;
+$horizontalPadding: 20px;
+
 
 .sideBar{
   @include flexBox(column, space-between, flex-start);
-  padding: $padding;
+  padding: $verticalPadding $horizontalPadding;
   position: fixed;
-  height: calc(100vh - #{$header-height});
+  height: calc(100vh - #{$header-height} - #{$verticalPadding * 2});
   background-color: $primary2;
   top: $header-height;
   border-top: 2px solid $overlay;
   width: $sideBar-width;
   z-index: 2;
-  transform: translateX(-$sideBar-width -$padding * 2);
-  transition: transform 1s ease-out;
+  transform: translateX(-$sideBar-width -$horizontalPadding * 2);
+  transition: transform 0.5s ease-out;
   
   &.opened {
     transform: translateY(0);
   }
   
-  > a {
-    color: white;
-    text-decoration: none;
+  > ul {
+    li {
+      @include flexBox();
+      list-style: none;
 
-    &:hover {
-      @include textShadow()
+      .menuIcon {
+        cursor: pointer;
+
+
+      }
     }
 
-    &:visited {
+    a {
       color: white;
+      text-decoration: none;
+      margin-left: 10px;
+  
+      &:hover {
+        @include textShadow()
+      }
+  
+      &:visited {
+        color: white;
+      }
     }
   }
 }

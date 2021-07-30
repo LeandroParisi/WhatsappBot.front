@@ -1,34 +1,50 @@
 import routes from 'libs/routes'
+import {
+  store,
+  menu,
+  product,
+  promotion,
+  coupom,
+  account,
+  configurations,
+} from 'assets/icons/iconsLib'
 
-const menu = [
+const menus = [
   {
     name: 'Filiais',
     path: routes.branches,
+    icon: store,
   },
   {
     name: 'Menus',
     path: routes.menus,
+    icon: menu,
   },
   {
     name: 'Produtos',
     path: routes.products,
+    icon: product,
   },
   {
     name: 'Promoções',
     path: routes.promotions,
+    icon: promotion,
   },
   {
     name: 'Cupons',
     path: routes.coupons,
+    icon: coupom,
   },
   {
     name: 'Conta',
     path: routes.account,
+    icon: account,
   },
   {
     name: 'Configurações',
     path: routes.settings,
+    icon: configurations,
   },
 ]
 
-export default menu
+export default menus
