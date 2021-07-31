@@ -1,7 +1,7 @@
 import routes from 'libs/routes'
 import {
   store,
-  menu,
+  list,
   product,
   promotion,
   coupom,
@@ -18,7 +18,7 @@ const menus = [
   {
     name: 'Menus',
     path: routes.menus,
-    icon: menu,
+    icon: list,
   },
   {
     name: 'Produtos',
