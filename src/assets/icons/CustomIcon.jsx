@@ -1,12 +1,16 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
+import { Tooltip } from 'components'
 import styles from './Icon.module.scss'
+import { customIconsTooltips } from './iconsLib'
 
 const CustomIcon = ({
   color, size, icon, className, onClick,
 }) => {
+  const [showTooltip, setShowTooltip] = useState(false)
+
   const iconLib = {
     pix: () => (
       <g
@@ -49,6 +53,9 @@ l-385 386 385 386 c254 255 399 392 425 405 33 15 64 19 185 19 l146 0 275
       </g>
     ),
   }
+
+  const tooltip = customIconsTooltips[icon]
+
   return (
     <div
       onClick={onClick}
@@ -56,6 +63,10 @@ l-385 386 385 386 c254 255 399 392 425 405 33 15 64 19 185 19 l146 0 275
       style={{ fontSize: size }}
       role="button"
       tabIndex={0}
+      onFocus={() => tooltip && setShowTooltip(true)}
+      onMouseOver={() => tooltip && setShowTooltip(true)}
+      onMouseOut={() => tooltip && setShowTooltip(false)}
+      onBlur={() => tooltip && setShowTooltip(false)}
     >
       <svg
         version="1.0"
@@ -68,6 +79,7 @@ l-385 386 385 386 c254 255 399 392 425 405 33 15 64 19 185 19 l146 0 275
       >
         {iconLib[icon]()}
       </svg>
+      {tooltip && showTooltip && <Tooltip text={tooltip} />}
     </div>
 
   )

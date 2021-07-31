@@ -7,7 +7,7 @@ import Icon from 'assets/icons/Icon'
 import CustomIcon from 'assets/icons/CustomIcon'
 import PropTypes from 'prop-types'
 import orderStatus from 'interfaces/orders/orderStatus'
-import { customPaymentIcons, paymentIcons } from 'components/OrderCard/lib'
+import { customPaymentIcons, paymentIcons } from 'libs/icons'
 import styles from './OrderFooter.module.scss'
 
 const OrderFooter = ({
@@ -15,18 +15,18 @@ const OrderFooter = ({
   order,
   changeOrderStatus,
 }) => {
-  const { totalPrice, paymentType } = order
+  console.log(order)
+  const { totalPrice, paymentMethod } = order
   const isMiddleColumn = column !== 0
   const isLastColumn = column === orderStatus.length - 1
-  console.log(paymentType)
 
   return (
     <footer className={styles.cardFooter}>
 
-      {customPaymentIcons.has(paymentType)
+      {customPaymentIcons.has(paymentMethod)
         ? (
           <CustomIcon
-            icon={paymentIcons[paymentType]}
+            icon={paymentIcons[paymentMethod]}
             className={styles.mainIcon}
             size="20px"
             color="#E5CA00"
@@ -34,7 +34,7 @@ const OrderFooter = ({
         )
         : (
           <Icon
-            icon={paymentIcons[paymentType]}
+            icon={paymentIcons[paymentMethod]}
             className={styles.mainIcon}
             size="20px"
             color="#E5CA00"
@@ -65,6 +65,7 @@ const OrderFooter = ({
 OrderFooter.propTypes = {
   order: PropTypes.shape({
     totalPrice: PropTypes.string.isRequired,
+    paymentMethod: PropTypes.string.isRequired,
   }).isRequired,
   column: PropTypes.number.isRequired,
   changeOrderStatus: PropTypes.func.isRequired,

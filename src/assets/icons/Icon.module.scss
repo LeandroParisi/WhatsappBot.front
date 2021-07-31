@@ -2,6 +2,7 @@
 
 .iconContainer {
   @include flexBox(column);
+  position: relative;
   width: fit-content;
   padding: 8px;
 }

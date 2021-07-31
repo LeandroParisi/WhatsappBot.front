@@ -23,6 +23,9 @@ import {
   faReceipt,
   faIdBadge,
   faCog,
+  faMapMarkerAlt,
+  faHandHoldingUsd,
+  faTruckLoading,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const truck = faTruck
@@ -49,3 +52,20 @@ export const promotion = faSearchDollar
 export const coupom = faReceipt
 export const account = faIdBadge
 export const configurations = faCog
+export const manager = faIdBadge
+export const address = faMapMarkerAlt
+export const deliveryFee = faHandHoldingUsd
+export const deliveryTypeIcon = faTruckLoading
+
+export const tooltips = {
+  'credit-card': 'Cartão de crédito',
+  'dollar-sign': 'Dinheiro',
+
+  truck: 'Delivery',
+  hands: 'Retirada',
+  store: 'Consumo no local',
+}
+
+export const customIconsTooltips = {
+  pix: 'Pix',
+}

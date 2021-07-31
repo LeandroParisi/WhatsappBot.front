@@ -1,4 +1,4 @@
-import { attributesWithoutQuantity } from '../../../lib'
+import { attributesWithoutQuantity } from 'libs/icons'
 
 const extractAttributesTypes = (attributes) => {
   if (attributes) {

@@ -3,7 +3,7 @@ import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import styles from './ProductSection.module.scss'
-import { attributeIcons, categoryIcon } from '../../../lib'
+import { attributeIcons, categoryIcons } from 'libs/icons'
 import { extractAttributesTypes, getAttributeText, groupAttributesByType } from './utils'
 import PriceTag from '../../../../MainComponents/PriceTag/PriceTag'
 
@@ -26,7 +26,7 @@ const ProductSection = ({
     <article className={styles.productSection}>
       <header className={styles.productHeader}>
         <Icon
-          icon={categoryIcon[categoryName]}
+          icon={categoryIcons[categoryName]}
           className={styles.deliveryPriceIcon}
           size="15px"
           color="rgb(90, 90, 90)"

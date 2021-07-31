@@ -5,7 +5,7 @@ import {
 import formatDate from 'utils/formatDate'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
-import { deliveryIcon } from '../../lib'
+import { deliveryIcons } from 'libs/icons'
 import styles from './OrderHeader.module.scss'
 
 const OrderHeader = ({
@@ -22,7 +22,7 @@ const OrderHeader = ({
   formatDate(createdAt)
   return (
     <header className={styles.cardHeader}>
-      <Icon icon={deliveryIcon[deliveryType]} className={styles.mainIcon} size="15px" />
+      <Icon icon={deliveryIcons[deliveryType]} className={styles.mainIcon} size="15px" />
 
       <h2>{`Pedido ${orderNumber}`}</h2>
 

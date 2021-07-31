@@ -14,6 +14,7 @@ const PriceTag = ({ value, className }) => (
       className={styles.priceIcon}
       size="15px"
       color="rgba(90, 90, 90)"
+      noTooltip
     />
     <p>{value}</p>
   </div>

@@ -116,7 +116,6 @@
 @mixin boxShadow($size: 3px, $blur: 3px) {
   box-shadow: $dark-transparent $size $size $blur;
   transition: .3s;
-
 }
 
 @mixin dashboardColors() {

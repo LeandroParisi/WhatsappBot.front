@@ -1,0 +1,9 @@
+@import '../../assets/scss/colors.scss';
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/fonts.scss';
+
+.container {
+  @include flexBox(row, space-around, flex-start);
+  margin: 25px 0;
+  width: 100%;
+}
