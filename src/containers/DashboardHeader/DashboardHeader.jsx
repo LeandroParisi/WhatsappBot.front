@@ -1,17 +1,18 @@
 import React from 'react'
 import { Select } from 'components'
-import { useDashboard } from 'store'
+import { useRoot, useDashboard } from 'store'
 import PropTypes from 'prop-types'
 import styles from './DashboardHeader.module.scss'
 
 const DashboardHeader = () => {
-  const { getBranchesNames, $dashboard: { selectedBranch }, setField } = useDashboard()
+  const { getSelectedBranch, setField } = useDashboard()
+  const { getBranchesNames } = useRoot()
 
   return (
     <header className={styles.header}>
       <Select
         options={getBranchesNames()}
-        selected={selectedBranch}
+        selected={getSelectedBranch()}
         placeholder="Selecione uma filial"
         setOption={setField}
       />

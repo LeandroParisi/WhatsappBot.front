@@ -1,11 +1,14 @@
 import { MainPageFilter } from 'components'
 import React from 'react'
 import BaseLayout from 'templates/BaseLayout/BaseLayout'
+import { BranchesProvider } from 'store'
 
 const Branches = () => (
   <BaseLayout>
-    <MainPageFilter />
-    Branches
+    <BranchesProvider>
+      <MainPageFilter />
+      Branches
+    </BranchesProvider>
   </BaseLayout>
 )
 

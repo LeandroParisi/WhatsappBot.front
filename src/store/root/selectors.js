@@ -1,5 +1,8 @@
-export default ($root) => {
-  const getTeste = () => $root.teste
+export default ($store) => {
+  const getBranchesNames = () => $store.userBranches
+    .map(({ branchName, id }) => ({ name: branchName, id }))
 
-  return { getTeste }
+  const getUserBranches = () => $store.userBranches
+
+  return { getUserBranches, getBranchesNames }
 }

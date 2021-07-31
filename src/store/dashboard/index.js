@@ -5,7 +5,6 @@ import storeSelectors from './selectors'
 import useCreateStore from '../useCreateStore'
 
 const initialState = {
-  branches: [],
   orders: {
     dispatched: [],
     inProduction: [],
@@ -21,6 +20,9 @@ const DashboardStore = useCreateStore(() => {
   const actions = storeActions($dashboard, setDashboard, useRoot)
   const selectors = storeSelectors($dashboard)
 
+  const { getUserBranches } = useRoot()
+  const userBranches = getUserBranches()
+
   const { selectedBranch } = $dashboard
 
   useEffect(() => {
@@ -30,6 +32,13 @@ const DashboardStore = useCreateStore(() => {
       })
     }
   }, [selectedBranch.name])
+
+  useEffect(() => {
+    if (userBranches.length === 1) {
+      const { branchName, id } = userBranches[0]
+      actions.setField('selectedBranch', { name: branchName, id })
+    }
+  }, [userBranches])
 
   return { $dashboard, ...actions, ...selectors }
 })

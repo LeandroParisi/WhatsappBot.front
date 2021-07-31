@@ -1,7 +1,8 @@
 import routes from 'libs/routes'
 import { useHistory } from 'react-router-dom'
 import responseHandler from 'services/responseHandler'
-import { setState } from 'store/generalActions'
+import { setState } from 'store/sharedMethods/actions'
+import * as providers from './provider'
 // import * as providers from './provider'
 
 export default (setRoot) => {
@@ -22,5 +23,13 @@ export default (setRoot) => {
     return response
   }
 
-  return { setField, errorHandler }
+  const fetchUserBranches = async () => {
+    const { response } = await errorHandler(providers.fetchUserBranches())
+
+    if (response?.length) {
+      setField('userBranches', response)
+    }
+  }
+
+  return { setField, errorHandler, fetchUserBranches }
 }

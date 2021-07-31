@@ -3,8 +3,8 @@ import {
   BrowserRouter, Redirect, Route, Switch,
 } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-// import ProtectedRoute from 'templates/ProtectedRoute'
 import routes from 'libs/routes'
+import ProtectedRoute from 'templates/ProtectedRoute'
 import { RootProvider, DashboardProvider } from './store'
 import {
   Login,
@@ -19,7 +19,6 @@ import {
 } from './pages'
 import 'react-toastify/dist/ReactToastify.css'
 import 'assets/scss/reset.scss'
-import ProtectedRoute from 'templates/ProtectedRoute'
 
 function App() {
   return (

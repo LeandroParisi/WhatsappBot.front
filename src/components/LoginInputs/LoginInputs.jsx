@@ -1,7 +1,7 @@
 import React from 'react'
 import Input from 'components/MainComponents/Input/Input'
 import PropTypes from 'prop-types'
-import { setState, validateInput } from 'store/generalActions'
+import { setState, validateInput } from 'store/sharedMethods/actions'
 import styles from './LoginInputs.module.scss'
 
 const LoginInputs = ({

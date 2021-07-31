@@ -1,6 +1,5 @@
-import { setState } from 'store/generalActions'
+import { setState } from 'store/sharedMethods/actions'
 import assembleQuery from 'services/helpers/assembleQuery'
-import orderStatus from 'interfaces/orders/orderStatus'
 import { extractNextStatus } from './utils'
 import * as providers from './provider'
 
@@ -8,19 +7,6 @@ export default (store, setStore, useRoot) => {
   const { errorHandler } = useRoot()
 
   const setField = setState(setStore)
-
-  const fetchUserBranches = async () => {
-    const { response } = await errorHandler(providers.fetchUserBranches)
-
-    if (response?.length) {
-      setField('branches', response)
-
-      if (response?.length === 1) {
-        const { branchName, id } = response[0]
-        setField('selectedBranch', { name: branchName, id })
-      }
-    }
-  }
 
   const fetchBranchOrders = async (queryObject) => {
     const query = assembleQuery(queryObject)
@@ -43,6 +29,6 @@ export default (store, setStore, useRoot) => {
   }
 
   return {
-    fetchUserBranches, setField, fetchBranchOrders, updateOrder,
+    setField, fetchBranchOrders, updateOrder,
   }
 }

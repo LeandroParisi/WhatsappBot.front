@@ -8,7 +8,7 @@ const initialState = {
 
 }
 
-const TEMPLATE = useCreateStore(() => {
+const TEMPLATESTORE = useCreateStore(() => {
   const [$TEMPLATE, setTEMPLATE] = useState(initialState)
   const actions = storeActions($TEMPLATE, setTEMPLATE, useRoot)
   const selectors = storeSelectors($TEMPLATE)
@@ -20,6 +20,6 @@ const TEMPLATE = useCreateStore(() => {
   return { $TEMPLATE, ...actions, ...selectors }
 })
 
-export const useTEMPLATE = () => TEMPLATE()
-export const TEMPLATEContext = TEMPLATE.Context
-export const TEMPLATEProvider = TEMPLATE.Provider
+export const useTEMPLATE = () => TEMPLATESTORE()
+export const TEMPLATEContext = TEMPLATESTORE.Context
+export const TEMPLATEProvider = TEMPLATESTORE.Provider
