@@ -24,12 +24,20 @@ const OrderFooter = ({
     <footer className={styles.cardFooter}>
 
       {customPaymentIcons.has(paymentType)
-        ? <CustomIcon icon={paymentIcons[paymentType]} className={styles.mainIcon} size="20px" />
+        ? (
+          <CustomIcon
+            icon={paymentIcons[paymentType]}
+            className={styles.mainIcon}
+            size="20px"
+            color="#E5CA00"
+          />
+        )
         : (
           <Icon
             icon={paymentIcons[paymentType]}
             className={styles.mainIcon}
             size="20px"
+            color="#E5CA00"
           />
         )}
 

@@ -1,0 +1,15 @@
+@import '../../assets/scss/colors.scss';
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/fonts.scss';
+
+$padding: 15px;
+
+.filterHeader {
+  @include flexBox(row, flex-start);
+  @include boxShadow(3px, 7px);
+  width: calc(100% - #{$padding * 2});
+  padding: $padding;
+  border-radius: 5px;
+  background-color: $dark;
+  color: white;
+}

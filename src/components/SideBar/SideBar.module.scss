@@ -1,7 +1,7 @@
 @import '../../assets/scss/colors.scss';
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/fonts.scss';
-@import '../../assets/scss/globals.scss';
+@import '../../assets/scss/globals.module.scss';
 
 $verticalPadding: 30px;
 $horizontalPadding: 20px;
@@ -12,7 +12,7 @@ $horizontalPadding: 20px;
   padding: $verticalPadding $horizontalPadding;
   position: fixed;
   height: calc(100vh - #{$header-height} - #{$verticalPadding * 2});
-  background-color: $primary2;
+  background-color: $headerColor;
   top: $header-height;
   border-top: 2px solid $overlay;
   width: $sideBar-width;
@@ -43,7 +43,7 @@ $horizontalPadding: 20px;
       transition: 0.5s;
   
       &:hover {
-        @include textShadow()
+        @include textShadow(rgba(220, 220, 220, 0.8))
       }
   
       &:visited {

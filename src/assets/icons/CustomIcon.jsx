@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import styles from './Icon.module.scss'
 
 const CustomIcon = ({
-  fill, size, icon, className, onClick,
+  color, size, icon, className, onClick,
 }) => {
   const iconLib = {
     pix: () => (
@@ -64,7 +64,7 @@ l-385 386 385 386 c254 255 399 392 425 405 33 15 64 19 185 19 l146 0 275
         height={size}
         viewBox="0 0 512.000000 512.000000"
         preserveAspectRatio="xMidYMid meet"
-        fill={fill}
+        fill={color}
       >
         {iconLib[icon]()}
       </svg>
@@ -75,7 +75,7 @@ l-385 386 385 386 c254 255 399 392 425 405 33 15 64 19 185 19 l146 0 275
 
 CustomIcon.propTypes = {
   size: PropTypes.string,
-  fill: PropTypes.string,
+  color: PropTypes.string,
   icon: PropTypes.string.isRequired,
   className: PropTypes.string,
   onClick: PropTypes.func,
@@ -83,7 +83,7 @@ CustomIcon.propTypes = {
 
 CustomIcon.defaultProps = {
   size: '25px',
-  fill: '#fff',
+  color: '#fff',
   className: '',
   onClick: null,
 }

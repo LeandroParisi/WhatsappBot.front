@@ -1,8 +1,15 @@
+@import './colors.scss';
+
 $header-height: 8vh;
 $sideBar-width: 220px;
+$headerColor: $primary3;
 
 
 .fullPage {
   width: 100vw;
   height: 100vh;
+}
+
+.mainPage {
+  padding: 25px;
 }

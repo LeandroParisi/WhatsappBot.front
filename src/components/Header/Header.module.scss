@@ -1,13 +1,13 @@
 @import '../../assets/scss/colors.scss';
 @import '../../assets/scss/mixins.scss';
-@import '../../assets/scss/globals.scss';
+@import '../../assets/scss/globals.module.scss';
 @import '../../assets/scss/fonts.scss';
 
 .header {
   @include flexBox(row, flex-start);
   position: fixed;
   height: $header-height;
-  background-color: $primary2;
+  background-color: $headerColor;
   color: white;
   z-index: 2;
   width: 100vw;

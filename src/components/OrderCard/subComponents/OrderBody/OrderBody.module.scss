@@ -29,8 +29,13 @@
 
     .priceTag {
       position: absolute;
-      right: 0px;
+      right: -10px;
       margin-left: auto;
+      
+      > div  {
+        padding: 3px;
+
+      }
     }
 
     strong {
