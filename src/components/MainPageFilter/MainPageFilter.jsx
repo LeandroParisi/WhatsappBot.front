@@ -58,7 +58,6 @@ const MainPageFilter = ({ filters, validationSchema }) => {
         )
       case ICONS:
         return (
-
           <div className={styles.iconsContainer}>
             {options.map(({ name, id }) => {
               const isSelected = filtersValue[key].has(id)

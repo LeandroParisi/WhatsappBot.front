@@ -17,7 +17,6 @@ import {
   faUser,
   faPhoneAlt,
   faCreditCard,
-  faCaretDown,
   faBoxes,
   faSearchDollar,
   faReceipt,
@@ -97,7 +96,7 @@ export const groupedIcons = {
   ...paymentIcons,
 }
 
-export const customIcons = new Set(['pix'])
+export const customIcons = new Set([paymentMethods.PIX])
 
 export const attributesWithoutQuantity = new Set([attributes.SIZES])
 
@@ -114,5 +113,5 @@ export const tooltips = {
   truck: 'Delivery',
   hands: 'Retirada',
   store: 'Consumo no local',
-  pix: 'Pix',
+  [paymentMethods.PIX]: 'Pix',
 }

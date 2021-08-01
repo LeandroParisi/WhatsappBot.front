@@ -1,12 +1,13 @@
 import filterTypes from 'libs/filterTypes'
-import { deliveryTranslation, deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
+import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
 import { paymentMethods } from 'interfaces/paymentMethods/methods'
 import * as Yup from 'yup'
+import { statusFilter } from '../generalFilters/generalFilters'
 
 const {
   INPUT,
-  SELECT,
-  BOOL,
+  // SELECT,
+  // BOOL,
   ICONS,
 } = filterTypes
 
@@ -85,9 +86,7 @@ export const filterInterface = [
     placeholder: 'Tipo de pagamento',
   },
   {
-    key: 'isActive',
-    type: BOOL,
-    placeholder: 'Status',
+    ...statusFilter,
   },
 ]
 
