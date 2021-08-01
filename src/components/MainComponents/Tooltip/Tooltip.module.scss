@@ -6,15 +6,17 @@
   position: absolute;
   left: 75%;
   bottom: -35%;
-  background-color: $grayBorder;
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
   width: max-content;
   padding: 4px;
   cursor: default;
+  z-index: 2;
 
   
   > p {
     font-size: $font-xxsmall;
+    color: white;
     display: block;
   }
 }

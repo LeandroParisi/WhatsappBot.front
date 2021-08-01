@@ -8,8 +8,6 @@ const BranchesContainer = () => {
 
   const branches = getUserBranches()
 
-  console.log(branches)
-
   return (
     <EntitiesContainer entities={branches} type={entitiesTypes.branches} />
   )

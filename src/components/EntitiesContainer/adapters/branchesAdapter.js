@@ -1,5 +1,5 @@
 import {
-  manager, address, deliveryTypeIcon, deliveryFee, price,
+  manager, address, deliveryTypeIcon, deliveryFee, paymentTypeIcon,
 } from 'assets/icons/iconsLib'
 import assembleAddress from 'utils/assembleAddress'
 import { deliveryFeeTranslations, deliveryFeeTypes } from 'interfaces/deliveryFees/deliveryFeeTypes'
@@ -75,7 +75,7 @@ const branchesAdapter = (branch) => {
         },
       },
       {
-        icon: price,
+        icon: paymentTypeIcon,
         title: 'Métodos de pagamento',
         content: {
           values: paymentMethods.map(({ paymentMethod }) => paymentMethod),

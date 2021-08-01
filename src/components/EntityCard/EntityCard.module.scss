@@ -3,6 +3,8 @@
 @import '../../assets/scss/fonts.scss';
 
 $padding: 25px;
+$entityCardMinHeight: 500px;
+$sectionContainerMinHeight: 350px;
 
 .entity {
   @include flexBox(column, flex-start, center);
@@ -10,18 +12,17 @@ $padding: 25px;
   border-radius: 5px;
   border: $primary2 solid 1px;
   width: 33%;
-  min-height: calc(500px - #{$padding * 2});
+  min-height: calc($entityCardMinHeight- #{$padding * 2});
   padding: $padding;
   
-  
-  > hr {
+  hr {
     border: none;
     margin: 0;
     padding: 0;
     width: 40%;
     border-bottom: $grayBorder solid 1px;
-
   }
+
 
   .entityHeader {
     @include flexBox(column);
@@ -43,6 +44,14 @@ $padding: 25px;
     h2 {
       margin-top: 10px;
     }
+  }
+
+  .sectionsContainer {
+    @include flexBox(column, flex-start, center, nowrap);
+    width: 100%;
+    max-height: $sectionContainerMinHeight;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   
 

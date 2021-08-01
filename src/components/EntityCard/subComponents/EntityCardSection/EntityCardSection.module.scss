@@ -9,7 +9,7 @@
 
   .header {
     @include flexBox(column);
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 
     .headerIcon {
       min-width: 20px;
@@ -23,7 +23,7 @@
 
     h2 {
       color: rgb(170, 170, 170);
-      font-size: $font-small;
+      font-size: $font-xxsmall;
     }
 
     h3 {
@@ -72,6 +72,7 @@
         width: 55%;
 
         .sectionIcon {
+          @include boxShadow();
           background-color: $primary3;
           border-radius: 100%;
           min-width: 20px;

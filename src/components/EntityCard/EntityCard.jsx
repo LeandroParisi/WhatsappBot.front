@@ -10,7 +10,6 @@ const EntityCard = ({ entity, type }) => {
     id, name, logo, sections,
   } = entity
 
-  const nothing = 0
   return (
     <article className={styles.entity} key={id}>
       <header className={styles.entityHeader}>
@@ -24,12 +23,14 @@ const EntityCard = ({ entity, type }) => {
         <h2>{name}</h2>
       </header>
       <hr />
-      {sections.map((section, index) => (
-        <>
-          <EntityCardSection section={section} />
-          {index !== sections.length - 1 && <hr />}
-        </>
-      ))}
+      <div className={styles.sectionsContainer}>
+        {sections.map((section, index) => (
+          <>
+            <EntityCardSection section={section} />
+            {index !== sections.length - 1 && <hr />}
+          </>
+        ))}
+      </div>
     </article>
   )
 }
