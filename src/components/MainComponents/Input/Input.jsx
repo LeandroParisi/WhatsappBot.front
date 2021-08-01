@@ -11,9 +11,12 @@ const Input = ({
   onChange,
   error: { error, errorMessage },
   onFocus,
+  label,
 }) => (
   <div className={styles.inputContainer}>
+    {label && <label htmlFor={value}>{label}</label>}
     <input
+      id={value}
       type={type}
       className={classNames({ [styles.error]: error })}
       placeholder={placeholder}

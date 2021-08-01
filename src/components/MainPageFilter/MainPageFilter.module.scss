@@ -36,8 +36,14 @@ $padding: 15px;
         font-size: $font-small;
       }
   
-      .iconsFilter {
-        @include flexBox(column);
+      .fieldSection {
+        @include flexBox(column, flex-start);
+        margin-bottom: 30px;
+
+        > div {
+          margin-top: 10px;
+          min-height: 40px;
+        }
     
         .iconsContainer {
           @include flexBox();

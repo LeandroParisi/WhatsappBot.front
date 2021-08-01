@@ -61,34 +61,32 @@ const MainPageFilter = ({ filters, validationSchema }) => {
         )
       case ICONS:
         return (
-          <div className={styles.iconsFilter}>
-            <h2>{placeholder}</h2>
-            <div className={styles.iconsContainer}>
-              {options.map(({ name, id }) => {
-                const isSelected = filtersValue[key].has(id)
-                return (
-                  customPaymentIcons.has(name)
-                    ? (
-                      <CustomIcon
-                        icon={getIcon(groupedIcons, name)}
-                        size="22px"
-                        color={isSelected ? 'white' : 'rgba(90, 90, 90)'}
-                        onClick={handleIconSelect(id, key)}
-                        className={styles.optionIcon}
-                      />
-                    )
-                    : (
-                      <Icon
-                        icon={getIcon(groupedIcons, name)}
-                        size="22px"
-                        color={isSelected ? 'white' : 'rgba(90, 90, 90)'}
-                        onClick={handleIconSelect(id, key)}
-                        className={styles.optionIcon}
-                      />
-                    )
-                )
-              })}
-            </div>
+
+          <div className={styles.iconsContainer}>
+            {options.map(({ name, id }) => {
+              const isSelected = filtersValue[key].has(id)
+              return (
+                customPaymentIcons.has(name)
+                  ? (
+                    <CustomIcon
+                      icon={getIcon(groupedIcons, name)}
+                      size="22px"
+                      color={isSelected ? 'white' : 'rgba(90, 90, 90)'}
+                      onClick={handleIconSelect(id, key)}
+                      className={styles.optionIcon}
+                    />
+                  )
+                  : (
+                    <Icon
+                      icon={getIcon(groupedIcons, name)}
+                      size="22px"
+                      color={isSelected ? 'white' : 'rgba(90, 90, 90)'}
+                      onClick={handleIconSelect(id, key)}
+                      className={styles.optionIcon}
+                    />
+                  )
+              )
+            })}
           </div>
         )
       case SELECT:
@@ -106,7 +104,6 @@ const MainPageFilter = ({ filters, validationSchema }) => {
         return (
           <Checkbox
             type={type}
-            placeholder={placeholder}
             value={filtersValue[key]}
           />
         )
@@ -120,7 +117,10 @@ const MainPageFilter = ({ filters, validationSchema }) => {
       <form onSubmit={onSubmit}>
         <div className={styles.fieldsSection}>
           {filters.map((filter) => (
-            fieldFactory(filter)
+            <div className={styles.fieldSection}>
+              <h2>{filter.placeholder}</h2>
+              {fieldFactory(filter)}
+            </div>
           ))}
 
         </div>
