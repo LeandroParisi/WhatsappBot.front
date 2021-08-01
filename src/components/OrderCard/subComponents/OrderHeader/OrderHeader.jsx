@@ -1,11 +1,12 @@
 import React from 'react'
 import {
   arrowDown, arrowUp, clock,
+  deliveryIcons,
 } from 'assets/icons/iconsLib'
 import formatDate from 'utils/formatDate'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
-import { deliveryIcons } from 'libs/icons'
+
 import styles from './OrderHeader.module.scss'
 
 const OrderHeader = ({

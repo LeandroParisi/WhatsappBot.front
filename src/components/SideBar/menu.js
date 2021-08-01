@@ -1,49 +1,53 @@
 import routes from 'libs/routes'
 import {
-  store,
-  list,
-  product,
-  promotion,
-  coupom,
-  account,
-  configurations,
+  menuIcons,
 } from 'assets/icons/iconsLib'
+
+const {
+  STORE,
+  LIST,
+  PRODUCT,
+  PROMOTION,
+  COUPOM,
+  ACCOUNT,
+  CONFIGURATIONS,
+} = menuIcons
 
 const menus = [
   {
     name: 'Filiais',
     path: routes.branches,
-    icon: store,
+    icon: STORE,
   },
   {
     name: 'Menus',
     path: routes.menus,
-    icon: list,
+    icon: LIST,
   },
   {
     name: 'Produtos',
     path: routes.products,
-    icon: product,
+    icon: PRODUCT,
   },
   {
     name: 'Promoções',
     path: routes.promotions,
-    icon: promotion,
+    icon: PROMOTION,
   },
   {
     name: 'Cupons',
     path: routes.coupons,
-    icon: coupom,
+    icon: COUPOM,
   },
   {
     name: 'Conta',
     path: routes.account,
-    icon: account,
+    icon: ACCOUNT,
   },
   {
     name: 'Configurações',
     path: routes.settings,
-    icon: configurations,
+    icon: CONFIGURATIONS,
   },
 ]
 

@@ -6,9 +6,9 @@ import { Button, Checkbox, Input } from 'components'
 import { setOption, setState } from 'store/sharedMethods/actions'
 import Select from 'components/MainComponents/Select/Select'
 import Icon from 'assets/icons/Icon'
-import { deliveryTypeIcon } from 'assets/icons/iconsLib'
+import { deliveryTypeIcon, groupedIcons } from 'assets/icons/iconsLib'
 import {
-  deliveryIcons, getIcon, groupedIcons, customPaymentIcons,
+  getIcon, customPaymentIcons,
 } from 'libs/icons'
 import CustomIcon from 'assets/icons/CustomIcon'
 import { extractInitialValues } from './utils'
