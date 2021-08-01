@@ -15,7 +15,7 @@ $padding: 15px;
   background-color: $dark;
   color: white;
 
-  >form {
+  > form {
     @include flexBox(column);
     width: 100%;
 
