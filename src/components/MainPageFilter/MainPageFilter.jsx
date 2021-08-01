@@ -6,11 +6,8 @@ import { Button, Checkbox, Input } from 'components'
 import { setOption, setState } from 'store/sharedMethods/actions'
 import Select from 'components/MainComponents/Select/Select'
 import Icon from 'assets/icons/Icon'
-import {
-  deliveryTypeIcon, groupedIcons, getIcon, customIcons,
-} from 'assets/icons/iconsLib'
+import { getIcon } from 'assets/icons/iconsLib'
 
-import CustomIcon from 'assets/icons/CustomIcon'
 import { extractInitialValues } from './utils'
 import styles from './MainPageFilter.module.scss'
 
@@ -66,25 +63,13 @@ const MainPageFilter = ({ filters, validationSchema }) => {
             {options.map(({ name, id }) => {
               const isSelected = filtersValue[key].has(id)
               return (
-                customIcons.has(name)
-                  ? (
-                    <CustomIcon
-                      icon={getIcon(groupedIcons, name)}
-                      size="22px"
-                      color={isSelected ? 'white' : 'rgba(90, 90, 90)'}
-                      onClick={handleIconSelect(id, key)}
-                      className={styles.optionIcon}
-                    />
-                  )
-                  : (
-                    <Icon
-                      icon={getIcon(groupedIcons, name)}
-                      size="22px"
-                      color={isSelected ? 'white' : 'rgba(90, 90, 90)'}
-                      onClick={handleIconSelect(id, key)}
-                      className={styles.optionIcon}
-                    />
-                  )
+                <Icon
+                  icon={getIcon(name)}
+                  size="22px"
+                  color={isSelected ? 'white' : 'rgba(90, 90, 90)'}
+                  onClick={handleIconSelect(id, key)}
+                  className={styles.optionIcon}
+                />
               )
             })}
           </div>

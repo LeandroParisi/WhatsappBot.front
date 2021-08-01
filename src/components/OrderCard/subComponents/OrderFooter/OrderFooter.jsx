@@ -1,15 +1,19 @@
 import React from 'react'
 import classNames from 'classnames'
 import {
+  generalIcons,
   paymentIcons,
-  customIcons,
-  price, arrowRight, arrowLeft, checkMark,
 } from 'assets/icons/iconsLib'
 import Icon from 'assets/icons/Icon'
-import CustomIcon from 'assets/icons/CustomIcon'
 import PropTypes from 'prop-types'
 import orderStatus from 'interfaces/orders/orderStatus'
 import styles from './OrderFooter.module.scss'
+
+const {
+  ARROW_RIGHT,
+  ARROW_LEFT,
+  CHECKMARK,
+} = generalIcons
 
 const OrderFooter = ({
   column,
@@ -22,37 +26,25 @@ const OrderFooter = ({
 
   return (
     <footer className={styles.cardFooter}>
-
-      {customIcons.has(paymentMethod)
-        ? (
-          <CustomIcon
-            icon={paymentIcons[paymentMethod]}
-            className={styles.mainIcon}
-            size="20px"
-            color="#E5CA00"
-          />
-        )
-        : (
-          <Icon
-            icon={paymentIcons[paymentMethod]}
-            className={styles.mainIcon}
-            size="20px"
-            color="#E5CA00"
-          />
-        )}
+      <Icon
+        icon={paymentIcons[paymentMethod]}
+        className={styles.mainIcon}
+        size="20px"
+        color="#E5CA00"
+      />
 
       <span>{totalPrice}</span>
       <div className={styles.iconContainer}>
         {isMiddleColumn && (
         <Icon
-          icon={arrowLeft}
+          icon={ARROW_LEFT}
           className={classNames(styles.arrowIcon, styles.firstIcon)}
           size="15px"
           onClick={() => changeOrderStatus('back')}
         />
         )}
         <Icon
-          icon={isLastColumn ? checkMark : arrowRight}
+          icon={isLastColumn ? CHECKMARK : ARROW_RIGHT}
           className={styles.arrowIcon}
           size="15px"
           onClick={() => changeOrderStatus('forth')}

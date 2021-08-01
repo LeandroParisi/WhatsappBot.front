@@ -1,9 +1,15 @@
-import {
-  manager, address, deliveryTypeIcon, deliveryFee, paymentTypeIcon,
-} from 'assets/icons/iconsLib'
+import { generalIcons } from 'assets/icons/iconsLib'
 import assembleAddress from 'utils/assembleAddress'
 import { deliveryFeeTranslations, deliveryFeeTypes } from 'interfaces/deliveryFees/deliveryFeeTypes'
 import contentTypes from 'libs/sectionTypes'
+
+const {
+  MANAGER,
+  ADDRESS,
+  DELIVERY_TYPE,
+  DELIVERY_FEE,
+  PAYMENT_TYPE,
+} = generalIcons
 
 const mapDeliveryFees = (type, fees) => {
   switch (type) {
@@ -41,7 +47,7 @@ const branchesAdapter = (branch) => {
     isActive,
     sections: [
       {
-        icon: manager,
+        icon: MANAGER,
         title: 'Gerente',
         content: {
           values: [managerName],
@@ -49,7 +55,7 @@ const branchesAdapter = (branch) => {
         },
       },
       {
-        icon: address,
+        icon: ADDRESS,
         title: 'Endereço',
         content: {
           values: [assembleAddress(branch)],
@@ -58,7 +64,7 @@ const branchesAdapter = (branch) => {
         },
       },
       {
-        icon: deliveryFee,
+        icon: DELIVERY_TYPE,
         title: 'Taxas de entrega',
         subTitle: deliveryFeeTranslations[type],
         content: {
@@ -67,7 +73,7 @@ const branchesAdapter = (branch) => {
         },
       },
       {
-        icon: deliveryTypeIcon,
+        icon: DELIVERY_FEE,
         title: 'Tipo de entrega',
         content: {
           values: deliveryTypes.map(({ deliveryType }) => deliveryType),
@@ -75,7 +81,7 @@ const branchesAdapter = (branch) => {
         },
       },
       {
-        icon: paymentTypeIcon,
+        icon: PAYMENT_TYPE,
         title: 'Métodos de pagamento',
         content: {
           values: paymentMethods.map(({ paymentMethod }) => paymentMethod),

@@ -45,6 +45,25 @@ export const menuIcons = {
   CONFIGURATIONS: faCog,
 }
 
+export const generalIcons = {
+  MANAGER: faIdBadge,
+  ADDRESS: faMapMarkerAlt,
+  DELIVERY_TYPE: faHandHoldingUsd,
+  DELIVERY_FEE: faTruckLoading,
+  PAYMENT_TYPE: faMoneyBillWave,
+
+  ARROW_DOWN: faAngleDown,
+  ARROW_UP: faAngleUp,
+  CLOCK: faClock,
+  ARROW_RIGHT: faArrowRight,
+  ARROW_LEFT: faArrowLeft,
+  CHECKMARK: faCheck,
+  USER: faUser,
+  PHONE: faPhoneAlt,
+
+  PRICE: faDollarSign,
+}
+
 export const deliveryIcons = {
   [deliveryTypes.DELIVERY]: faTruck,
   [deliveryTypes.COUNTER_PICKUP]: faHands,
@@ -70,41 +89,23 @@ export const paymentIcons = {
 }
 
 export const groupedIcons = {
+  ...menuIcons,
+  ...generalIcons,
   ...deliveryIcons,
+  ...categoryIcons,
+  ...attributeIcons,
   ...paymentIcons,
 }
 
-export const getIcon = (iconLib, iconName) => iconLib[iconName] || faBan
-
 export const customIcons = new Set(['pix'])
 
-export const attributesWithoutQuantity = new Set(['sizes'])
+export const attributesWithoutQuantity = new Set([attributes.SIZES])
 
-export const truck = faTruck
-export const pickUp = faHands
-export const arrowDown = faAngleDown
-export const arrowUp = faAngleUp
-export const price = faDollarSign
-export const arrowRight = faArrowRight
-export const arrowLeft = faArrowLeft
-export const checkMark = faCheck
-export const clock = faClock
-export const food = faUtensils
-export const drink = faGlassWhiskey
-export const alcooholicDrink = faWineGlassAlt
-export const plus = faPlus
-export const user = faUser
-export const phone = faPhoneAlt
-export const creditCard = faCreditCard
-export const menu = faCaretDown
-export const manager = faIdBadge
-export const address = faMapMarkerAlt
+export const getIcon = (iconName) => groupedIcons[iconName] || faBan
 
-export const deliveryFee = faHandHoldingUsd
-export const deliveryTypeIcon = faTruckLoading
-export const paymentTypeIcon = faMoneyBillWave
-
-export const cancel = faBan
+// -----
+// -----
+// TOOLTIPS:
 
 export const tooltips = {
   'credit-card': 'Cartão de crédito',
@@ -113,11 +114,5 @@ export const tooltips = {
   truck: 'Delivery',
   hands: 'Retirada',
   store: 'Consumo no local',
-}
-
-export const customIconsTooltips = {
   pix: 'Pix',
 }
-
-export const list = faListUl
-export const store = faStore

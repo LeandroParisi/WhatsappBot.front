@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import {
-  user, phone,
+  generalIcons,
 } from 'assets/icons/iconsLib'
 import assembleUserName from 'utils/assembleUserName'
 import assemblePhoneNumber from 'utils/assemblePhoneNumber'
@@ -13,6 +13,7 @@ import assembleAddress from '../../../../utils/assembleAddress'
 import ProductSection from './ProductSection/ProductSection'
 import PriceTag from '../../../MainComponents/PriceTag/PriceTag'
 
+const { USER, PHONE } = generalIcons
 const OrderBody = ({
   order,
   isOpened,
@@ -54,7 +55,7 @@ const OrderBody = ({
       <div className={styles.customerSection}>
         <div className={styles.userHeader}>
           <Icon
-            icon={user}
+            icon={USER}
             size="25px"
             color="rgba(90, 90, 90)"
           />
@@ -63,7 +64,7 @@ const OrderBody = ({
 
         <div className={styles.userInfo}>
           <Icon
-            icon={phone}
+            icon={PHONE}
             size="15px"
             color="rgba(90, 90, 90)"
           />

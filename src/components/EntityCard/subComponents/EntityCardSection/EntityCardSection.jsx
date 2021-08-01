@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from 'assets/icons/Icon'
-import CustomIcon from 'assets/icons/CustomIcon'
-import { groupedIcons, customIcons } from 'assets/icons/iconsLib'
+import { groupedIcons } from 'assets/icons/iconsLib'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 import contentTypes from 'libs/sectionTypes'
@@ -29,27 +28,15 @@ const EntityCardSection = ({ section }) => {
     if (type === contentTypes.ICONS) {
       return (
         <ul>
-          {values.map((value) => {
-            if (customIcons.has(value)) {
-              return (
-                <CustomIcon
-                  icon={groupedIcons[value]}
-                  className={styles.sectionIcon}
-                  size="20px"
-                  color="white"
-                />
-              )
-            }
-            return (
-              <Icon
-                icon={groupedIcons[value]}
-                className={styles.sectionIcon}
-                size="20px"
-                color="white"
-                key={value}
-              />
-            )
-          })}
+          {values.map((value) => (
+            <Icon
+              icon={groupedIcons[value]}
+              className={styles.sectionIcon}
+              size="20px"
+              color="white"
+              key={value}
+            />
+          ))}
         </ul>
       )
     }

@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  arrowDown, arrowUp, clock,
+  generalIcons,
   deliveryIcons,
 } from 'assets/icons/iconsLib'
 import formatDate from 'utils/formatDate'
@@ -8,6 +8,12 @@ import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
 
 import styles from './OrderHeader.module.scss'
+
+const {
+  ARROW_DOWN,
+  ARROW_UP,
+  CLOCK,
+} = generalIcons
 
 const OrderHeader = ({
   order,
@@ -30,7 +36,7 @@ const OrderHeader = ({
       <div className={styles.right}>
         <div className={styles.hourContainer}>
           <Icon
-            icon={clock}
+            icon={CLOCK}
             className={styles.clock}
             size="15px"
             color="rgba(90, 90, 90)"
@@ -40,7 +46,7 @@ const OrderHeader = ({
 
         <Icon
           onClick={openCard}
-          icon={isOpened ? arrowUp : arrowDown}
+          icon={isOpened ? ARROW_UP : ARROW_DOWN}
           className={styles.arrowIcon}
           size="15px"
         />
