@@ -8,7 +8,7 @@ const Select = ({
   const onChange = ({ target }) => {
     const { options: inputOptions, options: { selectedIndex } } = target
     const { value, id } = inputOptions[selectedIndex]
-    setOption('selectedBranch', { name: value, id })
+    setOption({ name: value, id })
   }
 
   return (

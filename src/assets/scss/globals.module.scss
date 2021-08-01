@@ -13,3 +13,21 @@ $headerColor: $primary3;
 .mainPage {
   padding: 25px;
 }
+
+.whiteInput {
+  color: white;
+  border-bottom: 1px white solid;
+
+  &::placeholder {
+    color: $whiteTransparent;
+  }
+
+  &:focus {
+    border-bottom: 2px white solid;
+
+  }
+  
+  &:hover {
+    border-bottom: 2px white solid;
+  }
+}

@@ -13,4 +13,8 @@ const validateInput = (validation, value, setter) => {
   }))
 }
 
-export { setState, validateInput }
+const setOption = (setter, field) => (value) => {
+  setter(field, value)
+}
+
+export { setState, validateInput, setOption }

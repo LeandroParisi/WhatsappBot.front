@@ -3,5 +3,9 @@ export default ($store) => {
 
   const getUserBranches = () => $store.userBranches
 
-  return { getUserBranches }
+  const getFilters = () => (
+    { filters: $store.filters, validationSchema: $store.validations }
+  )
+
+  return { getUserBranches, getFilters }
 }

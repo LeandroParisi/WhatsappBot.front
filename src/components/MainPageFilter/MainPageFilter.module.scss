@@ -1,6 +1,8 @@
 @import '../../assets/scss/colors.scss';
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/fonts.scss';
+@import '../../assets/scss/globals.module.scss';
+
 
 $padding: 15px;
 
@@ -12,4 +14,43 @@ $padding: 15px;
   border-radius: 5px;
   background-color: $dark;
   color: white;
+
+  >form {
+    @include flexBox(column);
+    width: 100%;
+
+    .fieldsSection {
+      @include flexBox(row, space-around);
+      width: 100%;
+
+      input {
+        @extend .whiteInput;
+      }
+
+      > div, button {
+        min-width: 200px;
+        color: white;
+      }
+      
+      *:not(svg) {
+        font-size: $font-small;
+      }
+  
+      .iconsFilter {
+        @include flexBox(column);
+    
+        .iconsContainer {
+          @include flexBox();
+        }
+    
+        .optionIcon {
+          cursor: pointer;
+          font-size: $font-med;
+        }
+      }
+    }
+
+  }
+
+
 }

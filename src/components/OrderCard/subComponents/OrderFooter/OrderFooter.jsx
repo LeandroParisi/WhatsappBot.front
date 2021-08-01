@@ -15,7 +15,6 @@ const OrderFooter = ({
   order,
   changeOrderStatus,
 }) => {
-  console.log(order)
   const { totalPrice, paymentMethod } = order
   const isMiddleColumn = column !== 0
   const isLastColumn = column === orderStatus.length - 1

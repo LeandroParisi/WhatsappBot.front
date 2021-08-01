@@ -1,7 +1,11 @@
-const deliveryTypes = {
+export const deliveryTypes = {
   DELIVERY: 'delivery',
   COUNTER_PICKUP: 'counter_pickup',
   ON_SPOT_CONSUMPTION: 'on_spot_consumption',
 }
 
-export default deliveryTypes
+export const deliveryTranslation = {
+  [deliveryTypes.DELIVERY]: 'Entrega',
+  [deliveryTypes.COUNTER_PICKUP]: 'Retirada por conta do cliente',
+  [deliveryTypes.ON_SPOT_CONSUMPTION]: 'Consumo no local',
+}

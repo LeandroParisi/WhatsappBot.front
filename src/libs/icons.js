@@ -9,18 +9,15 @@ import {
   list,
   creditCard,
   price,
+  cancel,
 } from 'assets/icons/iconsLib'
 
-export const deliveryIcons = {
-  delivery: truck,
-  counter_pickup: pickUp,
-  on_spot_consumption: store,
-}
+import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
 
-export const deliveryTranslation = {
-  delivery: 'Entrega',
-  counter_pickup: 'Retirada por conta do cliente',
-  on_spot_consumption: 'Consumo no local',
+export const deliveryIcons = {
+  [deliveryTypes.DELIVERY]: truck,
+  [deliveryTypes.COUNTER_PICKUP]: pickUp,
+  [deliveryTypes.ON_SPOT_CONSUMPTION]: store,
 }
 
 export const categoryIcons = {
@@ -40,6 +37,13 @@ export const paymentIcons = {
   pix: 'pix',
   money: price,
 }
+
+export const groupedIcons = {
+  ...deliveryIcons,
+  ...paymentIcons,
+}
+
+export const getIcon = (iconLib, iconName) => iconLib[iconName] || cancel
 
 export const customPaymentIcons = new Set(['pix'])
 

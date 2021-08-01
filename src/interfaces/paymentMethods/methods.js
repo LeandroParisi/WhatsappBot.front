@@ -1,16 +1,10 @@
-const paymentMethods = [
-  'money',
-  'pix',
-  'visa',
-  'mastercard',
-  'elo',
-  'hipercard',
-  'diners_club',
-  'american_express',
-  'alelo_meal',
-  'alelo_food',
-  'sodexo_meal',
-  'sodexo_food',
-]
-
-export default paymentMethods
+export const paymentMethods = {
+  MONEY: 'money',
+  PIX: 'pix',
+  CREDIT: 'credit',
+  DEBIT: 'debit',
+  ALELO_MEAL: 'alelo_meal',
+  ALELO_FOOD: 'alelo_food',
+  SODEXO_MEAL: 'sodexo_meal',
+  SODEXO_FOOD: 'sodexo_food',
+}

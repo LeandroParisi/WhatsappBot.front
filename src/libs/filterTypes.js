@@ -3,6 +3,7 @@ const filterTypes = {
   SELECT: 'select',
   DATE: 'date',
   BOOL: 'checkbox',
+  ICONS: 'icons',
 }
 
 export default filterTypes

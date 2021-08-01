@@ -16,7 +16,6 @@ const Icon = ({
   const tooltip = tooltips[iconName]
 
   const hasTooltip = !noTooltip && !!tooltip
-  console.log(iconName)
   return (
     <div
       onClick={onClick}

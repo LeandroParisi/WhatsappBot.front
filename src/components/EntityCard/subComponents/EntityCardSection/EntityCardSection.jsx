@@ -2,18 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from 'assets/icons/Icon'
 import CustomIcon from 'assets/icons/CustomIcon'
-import { customPaymentIcons } from 'libs/icons'
+import { customPaymentIcons, groupedIcons } from 'libs/icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 import contentTypes from 'libs/sectionTypes'
 import styles from './EntityCardSection.module.scss'
-import sectionIcons from './sectionIcons'
 
 const EntityCardSection = ({ section }) => {
   const {
     title, subTitle, icon, content: { type, values },
   } = section
-  console.log(sectionIcons)
 
   const contentFactory = () => {
     if (type === contentTypes.UNIQUE) {
@@ -35,7 +33,7 @@ const EntityCardSection = ({ section }) => {
             if (customPaymentIcons.has(value)) {
               return (
                 <CustomIcon
-                  icon={sectionIcons[value]}
+                  icon={groupedIcons[value]}
                   className={styles.sectionIcon}
                   size="20px"
                   color="white"
@@ -44,7 +42,7 @@ const EntityCardSection = ({ section }) => {
             }
             return (
               <Icon
-                icon={sectionIcons[value]}
+                icon={groupedIcons[value]}
                 className={styles.sectionIcon}
                 size="20px"
                 color="white"
@@ -58,7 +56,6 @@ const EntityCardSection = ({ section }) => {
     return null
   }
 
-  console.log(section)
   return (
     <section className={styles.section}>
       <header className={styles.header}>

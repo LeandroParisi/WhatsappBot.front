@@ -1,51 +1,46 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styles from './Input.module.scss'
+import styles from './Checkbox.module.scss'
 
-const Input = ({
-  type,
+const Checkbox = ({
   placeholder,
   value,
-  onBlur,
-  onChange,
+  onClick,
   error: { error, errorMessage },
-  onFocus,
 }) => (
   <div className={styles.inputContainer}>
+    {placeholder && (
+    <label htmlFor={value}>
+      {placeholder}
+    </label>
+    )}
     <input
-      type={type}
+      id={value}
+      type="checkbox"
       className={classNames({ [styles.error]: error })}
       placeholder={placeholder}
       value={value}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
+      onClick={onClick}
     />
     {error && <p className={styles.errorText}>{errorMessage}</p>}
   </div>
 
 )
 
-Input.propTypes = {
-  type: PropTypes.string.isRequired,
+Checkbox.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
-  onBlur: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
   error: PropTypes.shape({
     error: PropTypes.bool.isRequired,
     errorMessage: PropTypes.string.isRequired,
   }),
 }
 
-Input.defaultProps = {
+Checkbox.defaultProps = {
   placeholder: '',
-  onBlur: null,
-  onChange: null,
-  onFocus: null,
   error: {},
 }
 
-export default Input
+export default Checkbox

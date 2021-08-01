@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRoot } from 'store/root'
-import { filterInterface } from './libs'
-import extractInitialFilters from '../filterMethods/extractInitialFilters'
+import { filterInterface, validationSchema } from './filters'
+// import { extractInitialFilters } from '../filterMethods/extractInitialFilters'
 import storeActions from './actions'
 import storeSelectors from './selectors'
 import useCreateStore from '../useCreateStore'
@@ -9,7 +9,8 @@ import useCreateStore from '../useCreateStore'
 const initialState = {
   userBranches: [],
   filters: filterInterface,
-  selectedFilters: extractInitialFilters(filterInterface),
+  validations: validationSchema,
+  // selectedFilters: extractInitialFilters(filterInterface),
 }
 
 const BranchesStore = useCreateStore(() => {

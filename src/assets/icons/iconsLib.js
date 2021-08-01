@@ -27,6 +27,7 @@ import {
   faHandHoldingUsd,
   faTruckLoading,
   faMoneyBillWave,
+  faBan,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const truck = faTruck
@@ -59,6 +60,8 @@ export const address = faMapMarkerAlt
 export const deliveryFee = faHandHoldingUsd
 export const deliveryTypeIcon = faTruckLoading
 export const paymentTypeIcon = faMoneyBillWave
+
+export const cancel = faBan
 
 export const tooltips = {
   'credit-card': 'Cartão de crédito',
