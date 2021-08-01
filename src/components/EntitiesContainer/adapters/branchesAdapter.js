@@ -3,7 +3,7 @@ import {
 } from 'assets/icons/iconsLib'
 import assembleAddress from 'utils/assembleAddress'
 import { deliveryFeeTranslations, deliveryFeeTypes } from 'interfaces/deliveryFees/deliveryFeeTypes'
-import contentTypes from '../../EntityCard/subComponents/EntityCardSection/sectionTypes'
+import contentTypes from 'libs/sectionTypes'
 
 const mapDeliveryFees = (type, fees) => {
   switch (type) {

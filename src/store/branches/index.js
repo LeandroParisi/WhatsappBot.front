@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useRoot } from 'store/root'
+import { filterInterface } from './libs'
+import extractInitialFilters from '../filterMethods/extractInitialFilters'
 import storeActions from './actions'
 import storeSelectors from './selectors'
 import useCreateStore from '../useCreateStore'
 
 const initialState = {
   userBranches: [],
-  filters: {
-    branchName: '',
-    deliveryType: '',
-    isActive: '',
-  },
-
+  filters: filterInterface,
+  selectedFilters: extractInitialFilters(filterInterface),
 }
 
 const BranchesStore = useCreateStore(() => {

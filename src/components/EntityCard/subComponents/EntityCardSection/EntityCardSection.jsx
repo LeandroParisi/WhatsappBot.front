@@ -5,8 +5,8 @@ import CustomIcon from 'assets/icons/CustomIcon'
 import { customPaymentIcons } from 'libs/icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
+import contentTypes from 'libs/sectionTypes'
 import styles from './EntityCardSection.module.scss'
-import contentTypes from './sectionTypes'
 import sectionIcons from './sectionIcons'
 
 const EntityCardSection = ({ section }) => {
