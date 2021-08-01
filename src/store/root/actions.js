@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import responseHandler from 'services/responseHandler'
 import { setState } from 'store/sharedMethods/actions'
 import * as providers from './provider'
-// import * as providers from './provider'
+import * as sharedProviders from '../sharedMethods/providers'
 
 export default (setRoot) => {
   const history = useHistory()
@@ -24,7 +24,7 @@ export default (setRoot) => {
   }
 
   const fetchUserBranches = async () => {
-    const { response } = await errorHandler(providers.fetchUserBranches())
+    const { response } = await errorHandler(sharedProviders.fetchUserBranches())
 
     if (response?.length) {
       setField('userBranches', response)

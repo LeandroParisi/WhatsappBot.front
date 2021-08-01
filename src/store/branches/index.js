@@ -6,6 +6,11 @@ import useCreateStore from '../useCreateStore'
 
 const initialState = {
   userBranches: [],
+  filters: {
+    branchName: '',
+    deliveryType: '',
+    isActive: '',
+  },
 
 }
 
@@ -15,7 +20,7 @@ const BranchesStore = useCreateStore(() => {
   const selectors = storeSelectors($branches)
 
   useEffect(() => {
-    console.log('branches')
+    actions.fetchUserBranches()
   }, [])
 
   return { $branches, ...actions, ...selectors }

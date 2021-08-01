@@ -1,10 +1,10 @@
 import React from 'react'
-import { useRoot, useBranches } from 'store'
+import { useBranches } from 'store'
 import EntitiesContainer from 'components/EntitiesContainer/EntitiesContainer'
 import { entitiesTypes } from 'components/EntitiesContainer/EntitiesInterface'
 
 const BranchesContainer = () => {
-  const { getUserBranches } = useRoot()
+  const { getUserBranches } = useBranches()
 
   const branches = getUserBranches()
 

@@ -1,5 +1,7 @@
 export default ($store) => {
   const getTEMPLATE = () => $store
 
-  return { getTEMPLATE }
+  const getUserBranches = () => $store.userBranches
+
+  return { getUserBranches }
 }
