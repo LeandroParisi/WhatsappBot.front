@@ -6,10 +6,10 @@ import { Button, Checkbox, Input } from 'components'
 import { setOption, setState } from 'store/sharedMethods/actions'
 import Select from 'components/MainComponents/Select/Select'
 import Icon from 'assets/icons/Icon'
-import { deliveryTypeIcon, groupedIcons } from 'assets/icons/iconsLib'
 import {
-  getIcon, customPaymentIcons,
-} from 'libs/icons'
+  deliveryTypeIcon, groupedIcons, getIcon, customIcons,
+} from 'assets/icons/iconsLib'
+
 import CustomIcon from 'assets/icons/CustomIcon'
 import { extractInitialValues } from './utils'
 import styles from './MainPageFilter.module.scss'
@@ -66,7 +66,7 @@ const MainPageFilter = ({ filters, validationSchema }) => {
             {options.map(({ name, id }) => {
               const isSelected = filtersValue[key].has(id)
               return (
-                customPaymentIcons.has(name)
+                customIcons.has(name)
                   ? (
                     <CustomIcon
                       icon={getIcon(groupedIcons, name)}

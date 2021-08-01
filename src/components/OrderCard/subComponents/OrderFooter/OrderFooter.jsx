@@ -2,13 +2,13 @@ import React from 'react'
 import classNames from 'classnames'
 import {
   paymentIcons,
+  customIcons,
   price, arrowRight, arrowLeft, checkMark,
 } from 'assets/icons/iconsLib'
 import Icon from 'assets/icons/Icon'
 import CustomIcon from 'assets/icons/CustomIcon'
 import PropTypes from 'prop-types'
 import orderStatus from 'interfaces/orders/orderStatus'
-import { customPaymentIcons } from 'libs/icons'
 import styles from './OrderFooter.module.scss'
 
 const OrderFooter = ({
@@ -23,7 +23,7 @@ const OrderFooter = ({
   return (
     <footer className={styles.cardFooter}>
 
-      {customPaymentIcons.has(paymentMethod)
+      {customIcons.has(paymentMethod)
         ? (
           <CustomIcon
             icon={paymentIcons[paymentMethod]}
