@@ -5,7 +5,7 @@ import {
 import { ToastContainer } from 'react-toastify'
 import routes from 'libs/routes'
 import ProtectedRoute from 'templates/ProtectedRoute'
-import { RootProvider, DashboardProvider } from './store'
+import { RootProvider } from './store'
 import {
   Login,
   Dashboard,
@@ -26,22 +26,20 @@ function App() {
       <ToastContainer />
       <BrowserRouter>
         <RootProvider>
-          <DashboardProvider>
-            <Switch>
-              <Route exact path={routes.login} component={Login} />
-              <ProtectedRoute exact path={routes.dashboard} component={Dashboard} />
-              <ProtectedRoute exact path={routes.menus} component={Menus} />
-              <ProtectedRoute exact path={routes.products} component={Products} />
-              <ProtectedRoute exact path={routes.promotions} component={Promotions} />
-              <ProtectedRoute exact path={routes.coupons} component={Coupons} />
-              <ProtectedRoute exact path={routes.branches} component={Branches} />
-              <ProtectedRoute exact path={routes.account} component={Account} />
-              <ProtectedRoute exact path={routes.settings} component={Configurations} />
-              <Route exact path="*">
-                <Redirect to={routes.login} />
-              </Route>
-            </Switch>
-          </DashboardProvider>
+          <Switch>
+            <Route exact path={routes.login} component={Login} />
+            <ProtectedRoute exact path={routes.dashboard} component={Dashboard} />
+            <ProtectedRoute exact path={routes.menus} component={Menus} />
+            <ProtectedRoute exact path={routes.products} component={Products} />
+            <ProtectedRoute exact path={routes.promotions} component={Promotions} />
+            <ProtectedRoute exact path={routes.coupons} component={Coupons} />
+            <ProtectedRoute exact path={routes.branches} component={Branches} />
+            <ProtectedRoute exact path={routes.account} component={Account} />
+            <ProtectedRoute exact path={routes.settings} component={Configurations} />
+            <Route exact path="*">
+              <Redirect to={routes.login} />
+            </Route>
+          </Switch>
         </RootProvider>
       </BrowserRouter>
     </>

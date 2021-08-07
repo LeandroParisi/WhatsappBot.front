@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Modal from 'templates/Modal/Modal'
 import defaultImages from 'libs/defaultImages'
 import Icon from 'assets/icons/Icon'
 import { getIcon } from 'assets/icons/iconsLib'
@@ -12,37 +13,42 @@ const EntityCard = ({ entity, type }) => {
   const {
     id, name, image, sections, isActive,
   } = entity
-  console.log(entity)
 
   return (
-    <article className={classNames(styles.entity, { [styles.inactive]: !isActive })} key={id}>
-      <header className={styles.entityHeader}>
-        <div className={styles.avatarContainer}>
-          <img
-            src={image || defaultImages[type]}
-            alt={name}
-            className={styles.avatar}
-          />
+    <>
+      <Modal>
+        Teste
+      </Modal>
+      <article className={classNames(styles.entity, { [styles.inactive]: !isActive })} key={id}>
+        <header className={styles.entityHeader}>
+          <div className={styles.avatarContainer}>
+            <img
+              src={image || defaultImages[type]}
+              alt={name}
+              className={styles.avatar}
+            />
+          </div>
+          <h2>{name}</h2>
+        </header>
+        <hr />
+        <div className={styles.sectionsContainer}>
+          {sections.map((section, index) => (
+            <>
+              <EntityCardSection section={section} />
+              {index !== sections.length - 1 && <hr />}
+            </>
+          ))}
         </div>
-        <h2>{name}</h2>
-      </header>
-      <hr />
-      <div className={styles.sectionsContainer}>
-        {sections.map((section, index) => (
-          <>
-            <EntityCardSection section={section} />
-            {index !== sections.length - 1 && <hr />}
-          </>
-        ))}
-      </div>
-      <aside className={styles.sideOptions}>
-        <Icon
-          icon={getIcon('edit')}
-          type="default"
-          size="20px"
-        />
-      </aside>
-    </article>
+        <aside className={styles.sideOptions}>
+          <Icon
+            icon={getIcon('edit')}
+            type="default"
+            size="20px"
+          />
+        </aside>
+      </article>
+    </>
+
   )
 }
 

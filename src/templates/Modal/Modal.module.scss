@@ -1,0 +1,18 @@
+@import '../../assets/scss/colors.scss';
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/fonts.scss';
+
+.modalContainer {
+  position: absolute;
+  width: 100vw;
+}
+
+.subContainer {
+  position: fixed;
+  width: 80vw;
+  height: 80vh;
+  background-color: white;
+  top: 15vh;
+  left: 10vw;
+  z-index: 1;
+}

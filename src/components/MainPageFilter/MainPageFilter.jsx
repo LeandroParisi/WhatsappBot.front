@@ -7,7 +7,6 @@ import Select from 'components/MainComponents/Select/Select'
 import Icon from 'assets/icons/Icon'
 import { getIcon } from 'assets/icons/iconsLib'
 import { setFilters } from './setFilters'
-
 import { extractInitialValues } from './utils'
 import styles from './MainPageFilter.module.scss'
 
@@ -121,6 +120,7 @@ const MainPageFilter = ({ filters, validationSchema, saveFilters }) => {
         </div>
         <Button className={styles.filterButton} type="submit">Filtrar</Button>
       </form>
+
     </header>
   )
 }

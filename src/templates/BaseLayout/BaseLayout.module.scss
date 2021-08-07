@@ -3,6 +3,14 @@
 @import '../../assets/scss/fonts.scss';
 @import '../../assets/scss/globals.module.scss';
 
+.baseLayoutContainer {
+  position: relative;
+  min-height: 100vh;
+
+  > [class*='overlay'] {
+    z-index: 2;
+  }
+}
 
 .baseLayout {
   margin-top: $header-height;

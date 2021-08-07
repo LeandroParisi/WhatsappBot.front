@@ -1,11 +1,14 @@
 import React from 'react'
+import { DashboardProvider } from 'store'
 import BaseLayout from 'templates/BaseLayout/BaseLayout'
 import { DashboardContainer, DashboardHeader } from 'containers'
 
 const Dashboard = () => (
   <BaseLayout>
-    <DashboardHeader />
-    <DashboardContainer />
+    <DashboardProvider>
+      <DashboardHeader />
+      <DashboardContainer />
+    </DashboardProvider>
   </BaseLayout>
 )
 
