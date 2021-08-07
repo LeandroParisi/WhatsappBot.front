@@ -23,13 +23,5 @@ export default (setRoot) => {
     return response
   }
 
-  const fetchUserBranches = async () => {
-    const { response } = await errorHandler(sharedProviders.fetchUserBranches())
-
-    if (response?.length) {
-      setField('userBranches', response)
-    }
-  }
-
-  return { setField, errorHandler, fetchUserBranches }
+  return { setField, errorHandler }
 }

@@ -6,8 +6,7 @@ import PropTypes from 'prop-types'
 import styles from './DashboardHeader.module.scss'
 
 const DashboardHeader = () => {
-  const { getSelectedBranch, setField } = useDashboard()
-  const { getBranchesNames } = useRoot()
+  const { getSelectedBranch, setField, getBranchesNames } = useDashboard()
 
   const onChange = setOption(setField, 'selectedBranch')
 

@@ -8,13 +8,12 @@ import styles from './Icon.module.scss'
 import { tooltips, customIcons } from './iconsLib'
 
 const Icon = ({
-  icon, color, className, size, onClick, noTooltip,
+  icon, color, className, size, onClick, noTooltip, tooltipText, type,
 }) => {
   const [showTooltip, setShowTooltip] = useState(false)
   const { iconName } = icon
 
-  const tooltip = tooltips[iconName] || tooltips[icon]
-
+  const tooltip = tooltipText || tooltips[iconName] || tooltips[icon]
   const hasTooltip = !noTooltip && !!tooltip
 
   const customIconsLib = {
@@ -63,7 +62,11 @@ l-385 386 385 386 c254 255 399 392 425 405 33 15 64 19 185 19 l146 0 275
   return (
     <div
       onClick={onClick}
-      className={classNames(styles.iconContainer, className)}
+      className={classNames(
+        styles.iconContainer,
+        className,
+        { [styles[type]]: type },
+      )}
       style={{ fontSize: size }}
       role="button"
       tabIndex={0}
@@ -96,11 +99,13 @@ Icon.propTypes = {
   icon: PropTypes.shape({
     iconName: PropTypes.string,
   }).isRequired,
+  type: PropTypes.oneOf('default', null),
   color: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.string,
   onClick: PropTypes.func,
   noTooltip: PropTypes.bool,
+  tooltipText: PropTypes.string,
 }
 
 Icon.defaultProps = {
@@ -109,6 +114,8 @@ Icon.defaultProps = {
   size: '25px',
   onClick: null,
   noTooltip: false,
+  tooltipText: '',
+  type: null,
 }
 
 export default Icon

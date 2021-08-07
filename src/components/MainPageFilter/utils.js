@@ -6,6 +6,7 @@ const {
   DATE,
   BOOL,
   ICONS,
+  STATUS,
 } = filterTypes
 
 export const initialValuesSwitch = (type) => {
@@ -13,6 +14,8 @@ export const initialValuesSwitch = (type) => {
     case INPUT:
       return ''
     case SELECT:
+      return { id: null, name: '' }
+    case STATUS:
       return { id: null, name: '' }
     case DATE:
       return ''

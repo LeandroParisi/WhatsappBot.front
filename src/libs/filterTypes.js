@@ -4,6 +4,7 @@ const filterTypes = {
   DATE: 'date',
   BOOL: 'checkbox',
   ICONS: 'icons',
+  STATUS: 'status',
 }
 
 export default filterTypes

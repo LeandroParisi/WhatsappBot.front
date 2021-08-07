@@ -12,6 +12,7 @@ const initialState = {
     readyToDeliver: [],
     toDo: [],
   },
+  userBranches: [],
   selectedBranch: { name: '', id: '' },
 }
 
@@ -20,10 +21,7 @@ const DashboardStore = useCreateStore(() => {
   const actions = storeActions($dashboard, setDashboard, useRoot)
   const selectors = storeSelectors($dashboard)
 
-  const { getUserBranches } = useRoot()
-  const userBranches = getUserBranches()
-
-  const { selectedBranch } = $dashboard
+  const { selectedBranch, userBranches } = $dashboard
 
   useEffect(() => {
     if (selectedBranch.name) {
@@ -32,6 +30,10 @@ const DashboardStore = useCreateStore(() => {
       })
     }
   }, [selectedBranch.name])
+
+  useEffect(() => {
+    actions.fetchUserBranches()
+  }, [])
 
   useEffect(() => {
     if (userBranches.length === 1) {

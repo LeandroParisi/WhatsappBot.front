@@ -5,14 +5,18 @@ import { entitiesTypes } from 'components/EntitiesContainer/EntitiesInterface'
 import { MainPageFilter } from 'components'
 
 const BranchesContainer = () => {
-  const { getUserBranches, getFilters } = useBranches()
+  const { getUserBranches, getFilters, saveFilters } = useBranches()
   const { filters, validationSchema } = getFilters()
 
   const branches = getUserBranches()
 
   return (
     <>
-      <MainPageFilter filters={filters} validationSchema={validationSchema} />
+      <MainPageFilter
+        filters={filters}
+        validationSchema={validationSchema}
+        saveFilters={saveFilters}
+      />
       <EntitiesContainer
         entities={branches}
         type={entitiesTypes.branches}

@@ -9,8 +9,8 @@ import useCreateStore from '../useCreateStore'
 const initialState = {
   userBranches: [],
   filters: filterInterface,
+  query: '',
   validations: validationSchema,
-  // selectedFilters: extractInitialFilters(filterInterface),
 }
 
 const BranchesStore = useCreateStore(() => {
@@ -19,8 +19,8 @@ const BranchesStore = useCreateStore(() => {
   const selectors = storeSelectors($branches)
 
   useEffect(() => {
-    actions.fetchUserBranches()
-  }, [])
+    actions.fetchUserBranches($branches.query)
+  }, [$branches.query])
 
   return { $branches, ...actions, ...selectors }
 })

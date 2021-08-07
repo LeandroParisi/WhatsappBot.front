@@ -1,3 +1,5 @@
+import { extractFiltersQuery } from './utils'
+
 const setState = (setter) => (field, value) => {
   setter((prev) => ({
     ...prev,
@@ -17,4 +19,10 @@ const setOption = (setter, field) => (value) => {
   setter(field, value)
 }
 
-export { setState, validateInput, setOption }
+const saveFiltersFactory = (setter) => (filters) => {
+  setter('query', extractFiltersQuery(filters))
+}
+
+export {
+  setState, validateInput, setOption, saveFiltersFactory,
+}

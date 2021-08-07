@@ -5,4 +5,16 @@
   position: relative;
   width: fit-content;
   padding: 8px;
+
+  &.default {
+    @include boxShadow(1px, 3px);
+    background-color: $primary3;
+    border-radius: 100%;
+    min-width: 15px;
+    cursor: pointer;
+
+    &:hover {
+      @include boxShadow(3px, 5px)
+    }
+  }
 }

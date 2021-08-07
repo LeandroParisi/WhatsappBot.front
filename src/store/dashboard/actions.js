@@ -1,6 +1,7 @@
 import { setState } from 'store/sharedMethods/actions'
 import assembleQuery from 'services/helpers/assembleQuery'
 import { extractNextStatus } from './utils'
+import * as sharedProviders from '../sharedMethods/providers'
 import * as providers from './provider'
 
 export default (store, setStore, useRoot) => {
@@ -27,8 +28,15 @@ export default (store, setStore, useRoot) => {
       })
     }
   }
+  const fetchUserBranches = async () => {
+    const { response } = await errorHandler(sharedProviders.fetchUserBranches())
+
+    if (response?.length) {
+      setField('userBranches', response)
+    }
+  }
 
   return {
-    setField, fetchBranchOrders, updateOrder,
+    setField, fetchBranchOrders, updateOrder, fetchUserBranches,
   }
 }

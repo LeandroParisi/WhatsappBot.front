@@ -108,13 +108,13 @@
   flex-wrap: $wrap;
 }
 
-@mixin textShadow($color: $dark2) {
-  text-shadow: 1px 1px 3px $color;
+@mixin textShadow($color: $dark2, $size: 1px, $blur: 3px) {
+  text-shadow: $size $size $blur $color;
   transition: 0.7s;
 }
 
-@mixin boxShadow($size: 3px, $blur: 3px) {
-  box-shadow: $dark-transparent $size $size $blur;
+@mixin boxShadow($size: 3px, $blur: 3px, $color: $dark-transparent) {
+  box-shadow: $color $size $size $blur;
   transition: .3s;
 }
 

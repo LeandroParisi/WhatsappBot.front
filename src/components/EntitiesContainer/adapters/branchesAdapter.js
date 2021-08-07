@@ -43,7 +43,7 @@ const branchesAdapter = (branch) => {
   return {
     id,
     name: branchName,
-    logo,
+    image: logo,
     isActive,
     sections: [
       {

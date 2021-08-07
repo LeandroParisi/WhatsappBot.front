@@ -17,7 +17,7 @@ export const statusOptions = [
 
 export const statusFilter = {
   key: 'isActive',
-  type: filterTypes.SELECT,
+  type: filterTypes.STATUS,
   options: statusOptions,
   placeholder: 'Status',
 }

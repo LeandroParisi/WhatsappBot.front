@@ -1,8 +1,5 @@
 export default ($store) => {
-  const getBranchesNames = () => $store.userBranches
-    .map(({ branchName, id }) => ({ name: branchName, id }))
+  const teste = 1
 
-  const getUserBranches = () => $store.userBranches
-
-  return { getUserBranches, getBranchesNames }
+  return { teste }
 }

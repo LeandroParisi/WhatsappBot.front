@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import filterTypes from 'libs/filterTypes'
 import { Button, Checkbox, Input } from 'components'
 import { setOption, setState } from 'store/sharedMethods/actions'
 import Select from 'components/MainComponents/Select/Select'
 import Icon from 'assets/icons/Icon'
 import { getIcon } from 'assets/icons/iconsLib'
+import { setFilters } from './setFilters'
 
 import { extractInitialValues } from './utils'
 import styles from './MainPageFilter.module.scss'
@@ -17,19 +17,22 @@ const {
   DATE,
   BOOL,
   ICONS,
+  STATUS,
 } = filterTypes
 
-const MainPageFilter = ({ filters, validationSchema }) => {
-  const [filtersValue, setFiltersValue] = useState(extractInitialValues(filters))
+const MainPageFilter = ({ filters, validationSchema, saveFilters }) => {
+  const initialValues = extractInitialValues(filters)
 
-  const updateState = setState(setFiltersValue)
+  const [temporaryFilters, setTemporaryFilters] = useState(initialValues)
+
+  const updateState = setState(setTemporaryFilters)
 
   const handleChange = (field) => ({ target: { value } }) => {
     updateState(field, value)
   }
 
   const handleIconSelect = (id, key) => () => {
-    const previousSelectedIcons = new Set([...filtersValue[key]])
+    const previousSelectedIcons = new Set([...temporaryFilters[key]])
     if (previousSelectedIcons.has(id)) {
       previousSelectedIcons.delete(id)
       return updateState(key, previousSelectedIcons)
@@ -39,9 +42,8 @@ const MainPageFilter = ({ filters, validationSchema }) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log('filtrar')
+    setFilters(temporaryFilters, filters, saveFilters)
   }
-  console.log(filtersValue)
 
   const fieldFactory = ({
     key, type, placeholder, options = {},
@@ -52,7 +54,7 @@ const MainPageFilter = ({ filters, validationSchema }) => {
           <Input
             type={type}
             placeholder={placeholder}
-            value={filtersValue[key]}
+            value={temporaryFilters[key]}
             onChange={handleChange(key)}
           />
         )
@@ -60,7 +62,7 @@ const MainPageFilter = ({ filters, validationSchema }) => {
         return (
           <div className={styles.iconsContainer}>
             {options.map(({ name, id }) => {
-              const isSelected = filtersValue[key].has(id)
+              const isSelected = temporaryFilters[key].has(id)
               return (
                 <Icon
                   icon={getIcon(name)}
@@ -78,7 +80,16 @@ const MainPageFilter = ({ filters, validationSchema }) => {
           <Select
             options={options}
             placeholder={placeholder}
-            selected={filtersValue[key]}
+            selected={temporaryFilters[key]}
+            setOption={setOption(updateState, key)}
+          />
+        )
+      case STATUS:
+        return (
+          <Select
+            options={options}
+            placeholder={placeholder}
+            selected={temporaryFilters[key]}
             setOption={setOption(updateState, key)}
           />
         )
@@ -88,7 +99,7 @@ const MainPageFilter = ({ filters, validationSchema }) => {
         return (
           <Checkbox
             type={type}
-            value={filtersValue[key]}
+            value={temporaryFilters[key]}
           />
         )
       default:
@@ -108,10 +119,14 @@ const MainPageFilter = ({ filters, validationSchema }) => {
           ))}
 
         </div>
-        <Button type="submit">Teste</Button>
+        <Button className={styles.filterButton} type="submit">Filtrar</Button>
       </form>
     </header>
   )
+}
+
+MainPageFilter.propTypes = {
+  filters: PropTypes.arrayOf(PropTypes.any).isRequired,
 }
 
 export default MainPageFilter

@@ -27,6 +27,7 @@ import {
   faTruckLoading,
   faMoneyBillWave,
   faBan,
+  faEdit,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
@@ -87,6 +88,10 @@ export const paymentIcons = {
   [paymentMethods.MONEY]: faDollarSign,
 }
 
+export const entityMenuIcons = {
+  edit: faEdit,
+}
+
 export const groupedIcons = {
   ...menuIcons,
   ...generalIcons,
@@ -94,6 +99,7 @@ export const groupedIcons = {
   ...categoryIcons,
   ...attributeIcons,
   ...paymentIcons,
+  ...entityMenuIcons,
 }
 
 export const customIcons = new Set([paymentMethods.PIX])
@@ -109,6 +115,8 @@ export const getIcon = (iconName) => groupedIcons[iconName] || faBan
 export const tooltips = {
   'credit-card': 'Cartão de crédito',
   'dollar-sign': 'Dinheiro',
+
+  edit: 'Editar',
 
   truck: 'Delivery',
   hands: 'Retirada',
