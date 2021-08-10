@@ -4,7 +4,7 @@ import rootSelectors from './selectors'
 import useCreateStore from '../useCreateStore'
 
 const initialState = {
-  loading: false,
+  isLoading: false,
   error: '',
 }
 

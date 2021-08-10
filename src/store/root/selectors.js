@@ -1,5 +1,5 @@
 export default ($store) => {
-  const teste = 1
+  const getIsLoading = () => $store.isLoading
 
-  return { teste }
+  return { getIsLoading }
 }

@@ -8,7 +8,7 @@ const loaderImages = {
   },
   loading: {
     src: loading,
-    bgColor: 'dark',
+    bgColor: 'transparent',
   },
 }
 
