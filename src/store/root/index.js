@@ -4,7 +4,7 @@ import rootSelectors from './selectors'
 import useCreateStore from '../useCreateStore'
 
 const initialState = {
-  userBranches: [],
+  loading: false,
   error: '',
 }
 

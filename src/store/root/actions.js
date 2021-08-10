@@ -13,14 +13,16 @@ export default (setRoot) => {
   const errorHandler = async (fetcher) => {
     const treatedResponse = responseHandler(fetcher)
     const response = await treatedResponse()
+    if (response.status >= 200 && response.status <= 299) {
+      return response
+    }
 
     if (response.status === 401) {
       setField('error', response.data)
       history.push(routes.login)
-      return { response: null }
     }
 
-    return response
+    return { response: null }
   }
 
   return { setField, errorHandler }

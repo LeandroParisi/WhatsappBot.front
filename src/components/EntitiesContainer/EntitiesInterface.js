@@ -1,13 +1,13 @@
-import branchesAdapter from './adapters/branchesAdapter'
+import branchesAdapter from './adapters/branches/branchEntity'
 
 const entitiesTypes = {
   branches: 'branches',
 }
 
-const adapters = {
+const entityAdapter = {
   [entitiesTypes.branches]: branchesAdapter,
 }
 
-const entitiesAdapter = (entities, type) => entities.map((entity) => adapters[type](entity))
+const entitiesAdapter = (entities, type) => entities.map((entity) => entityAdapter[type](entity))
 
 export { entitiesTypes, entitiesAdapter }

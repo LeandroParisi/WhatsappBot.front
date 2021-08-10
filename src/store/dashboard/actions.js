@@ -12,8 +12,11 @@ export default (store, setStore, useRoot) => {
   const fetchBranchOrders = async (queryObject) => {
     const query = assembleQuery(queryObject)
     const { response } = await errorHandler(providers.fetchBranchOrders(query))
-    delete response.fullfilled
-    setField('orders', response)
+
+    if (response) {
+      delete response.fullfilled
+      setField('orders', response)
+    }
   }
 
   const updateOrder = async (id, currentStep, type) => {

@@ -64,7 +64,7 @@ const branchesAdapter = (branch) => {
         },
       },
       {
-        icon: DELIVERY_TYPE,
+        icon: DELIVERY_FEE,
         title: 'Taxas de entrega',
         subTitle: deliveryFeeTranslations[type],
         content: {
@@ -73,7 +73,7 @@ const branchesAdapter = (branch) => {
         },
       },
       {
-        icon: DELIVERY_FEE,
+        icon: DELIVERY_TYPE,
         title: 'Tipo de entrega',
         content: {
           values: deliveryTypes.map(({ deliveryType }) => deliveryType),

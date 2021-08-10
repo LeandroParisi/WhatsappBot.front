@@ -5,5 +5,6 @@
 .container {
   @include flexBox(row, space-around, flex-start);
   margin: 25px 0;
+  gap: 30px;
   width: 100%;
 }

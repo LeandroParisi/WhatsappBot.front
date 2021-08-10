@@ -12,7 +12,9 @@ export default (store, setStore, useRoot) => {
   const fetchUserBranches = async (query = '') => {
     const { response } = await errorHandler(sharedProviders.fetchUserBranches(query))
 
-    setField('userBranches', [...response, ...response])
+    if (response?.length) {
+      setField('userBranches', response)
+    }
   }
 
   return {

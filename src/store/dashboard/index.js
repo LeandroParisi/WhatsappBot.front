@@ -6,11 +6,9 @@ import useCreateStore from '../useCreateStore'
 
 const initialState = {
   orders: {
-    dispatched: [],
-    inProduction: [],
     placed: [],
-    readyToDeliver: [],
-    toDo: [],
+    inProduction: [],
+    dispatched: [],
   },
   userBranches: [],
   selectedBranch: { name: '', id: '' },

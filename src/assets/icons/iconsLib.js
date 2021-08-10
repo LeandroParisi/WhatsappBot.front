@@ -28,6 +28,7 @@ import {
   faMoneyBillWave,
   faBan,
   faEdit,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
@@ -48,8 +49,8 @@ export const menuIcons = {
 export const generalIcons = {
   MANAGER: faIdBadge,
   ADDRESS: faMapMarkerAlt,
-  DELIVERY_TYPE: faHandHoldingUsd,
-  DELIVERY_FEE: faTruckLoading,
+  DELIVERY_FEE: faHandHoldingUsd,
+  DELIVERY_TYPE: faTruckLoading,
   PAYMENT_TYPE: faMoneyBillWave,
 
   ARROW_DOWN: faAngleDown,
@@ -60,6 +61,8 @@ export const generalIcons = {
   CHECKMARK: faCheck,
   USER: faUser,
   PHONE: faPhoneAlt,
+
+  CLOSE: faTimes,
 
   PRICE: faDollarSign,
 }
@@ -115,6 +118,7 @@ export const getIcon = (iconName) => groupedIcons[iconName] || faBan
 export const tooltips = {
   'credit-card': 'Cartão de crédito',
   'dollar-sign': 'Dinheiro',
+  times: 'Fechar',
 
   edit: 'Editar',
 

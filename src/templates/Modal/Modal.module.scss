@@ -2,17 +2,34 @@
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/fonts.scss';
 
+$padding: 15px;
+
 .modalContainer {
   position: absolute;
   width: 100vw;
 }
 
 .subContainer {
+  @include flexBox(column);
   position: fixed;
-  width: 80vw;
-  height: 80vh;
-  background-color: white;
+  width: calc(80vw - #{$padding * 2});
+  height: calc(80vh - #{$padding * 2});
+  background-color: $dark;
   top: 15vh;
   left: 10vw;
   z-index: 1;
+  border-radius: 15px;
+  padding: $padding;
+
+  > .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
 }

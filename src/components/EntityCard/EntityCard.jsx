@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Modal from 'templates/Modal/Modal'
 import defaultImages from 'libs/defaultImages'
@@ -10,13 +10,15 @@ import { entitiesTypes } from '../EntitiesContainer/EntitiesInterface'
 import EntityCardSection from './subComponents/EntityCardSection/EntityCardSection'
 
 const EntityCard = ({ entity, type }) => {
+  const [openModal, setOpenModal] = useState(false)
   const {
     id, name, image, sections, isActive,
   } = entity
+  console.log(entity)
 
   return (
     <>
-      <Modal>
+      <Modal isOpened={openModal} close={() => setOpenModal(false)}>
         Teste
       </Modal>
       <article className={classNames(styles.entity, { [styles.inactive]: !isActive })} key={id}>
@@ -44,6 +46,7 @@ const EntityCard = ({ entity, type }) => {
             icon={getIcon('edit')}
             type="default"
             size="20px"
+            onClick={() => setOpenModal(!openModal)}
           />
         </aside>
       </article>

@@ -77,6 +77,11 @@ $padding: 15px;
         text-shadow: none;
         background-color: white;
       }
+
+      &:active {
+        color: white;
+        background-color: $dark;
+      }
     }
 
   }
