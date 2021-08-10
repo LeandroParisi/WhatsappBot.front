@@ -1,6 +1,6 @@
 import { deliveryTypesInterface } from 'interfaces/deliveryTypes/deliveryTypes'
 import { paymentMethodInterface } from 'interfaces/paymentMethods/methods'
-import filterTypes from 'libs/filterTypes'
+import inputTypes from 'libs/inputTypes'
 import branchInterface from '../../../../interfaces/branches/branchesInterface'
 
 const {
@@ -8,7 +8,7 @@ const {
   IMAGE,
   ICONS,
   INPUT_ARRAY,
-} = filterTypes
+} = inputTypes
 
 const branchesEditAdapter = (branch) => {
   const {

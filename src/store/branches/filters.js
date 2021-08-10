@@ -1,4 +1,4 @@
-import filterTypes from 'libs/filterTypes'
+import inputTypes from 'libs/inputTypes'
 import { deliveryTypesInterface } from 'interfaces/deliveryTypes/deliveryTypes'
 import { paymentMethodInterface } from 'interfaces/paymentMethods/methods'
 import * as Yup from 'yup'
@@ -9,7 +9,7 @@ const {
   // SELECT,
   // BOOL,
   ICONS,
-} = filterTypes
+} = inputTypes
 
 export const filterInterface = [
   {

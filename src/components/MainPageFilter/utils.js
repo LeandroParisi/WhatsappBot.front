@@ -1,4 +1,4 @@
-import filterTypes from 'libs/filterTypes'
+import inputTypes from 'libs/inputTypes'
 
 const {
   INPUT,
@@ -7,7 +7,7 @@ const {
   BOOL,
   ICONS,
   STATUS,
-} = filterTypes
+} = inputTypes
 
 export const initialValuesSwitch = (type) => {
   switch (type) {

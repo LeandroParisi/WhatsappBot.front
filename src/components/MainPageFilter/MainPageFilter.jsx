@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import filterTypes from 'libs/filterTypes'
+import inputTypes from 'libs/inputTypes'
 import { Button, Checkbox, Input } from 'components'
 import { setOption, setState } from 'store/sharedMethods/actions'
 import Select from 'components/MainComponents/Select/Select'
@@ -17,7 +17,7 @@ const {
   BOOL,
   ICONS,
   STATUS,
-} = filterTypes
+} = inputTypes
 
 const MainPageFilter = ({ filters, validationSchema, saveFilters }) => {
   const initialValues = extractInitialValues(filters)

@@ -1,4 +1,4 @@
-import filterTypes from 'libs/filterTypes'
+import inputTypes from 'libs/inputTypes'
 
 export const statusOptions = [
   {
@@ -17,7 +17,7 @@ export const statusOptions = [
 
 export const statusFilter = {
   key: 'isActive',
-  type: filterTypes.STATUS,
+  type: inputTypes.STATUS,
   options: statusOptions,
   placeholder: 'Status',
 }

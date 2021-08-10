@@ -1,4 +1,4 @@
-const filterTypes = {
+const inputTypes = {
   INPUT: 'input',
   INPUT_ARRAY: 'inputArray',
   SELECT: 'select',
@@ -9,4 +9,4 @@ const filterTypes = {
   IMAGE: 'image',
 }
 
-export default filterTypes
+export default inputTypes
