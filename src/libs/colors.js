@@ -1,0 +1,6 @@
+export const PRIMARY = '#05F258'
+export const PRIMARY2 = '#03A62C'
+export const PRIMARY3 = '#00721c'
+export const PRIMARY4 = '#022601'
+export const DARK = '#0E1E2F'
+export const DARK2 = '#0D0D0D'

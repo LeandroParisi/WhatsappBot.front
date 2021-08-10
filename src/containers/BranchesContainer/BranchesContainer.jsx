@@ -1,11 +1,13 @@
 import React from 'react'
-import { useBranches } from 'store'
+import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
+import { useBranches, useRoot } from 'store'
 import EntitiesContainer from 'components/EntitiesContainer/EntitiesContainer'
 import { entitiesTypes } from 'components/EntitiesContainer/EntitiesInterface'
 import { MainPageFilter } from 'components'
 
 const BranchesContainer = () => {
   const { getUserBranches, getFilters, saveFilters } = useBranches()
+  const { getIsLoading } = useRoot()
   const { filters, validationSchema } = getFilters()
 
   const branches = getUserBranches()
@@ -17,10 +19,16 @@ const BranchesContainer = () => {
         validationSchema={validationSchema}
         saveFilters={saveFilters}
       />
-      <EntitiesContainer
-        entities={branches}
-        type={entitiesTypes.branches}
-      />
+      {getIsLoading()
+        ? (
+          <ReactLoader />
+        )
+        : (
+          <EntitiesContainer
+            entities={branches}
+            type={entitiesTypes.branches}
+          />
+        )}
     </>
   )
 }

@@ -6,20 +6,25 @@ import Icon from 'assets/icons/Icon'
 import { getIcon } from 'assets/icons/iconsLib'
 import classNames from 'classnames'
 import styles from './EntityCard.module.scss'
-import { entitiesTypes } from '../EntitiesContainer/EntitiesInterface'
+import { editEntityAdapter, entitiesTypes } from '../EntitiesContainer/EntitiesInterface'
 import EntityCardSection from './subComponents/EntityCardSection/EntityCardSection'
+import EditModal from './subComponents/EditModal/EditModal'
 
-const EntityCard = ({ entity, type }) => {
+const EntityCard = ({ entity, type, originalEntity }) => {
   const [openModal, setOpenModal] = useState(false)
   const {
     id, name, image, sections, isActive,
   } = entity
-  console.log(entity)
 
   return (
     <>
-      <Modal isOpened={openModal} close={() => setOpenModal(false)}>
-        Teste
+      <Modal
+        isOpened={openModal}
+        close={() => setOpenModal(false)}
+      >
+        <EditModal
+          entity={editEntityAdapter(originalEntity, type)}
+        />
       </Modal>
       <article className={classNames(styles.entity, { [styles.inactive]: !isActive })} key={id}>
         <header className={styles.entityHeader}>
@@ -64,6 +69,7 @@ EntityCard.propTypes = {
     sections: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   }).isRequired,
   type: PropTypes.oneOf([...Object.values(entitiesTypes)]).isRequired,
+  originalEntity: PropTypes.shape({}).isRequired,
 
 }
 export default EntityCard

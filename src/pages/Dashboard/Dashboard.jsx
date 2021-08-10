@@ -1,15 +1,26 @@
 import React from 'react'
-import { DashboardProvider } from 'store'
+import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
+import { DashboardProvider, useRoot } from 'store'
 import BaseLayout from 'templates/BaseLayout/BaseLayout'
 import { DashboardContainer, DashboardHeader } from 'containers'
 
-const Dashboard = () => (
-  <BaseLayout>
-    <DashboardProvider>
-      <DashboardHeader />
-      <DashboardContainer />
-    </DashboardProvider>
-  </BaseLayout>
-)
+const Dashboard = () => {
+  const { getIsLoading } = useRoot()
+
+  return (
+    <BaseLayout>
+      <DashboardProvider>
+        <DashboardHeader />
+        {getIsLoading()
+          ? (
+            <ReactLoader />
+          )
+          : (
+            <DashboardContainer />
+          )}
+      </DashboardProvider>
+    </BaseLayout>
+  )
+}
 
 export default Dashboard

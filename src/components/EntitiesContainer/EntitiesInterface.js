@@ -1,13 +1,21 @@
 import branchesAdapter from './adapters/branches/branchEntity'
+import branchesEditAdapter from './adapters/branches/branchEntityEdit'
 
 const entitiesTypes = {
   branches: 'branches',
 }
 
-const entityAdapter = {
+const entityAdapters = {
   [entitiesTypes.branches]: branchesAdapter,
 }
 
-const entitiesAdapter = (entities, type) => entities.map((entity) => entityAdapter[type](entity))
+const editEntityAdapters = {
+  [entitiesTypes.branches]: branchesEditAdapter,
 
-export { entitiesTypes, entitiesAdapter }
+}
+
+const entityAdapter = (entity, type) => entityAdapters[type](entity)
+
+const editEntityAdapter = (entity, type) => editEntityAdapters[type](entity)
+
+export { entitiesTypes, entityAdapter, editEntityAdapter }

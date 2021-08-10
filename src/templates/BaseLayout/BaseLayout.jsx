@@ -4,25 +4,15 @@ import Header from 'components/Header/Header'
 import { useRoot } from 'store'
 import globalStyles from 'assets/scss/globals.module.scss'
 import Overlay from 'templates/Overlay/Overlay'
-import useLoading from 'hooks/useLoading'
 import styles from './BaseLayout.module.scss'
 
 const BaseLayout = ({ children, mainPage }) => {
-  const { getIsLoading } = useRoot()
-
   const [openMenu, setOpenMenu] = useState(false)
-  const isLoading = getIsLoading()
 
   return (
     <div className={styles.baseLayoutContainer}>
-      {useLoading({
-        show: isLoading,
-        image: 'mainLoader',
-        background: 'transparent',
-      })}
-
       <Overlay
-        isOpened={openMenu || isLoading}
+        isOpened={openMenu}
         close={setOpenMenu}
       />
       <Header
