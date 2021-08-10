@@ -2,8 +2,6 @@ import routes from 'libs/routes'
 import { useHistory } from 'react-router-dom'
 import responseHandler from 'services/responseHandler'
 import { setState } from 'store/sharedMethods/actions'
-import * as providers from './provider'
-import * as sharedProviders from '../sharedMethods/providers'
 
 export default (setRoot) => {
   const history = useHistory()
