@@ -1,0 +1,25 @@
+@import '../../../../assets/scss/colors.scss';
+@import '../../../../assets/scss/mixins.scss';
+@import '../../../../assets/scss/fonts.scss';
+
+.entityHeader {
+  @include flexBox(column);
+  margin-bottom: 15px;
+
+
+  .avatarContainer {
+    @include flexBox();
+    background-color: $primary2;
+    border-radius: 100%;
+    border: $dark 5px outset;
+    width: fit-content;
+
+    .avatar {
+      width: 200px;
+    }
+  }
+
+  h2 {
+    margin-top: 10px;
+  }
+}

@@ -5,6 +5,7 @@ import defaultImages from 'libs/defaultImages'
 import Icon from 'assets/icons/Icon'
 import { getIcon } from 'assets/icons/iconsLib'
 import classNames from 'classnames'
+import CardHeader from './subComponents/CardHeader/CardHeader'
 import styles from './EntityCard.module.scss'
 import { editEntityAdapter, entitiesTypes } from '../EntitiesContainer/EntitiesInterface'
 import EntityCardSection from './subComponents/EntityCardSection/EntityCardSection'
@@ -24,19 +25,15 @@ const EntityCard = ({ entity, type, originalEntity }) => {
       >
         <EditModal
           entity={editEntityAdapter(originalEntity, type)}
+          type={type}
         />
       </Modal>
       <article className={classNames(styles.entity, { [styles.inactive]: !isActive })} key={id}>
-        <header className={styles.entityHeader}>
-          <div className={styles.avatarContainer}>
-            <img
-              src={image || defaultImages[type]}
-              alt={name}
-              className={styles.avatar}
-            />
-          </div>
-          <h2>{name}</h2>
-        </header>
+        <CardHeader
+          image={image}
+          type={type}
+          name={name}
+        />
         <hr />
         <div className={styles.sectionsContainer}>
           {sections.map((section, index) => (
