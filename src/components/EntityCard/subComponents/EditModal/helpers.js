@@ -1,32 +1,26 @@
+import { inputTypes } from 'libs/inputTypes'
+
 const extractInitialValues = (entity) => {
   const {
     id, isActive, header, sections,
   } = entity
 
   const initialValues = {
-    id: {
-      value: id,
-      editing: false,
-    },
-    isActive: {
-      value: isActive,
-      editing: false,
-    },
+    id,
+    isActive,
   }
 
   header.forEach(({ key, value }) => {
-    initialValues[key] = {
-      value,
-      editing: false,
-    }
+    initialValues[key] = value
   })
 
   sections.forEach(({ subSections }) => {
-    subSections.forEach(({ key, value }) => {
-      initialValues[key] = {
-        value,
-        editing: false,
+    subSections.forEach(({ key, value, fieldType }) => {
+      if (fieldType === inputTypes.ICONS) {
+        initialValues[key] = new Set(value.map(({ id: valueId }) => valueId))
+        return
       }
+      initialValues[key] = value
     })
   })
 

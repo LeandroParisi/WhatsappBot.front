@@ -1,4 +1,4 @@
-const inputTypes = {
+export const inputTypes = {
   INPUT: 'input',
   INPUT_ARRAY: 'inputArray',
   SELECT: 'select',
@@ -9,4 +9,6 @@ const inputTypes = {
   IMAGE: 'image',
 }
 
-export default inputTypes
+export const customFieldTypes = {
+  DELIVERY_FEES: 'delivery_fees',
+}

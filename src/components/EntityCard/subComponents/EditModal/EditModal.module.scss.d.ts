@@ -4,6 +4,8 @@ export const container: string;
 export const entityHeader: string;
 export const fullPage: string;
 export const mainPage: string;
+export const optionIcon: string;
+export const optionsContainer: string;
 export const section: string;
 export const sectionsContainer: string;
 export const subSection: string;

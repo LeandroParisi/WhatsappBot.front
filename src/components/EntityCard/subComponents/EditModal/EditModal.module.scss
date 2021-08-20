@@ -13,6 +13,7 @@
     @include flexBox(column);
     margin: auto;
     margin-bottom: 15px;
+    gap: 20px;
 
     .avatarContainer {
       @include flexBox();
@@ -36,7 +37,7 @@
 
     .section {
       @include flexBox(column, flex-start, flex-start);
-      margin-bottom: 40px;
+      margin-bottom: 55px;
       width: 100%;
 
       > h2 {
@@ -47,10 +48,10 @@
       .subSectionContainer{
         @include flexBox(row, flex-start);
         width: 100%;
-        gap: 20px;
 
         .subSection {
           @include flexBox(column);
+          margin: 10px 35px;
 
           > p {
             margin-right: auto;
@@ -61,9 +62,19 @@
 
           > div {
             align-self: flex-start;
+            margin-top: 8px;
+          }
+
+          .optionsContainer {
+            @include flexBox(row, flex-start);
+
+            > .optionIcon {
+              cursor: pointer;
+            }
           }
         }
       }
+
 
     }
   }
@@ -71,7 +82,6 @@
   input {
     @extend .whiteInput;
     font-size: $font-small;
-    margin-top: 8px;
     border-color: $gray2;
     // color: $gray2;
     border: none;

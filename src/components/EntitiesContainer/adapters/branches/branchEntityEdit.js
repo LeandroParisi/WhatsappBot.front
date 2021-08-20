@@ -1,6 +1,6 @@
 import { deliveryTypesInterface } from 'interfaces/deliveryTypes/deliveryTypes'
 import { paymentMethodInterface } from 'interfaces/paymentMethods/methods'
-import inputTypes from 'libs/inputTypes'
+import { inputTypes, customFieldTypes } from 'libs/inputTypes'
 import branchInterface from '../../../../interfaces/branches/branchesInterface'
 
 const {
@@ -9,6 +9,10 @@ const {
   ICONS,
   INPUT_ARRAY,
 } = inputTypes
+
+const {
+  DELIVERY_FEES,
+} = customFieldTypes
 
 const branchesEditAdapter = (branch) => {
   const {
@@ -116,22 +120,21 @@ const branchesEditAdapter = (branch) => {
           {
             value: deliveryFees,
             key: branchInterface.deliveryFees,
-            title: 'Taxas de entrega',
-            type: ICONS,
-            options: INPUT_ARRAY,
+            sectionName: 'Taxas de entrega',
+            customField: DELIVERY_FEES,
           },
           {
             value: deliveryTypes,
             key: branchInterface.deliveryTypes,
-            title: 'Tipo de entrega',
-            type: ICONS,
+            sectionName: 'Tipo de entrega',
+            fieldType: ICONS,
             options: deliveryTypesInterface,
           },
           {
             value: paymentMethods,
             key: branchInterface.paymentMethods,
-            title: 'Métodos de pagamento',
-            type: ICONS,
+            sectionName: 'Métodos de pagamento',
+            fieldType: ICONS,
             options: paymentMethodInterface,
           }],
       },
