@@ -1,3 +1,4 @@
+import { deliveryFeeInterface, deliveryFeeTranslations } from 'interfaces/deliveryFees/deliveryFeeTypes'
 import { deliveryTypesInterface } from 'interfaces/deliveryTypes/deliveryTypes'
 import { paymentMethodInterface } from 'interfaces/paymentMethods/methods'
 import { inputTypes, customFieldTypes } from 'libs/inputTypes'
@@ -118,10 +119,14 @@ const branchesEditAdapter = (branch) => {
         title: 'Taxas e opções',
         subSections: [
           {
-            value: deliveryFees,
+            value: {
+              ...deliveryFees,
+              type: { id: deliveryFees.type, name: deliveryFeeTranslations[deliveryFees.type] },
+            },
             key: branchInterface.deliveryFees,
             sectionName: 'Taxas de entrega',
             customField: DELIVERY_FEES,
+            options: deliveryFeeInterface,
           },
           {
             value: deliveryTypes,

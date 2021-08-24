@@ -29,10 +29,16 @@ const Select = ({
 }
 
 Select.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  })).isRequired,
   setOption: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  selected: PropTypes.shape({}).isRequired,
+  selected: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 Select.defaultProps = {
