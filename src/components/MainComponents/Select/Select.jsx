@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styles from './Select.module.scss'
 
 const Select = ({
-  options, selected, setOption, placeholder,
+  options, selected, setOption, placeholder, color,
 }) => {
   const onChange = ({ target }) => {
     const { options: inputOptions, options: { selectedIndex } } = target
@@ -12,7 +12,7 @@ const Select = ({
   }
 
   return (
-    <select onChange={onChange}>
+    <select onChange={onChange} className={styles[color]}>
       <option
         value=""
         selected={!selected.name}
@@ -34,6 +34,7 @@ Select.propTypes = {
     name: PropTypes.string.isRequired,
   })).isRequired,
   setOption: PropTypes.func.isRequired,
+  color: PropTypes.oneOf(['black', 'white']),
   placeholder: PropTypes.string,
   selected: PropTypes.shape({
     id: PropTypes.string.isRequired,
@@ -43,6 +44,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
   placeholder: '',
+  color: 'black',
 }
 
 export default Select

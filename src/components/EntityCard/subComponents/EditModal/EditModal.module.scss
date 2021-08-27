@@ -46,7 +46,7 @@
       }
 
       .subSectionContainer{
-        @include flexBox(row, flex-start);
+        @include flexBox(row, flex-start, flex-start);
         width: 100%;
 
         .subSection {
@@ -79,9 +79,12 @@
     }
   }
 
+  input, select {
+    font-size: $font-small;
+  }
+
   input {
     @extend .whiteInput;
-    font-size: $font-small;
     border-color: $gray2;
     // color: $gray2;
     border: none;

@@ -6,4 +6,22 @@ select {
   .placeholder {
     color: $gray;
   }
+
+  &.white {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px white solid;
+    color: white
+  }
+
+  &.black {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px $dark2 solid;
+    color: $dark2
+  }
+
+  option {
+    color: black
+  }
 }

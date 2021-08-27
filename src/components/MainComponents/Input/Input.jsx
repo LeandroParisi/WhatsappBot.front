@@ -12,8 +12,9 @@ const Input = ({
   error: { error, errorMessage },
   onFocus,
   label,
+  className,
 }) => (
-  <div className={styles.inputContainer}>
+  <div className={classNames(styles.inputContainer, className)}>
     {label && <label htmlFor={value}>{label}</label>}
     <input
       id={value}
@@ -41,6 +42,7 @@ Input.propTypes = {
     error: PropTypes.bool.isRequired,
     errorMessage: PropTypes.string.isRequired,
   }),
+  className: PropTypes.string,
 }
 
 Input.defaultProps = {
@@ -50,6 +52,7 @@ Input.defaultProps = {
   onFocus: null,
   error: {},
   type: 'text',
+  className: '',
 }
 
 export default Input

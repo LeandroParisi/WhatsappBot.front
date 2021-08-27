@@ -6,7 +6,48 @@
   @include flexBox(column);
 
   .innerField {
-    @include flexBox();
+    @include flexBox(row, flex-start);
+    width: 100%;
     gap: 20px;
+
+    > p {
+      min-width: 100px;
+    }
+
+    &:nth-child(2) {
+      margin-top: 15px;
+    }
+
+    input {
+      /* Chrome, Safari, Edge, Opera */
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+  
+      /* Firefox */
+      &[type=number] {
+        -moz-appearance: textfield;
+      }
+    }
+  }
+}
+
+.distanceContainer {
+  @include flexBox();
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
+
+  .distanceFees {
+    > label {
+      font-size: $font-xsmall;
+      margin-bottom: 3px;
+    }
+
+    > input {
+      width: 50px;
+    }
   }
 }
