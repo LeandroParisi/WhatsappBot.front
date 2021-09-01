@@ -64,13 +64,28 @@
   }
 
   .timePickerContainer {
-    @include flexBox(row, center);
-    gap: 20px;
+    @include flexBox(column, center);
+    gap: 5px;
 
-    .timePicker {
-      > p {
-        color: $gray2;
-        font-size: $font-xxsmall;  
+    .inputsContainer {
+      @include flexBox(row, center);
+      gap: 20px;
+
+      .timePicker {
+        > p {
+          color: $gray2;
+          font-size: $font-xxsmall;  
+        }
+      }
+    }
+
+
+
+    .overnightCheck {
+      flex-direction: row-reverse;
+
+      > label {
+        font-size: $font-xsmall;
       }
     }
   }

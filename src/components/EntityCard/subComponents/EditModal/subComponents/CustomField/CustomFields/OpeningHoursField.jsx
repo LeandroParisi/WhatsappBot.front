@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import {
   dayToNumber,
   numberToDay,
   dayTranslation,
 } from 'interfaces/openingHours/openingHoursInterface'
-import { Select, Input, TimePicker } from 'components'
+import { Checkbox, TimePicker } from 'components'
 import classNames from 'classnames'
 import styles from '../CustomField.module.scss'
 
@@ -27,19 +27,34 @@ const OpeningHoursField = ({ updateState, formValues, subSection }) => {
 
   const changeHour = (newValue, index, day) => {
     const dayAsString = numberToDay[day]
-    const newHour = stateField[dayAsString]
+    const newHour = stateField[dayAsString].hours
     newHour[index] = newValue
 
     updateState(key, {
       ...stateField,
-      [dayAsString]: newHour,
+      [dayAsString]: {
+        ...stateField[dayAsString],
+        hours: newHour,
+      },
     })
   }
 
-  console.log({ stateField })
+  const checkOvernight = (day) => {
+    const dayAsString = numberToDay[day]
+
+    updateState(key, {
+      ...stateField,
+      [dayAsString]: {
+        ...stateField[dayAsString],
+        overnight: !stateField[dayAsString].overnight,
+      },
+    })
+  }
+
   return (
     <div className={styles.innerField}>
-      {parsedValues.map(([day, hours]) => {
+      {parsedValues.map(([day, data]) => {
+        const { hours, overnight } = data
         const isDisabled = !hours[0] && !hours[1]
 
         return (
@@ -49,14 +64,24 @@ const OpeningHoursField = ({ updateState, formValues, subSection }) => {
             <p>{dayTranslation[day]}</p>
 
             <div className={styles.timePickerContainer}>
-              {hours.map((hour, index) => (
-                <TimePicker
-                  value={hour}
-                  label={labels[index]}
-                  containerClass={styles.timePicker}
-                  onChange={(e) => changeHour(e, index, day)}
-                />
-              ))}
+              <div className={styles.inputsContainer}>
+                {hours.map((hour, index) => (
+                  <TimePicker
+                    value={hour}
+                    label={labels[index]}
+                    containerClass={styles.timePicker}
+                    onChange={(e) => changeHour(e, index, day)}
+                  />
+                ))}
+              </div>
+
+              <Checkbox
+                checked={overnight}
+                placeholder="Fecha no dia seguinte?"
+                className={styles.overnightCheck}
+                id={`${numberToDay[day]}`}
+                onClick={() => checkOvernight(day)}
+              />
             </div>
 
           </div>

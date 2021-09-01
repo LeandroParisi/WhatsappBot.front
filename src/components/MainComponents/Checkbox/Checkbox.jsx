@@ -5,22 +5,24 @@ import styles from './Checkbox.module.scss'
 
 const Checkbox = ({
   placeholder,
-  value,
+  id,
   onClick,
   error: { error, errorMessage },
+  checked,
+  className,
 }) => (
-  <div className={styles.inputContainer}>
+  <div className={classNames(styles.inputContainer, className)}>
     {placeholder && (
-    <label htmlFor={value}>
+    <label htmlFor={id}>
       {placeholder}
     </label>
     )}
     <input
-      id={value}
+      id={id}
       type="checkbox"
       className={classNames({ [styles.error]: error })}
       placeholder={placeholder}
-      value={value}
+      checked={checked}
       onClick={onClick}
     />
     {error && <p className={styles.errorText}>{errorMessage}</p>}
@@ -36,11 +38,13 @@ Checkbox.propTypes = {
     error: PropTypes.bool.isRequired,
     errorMessage: PropTypes.string.isRequired,
   }),
+  className: PropTypes.string,
 }
 
 Checkbox.defaultProps = {
   placeholder: '',
   error: {},
+  className: '',
 }
 
 export default Checkbox
