@@ -22,6 +22,10 @@ const BranchesStore = useCreateStore(() => {
     actions.fetchUserBranches($branches.query)
   }, [$branches.query])
 
+  useEffect(() => {
+    console.log($branches.userBranches)
+  }, [$branches.userBranches])
+
   return { $branches, ...actions, ...selectors }
 })
 

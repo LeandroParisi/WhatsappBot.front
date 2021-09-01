@@ -32,6 +32,14 @@ const endpoints = {
       endpoint: '',
       method: METHODS.GET,
     },
+    activate: {
+      endpoint: '/activate',
+      method: METHODS.PUT,
+    },
+    deactivate: {
+      endpoint: '/deactivate',
+      method: METHODS.PUT,
+    },
     updateOne: {
       endpoint: '',
       method: METHODS.PUT,

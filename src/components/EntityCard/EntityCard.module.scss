@@ -33,10 +33,7 @@ $sectionContainerMinHeight: 350px;
     overflow-x: hidden;
   }
   
-  .sideOptions {
-    position: absolute;
-    left: $padding;
-  }
+
 
   &:hover {
     @include boxShadow(4px, 9px)

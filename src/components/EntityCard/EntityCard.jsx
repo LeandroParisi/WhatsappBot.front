@@ -10,9 +10,10 @@ import styles from './EntityCard.module.scss'
 import { editEntityAdapter, entitiesTypes } from '../EntitiesContainer/EntitiesInterface'
 import EntityCardSection from './subComponents/EntityCardSection/EntityCardSection'
 import EditModal from './subComponents/EditModal/EditModal'
+import SideBar from './subComponents/Sidebar/SideBar'
 
 const EntityCard = ({
-  entity, type, originalEntity, editRequest,
+  entity, type, originalEntity, editRequest, activate, deactivate,
 }) => {
   const [openModal, setOpenModal] = useState(false)
   const {
@@ -32,6 +33,7 @@ const EntityCard = ({
           editRequest={editRequest}
         />
       </Modal>
+
       <article className={classNames(styles.entity, { [styles.inactive]: !isActive })} key={id}>
         <CardHeader
           image={image}
@@ -47,14 +49,16 @@ const EntityCard = ({
             </>
           ))}
         </div>
-        <aside className={styles.sideOptions}>
-          <Icon
-            icon={getIcon('edit')}
-            type="default"
-            size="20px"
-            onClick={() => setOpenModal(!openModal)}
-          />
-        </aside>
+
+        <SideBar
+          isActive={isActive}
+          actions={{
+            openEdit: () => setOpenModal(!openModal),
+            activate: () => activate(id),
+            deactivate: () => deactivate(id),
+          }}
+        />
+
       </article>
     </>
 
@@ -71,6 +75,8 @@ EntityCard.propTypes = {
   }).isRequired,
   type: PropTypes.oneOf([...Object.values(entitiesTypes)]).isRequired,
   originalEntity: PropTypes.shape({}).isRequired,
-
+  editRequest: PropTypes.func.isRequired,
+  activate: PropTypes.func.isRequired,
+  deactivate: PropTypes.func.isRequired,
 }
 export default EntityCard

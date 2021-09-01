@@ -7,7 +7,7 @@ import { MainPageFilter } from 'components'
 
 const BranchesContainer = () => {
   const {
-    getUserBranches, getFilters, saveFilters, updateBranch,
+    getUserBranches, getFilters, saveFilters, updateBranch, activateBranch, deactivateBranch,
   } = useBranches()
   const { getIsLoading } = useRoot()
   const { filters, validationSchema } = getFilters()
@@ -30,6 +30,8 @@ const BranchesContainer = () => {
             entities={branches}
             type={entitiesTypes.branches}
             editRequest={updateBranch}
+            activate={activateBranch}
+            deactivate={deactivateBranch}
           />
         )}
     </>

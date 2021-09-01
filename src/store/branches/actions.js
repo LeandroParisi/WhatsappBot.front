@@ -13,7 +13,7 @@ export default (store, setStore, useRoot) => {
   const fetchUserBranches = async (query = '') => {
     const { response } = await errorHandler(sharedProviders.fetchUserBranches(query))
 
-    if (response?.length) {
+    if (response) {
       setField('userBranches', response)
     }
   }
@@ -28,10 +28,47 @@ export default (store, setStore, useRoot) => {
     }
   }
 
+  const activateBranch = async (id) => {
+    const { response } = await errorHandler(providers.activateBranch(id))
+
+    if (response) {
+      const updatedBranches = store.userBranches.map((branch) => {
+        if (branch.id === id) {
+          return {
+            ...branch,
+            isActive: true,
+          }
+        }
+        return branch
+      })
+
+      setField('userBranches', updatedBranches)
+    }
+  }
+
+  const deactivateBranch = async (id) => {
+    const { response } = await errorHandler(providers.deactivateBranch(id))
+
+    if (response) {
+      const updatedBranches = store.userBranches.map((branch) => {
+        if (branch.id === id) {
+          return {
+            ...branch,
+            isActive: false,
+          }
+        }
+        return branch
+      })
+
+      setField('userBranches', updatedBranches)
+    }
+  }
   return {
     setField,
     fetchUserBranches,
     saveFilters,
     updateBranch,
+    activateBranch,
+    deactivateBranch,
   }
 }

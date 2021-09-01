@@ -32,19 +32,21 @@ const Checkbox = ({
 
 Checkbox.propTypes = {
   placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   error: PropTypes.shape({
     error: PropTypes.bool.isRequired,
     errorMessage: PropTypes.string.isRequired,
   }),
   className: PropTypes.string,
+  checked: PropTypes.bool,
 }
 
 Checkbox.defaultProps = {
   placeholder: '',
   error: {},
   className: '',
+  checked: false,
 }
 
 export default Checkbox
