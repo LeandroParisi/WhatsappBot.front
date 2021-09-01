@@ -13,6 +13,7 @@ const Input = ({
   onFocus,
   label,
   className,
+  onMouseOut,
 }) => (
   <div className={classNames(styles.inputContainer, className)}>
     {label && <label htmlFor={value}>{label}</label>}
@@ -25,6 +26,7 @@ const Input = ({
       onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
+      onMouseOut={onMouseOut}
     />
     {error && <p className={styles.errorText}>{errorMessage}</p>}
   </div>

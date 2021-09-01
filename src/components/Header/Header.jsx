@@ -20,7 +20,7 @@ const Header = ({
         toggled={openMenu}
         toggle={() => setOpenMenu(!openMenu)}
       />
-      <Button onClick={() => history.push(routes.dashboard)} className={styles.logoContainer}>
+      <Button onClick={() => history.push(routes.dashboard)} className={styles.logoContainer} styleType="main">
         <img className={styles.logo} src={logo} alt="logo" />
       </Button>
       <SideBar isOpened={openMenu} />

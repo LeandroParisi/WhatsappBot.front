@@ -32,6 +32,10 @@ const endpoints = {
       endpoint: '',
       method: METHODS.GET,
     },
+    updateOne: {
+      endpoint: '',
+      method: METHODS.PUT,
+    },
   },
   orders: {
     findAll: {

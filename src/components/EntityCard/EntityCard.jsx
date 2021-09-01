@@ -11,7 +11,9 @@ import { editEntityAdapter, entitiesTypes } from '../EntitiesContainer/EntitiesI
 import EntityCardSection from './subComponents/EntityCardSection/EntityCardSection'
 import EditModal from './subComponents/EditModal/EditModal'
 
-const EntityCard = ({ entity, type, originalEntity }) => {
+const EntityCard = ({
+  entity, type, originalEntity, editRequest,
+}) => {
   const [openModal, setOpenModal] = useState(false)
   const {
     id, name, image, sections, isActive,
@@ -22,10 +24,12 @@ const EntityCard = ({ entity, type, originalEntity }) => {
       <Modal
         isOpened={openModal}
         close={() => setOpenModal(false)}
+        className={styles.editModal}
       >
         <EditModal
           entity={editEntityAdapter(originalEntity, type)}
           type={type}
+          editRequest={editRequest}
         />
       </Modal>
       <article className={classNames(styles.entity, { [styles.inactive]: !isActive })} key={id}>

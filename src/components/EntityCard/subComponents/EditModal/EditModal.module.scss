@@ -79,11 +79,11 @@
     }
   }
 
-  input, select {
+  [class*='inputContainer'] > input, select {
     font-size: $font-small;
   }
 
-  input {
+  [class*='inputContainer'] > input {
     @extend .whiteInput;
     border-color: $gray2;
     // color: $gray2;
@@ -93,5 +93,12 @@
       color: white;
     }
 
+  }
+
+  .editButton {
+    @extend .whiteButton;
+    position: sticky;
+    bottom: 10px;
+    left: 88%;
   }
 }

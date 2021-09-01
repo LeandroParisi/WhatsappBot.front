@@ -1,4 +1,5 @@
 @import './colors.scss';
+@import './mixins.scss';
 
 $header-height: 8vh;
 $sideBar-width: 220px;
@@ -14,7 +15,31 @@ $headerColor: $primary3;
   padding: 25px;
 }
 
+.mainInput {
+  background-color: transparent;
+  border: none;
+  color: $primary;
+  border-bottom: 1px $primary solid;
+  text-align: center;
+
+  &::placeholder {
+    color: $primaryTransarent
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom: 2px $primary solid;
+
+  }
+  
+  &:hover {
+    transition: 1s;
+    border-bottom: 2px $secondary solid;
+  }
+}
+
 .whiteInput {
+  @extend .mainInput;
   color: white;
   border-bottom: 1px white solid;
 
@@ -29,5 +54,49 @@ $headerColor: $primary3;
   
   &:hover {
     border-bottom: 2px white solid;
+  }
+}
+
+.mainButton {
+  padding: 10px;
+  background-color: $dark2;
+  color: $primary;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  
+  
+  &:hover {
+    @include textShadow();
+    background-color: $primary;
+    color: $dark2;
+  }
+
+  &:disabled {
+    background-color: $gray;
+    opacity: 0.5;
+    color:white;
+    text-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.whiteButton {
+  @extend .mainButton;
+  color: $dark;
+  background-color: white;
+  transition: 0.3s;
+  width: 120px;
+
+  &:hover {
+    @include boxShadow(2px, 2px, $whiteTransparent);
+    text-shadow: none;
+    background-color: white;
+  }
+
+  &:active {
+    color: white;
+    background-color: $dark;
   }
 }

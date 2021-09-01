@@ -1,0 +1,30 @@
+@import '../../../assets/scss/colors.scss';
+@import '../../../assets/scss/mixins.scss';
+@import '../../../assets/scss/fonts.scss';
+@import '../../../assets/scss/globals.module.scss';
+
+.container {
+
+  .timePicker {
+    * {
+      color: white;
+      font-size: $font-small;
+    }
+  
+    > div {
+      border-radius: 5px;
+    }
+  
+    input {
+      border: none;
+    }
+
+    [class*='react-time-picker__inputGroup'] {
+      min-width: initial;
+    }
+
+    [class*='react-time-picker__button'] {
+      padding: 0;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Select, Input } from 'components'
-import { deliveryFeeTranslations, deliveryFeeTypes } from 'interfaces/deliveryFees/deliveryFeeTypes'
+import { deliveryFeeTypes } from 'interfaces/deliveryFees/deliveryFeeTypes'
 import styles from '../CustomField.module.scss'
 
 const LABELS = {
@@ -15,8 +15,6 @@ const DeliveryFeeField = ({ updateState, formValues, subSection }) => {
   const {
     key, options,
   } = subSection
-
-  console.log(formValues[key])
 
   const stateField = formValues[key]
   const { fees, type } = stateField
@@ -56,10 +54,17 @@ const DeliveryFeeField = ({ updateState, formValues, subSection }) => {
 
     const updatedValues = {
       ...stateField,
-      fees: newState.sort(([a], [b]) => a - b),
+      fees: newState,
     }
 
     updateState(key, updatedValues)
+  }
+
+  const sortFees = () => {
+    updateState(key, {
+      ...stateField,
+      fees: fees.sort(([a], [b]) => a - b),
+    })
   }
 
   return (
@@ -85,14 +90,14 @@ const DeliveryFeeField = ({ updateState, formValues, subSection }) => {
             <>
               {fees?.map(([distance, price], index) => (
                 <div className={styles.distanceContainer}>
-                  {distance !== undefined && <Input value={distance} className={styles.distanceFees} label={KM} type="number" onChange={(e) => setDistanceFee(e.target.value, KM, index)} />}
+                  {distance !== undefined && <Input onBlur={sortFees} value={distance} className={styles.distanceFees} label={KM} type="number" onChange={(e) => setDistanceFee(e.target.value, KM, index)} />}
 
-                  {price !== undefined && <Input value={price} className={styles.distanceFees} label={PRICE} type="number" onChange={(e) => setDistanceFee(e.target.value, PRICE, index)} />}
+                  {price !== undefined && <Input onBlur={sortFees} value={price} className={styles.distanceFees} label={PRICE} type="number" onChange={(e) => setDistanceFee(e.target.value, PRICE, index)} />}
                 </div>
               ))}
               <div className={styles.distanceContainer}>
-                <Input value="distance" className={styles.distanceFees} label={KM} type="number" onChange={(e) => setDistanceFee(e.target.value, KM)} />
-                <Input value="price" className={styles.distanceFees} label={PRICE} type="number" onChange={(e) => setDistanceFee(e.target.value, PRICE)} />
+                <Input onBlur={sortFees} value="distance" className={styles.distanceFees} label={KM} type="number" onChange={(e) => setDistanceFee(e.target.value, KM)} />
+                <Input onBlur={sortFees} value="price" className={styles.distanceFees} label={PRICE} type="number" onChange={(e) => setDistanceFee(e.target.value, PRICE)} />
               </div>
             </>
           )}

@@ -1,10 +1,10 @@
 import React from 'react'
 import { customFieldTypes } from 'libs/inputTypes'
 import PropTypes from 'prop-types'
-import DeliveryFeeField from './CustomFields/DeliveryFeeField'
+import { DeliveryFeeField, OpeningHoursField } from './CustomFields'
 import styles from './CustomField.module.scss'
 
-const { DELIVERY_FEES } = customFieldTypes
+const { DELIVERY_FEES, OPENING_HOURS } = customFieldTypes
 
 const CustomField = ({ subSection, updateState, formValues }) => {
   const {
@@ -12,14 +12,22 @@ const CustomField = ({ subSection, updateState, formValues }) => {
   } = subSection
 
   const customFieldFactory = () => {
-    if (customField === DELIVERY_FEES) {
-      return (
-        <DeliveryFeeField
-          subSection={subSection}
-          updateState={updateState}
-          formValues={formValues}
-        />
-      )
+    const customFields = {
+      [DELIVERY_FEES]: <DeliveryFeeField
+        subSection={subSection}
+        updateState={updateState}
+        formValues={formValues}
+      />,
+      [OPENING_HOURS]: <OpeningHoursField
+        subSection={subSection}
+        updateState={updateState}
+        formValues={formValues}
+      />,
+
+    }
+
+    if (customFields[customField]) {
+      return customFields[customField]
     }
     throw new Error('Invalid custom field type')
   }

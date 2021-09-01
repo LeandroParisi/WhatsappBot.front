@@ -1,6 +1,7 @@
 import { saveFiltersFactory, setState } from 'store/sharedMethods/actions'
 import * as providers from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
+import { normalizeEditPayload } from './serializers'
 
 export default (store, setStore, useRoot) => {
   const { errorHandler } = useRoot()
@@ -17,9 +18,20 @@ export default (store, setStore, useRoot) => {
     }
   }
 
+  const updateBranch = async ({ id, body }) => {
+    const { response } = await errorHandler(providers.updateBranch(
+      { id, body: normalizeEditPayload(body) },
+    ))
+
+    if (response) {
+      await fetchUserBranches()
+    }
+  }
+
   return {
     setField,
     fetchUserBranches,
     saveFilters,
+    updateBranch,
   }
 }

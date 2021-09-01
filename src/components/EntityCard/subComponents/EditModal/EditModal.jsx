@@ -8,17 +8,24 @@ import classNames from 'classnames'
 import { getIcon } from 'assets/icons/iconsLib'
 import { DARK_GRAY } from 'libs/colors'
 import { handleIconSelectFactory, setState } from 'store/sharedMethods/actions'
+import Button from 'components/MainComponents/Button/Button'
 import CustomField from './subComponents/CustomField/CustomField'
 import styles from './EditModal.module.scss'
 import extractInitialValues from './helpers'
 
-const EditModal = ({ entity, type }) => {
+const EditModal = ({ entity, type, editRequest }) => {
   const [formValues, setFormValues] = useState(extractInitialValues(entity))
-  const { header, sections } = entity
+  const { header, sections, id } = entity
 
   const updateState = setState(setFormValues)
 
   const handleIconSelect = handleIconSelectFactory(formValues, updateState)
+
+  const editEntity = async () => {
+    await editRequest({ id, body: formValues })
+    console.log(id)
+    console.log({ formValues })
+  }
 
   const headerFactory = ({ value, key, fieldType }) => {
     if (fieldType === inputTypes.IMAGE) {
@@ -34,7 +41,10 @@ const EditModal = ({ entity, type }) => {
     }
     if (fieldType === inputTypes.INPUT) {
       return (
-        <Input value={formValues[key]} onChange={(e) => updateState(key, e.target.value)} />
+        <Input
+          value={formValues[key]}
+          onChange={(e) => updateState(key, e.target.value)}
+        />
       )
     }
     throw new Error('Invalid field type')
@@ -47,7 +57,10 @@ const EditModal = ({ entity, type }) => {
       return (
         <>
           <p>{sectionName}</p>
-          <Input value={formValues[key]} onChange={(e) => updateState(key, e.target.value)} />
+          <Input
+            value={formValues[key]}
+            onChange={(e) => updateState(key, e.target.value)}
+          />
         </>
       )
     }
@@ -104,6 +117,7 @@ const EditModal = ({ entity, type }) => {
           ))}
         </section>
       )}
+      <Button onClick={editEntity} className={styles.editButton}>Salvar</Button>
     </form>
   )
 }

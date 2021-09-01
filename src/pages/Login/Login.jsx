@@ -53,6 +53,7 @@ const Login = () => {
               <Button
                 disabled={isDisabled}
                 type="submit"
+                styleType="main"
               >
                 Login
               </Button>

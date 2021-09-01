@@ -13,6 +13,7 @@ const {
 
 const {
   DELIVERY_FEES,
+  OPENING_HOURS,
 } = customFieldTypes
 
 const branchesEditAdapter = (branch) => {
@@ -33,6 +34,7 @@ const branchesEditAdapter = (branch) => {
     logo,
     paymentMethods,
     streetNumber,
+    openingHours,
   } = branch
 
   return {
@@ -59,6 +61,12 @@ const branchesEditAdapter = (branch) => {
             key: branchInterface.managerName,
             sectionName: 'Gerente',
             fieldType: INPUT,
+          },
+          {
+            value: openingHours,
+            key: branchInterface.openingHours,
+            sectionName: 'Horários de funcionamento',
+            customField: OPENING_HOURS,
           },
         ],
       },

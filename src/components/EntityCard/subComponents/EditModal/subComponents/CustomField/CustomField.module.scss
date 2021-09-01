@@ -4,32 +4,32 @@
 
 .subContainer {
   @include flexBox(column);
+}
 
-  .innerField {
-    @include flexBox(row, flex-start);
-    width: 100%;
-    gap: 20px;
+.innerField {
+  @include flexBox(row, flex-start);
+  width: 100%;
+  gap: 20px;
 
-    > p {
-      min-width: 100px;
+  > p {
+    min-width: 100px;
+  }
+
+  &:nth-child(2) {
+    margin-top: 15px;
+  }
+
+  input {
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
 
-    &:nth-child(2) {
-      margin-top: 15px;
-    }
-
-    input {
-      /* Chrome, Safari, Edge, Opera */
-      &::-webkit-outer-spin-button,
-      &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-  
-      /* Firefox */
-      &[type=number] {
-        -moz-appearance: textfield;
-      }
+    /* Firefox */
+    &[type=number] {
+      -moz-appearance: textfield;
     }
   }
 }
@@ -49,5 +49,37 @@
     > input {
       width: 50px;
     }
+  }
+}
+
+.openingHours {
+  @include flexBox(column, flex-start);
+  width: 30%;
+  margin-top: 10px;
+  gap: 10px;
+
+  > p {
+    margin-bottom: auto;
+    align-self: center;
+  }
+
+  .timePickerContainer {
+    @include flexBox(row, center);
+    gap: 20px;
+
+    .timePicker {
+      > p {
+        color: $gray2;
+        font-size: $font-xxsmall;  
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 50%;
+  }
+
+  @include screen(max-md) {
+    width: 45%;
   }
 }

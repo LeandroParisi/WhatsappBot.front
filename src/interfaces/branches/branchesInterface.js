@@ -17,6 +17,7 @@ const branchInterface = {
   logo: 'logo',
   paymentMethods: 'paymentMethods',
   streetNumber: 'streetNumber',
+  openingHours: 'openingHours',
 }
 
 export default branchInterface

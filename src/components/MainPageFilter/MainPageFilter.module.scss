@@ -67,24 +67,7 @@ $padding: 15px;
     }
 
     .filterButton {
-      color: $dark;
-      background-color: white;
-      transition: 0.3s;
-      width: 120px;
-
-      &:hover {
-        @include boxShadow(2px, 2px, $whiteTransparent);
-        text-shadow: none;
-        background-color: white;
-      }
-
-      &:active {
-        color: white;
-        background-color: $dark;
-      }
+      @extend .whiteButton;
     }
-
   }
-
-
 }

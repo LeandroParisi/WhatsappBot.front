@@ -30,54 +30,6 @@ p, h1, h2, h3, h4, h5, ul, li {
   padding: 0;
 }
 
-
-input {
-  background-color: transparent;
-  border: none;
-  color: $primary;
-  border-bottom: 1px $primary solid;
-  text-align: center;
-
-  &::placeholder {
-    color: $primaryTransarent
-  }
-
-  &:focus {
-    outline: none;
-    border-bottom: 2px $primary solid;
-
-  }
-  
-  &:hover {
-    transition: 1s;
-    border-bottom: 2px $secondary solid;
-  }
+input:focus {
+  outline: none;
 }
-
-
-
-button:not([class*=Toastify]) {
-  padding: 10px;
-  background-color: $dark2;
-  color: $primary;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100px;
-  
-  
-  &:hover {
-    @include textShadow();
-    background-color: $primary;
-    color: $dark2;
-  }
-
-  &:disabled {
-    background-color: $gray;
-    opacity: 0.5;
-    color:white;
-    text-shadow: none;
-    cursor: not-allowed;
-  }
-}
-
