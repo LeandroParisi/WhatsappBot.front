@@ -1,5 +1,7 @@
 import api from 'services/api'
 import getRoute from 'services/config'
+import { VIA_CEP } from 'services/externalRoutes'
+import METHODS from 'services/methods'
 
 export const fetchUserBranches = (query = '') => async () => {
   const { url, method } = getRoute('branches', 'findAll')
@@ -11,7 +13,11 @@ export const fetchUserBranches = (query = '') => async () => {
   return response
 }
 
-export {
-  getRoute,
-  api,
+export const validateCep = async (cep) => {
+  const response = await api({
+    url: `${VIA_CEP}/${cep}/json`,
+    method: METHODS.GET,
+  })
+
+  return response
 }

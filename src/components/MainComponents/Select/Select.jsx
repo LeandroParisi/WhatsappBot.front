@@ -1,11 +1,21 @@
 import React from 'react'
+import globalStyles from 'assets/scss/globals.module.scss'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import styles from './Select.module.scss'
 
 const Select = ({
-  options, selected, setOption, placeholder, color, className, disabled,
+  options,
+  selected,
+  setOption,
+  placeholder,
+  color,
+  className,
+  disabled,
+  error: { error, errorMessage },
+
 }) => {
+  console.log({ selecterror: { error, errorMessage } })
   const onChange = ({ target }) => {
     const { options: inputOptions, options: { selectedIndex } } = target
     const { value, id } = inputOptions[selectedIndex]
@@ -15,7 +25,7 @@ const Select = ({
     <select
       isDisabled={disabled}
       onChange={onChange}
-      className={classNames(styles[color], className)}
+      className={classNames(styles[color], className, { [globalStyles.errorInput]: error })}
       value={selected.name}
     >
       <option
@@ -29,6 +39,7 @@ const Select = ({
       {options && options.map(({ name, id }) => (
         <option value={name} id={id} key={id} selected={name === selected}>{name}</option>
       ))}
+      {error && <p className={globalStyles.errorText}>{errorMessage}</p>}
     </select>
   )
 }
@@ -47,6 +58,10 @@ Select.propTypes = {
   }).isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  error: PropTypes.shape({
+    error: PropTypes.bool.isRequired,
+    errorMessage: PropTypes.string.isRequired,
+  }),
 }
 
 Select.defaultProps = {
@@ -54,6 +69,7 @@ Select.defaultProps = {
   color: 'black',
   className: '',
   disabled: false,
+  error: {},
 }
 
 export default Select

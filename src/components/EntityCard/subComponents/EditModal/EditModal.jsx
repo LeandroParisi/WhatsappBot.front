@@ -16,14 +16,20 @@ import extractInitialValues from './helpers'
 
 const EditModal = ({ entity, type, editRequest }) => {
   const [formValues, setFormValues] = useState(extractInitialValues(entity))
+  const [errors, setErrors] = useState({})
   const { header, sections, id } = entity
 
+  console.log({ errors })
   const updateState = setState(setFormValues)
 
   const handleIconSelect = handleIconSelectFactory(formValues, updateState)
 
   const editEntity = async () => {
-    await editRequest({ id, body: formValues })
+    const { hasErrors, errors: validationErrors } = await editRequest({ id, body: formValues })
+
+    if (hasErrors) {
+      setErrors(validationErrors)
+    }
   }
 
   const headerFactory = ({ value, key, fieldType }) => {
@@ -61,6 +67,7 @@ const EditModal = ({ entity, type, editRequest }) => {
           <Input
             value={formValues[key]}
             onChange={(e) => updateState(key, e.target.value)}
+            error={errors[key] || {}}
           />
         </>
       )
@@ -100,6 +107,8 @@ const EditModal = ({ entity, type, editRequest }) => {
             color="white"
             className={styles.selectInput}
             setOption={(value) => updateState(key, value)}
+            error={errors[key] || {}}
+
           />
         </>
 

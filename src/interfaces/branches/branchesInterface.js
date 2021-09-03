@@ -18,6 +18,9 @@ const branchInterface = {
   paymentMethods: 'paymentMethods',
   streetNumber: 'streetNumber',
   openingHours: 'openingHours',
+  countryId: 'countryId',
+  stateId: 'stateId',
+  cityId: 'cityId',
 }
 
 export default branchInterface

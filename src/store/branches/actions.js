@@ -20,11 +20,13 @@ export default (store, setStore, useRoot) => {
   }
 
   const updateBranch = async ({ id, body }) => {
+    const { hasErrors, errors } = await validateEditBody(body)
+
+    if (hasErrors) {
+      return { hasErrors, errors }
+    }
+
     const normalizedBody = normalizeEditPayload(body)
-
-    const isValid = validateEditBody(normalizedBody)
-
-    console.log({ isValid })
 
     const { response } = await errorHandler(providers.updateBranch(
       { id, body: normalizedBody },
@@ -33,6 +35,8 @@ export default (store, setStore, useRoot) => {
     if (response) {
       await fetchUserBranches()
     }
+
+    return { hasErrors }
   }
 
   const activateBranch = async (id) => {

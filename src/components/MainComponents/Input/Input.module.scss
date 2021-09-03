@@ -4,16 +4,4 @@
 
 .inputContainer {
   @include flexBox(column);
-
-  .error {
-    border-bottom: 1px solid red;
-    transition: 1s;
-    color: red;
-  }
-  
-  .errorText {
-    color: red;
-    text-align: center;
-    transition: 1s;
-  }
 }

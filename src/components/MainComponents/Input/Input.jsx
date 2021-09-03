@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import globalStyles from 'assets/scss/globals.module.scss'
 import styles from './Input.module.scss'
 
 const Input = ({
@@ -20,7 +21,7 @@ const Input = ({
     <input
       id={value}
       type={type}
-      className={classNames({ [styles.error]: error })}
+      className={classNames({ [globalStyles.errorInput]: error })}
       placeholder={placeholder}
       value={value}
       onBlur={onBlur}
@@ -28,7 +29,7 @@ const Input = ({
       onFocus={onFocus}
       onMouseOut={onMouseOut}
     />
-    {error && <p className={styles.errorText}>{errorMessage}</p>}
+    {error && <p className={globalStyles.errorText}>{errorMessage}</p>}
   </div>
 
 )

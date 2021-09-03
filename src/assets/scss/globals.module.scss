@@ -100,3 +100,15 @@ $headerColor: $primary3;
     background-color: $dark;
   }
 }
+
+.errorInput {
+  border-bottom: 1px solid red !important;
+  transition: 1s !important;
+  color: red !important;
+}
+
+.errorText {
+  color: red;
+  text-align: center;
+  transition: 1s;
+}

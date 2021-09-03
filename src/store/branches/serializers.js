@@ -1,3 +1,5 @@
+import branchInterface from 'interfaces/branches/branchesInterface'
+
 export const normalizeEditPayload = (branch) => {
   const {
     deliveryFees: { fees, type: { id } },
@@ -16,9 +18,9 @@ export const normalizeEditPayload = (branch) => {
     },
     deliveryTypes: [...deliveryTypes],
     paymentMethods: [...paymentMethods],
-    countryId: +countryName.id,
-    stateId: +stateName.id,
-    cityId: +cityName.id,
+    [branchInterface.countryId]: +countryName.id,
+    [branchInterface.stateId]: +stateName.id,
+    [branchInterface.cityId]: +cityName.id,
   }
 
   delete normalizedBranch.countryName
