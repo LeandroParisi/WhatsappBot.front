@@ -60,11 +60,17 @@
 
           }
 
-          > div {
+          > div, .selectInput {
             align-self: flex-start;
             margin-top: 8px;
           }
 
+          .selectInput {
+            min-width: 200px;
+            text-align: center;
+          }
+
+     
           .optionsContainer {
             @include flexBox(row, flex-start);
 
@@ -74,8 +80,6 @@
           }
         }
       }
-
-
     }
   }
 

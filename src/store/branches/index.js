@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRoot } from 'store/root'
-import { filterInterface, validationSchema } from './filters'
+import { filterInterface } from './filters'
 // import { extractInitialFilters } from '../filterMethods/extractInitialFilters'
 import storeActions from './actions'
 import storeSelectors from './selectors'
@@ -10,7 +10,6 @@ const initialState = {
   userBranches: [],
   filters: filterInterface,
   query: '',
-  validations: validationSchema,
 }
 
 const BranchesStore = useCreateStore(() => {
@@ -21,10 +20,6 @@ const BranchesStore = useCreateStore(() => {
   useEffect(() => {
     actions.fetchUserBranches($branches.query)
   }, [$branches.query])
-
-  useEffect(() => {
-    console.log($branches.userBranches)
-  }, [$branches.userBranches])
 
   return { $branches, ...actions, ...selectors }
 })

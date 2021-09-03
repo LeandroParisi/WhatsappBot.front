@@ -1,3 +1,4 @@
+export const activateIcon: string;
 export const deactivateIcon: string;
 export const entity: string;
 export const inactive: string;

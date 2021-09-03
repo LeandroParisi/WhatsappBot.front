@@ -9,6 +9,7 @@ import { getIcon } from 'assets/icons/iconsLib'
 import { DARK_GRAY } from 'libs/colors'
 import { handleIconSelectFactory, setState } from 'store/sharedMethods/actions'
 import Button from 'components/MainComponents/Button/Button'
+import Select from 'components/MainComponents/Select/Select'
 import CustomField from './subComponents/CustomField/CustomField'
 import styles from './EditModal.module.scss'
 import extractInitialValues from './helpers'
@@ -23,8 +24,6 @@ const EditModal = ({ entity, type, editRequest }) => {
 
   const editEntity = async () => {
     await editRequest({ id, body: formValues })
-    console.log(id)
-    console.log({ formValues })
   }
 
   const headerFactory = ({ value, key, fieldType }) => {
@@ -51,7 +50,9 @@ const EditModal = ({ entity, type, editRequest }) => {
   }
 
   const subSectionFactory = (subSection) => {
-    const { key, sectionName, fieldType } = subSection
+    const {
+      key, sectionName, fieldType, customField,
+    } = subSection
 
     if (fieldType === inputTypes.INPUT) {
       return (
@@ -86,9 +87,32 @@ const EditModal = ({ entity, type, editRequest }) => {
         </>
       )
     }
-    return (
-      <CustomField subSection={subSection} updateState={updateState} formValues={formValues} />
-    )
+    if (fieldType === inputTypes.SELECT) {
+      const { options } = subSection
+
+      return (
+        <>
+          <p>{sectionName}</p>
+          <Select
+            selected={formValues[key]}
+            placeholder={`Selecione um ${sectionName}`}
+            options={options}
+            color="white"
+            className={styles.selectInput}
+            setOption={(value) => updateState(key, value)}
+          />
+        </>
+
+      )
+    }
+
+    if (customField) {
+      return (
+        <CustomField subSection={subSection} updateState={updateState} formValues={formValues} />
+      )
+    }
+
+    throw new Error('Invalid Field Types: <EditModal>: 96')
   }
 
   return (

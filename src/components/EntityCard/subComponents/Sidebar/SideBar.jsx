@@ -11,7 +11,6 @@ const SideBar = ({ isActive, actions }) => {
     activate,
     deactivate,
   } = actions
-  console.log(isActive)
 
   const activateIcon = !isActive ? getIcon('CHECKMARK') : getIcon('CLOSE')
   const activateIconTooltip = !isActive ? 'Ativar' : 'Desativar'
@@ -38,6 +37,7 @@ const SideBar = ({ isActive, actions }) => {
         size="20px"
         className={classNames(
           { [styles.deactivateIcon]: isActive },
+          { [styles.activateIcon]: !isActive },
         )}
         onClick={handleActivation}
       />

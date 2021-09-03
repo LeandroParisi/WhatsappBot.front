@@ -1,3 +1,5 @@
+export const addFee: string;
+export const deleteFee: string;
 export const disabled: string;
 export const distanceContainer: string;
 export const distanceFees: string;

@@ -8,7 +8,6 @@ const setState = (setter) => (field, value) => {
 }
 
 const handleIconSelectFactory = (state, stateSetter) => (id, key) => () => {
-  console.log(state)
   const previousSelectedIcons = new Set([...state[key]])
   if (previousSelectedIcons.has(id)) {
     previousSelectedIcons.delete(id)

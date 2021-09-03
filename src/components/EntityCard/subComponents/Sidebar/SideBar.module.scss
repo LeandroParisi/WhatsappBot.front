@@ -5,6 +5,8 @@
 
 
 .sideOptions {
+  @include flexBox(column);
+  gap: 10px;
   position: absolute;
   left: $padding;
 
@@ -13,6 +15,12 @@
 
     &:hover {
       background-color: $gray;
+    }
+  }
+
+  .activateIcon {
+    &:hover {
+      background-color: $primary4;
     }
   }
 }

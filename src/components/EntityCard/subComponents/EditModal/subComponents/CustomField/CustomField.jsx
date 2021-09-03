@@ -1,10 +1,10 @@
 import React from 'react'
 import { customFieldTypes } from 'libs/inputTypes'
 import PropTypes from 'prop-types'
-import { DeliveryFeeField, OpeningHoursField } from './CustomFields'
+import { DeliveryFeeField, OpeningHoursField, CitiesField } from './CustomFields'
 import styles from './CustomField.module.scss'
 
-const { DELIVERY_FEES, OPENING_HOURS } = customFieldTypes
+const { DELIVERY_FEES, OPENING_HOURS, CITIES } = customFieldTypes
 
 const CustomField = ({ subSection, updateState, formValues }) => {
   const {
@@ -23,13 +23,17 @@ const CustomField = ({ subSection, updateState, formValues }) => {
         updateState={updateState}
         formValues={formValues}
       />,
-
+      [CITIES]: <CitiesField
+        subSection={subSection}
+        updateState={updateState}
+        formValues={formValues}
+      />,
     }
 
     if (customFields[customField]) {
       return customFields[customField]
     }
-    throw new Error('Invalid custom field type')
+    throw new Error('Invalid custom field type: <CustomField>: 35')
   }
 
   return (

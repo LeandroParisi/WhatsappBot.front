@@ -2,18 +2,23 @@ import { deliveryFeeInterface, deliveryFeeTranslations } from 'interfaces/delive
 import { deliveryTypesInterface } from 'interfaces/deliveryTypes/deliveryTypes'
 import { paymentMethodInterface } from 'interfaces/paymentMethods/methods'
 import { inputTypes, customFieldTypes } from 'libs/inputTypes'
+import { countries } from 'libs/countries'
+import { brazilianStates } from 'libs/brazilianStates'
+import { brazilianCities } from 'libs/brazilianCities'
 import branchInterface from '../../../../interfaces/branches/branchesInterface'
+import { getOptions, getInitialSelect } from './helpers'
 
 const {
   INPUT,
   IMAGE,
   ICONS,
-  INPUT_ARRAY,
+  SELECT,
 } = inputTypes
 
 const {
   DELIVERY_FEES,
   OPENING_HOURS,
+  CITIES,
 } = customFieldTypes
 
 const branchesEditAdapter = (branch) => {
@@ -104,22 +109,25 @@ const branchesEditAdapter = (branch) => {
             fieldType: INPUT,
           },
           {
-            value: cityName,
-            key: branchInterface.cityName,
-            sectionName: 'Cidade',
-            fieldType: INPUT,
-          },
-          {
-            value: stateName,
-            key: branchInterface.stateName,
-            sectionName: 'Estado',
-            fieldType: INPUT,
-          },
-          {
-            value: countryName,
+            value: getInitialSelect(countries, countryName),
             key: branchInterface.countryName,
             sectionName: 'País',
-            fieldType: INPUT,
+            fieldType: SELECT,
+            options: getOptions(countries),
+          },
+          {
+            value: getInitialSelect(brazilianStates, stateName),
+            key: branchInterface.stateName,
+            sectionName: 'Estado',
+            fieldType: SELECT,
+            options: getOptions(brazilianStates),
+          },
+          {
+            value: getInitialSelect(brazilianCities[stateName], cityName),
+            key: branchInterface.cityName,
+            sectionName: 'Cidade',
+            customField: CITIES,
+            statesKey: branchInterface.stateName,
           },
         ],
       },

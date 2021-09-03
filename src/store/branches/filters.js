@@ -33,9 +33,3 @@ export const filterInterface = [
     ...statusFilter,
   },
 ]
-
-export const validationSchema = Yup.object({
-  branchName: Yup.string(),
-  deliveryType: Yup.string(),
-  isActive: Yup.bool(),
-})

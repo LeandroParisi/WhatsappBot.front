@@ -16,7 +16,7 @@ const mapDeliveryFees = (type, fees) => {
     case deliveryFeeTypes.unique:
       return [`R$ ${fees}`]
     case deliveryFeeTypes.radius:
-      return fees.map(([range, p]) => (`${range} KM - R$ ${p}`))
+      return fees?.map(([range, p]) => (`${range} KM - R$ ${p}`))
     case deliveryFeeTypes.neighborhood:
       throw new Error('Not implemented yet')
     default:

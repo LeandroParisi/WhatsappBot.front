@@ -21,14 +21,14 @@ const EntityCardSection = ({ section }) => {
     if (type === contentTypes.LIST) {
       return (
         <ul>
-          {values.map((value) => <li key={value} className={styles.listItem}>{value}</li>)}
+          {values?.map((value) => <li key={value} className={styles.listItem}>{value}</li>)}
         </ul>
       )
     }
     if (type === contentTypes.ICONS) {
       return (
         <ul>
-          {values.map((value) => (
+          {values?.map((value) => (
             <Icon
               icon={groupedIcons[value]}
               className={styles.sectionIcon}

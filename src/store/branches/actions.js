@@ -2,6 +2,7 @@ import { saveFiltersFactory, setState } from 'store/sharedMethods/actions'
 import * as providers from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
 import { normalizeEditPayload } from './serializers'
+import { validateEditBody } from './validations'
 
 export default (store, setStore, useRoot) => {
   const { errorHandler } = useRoot()
@@ -19,8 +20,14 @@ export default (store, setStore, useRoot) => {
   }
 
   const updateBranch = async ({ id, body }) => {
+    const normalizedBody = normalizeEditPayload(body)
+
+    const isValid = validateEditBody(normalizedBody)
+
+    console.log({ isValid })
+
     const { response } = await errorHandler(providers.updateBranch(
-      { id, body: normalizeEditPayload(body) },
+      { id, body: normalizedBody },
     ))
 
     if (response) {

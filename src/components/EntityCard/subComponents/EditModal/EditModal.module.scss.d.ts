@@ -11,6 +11,7 @@ export const optionIcon: string;
 export const optionsContainer: string;
 export const section: string;
 export const sectionsContainer: string;
+export const selectInput: string;
 export const subSection: string;
 export const subSectionContainer: string;
 export const whiteButton: string;
