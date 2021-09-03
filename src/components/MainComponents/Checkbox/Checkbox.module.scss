@@ -7,6 +7,10 @@
 
   > label, > input {
     cursor: pointer;
+
+    &:disabled, &.disabled {
+      cursor: initial;
+    }
   }
 
   .error {

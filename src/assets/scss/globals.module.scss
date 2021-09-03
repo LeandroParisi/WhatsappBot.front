@@ -1,5 +1,7 @@
 @import './colors.scss';
 @import './mixins.scss';
+@import './fonts.scss';
+
 
 $header-height: 8vh;
 $sideBar-width: 220px;
@@ -102,13 +104,20 @@ $headerColor: $primary3;
 }
 
 .errorInput {
-  border-bottom: 1px solid red !important;
-  transition: 1s !important;
-  color: red !important;
+  animation-name: highlightText;
+  animation-duration: 1s;
 }
 
 .errorText {
-  color: red;
-  text-align: center;
-  transition: 1s;
+  color: red !important;
+  text-align: center !important;
+  transition: 1s !important;
+  font-size: $font-xsmall;
+  text-align: left;
+}
+
+@keyframes highlightText {
+  0% {color: inherit; border-bottom: 1px solid inherit !important}
+  50% {color: red; border-bottom: 1px solid red !important}
+  100% {color: inherit; border-bottom: 1px solid inherit !important}
 }

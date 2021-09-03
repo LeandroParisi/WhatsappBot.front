@@ -1,15 +1,21 @@
 import React from 'react'
 import { customFieldTypes } from 'libs/inputTypes'
 import PropTypes from 'prop-types'
+import globalStyles from 'assets/scss/globals.module.scss'
+import classNames from 'classnames'
 import { DeliveryFeeField, OpeningHoursField, CitiesField } from './CustomFields'
 import styles from './CustomField.module.scss'
 
 const { DELIVERY_FEES, OPENING_HOURS, CITIES } = customFieldTypes
 
-const CustomField = ({ subSection, updateState, formValues }) => {
+const CustomField = ({
+  subSection, updateState, formValues, errors,
+}) => {
   const {
-    sectionName, customField,
+    sectionName, customField, key,
   } = subSection
+
+  const { error = false, errorMessage = '' } = errors[key] || {}
 
   const customFieldFactory = () => {
     const customFields = {
@@ -37,10 +43,11 @@ const CustomField = ({ subSection, updateState, formValues }) => {
   }
 
   return (
-    <>
+    <div className={classNames(styles.customField, { [styles.error]: error })}>
       <p>{sectionName}</p>
       {customFieldFactory()}
-    </>
+      { error && <p className={globalStyles.errorText}>{errorMessage}</p>}
+    </div>
 
   )
 }

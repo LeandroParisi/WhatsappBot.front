@@ -10,12 +10,13 @@ const Checkbox = ({
   error: { error, errorMessage },
   checked,
   className,
+  disabled,
 }) => (
   <div className={classNames(styles.inputContainer, className)}>
     {placeholder && (
-    <label htmlFor={id}>
-      {placeholder}
-    </label>
+      <label htmlFor={id} className={classNames({ [styles.disabled]: disabled })}>
+        {placeholder}
+      </label>
     )}
     <input
       id={id}
@@ -24,10 +25,10 @@ const Checkbox = ({
       placeholder={placeholder}
       checked={checked}
       onClick={onClick}
+      disabled={disabled}
     />
     {error && <p className={styles.errorText}>{errorMessage}</p>}
   </div>
-
 )
 
 Checkbox.propTypes = {
@@ -40,6 +41,7 @@ Checkbox.propTypes = {
   }),
   className: PropTypes.string,
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
 }
 
 Checkbox.defaultProps = {
@@ -47,6 +49,7 @@ Checkbox.defaultProps = {
   error: {},
   className: '',
   checked: false,
+  disabled: false,
 }
 
 export default Checkbox

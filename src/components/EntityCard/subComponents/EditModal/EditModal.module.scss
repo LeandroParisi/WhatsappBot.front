@@ -90,8 +90,6 @@
   [class*='inputContainer'] > input {
     @extend .whiteInput;
     border-color: $gray2;
-    // color: $gray2;
-    border: none;
     
     &:focus {
       color: white;
@@ -106,3 +104,5 @@
     left: 88%;
   }
 }
+
+

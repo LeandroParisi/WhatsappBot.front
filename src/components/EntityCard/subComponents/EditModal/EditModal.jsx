@@ -19,7 +19,6 @@ const EditModal = ({ entity, type, editRequest }) => {
   const [errors, setErrors] = useState({})
   const { header, sections, id } = entity
 
-  console.log({ errors })
   const updateState = setState(setFormValues)
 
   const handleIconSelect = handleIconSelectFactory(formValues, updateState)
@@ -117,7 +116,12 @@ const EditModal = ({ entity, type, editRequest }) => {
 
     if (customField) {
       return (
-        <CustomField subSection={subSection} updateState={updateState} formValues={formValues} />
+        <CustomField
+          subSection={subSection}
+          updateState={updateState}
+          formValues={formValues}
+          errors={errors}
+        />
       )
     }
 

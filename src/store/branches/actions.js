@@ -1,4 +1,5 @@
 import { saveFiltersFactory, setState } from 'store/sharedMethods/actions'
+import { toast } from 'react-toastify'
 import * as providers from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
 import { normalizeEditPayload } from './serializers'
@@ -23,6 +24,8 @@ export default (store, setStore, useRoot) => {
     const { hasErrors, errors } = await validateEditBody(body)
 
     if (hasErrors) {
+      toast.error('Favor corrigir os campos inválidos')
+
       return { hasErrors, errors }
     }
 

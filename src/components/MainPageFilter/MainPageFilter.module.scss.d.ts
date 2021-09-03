@@ -1,3 +1,5 @@
+export const errorInput: string;
+export const errorText: string;
 export const fieldSection: string;
 export const fieldsSection: string;
 export const filterButton: string;

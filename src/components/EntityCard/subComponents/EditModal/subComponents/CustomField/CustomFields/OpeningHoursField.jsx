@@ -39,14 +39,20 @@ const OpeningHoursField = ({ updateState, formValues, subSection }) => {
     })
   }
 
-  const checkOvernight = (day) => {
+  const checkOvernight = (day, force = false) => {
     const dayAsString = numberToDay[day]
+
+    if (force && !stateField[dayAsString].overnight) {
+      return
+    }
+
+    const newState = force ? false : !stateField[dayAsString].overnight
 
     updateState(key, {
       ...stateField,
       [dayAsString]: {
         ...stateField[dayAsString],
-        overnight: !stateField[dayAsString].overnight,
+        overnight: newState,
       },
     })
   }
@@ -56,6 +62,8 @@ const OpeningHoursField = ({ updateState, formValues, subSection }) => {
       {parsedValues.map(([day, data]) => {
         const { hours, overnight } = data
         const isDisabled = !hours[0] && !hours[1]
+
+        if (isDisabled) checkOvernight(day, true)
 
         return (
           <div className={classNames(styles.openingHours,
@@ -81,6 +89,7 @@ const OpeningHoursField = ({ updateState, formValues, subSection }) => {
                 className={styles.overnightCheck}
                 id={`${numberToDay[day]}`}
                 onClick={() => checkOvernight(day)}
+                disabled={isDisabled}
               />
             </div>
 

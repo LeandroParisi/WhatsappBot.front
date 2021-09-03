@@ -1,9 +1,18 @@
 @import '../../../../../../assets/scss/colors.scss';
 @import '../../../../../../assets/scss/mixins.scss';
 @import '../../../../../../assets/scss/fonts.scss';
+@import '../../../../../../assets/scss/globals.module.scss';
+
 
 .subContainer {
   @include flexBox(column);
+}
+
+
+.customField.error {
+  select, input {
+    @extend .errorInput;
+  }
 }
 
 .innerField {

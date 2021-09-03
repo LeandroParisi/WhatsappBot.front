@@ -1,3 +1,5 @@
+export const errorInput: string;
+export const errorText: string;
 export const fullPage: string;
 export const main: string;
 export const mainButton: string;

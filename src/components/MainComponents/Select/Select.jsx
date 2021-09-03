@@ -15,7 +15,6 @@ const Select = ({
   error: { error, errorMessage },
 
 }) => {
-  console.log({ selecterror: { error, errorMessage } })
   const onChange = ({ target }) => {
     const { options: inputOptions, options: { selectedIndex } } = target
     const { value, id } = inputOptions[selectedIndex]
