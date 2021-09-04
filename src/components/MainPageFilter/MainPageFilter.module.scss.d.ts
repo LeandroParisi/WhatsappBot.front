@@ -5,6 +5,7 @@ export const fieldsSection: string;
 export const filterButton: string;
 export const filterHeader: string;
 export const fullPage: string;
+export const highlightText: string;
 export const iconsContainer: string;
 export const mainButton: string;
 export const mainInput: string;

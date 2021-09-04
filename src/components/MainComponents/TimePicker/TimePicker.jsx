@@ -1,27 +1,28 @@
 import React from 'react'
-import TimePicker from 'react-time-picker'
-import Icon from 'assets/icons/Icon'
-import { getIcon } from 'assets/icons/iconsLib'
+import TimeInput from 'material-ui-time-picker'
 
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { getIcon } from 'assets/icons/iconsLib'
+import { convertHourToDate, extractHoursFromDate } from './helpers'
 import styles from './TimePicker.module.scss'
 
 const CustomTimePicker = ({
   value, onChange, label, className, containerClass,
 }) => {
-  const closeIcon = () => <Icon icon={getIcon('CLOSE')} size="15px" tooltipText="Zerar" />
+  const convertedValue = convertHourToDate(value)
+
   return (
     <div className={classNames(styles.container, containerClass)}>
       {label && <p>{label}</p>}
-      <TimePicker
-        value={value}
-        onChange={onChange}
-        disableClock
-        className={[styles.timePicker, className]}
-        clearIcon={closeIcon()}
+      <TimeInput
+        mode="24h"
+        value={convertedValue}
+        onChange={(time) => onChange(extractHoursFromDate(time))}
+        color="red"
       />
     </div>
+
   )
 }
 

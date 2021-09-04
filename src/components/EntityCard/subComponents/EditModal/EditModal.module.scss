@@ -3,6 +3,12 @@
 @import '../../../../assets/scss/fonts.scss';
 @import '../../../../assets/scss/globals.module.scss';
 
+
+@mixin subSectionTitle() {
+  margin-right: auto;
+  color: $gray2;
+  font-size: $font-xsmall;
+}
 .container {
   @include flexBox();
   overflow-x: auto;
@@ -52,17 +58,14 @@
         .subSection {
           @include flexBox(column);
           margin: 10px 35px;
+          gap: 8px;
 
           > p {
-            margin-right: auto;
-            color: $gray2;
-            font-size: $font-xsmall;
-
+            @include subSectionTitle()
           }
 
           > div, .selectInput {
             align-self: flex-start;
-            margin-top: 8px;
           }
 
           .selectInput {

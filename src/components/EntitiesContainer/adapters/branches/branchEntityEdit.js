@@ -5,7 +5,7 @@ import { inputTypes, customFieldTypes } from 'libs/inputTypes'
 import { countries } from 'libs/countries'
 import { brazilianStates } from 'libs/brazilianStates'
 import { brazilianCities } from 'libs/brazilianCities'
-import branchInterface from '../../../../interfaces/branches/branchesInterface'
+import branchInterface, { defaultValues } from '../../../../interfaces/branches/branchesInterface'
 import { getOptions, getInitialSelect } from './helpers'
 
 const {
@@ -23,23 +23,23 @@ const {
 
 const branchesEditAdapter = (branch) => {
   const {
-    id,
-    branchName,
-    cityName,
-    countryName,
-    managerName,
-    neighborhood,
-    postalCode,
-    stateName,
-    street,
-    streetComplement,
-    deliveryFees,
-    deliveryTypes,
-    isActive,
-    logo,
-    paymentMethods,
-    streetNumber,
-    openingHours,
+    id = defaultValues.id,
+    branchName = defaultValues.branchName,
+    cityName = defaultValues.cityName,
+    countryName = defaultValues.countryName,
+    managerName = defaultValues.managerName,
+    neighborhood = defaultValues.neighborhood,
+    postalCode = defaultValues.postalCode,
+    stateName = defaultValues.stateName,
+    street = defaultValues.street,
+    streetComplement = defaultValues.streetComplement,
+    deliveryFees = defaultValues.deliveryFees,
+    deliveryTypes = defaultValues.deliveryTypes,
+    isActive = defaultValues.isActive,
+    logo = defaultValues.logo,
+    paymentMethods = defaultValues.paymentMethods,
+    streetNumber = defaultValues.streetNumber,
+    openingHours = defaultValues.openingHours,
   } = branch
 
   return {
@@ -137,7 +137,10 @@ const branchesEditAdapter = (branch) => {
           {
             value: {
               ...deliveryFees,
-              type: { id: deliveryFees.type, name: deliveryFeeTranslations[deliveryFees.type] },
+              type: {
+                id: deliveryFees.type,
+                name: deliveryFeeTranslations[deliveryFees.type],
+              },
             },
             key: branchInterface.deliveryFees,
             sectionName: 'Taxas de entrega',

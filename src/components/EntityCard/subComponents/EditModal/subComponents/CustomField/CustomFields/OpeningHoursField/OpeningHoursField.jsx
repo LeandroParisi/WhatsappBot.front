@@ -7,12 +7,18 @@ import {
 } from 'interfaces/openingHours/openingHoursInterface'
 import { Checkbox, TimePicker } from 'components'
 import classNames from 'classnames'
-import styles from '../CustomField.module.scss'
+import { getIcon } from 'assets/icons/iconsLib'
+import Icon from 'assets/icons/Icon'
+import { DARK_GRAY } from 'libs/colors'
+import styles from '../../CustomField.module.scss'
 
 const labels = {
   0: 'Abertura',
   1: 'Fechamento',
 }
+
+const openedIcon = getIcon('OPENED')
+const closedIcon = getIcon('CLOSED')
 
 const OpeningHoursField = ({ updateState, formValues, subSection }) => {
   const {
@@ -25,7 +31,7 @@ const OpeningHoursField = ({ updateState, formValues, subSection }) => {
     .map(([day, hours]) => [dayToNumber[day], hours])
     .sort(([dayA], [dayB]) => dayA - dayB)
 
-  const changeHour = (newValue, index, day) => {
+  const changeHour = (index, day) => (newValue) => {
     const dayAsString = numberToDay[day]
     const newHour = stateField[dayAsString].hours
     newHour[index] = newValue
@@ -39,20 +45,26 @@ const OpeningHoursField = ({ updateState, formValues, subSection }) => {
     })
   }
 
-  const checkOvernight = (day, force = false) => {
+  const checkOvernight = (day) => {
     const dayAsString = numberToDay[day]
+    const overnight = !stateField[dayAsString].overnight
 
-    if (force && !stateField[dayAsString].overnight) {
-      return
-    }
+    return updateState(key, {
+      ...stateField,
+      [dayAsString]: {
+        ...stateField[dayAsString],
+        overnight,
+      },
+    })
+  }
 
-    const newState = force ? false : !stateField[dayAsString].overnight
-
+  const openCloseDay = (day) => {
+    const dayAsString = numberToDay[day]
     updateState(key, {
       ...stateField,
       [dayAsString]: {
         ...stateField[dayAsString],
-        overnight: newState,
+        isOpened: !stateField[dayAsString].isOpened,
       },
     })
   }
@@ -60,16 +72,22 @@ const OpeningHoursField = ({ updateState, formValues, subSection }) => {
   return (
     <div className={styles.innerField}>
       {parsedValues.map(([day, data]) => {
-        const { hours, overnight } = data
-        const isDisabled = !hours[0] && !hours[1]
-
-        if (isDisabled) checkOvernight(day, true)
+        const { hours, overnight, isOpened } = data
 
         return (
           <div className={classNames(styles.openingHours,
-            { [styles.disabled]: isDisabled })}
+            { [styles.disabled]: !isOpened })}
           >
-            <p>{dayTranslation[day]}</p>
+            <div className={styles.header}>
+              <Icon
+                icon={isOpened ? openedIcon : closedIcon}
+                className={styles.lockIcon}
+                size="15px"
+                onClick={() => openCloseDay(day)}
+                color={isOpened ? 'white' : DARK_GRAY}
+              />
+              <p>{dayTranslation[day]}</p>
+            </div>
 
             <div className={styles.timePickerContainer}>
               <div className={styles.inputsContainer}>
@@ -78,7 +96,7 @@ const OpeningHoursField = ({ updateState, formValues, subSection }) => {
                     value={hour}
                     label={labels[index]}
                     containerClass={styles.timePicker}
-                    onChange={(e) => changeHour(e, index, day)}
+                    onChange={changeHour(index, day)}
                   />
                 ))}
               </div>
@@ -89,7 +107,7 @@ const OpeningHoursField = ({ updateState, formValues, subSection }) => {
                 className={styles.overnightCheck}
                 id={`${numberToDay[day]}`}
                 onClick={() => checkOvernight(day)}
-                disabled={isDisabled}
+                disabled={!isOpened}
               />
             </div>
 

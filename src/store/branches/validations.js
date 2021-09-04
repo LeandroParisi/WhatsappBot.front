@@ -25,37 +25,12 @@ const validateDeliveryFees = async ({ fees, type: { id } }) => {
   }
 }
 
-const validateOpeningHours = async (openingHours) => {
-  const orderedDays = Object.entries(openingHours)
-    .sort(([dayOne], [dayTwo]) => dayToNumber[dayOne] - dayToNumber[dayTwo])
-
-  let [, { overnight: previousOvernight }] = orderedDays[orderedDays.length - 1]
-
-  return orderedDays.every(([, { hours: [openHour, closeHour], overnight }]) => {
-    if (previousOvernight && closeHour) {
-      return true
-    }
-    previousOvernight = overnight
-    if (!openHour && !closeHour) {
-      return true
-    }
-    if (overnight && openHour) {
-      return validateHour(openHour)
-    }
-    if (!openHour || !closeHour) {
-      return false
-    }
-    return true
-  })
-}
-
 export const errorsLib = {
   [branchInterface.postalCode]: 'CEP inválido',
   [branchInterface.countryName]: 'Favor selecionar um país',
   [branchInterface.stateName]: 'Favor selecionar um estado',
   [branchInterface.cityName]: 'Favor selecionar uma cidade',
   [branchInterface.deliveryFees]: 'Favor definir ao menos um valor',
-  [branchInterface.openingHours]: 'Teste',
 
 }
 
@@ -65,7 +40,6 @@ const validations = {
   [branchInterface.cityName]: ({ id }) => id > 0,
   [branchInterface.postalCode]: validateCep,
   [branchInterface.deliveryFees]: validateDeliveryFees,
-  [branchInterface.openingHours]: validateOpeningHours,
 }
 
 // deliveryFees: {fees: Array(3), type: 'radius'}

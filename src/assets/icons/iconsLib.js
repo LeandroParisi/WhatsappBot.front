@@ -29,6 +29,8 @@ import {
   faBan,
   faEdit,
   faTimes,
+  faLock,
+  faLockOpen,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
@@ -65,6 +67,11 @@ export const generalIcons = {
   CLOSE: faTimes,
 
   PRICE: faDollarSign,
+
+  OPENED: faLockOpen,
+  CLOSED: faLock,
+
+  ADD: faPlus,
 }
 
 export const deliveryIcons = {
@@ -126,4 +133,5 @@ export const tooltips = {
   hands: 'Retirada',
   store: 'Consumo no local',
   [paymentMethods.PIX]: 'Pix',
+
 }

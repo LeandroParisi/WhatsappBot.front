@@ -15,10 +15,12 @@ import styles from './EditModal.module.scss'
 import extractInitialValues from './helpers'
 
 const EditModal = ({ entity, type, editRequest }) => {
+  console.log({ entity })
   const [formValues, setFormValues] = useState(extractInitialValues(entity))
   const [errors, setErrors] = useState({})
   const { header, sections, id } = entity
 
+  console.log({ formValues })
   const updateState = setState(setFormValues)
 
   const handleIconSelect = handleIconSelectFactory(formValues, updateState)

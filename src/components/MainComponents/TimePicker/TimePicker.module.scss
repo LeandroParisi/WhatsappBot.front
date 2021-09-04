@@ -4,6 +4,7 @@
 @import '../../../assets/scss/globals.module.scss';
 
 .container {
+  width: 65px;
 
   .timePicker {
     * {
@@ -18,13 +19,46 @@
     input {
       border: none;
     }
+  }
 
-    [class*='react-time-picker__inputGroup'] {
-      min-width: initial;
+  > div {
+    &[class*='MuiInput-underline']:after {
+      border-bottom: 2px solid white;
+      transition: 1s;
     }
 
-    [class*='react-time-picker__button'] {
-      padding: 0;
+    [class*='MuiInputBase-input'] {
+      color: white;
+      border-bottom: 1px solid white;
+      transition: 1s;
+      text-align: center;
+      font-size: $font-small;
+    }
+
+
+  
+    [class*='MuiInputBase-input']:hover, [class*='MuiInputBase-input']:focus {
+      border-bottom: 2px solid white;
+      transition: 1s;
     }
   }
+}
+
+[class*='MuiDialog-container'] {
+  span[class*='number-12 selected'], [class*='Clock-smallNumber-13 selected'] {
+    border-radius: 100%;
+  }
+
+  [class*='header-4'], [class*='pointer'], span[class*='number-12 selected'], [class*='Clock-smallNumber-13 selected'], [class*='innerDot'] {
+    background-color: $primary3;
+  }
+
+  [class*='outerDot'] {
+    border-color: $primary3
+  }
+
+  [class*='MuiButton-textPrimary'] {
+    color: $primary3
+  }
+
 }

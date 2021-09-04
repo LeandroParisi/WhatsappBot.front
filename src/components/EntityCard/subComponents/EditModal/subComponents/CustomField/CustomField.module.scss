@@ -2,6 +2,8 @@
 @import '../../../../../../assets/scss/mixins.scss';
 @import '../../../../../../assets/scss/fonts.scss';
 @import '../../../../../../assets/scss/globals.module.scss';
+@import '../../EditModal.module.scss';
+
 
 
 .subContainer {
@@ -9,9 +11,16 @@
 }
 
 
-.customField.error {
-  select, input {
-    @extend .errorInput;
+.customField {
+  
+  > p {
+    @include subSectionTitle()
+  }
+
+  &.error {
+    select, input {
+      @extend .errorInput;
+    }
   }
 }
 
@@ -83,9 +92,20 @@
   margin-top: 10px;
   gap: 10px;
 
-  > p {
-    margin-bottom: auto;
-    align-self: center;
+  .header {
+    @include flexBox();
+    width: 100%;
+    gap: 10px;
+
+    .lockIcon {
+      padding: 0;
+      cursor: pointer
+    }
+
+    > p {
+      margin-bottom: auto;
+      align-self: center;
+    }
   }
 
   .timePickerContainer {
