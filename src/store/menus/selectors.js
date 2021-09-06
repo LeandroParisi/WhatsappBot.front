@@ -1,9 +1,9 @@
 export default ($store) => {
   const getTEMPLATE = () => $store
 
-  const getUserBranches = () => $store.userBranches
+  const getMenus = () => $store.userMenus
 
   const getFilters = () => $store.filters
 
-  return { getUserBranches, getFilters }
+  return { getMenus, getFilters }
 }

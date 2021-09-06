@@ -1,9 +1,12 @@
-import { saveFiltersFactory, setState } from 'store/sharedMethods/actions'
+import {
+  activateEntityFactory, deactivateEntityFactory, saveFiltersFactory, setState,
+} from 'store/sharedMethods/actions'
 import { toast } from 'react-toastify'
 import * as providers from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
 import { normalizeEditPayload } from './serializers'
-import { validateEditBody } from './validations'
+import validationFactory from '../sharedMethods/validationFactory'
+import { validations, errorsLib } from './validations'
 
 export default (store, setStore, useRoot) => {
   const { errorHandler } = useRoot()
@@ -21,7 +24,7 @@ export default (store, setStore, useRoot) => {
   }
 
   const updateBranch = async ({ id, body }) => {
-    const { hasErrors, errors } = await validateEditBody(body)
+    const { hasErrors, errors } = await validationFactory(body, validations, errorsLib)
 
     if (hasErrors) {
       toast.error('Favor corrigir os campos inválidos')
@@ -42,41 +45,10 @@ export default (store, setStore, useRoot) => {
     return { hasErrors }
   }
 
-  const activateBranch = async (id) => {
-    const { response } = await errorHandler(providers.activateBranch(id))
+  const activateBranch = activateEntityFactory(setField, errorHandler, providers.activateBranch, 'userBranches', store)
 
-    if (response) {
-      const updatedBranches = store.userBranches.map((branch) => {
-        if (branch.id === id) {
-          return {
-            ...branch,
-            isActive: true,
-          }
-        }
-        return branch
-      })
+  const deactivateBranch = deactivateEntityFactory(setField, errorHandler, providers.activateBranch, 'userBranches', store)
 
-      setField('userBranches', updatedBranches)
-    }
-  }
-
-  const deactivateBranch = async (id) => {
-    const { response } = await errorHandler(providers.deactivateBranch(id))
-
-    if (response) {
-      const updatedBranches = store.userBranches.map((branch) => {
-        if (branch.id === id) {
-          return {
-            ...branch,
-            isActive: false,
-          }
-        }
-        return branch
-      })
-
-      setField('userBranches', updatedBranches)
-    }
-  }
   return {
     setField,
     fetchUserBranches,

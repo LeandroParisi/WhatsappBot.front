@@ -11,4 +11,4 @@ export const extractFiltersQuery = (filters) => {
   return query
 }
 
-export const teste = 0
+export const formatErrorMessages = (errorMessage) => ({ error: true, errorMessage })

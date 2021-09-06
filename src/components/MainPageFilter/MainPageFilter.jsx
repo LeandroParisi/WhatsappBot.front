@@ -20,7 +20,7 @@ const {
   STATUS,
 } = inputTypes
 
-const MainPageFilter = ({ filters, validationSchema, saveFilters }) => {
+const MainPageFilter = ({ filters, saveFilters }) => {
   const initialValues = extractInitialValues(filters)
 
   const [temporaryFilters, setTemporaryFilters] = useState(initialValues)

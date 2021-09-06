@@ -1,5 +1,6 @@
 export const avatar: string;
 export const avatarContainer: string;
+export const branches: string;
 export const container: string;
 export const editButton: string;
 export const entityHeader: string;
@@ -10,6 +11,7 @@ export const highlightText: string;
 export const mainButton: string;
 export const mainInput: string;
 export const mainPage: string;
+export const menus: string;
 export const optionIcon: string;
 export const optionsContainer: string;
 export const section: string;

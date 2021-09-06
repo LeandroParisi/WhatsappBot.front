@@ -12,9 +12,31 @@ const routes = {
   users: '/users',
   branches: '/branches',
   orders: '/orders',
+  menus: '/menus',
 }
 
-const endpoints = {
+const defaultEndpointsEnum = new Set(['findAll', 'activate', 'deactivate', 'updateOne'])
+
+const defaultEndpoints = {
+  findAll: {
+    endpoint: '',
+    method: METHODS.GET,
+  },
+  activate: {
+    endpoint: '/activate',
+    method: METHODS.PUT,
+  },
+  deactivate: {
+    endpoint: '/deactivate',
+    method: METHODS.PUT,
+  },
+  updateOne: {
+    endpoint: '',
+    method: METHODS.PUT,
+  },
+}
+
+const customEndpoints = {
   users: {
     login:
     {
@@ -27,38 +49,12 @@ const endpoints = {
       method: METHODS.GET,
     },
   },
-  branches: {
-    findAll: {
-      endpoint: '',
-      method: METHODS.GET,
-    },
-    activate: {
-      endpoint: '/activate',
-      method: METHODS.PUT,
-    },
-    deactivate: {
-      endpoint: '/deactivate',
-      method: METHODS.PUT,
-    },
-    updateOne: {
-      endpoint: '',
-      method: METHODS.PUT,
-    },
-  },
-  orders: {
-    findAll: {
-      endpoint: '',
-      method: METHODS.GET,
-    },
-    updateOne: {
-      endpoint: '',
-      method: METHODS.PUT,
-    },
-  },
 }
 
 const getRoute = (route, ep) => {
-  const { endpoint, method } = endpoints[route][ep]
+  const { endpoint, method } = defaultEndpointsEnum.has(ep)
+    ? defaultEndpoints[ep]
+    : customEndpoints[route][ep]
   return {
     url: `${backendUrl[env]}${routes[route]}${endpoint}`,
     method,

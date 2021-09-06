@@ -31,6 +31,8 @@ import {
   faTimes,
   faLock,
   faLockOpen,
+  faFileAlt,
+  f,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
@@ -72,6 +74,8 @@ export const generalIcons = {
   CLOSED: faLock,
 
   ADD: faPlus,
+
+  DESCRIPTION: faFileAlt,
 }
 
 export const deliveryIcons = {

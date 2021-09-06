@@ -2,6 +2,7 @@
 @import '../../../../assets/scss/mixins.scss';
 @import '../../../../assets/scss/fonts.scss';
 @import '../../../../assets/scss/globals.module.scss';
+@import '../CardHeader/CardHeader.module.scss';
 
 
 @mixin subSectionTitle() {
@@ -22,15 +23,7 @@
     gap: 20px;
 
     .avatarContainer {
-      @include flexBox();
-      background-color: $primary2;
-      border-radius: 100%;
-      border: $dark 5px outset;
-      width: fit-content;
-
-      .avatar {
-        width: 200px;
-      }
+      @include avatarContainer()
     }
 
     h2 {

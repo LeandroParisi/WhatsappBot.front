@@ -1,16 +1,21 @@
-import branchesAdapter from './adapters/branches/branchEntity'
+import branchesAdapter from './adapters/branches/branchesAdapter'
 import branchesEditAdapter from './adapters/branches/branchEntityEdit'
+import menusAdapter from './adapters/menus/menusAdapter'
+import menusEditAdapter from './adapters/menus/menusEditAdapter'
 
 const entitiesTypes = {
   branches: 'branches',
+  menus: 'menus',
 }
 
 const entityAdapters = {
   [entitiesTypes.branches]: branchesAdapter,
+  [entitiesTypes.menus]: menusAdapter,
 }
 
 const editEntityAdapters = {
   [entitiesTypes.branches]: branchesEditAdapter,
+  [entitiesTypes.menus]: menusEditAdapter,
 
 }
 

@@ -36,7 +36,7 @@ const EditModal = ({ entity, type, editRequest }) => {
   const headerFactory = ({ value, key, fieldType }) => {
     if (fieldType === inputTypes.IMAGE) {
       return (
-        <div className={styles.avatarContainer}>
+        <div className={classNames(styles.avatarContainer, styles[type])}>
           <img
             src={value || defaultImages[type]}
             alt={key}

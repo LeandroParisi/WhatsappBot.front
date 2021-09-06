@@ -1,3 +1,4 @@
-export * from './root/index'
-export * from './dashboard/index'
-export * from './branches/index'
+export * from './root'
+export * from './dashboard'
+export * from './branches'
+export * from './menus'

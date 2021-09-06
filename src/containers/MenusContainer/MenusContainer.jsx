@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
-import { useBranches, useRoot } from 'store'
+import { useMenus, useRoot } from 'store'
 import EntitiesContainer from 'components/EntitiesContainer/EntitiesContainer'
 import { entitiesTypes } from 'components/EntitiesContainer/EntitiesInterface'
 import { MainPageFilter } from 'components'
 
-const BranchesContainer = () => {
+const MenusContainer = () => {
   const {
-    getUserBranches, getFilters, saveFilters, updateBranch, activateBranch, deactivateBranch,
-  } = useBranches()
+    activateMenu, deactivateMenu,
+  } = useMenus()
+  const {
+    getMenus, getFilters, saveFilters,
+  } = useMenus()
+
   const { getIsLoading } = useRoot()
   const filters = getFilters()
 
-  const branches = getUserBranches()
+  console.log(getMenus())
 
   return (
     <>
@@ -26,15 +30,15 @@ const BranchesContainer = () => {
         )
         : (
           <EntitiesContainer
-            entities={branches}
-            type={entitiesTypes.branches}
-            editRequest={updateBranch}
-            activate={activateBranch}
-            deactivate={deactivateBranch}
+            entities={getMenus()}
+            type={entitiesTypes.menus}
+            // editRequest={updateBranch}
+            activate={activateMenu}
+            deactivate={deactivateMenu}
           />
         )}
     </>
   )
 }
 
-export default BranchesContainer
+export default MenusContainer

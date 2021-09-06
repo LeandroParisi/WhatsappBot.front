@@ -32,6 +32,48 @@ const saveFiltersFactory = (setter) => (filters) => {
   setter('query', extractFiltersQuery(filters))
 }
 
+const activateEntityFactory = (setter, errorHandler, fetcher, stateKey, store) => async (id) => {
+  const { response } = await errorHandler(fetcher(id))
+
+  if (response) {
+    const updatedEntities = store[stateKey].map((entity) => {
+      if (entity.id === id) {
+        return {
+          ...entity,
+          isActive: true,
+        }
+      }
+      return entity
+    })
+
+    setter(stateKey, updatedEntities)
+  }
+}
+
+const deactivateEntityFactory = (setter, errorHandler, fetcher, stateKey, store) => async (id) => {
+  const { response } = await errorHandler(fetcher(id))
+
+  if (response) {
+    const updatedEntities = store[stateKey].map((entity) => {
+      if (entity.id === id) {
+        return {
+          ...entity,
+          isActive: false,
+        }
+      }
+      return entity
+    })
+
+    setter(stateKey, updatedEntities)
+  }
+}
+
 export {
-  setState, validateInput, setOption, saveFiltersFactory, handleIconSelectFactory,
+  setState,
+  validateInput,
+  setOption,
+  saveFiltersFactory,
+  handleIconSelectFactory,
+  activateEntityFactory,
+  deactivateEntityFactory,
 }
