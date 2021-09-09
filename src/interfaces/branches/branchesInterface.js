@@ -26,7 +26,7 @@ const branchInterface = {
 }
 
 export const defaultValues = {
-  id: '',
+  id: null,
   branchName: '',
   countryName: 'Brazil',
   stateName: 'São Paulo',
@@ -38,7 +38,7 @@ export const defaultValues = {
   street: '',
   streetComplement: '',
   deliveryFees: {
-    fees: null,
+    fees: 0,
     type: deliveryFeeTypes.unique,
   },
   deliveryTypes: [],
@@ -47,13 +47,13 @@ export const defaultValues = {
   paymentMethods: [],
   streetNumber: '',
   openingHours: {
-    monday: { hours: [null, null], isOpened: true, overnight: false },
-    tuesday: { hours: [null, null], isOpened: true, overnight: false },
-    wednesday: { hours: [null, null], isOpened: true, overnight: false },
-    thursday: { hours: [null, null], isOpened: true, overnight: false },
-    friday: { hours: [null, null], isOpened: true, overnight: false },
-    saturday: { hours: [null, null], isOpened: true, overnight: false },
-    sunday: { hours: [null, null], isOpened: true, overnight: false },
+    monday: { hours: [null, null], isOpened: false, overnight: false },
+    tuesday: { hours: [null, null], isOpened: false, overnight: false },
+    wednesday: { hours: [null, null], isOpened: false, overnight: false },
+    thursday: { hours: [null, null], isOpened: false, overnight: false },
+    friday: { hours: [null, null], isOpened: false, overnight: false },
+    saturday: { hours: [null, null], isOpened: false, overnight: false },
+    sunday: { hours: [null, null], isOpened: false, overnight: false },
   },
   countryId: '',
   stateId: '',

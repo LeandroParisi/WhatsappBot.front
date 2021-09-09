@@ -6,7 +6,7 @@ import * as providers from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
 import { normalizeEditPayload } from './serializers'
 import validationFactory from '../sharedMethods/validationFactory'
-import { validations, errorsLib } from './validations'
+import { editValidations, createValidations, errorsLib } from './validations'
 
 export default (store, setStore, useRoot) => {
   const { errorHandler } = useRoot()
@@ -23,8 +23,27 @@ export default (store, setStore, useRoot) => {
     }
   }
 
+  const createBranch = async ({ body }) => {
+    const { hasErrors, errors } = await validationFactory(body, createValidations, errorsLib)
+
+    if (hasErrors) {
+      toast.error('Favor corrigir os campos inválidos')
+      return { hasErrors, errors }
+    }
+
+    const normalizedBody = normalizeEditPayload(body)
+
+    const { status } = await errorHandler(providers.createBranch(normalizedBody))
+
+    if (status) {
+      await fetchUserBranches()
+    }
+
+    return { hasErrors }
+  }
+
   const updateBranch = async ({ id, body }) => {
-    const { hasErrors, errors } = await validationFactory(body, validations, errorsLib)
+    const { hasErrors, errors } = await validationFactory(body, editValidations, errorsLib)
 
     if (hasErrors) {
       toast.error('Favor corrigir os campos inválidos')
@@ -56,5 +75,6 @@ export default (store, setStore, useRoot) => {
     updateBranch,
     activateBranch,
     deactivateBranch,
+    createBranch,
   }
 }

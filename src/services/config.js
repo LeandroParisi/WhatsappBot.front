@@ -16,7 +16,7 @@ const routes = {
   products: '/products',
 }
 
-const defaultEndpointsEnum = new Set(['findAll', 'activate', 'deactivate', 'updateOne'])
+const defaultEndpointsEnum = new Set(['findAll', 'activate', 'deactivate', 'updateOne', 'create'])
 
 const defaultEndpoints = {
   findAll: {
@@ -34,6 +34,10 @@ const defaultEndpoints = {
   updateOne: {
     endpoint: '',
     method: METHODS.PUT,
+  },
+  create: {
+    endpoint: '',
+    method: METHODS.POST,
   },
 }
 

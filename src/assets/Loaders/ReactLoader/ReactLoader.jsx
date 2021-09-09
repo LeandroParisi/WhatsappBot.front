@@ -1,18 +1,26 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Loader from 'react-loader-spinner'
 import { DARK } from '../../../libs/colors'
 import styles from './ReactLoader.module.scss'
 
-const ReactLoader = () => (
+const ReactLoader = ({ size }) => (
   <div className={styles.loaderContainer}>
     <Loader
       type="Oval"
       color={DARK}
-      height={75}
-      width={75}
+      height={size}
+      width={size}
     />
 
   </div>
 )
 
+ReactLoader.propTypes = {
+  size: PropTypes.number,
+}
+
+ReactLoader.defaultProps = {
+  size: 75,
+}
 export default ReactLoader

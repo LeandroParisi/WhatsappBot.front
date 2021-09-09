@@ -15,6 +15,7 @@ const BranchesContainer = () => {
     getAdaptedBranches,
     getAdaptedEditBranches,
     getDefaultEntity,
+    createBranch,
   } = useBranches()
 
   const { getIsLoading } = useRoot()
@@ -44,6 +45,7 @@ const BranchesContainer = () => {
             createEntity={defaultCreateEntity}
             type={entitiesTypes.branches}
             editRequest={updateBranch}
+            createRequest={createBranch}
             activate={activateBranch}
             deactivate={deactivateBranch}
           />

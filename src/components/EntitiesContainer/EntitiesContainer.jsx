@@ -16,6 +16,7 @@ const EntitiesContainer = ({
   deactivate,
   editEntities,
   createEntity,
+  createRequest,
 }) => {
   const [openModal, setOpenModal] = useState(false)
   return (
@@ -56,7 +57,7 @@ const EntitiesContainer = ({
         <EditModal
           entity={createEntity}
           type={type}
-          // editRequest={editRequest}
+          editRequest={createRequest}
         />
       </Modal>
     </section>
@@ -71,6 +72,7 @@ EntitiesContainer.propTypes = {
   deactivate: PropTypes.func.isRequired,
   editEntities: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   createEntity: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  createRequest: PropTypes.func.isRequired,
 }
 
 export default EntitiesContainer
