@@ -2,19 +2,30 @@ import React, { useEffect } from 'react'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
 import { useBranches, useRoot } from 'store'
 import EntitiesContainer from 'components/EntitiesContainer/EntitiesContainer'
-import { entitiesTypes, entityAdapter } from 'components/EntitiesContainer/EntitiesInterface'
+import { entitiesTypes } from 'interfaces/entities'
 import { MainPageFilter } from 'components'
 
 const BranchesContainer = () => {
   const {
-    getUserBranches, getFilters, saveFilters, updateBranch, activateBranch, deactivateBranch,
+    getFilters,
+    saveFilters,
+    updateBranch,
+    activateBranch,
+    deactivateBranch,
+    getAdaptedBranches,
+    getAdaptedEditBranches,
+    getDefaultEntity,
   } = useBranches()
+
   const { getIsLoading } = useRoot()
+
   const filters = getFilters()
 
-  const branches = getUserBranches()
+  const adaptedEntities = getAdaptedBranches()
 
-  const adaptedEntity = entityAdapter(branches, entitiesTypes.branches)
+  const adaptedEditEntities = getAdaptedEditBranches()
+
+  const defaultCreateEntity = getDefaultEntity()
 
   return (
     <>
@@ -28,7 +39,9 @@ const BranchesContainer = () => {
         )
         : (
           <EntitiesContainer
-            entities={branches}
+            entities={adaptedEntities}
+            editEntities={adaptedEditEntities}
+            createEntity={defaultCreateEntity}
             type={entitiesTypes.branches}
             editRequest={updateBranch}
             activate={activateBranch}

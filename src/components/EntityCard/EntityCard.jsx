@@ -1,19 +1,16 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Modal from 'templates/Modal/Modal'
-import defaultImages from 'libs/defaultImages'
-import Icon from 'assets/icons/Icon'
-import { getIcon } from 'assets/icons/iconsLib'
 import classNames from 'classnames'
 import CardHeader from './subComponents/CardHeader/CardHeader'
 import styles from './EntityCard.module.scss'
-import { editEntityAdapter, entitiesTypes } from '../EntitiesContainer/EntitiesInterface'
+import { entitiesTypes } from 'interfaces/entities'
 import EntityCardSection from './subComponents/EntityCardSection/EntityCardSection'
 import EditModal from './subComponents/EditModal/EditModal'
 import SideBar from './subComponents/Sidebar/SideBar'
 
 const EntityCard = ({
-  entity, type, originalEntity, editRequest, activate, deactivate,
+  entity, type, editEntity, editRequest, activate, deactivate,
 }) => {
   const [openModal, setOpenModal] = useState(false)
   const {
@@ -28,7 +25,7 @@ const EntityCard = ({
         className={styles.editModal}
       >
         <EditModal
-          entity={editEntityAdapter(originalEntity, type)}
+          entity={editEntity}
           type={type}
           editRequest={editRequest}
         />
@@ -74,7 +71,7 @@ EntityCard.propTypes = {
     sections: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   }).isRequired,
   type: PropTypes.oneOf([...Object.values(entitiesTypes)]).isRequired,
-  originalEntity: PropTypes.shape({}).isRequired,
+  editEntity: PropTypes.shape({}).isRequired,
   editRequest: PropTypes.func.isRequired,
   activate: PropTypes.func.isRequired,
   deactivate: PropTypes.func.isRequired,

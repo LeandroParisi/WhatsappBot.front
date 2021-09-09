@@ -1,3 +1,5 @@
+import { editMenusAdapter, menusAdapter } from './serializers'
+
 export default ($store) => {
   const getTEMPLATE = () => $store
 
@@ -5,5 +7,18 @@ export default ($store) => {
 
   const getFilters = () => $store.filters
 
-  return { getMenus, getFilters }
+  const getAdaptedMenus = () => $store.userMenus
+    .map((menu) => menusAdapter(menu))
+
+  const getAdaptedEditMenus = () => $store.userMenus
+    .map((menu) => editMenusAdapter(menu))
+
+  // const getDefaultEntity = () => editBranchesAdapter({})
+
+  return {
+    getMenus,
+    getFilters,
+    getAdaptedMenus,
+    getAdaptedEditMenus,
+  }
 }

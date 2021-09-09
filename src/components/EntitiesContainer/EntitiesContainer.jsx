@@ -2,26 +2,31 @@ import React, { useState } from 'react'
 import { EntityCard } from 'components'
 import PropTypes from 'prop-types'
 import Icon from 'assets/icons/Icon'
+import { entitiesTypes } from 'interfaces/entities'
 import { generalIcons } from 'assets/icons/iconsLib'
 import Modal from 'templates/Modal/Modal'
 import styles from './EntitiesContainer.module.scss'
 import EditModal from '../EntityCard/subComponents/EditModal/EditModal'
-import { entityAdapter, entitiesTypes, editEntityAdapter } from './EntitiesInterface'
 
 const EntitiesContainer = ({
-  entities, type, editRequest, activate, deactivate,
+  entities,
+  type,
+  editRequest,
+  activate,
+  deactivate,
+  editEntities,
+  createEntity,
 }) => {
   const [openModal, setOpenModal] = useState(false)
-
   return (
     <section className={styles.container}>
       {entities.length
         ? (
-          entities?.map((entity) => (
+          entities?.map((entity, index) => (
             <EntityCard
-              entity={entityAdapter(entity, type)}
+              entity={entity}
               type={type}
-              originalEntity={entity}
+              editEntity={editEntities[index]}
               editRequest={editRequest}
               activate={activate}
               deactivate={deactivate}
@@ -49,7 +54,7 @@ const EntitiesContainer = ({
         className={styles.addEntity}
       >
         <EditModal
-          entity={editEntityAdapter({}, type)}
+          entity={createEntity}
           type={type}
           // editRequest={editRequest}
         />
@@ -61,6 +66,11 @@ const EntitiesContainer = ({
 EntitiesContainer.propTypes = {
   entities: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   type: PropTypes.oneOf([...Object.values(entitiesTypes)]).isRequired,
+  editRequest: PropTypes.func.isRequired,
+  activate: PropTypes.func.isRequired,
+  deactivate: PropTypes.func.isRequired,
+  editEntities: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  createEntity: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 }
 
 export default EntitiesContainer

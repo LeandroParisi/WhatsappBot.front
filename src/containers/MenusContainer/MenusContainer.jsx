@@ -1,20 +1,29 @@
 import React, { useEffect } from 'react'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
 import { useMenus, useRoot } from 'store'
+import { entitiesTypes } from 'interfaces/entities'
 import EntitiesContainer from 'components/EntitiesContainer/EntitiesContainer'
-import { entitiesTypes } from 'components/EntitiesContainer/EntitiesInterface'
 import { MainPageFilter } from 'components'
 
 const MenusContainer = () => {
   const {
-    activateMenu, deactivateMenu,
-  } = useMenus()
-  const {
-    getMenus, getFilters, saveFilters,
+    activateMenu,
+    deactivateMenu,
+    getAdaptedMenus,
+    getAdaptedEditMenus,
+    getFilters,
+    saveFilters,
   } = useMenus()
 
   const { getIsLoading } = useRoot()
+
   const filters = getFilters()
+
+  const adaptedEntities = getAdaptedMenus()
+
+  const adaptedEditEntities = getAdaptedEditMenus()
+
+  // const defaultCreateEntity = getDefaultEntity()
 
   return (
     <>
@@ -28,7 +37,9 @@ const MenusContainer = () => {
         )
         : (
           <EntitiesContainer
-            entities={getMenus()}
+            entities={adaptedEntities}
+            editEntities={adaptedEditEntities}
+            // createEntity={defaultCreateEntity}
             type={entitiesTypes.menus}
             // editRequest={updateBranch}
             activate={activateMenu}
