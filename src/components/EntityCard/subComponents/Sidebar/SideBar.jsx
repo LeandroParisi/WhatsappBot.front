@@ -5,21 +5,22 @@ import { getIcon } from 'assets/icons/iconsLib'
 import classNames from 'classnames'
 import styles from './SideBar.module.scss'
 
-const SideBar = ({ isActive, actions }) => {
-  const {
-    openEdit,
-    activate,
-    deactivate,
-  } = actions
-
+const SideBar = ({
+  isActive,
+  openEdit,
+  activate,
+  deactivate,
+  deleteRequest,
+  id,
+}) => {
   const activateIcon = !isActive ? getIcon('CHECKMARK') : getIcon('CLOSE')
   const activateIconTooltip = !isActive ? 'Ativar' : 'Desativar'
 
   const handleActivation = () => {
     if (isActive) {
-      return deactivate()
+      return deactivate(id)
     }
-    return activate()
+    return activate(id)
   }
 
   return (
@@ -41,15 +42,28 @@ const SideBar = ({ isActive, actions }) => {
         )}
         onClick={handleActivation}
       />
+      {!isActive && deleteRequest && (
+      <Icon
+        icon={getIcon('TRASH')}
+        type="default"
+        size="20px"
+        onClick={() => deleteRequest(id)}
+      />
+      )}
     </aside>
   )
 }
 
 SideBar.propTypes = {
   isActive: PropTypes.bool.isRequired,
-  actions: PropTypes.shape({
-    openEdit: PropTypes.func.isRequired,
-  }).isRequired,
+  openEdit: PropTypes.func.isRequired,
+  activate: PropTypes.func.isRequired,
+  deactivate: PropTypes.func.isRequired,
+  deleteRequest: PropTypes.func,
+  id: PropTypes.string.isRequired,
 }
 
+SideBar.defaultProps = {
+  deleteRequest: null,
+}
 export default SideBar

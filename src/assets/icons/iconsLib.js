@@ -32,7 +32,7 @@ import {
   faLock,
   faLockOpen,
   faFileAlt,
-  f,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
@@ -76,6 +76,7 @@ export const generalIcons = {
   ADD: faPlus,
 
   DESCRIPTION: faFileAlt,
+  TRASH: faTrash,
 }
 
 export const deliveryIcons = {
@@ -137,5 +138,6 @@ export const tooltips = {
   hands: 'Retirada',
   store: 'Consumo no local',
   [paymentMethods.PIX]: 'Pix',
+  trash: 'Deletar',
 
 }

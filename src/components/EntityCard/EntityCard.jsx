@@ -2,20 +2,23 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Modal from 'templates/Modal/Modal'
 import classNames from 'classnames'
+import { entitiesTypes } from 'interfaces/entities'
 import CardHeader from './subComponents/CardHeader/CardHeader'
 import styles from './EntityCard.module.scss'
-import { entitiesTypes } from 'interfaces/entities'
 import EntityCardSection from './subComponents/EntityCardSection/EntityCardSection'
 import EditModal from './subComponents/EditModal/EditModal'
 import SideBar from './subComponents/Sidebar/SideBar'
 
 const EntityCard = ({
-  entity, type, editEntity, editRequest, activate, deactivate,
+  entity, type, editEntity, editRequest, activate, deactivate, deleteRequest,
 }) => {
   const [openModal, setOpenModal] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
   const {
     id, name, image, sections, isActive,
   } = entity
+
+  console.log({ id })
 
   return (
     <>
@@ -31,14 +34,19 @@ const EntityCard = ({
         />
       </Modal>
 
-      <article className={classNames(styles.entity, { [styles.inactive]: !isActive })} key={id}>
+      <article
+        className={classNames(styles.entity, { [styles.inactive]: !isActive })}
+        key={id}
+        onMouseEnter={() => setIsFocused(true)}
+        onMouseLeave={() => setIsFocused(false)}
+      >
         <CardHeader
           image={image}
           type={type}
           name={name}
         />
         <hr />
-        <div className={styles.sectionsContainer}>
+        <div className={classNames(styles.sectionsContainer, { [styles.focused]: isFocused })}>
           {sections.map((section, index) => (
             <>
               <EntityCardSection section={section} />
@@ -49,11 +57,11 @@ const EntityCard = ({
 
         <SideBar
           isActive={isActive}
-          actions={{
-            openEdit: () => setOpenModal(!openModal),
-            activate: () => activate(id),
-            deactivate: () => deactivate(id),
-          }}
+          openEdit={() => setOpenModal(!openModal)}
+          activate={activate}
+          deactivate={deactivate}
+          deleteRequest={deleteRequest}
+          id={id}
         />
 
       </article>
@@ -75,5 +83,10 @@ EntityCard.propTypes = {
   editRequest: PropTypes.func.isRequired,
   activate: PropTypes.func.isRequired,
   deactivate: PropTypes.func.isRequired,
+  deleteRequest: PropTypes.func,
+}
+
+EntityCard.defaultProps = {
+  deleteRequest: null,
 }
 export default EntityCard

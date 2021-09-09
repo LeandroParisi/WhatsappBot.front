@@ -33,13 +33,21 @@ export default (store, setStore, useRoot) => {
 
     const normalizedBody = normalizeEditPayload(body)
 
-    const { status } = await errorHandler(providers.createBranch(normalizedBody))
+    const { response } = await errorHandler(providers.createBranch(normalizedBody))
 
-    if (status) {
+    if (response) {
       await fetchUserBranches()
     }
 
     return { hasErrors }
+  }
+
+  const deleteBranch = async (id) => {
+    const { response } = await errorHandler(providers.deleteBranch(id))
+
+    if (response) {
+      await fetchUserBranches()
+    }
   }
 
   const updateBranch = async ({ id, body }) => {
@@ -57,6 +65,7 @@ export default (store, setStore, useRoot) => {
       { id, body: normalizedBody },
     ))
 
+    console.log({ response })
     if (response) {
       await fetchUserBranches()
     }
@@ -66,7 +75,7 @@ export default (store, setStore, useRoot) => {
 
   const activateBranch = activateEntityFactory(setField, errorHandler, providers.activateBranch, 'userBranches', store)
 
-  const deactivateBranch = deactivateEntityFactory(setField, errorHandler, providers.activateBranch, 'userBranches', store)
+  const deactivateBranch = deactivateEntityFactory(setField, errorHandler, providers.deactivateBranch, 'userBranches', store)
 
   return {
     setField,
@@ -76,5 +85,6 @@ export default (store, setStore, useRoot) => {
     activateBranch,
     deactivateBranch,
     createBranch,
+    deleteBranch,
   }
 }

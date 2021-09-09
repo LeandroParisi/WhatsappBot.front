@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
-import { useBranches, useRoot } from 'store'
+import { useProducts, useRoot } from 'store'
 import EntitiesContainer from 'components/EntitiesContainer/EntitiesContainer'
 import { entitiesTypes } from 'interfaces/entities'
 import { MainPageFilter } from 'components'
 
-const BranchesContainer = () => {
+const ProductsContainer = () => {
   const {
     getFilters,
     saveFilters,
@@ -17,17 +17,17 @@ const BranchesContainer = () => {
     getDefaultEntity,
     createBranch,
     deleteBranch,
-  } = useBranches()
+  } = useProducts()
 
-  const { getIsLoading } = useRoot()
+  // const { getIsLoading } = useRoot()
 
   const filters = getFilters()
 
-  const adaptedEntities = getAdaptedBranches()
+  // const adaptedEntities = getAdaptedBranches()
 
-  const adaptedEditEntities = getAdaptedEditBranches()
+  // const adaptedEditEntities = getAdaptedEditBranches()
 
-  const defaultCreateEntity = getDefaultEntity()
+  // const defaultCreateEntity = getDefaultEntity()
 
   return (
     <>
@@ -35,7 +35,7 @@ const BranchesContainer = () => {
         filters={filters}
         saveFilters={saveFilters}
       />
-      {getIsLoading()
+      {/* {getIsLoading()
         ? (
           <ReactLoader />
         )
@@ -50,9 +50,9 @@ const BranchesContainer = () => {
             activate={activateBranch}
             deactivate={deactivateBranch}
           />
-        )}
+        )} */}
     </>
   )
 }
 
-export default BranchesContainer
+export default ProductsContainer

@@ -13,6 +13,9 @@ const MenusContainer = () => {
     getAdaptedEditMenus,
     getFilters,
     saveFilters,
+    updateMenu,
+    getDefaultEntity,
+    deleteMenu,
   } = useMenus()
 
   const { getIsLoading } = useRoot()
@@ -23,7 +26,7 @@ const MenusContainer = () => {
 
   const adaptedEditEntities = getAdaptedEditMenus()
 
-  // const defaultCreateEntity = getDefaultEntity()
+  const defaultCreateEntity = getDefaultEntity()
 
   return (
     <>
@@ -39,11 +42,12 @@ const MenusContainer = () => {
           <EntitiesContainer
             entities={adaptedEntities}
             editEntities={adaptedEditEntities}
-            // createEntity={defaultCreateEntity}
+            createEntity={defaultCreateEntity}
             type={entitiesTypes.menus}
-            // editRequest={updateBranch}
+            editRequest={updateMenu}
             activate={activateMenu}
             deactivate={deactivateMenu}
+            deleteRequest={deleteMenu}
           />
         )}
     </>

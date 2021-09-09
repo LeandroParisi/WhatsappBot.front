@@ -35,6 +35,17 @@ const deactivateBranch = (id) => async () => {
   return response
 }
 
+const deleteBranch = (id) => async () => {
+  const { url, method } = getRoute('branches', 'deleteOne')
+
+  const response = await api({
+    url: `${url}/${id}`,
+    method,
+  })
+
+  return response
+}
+
 const createBranch = (body) => async () => {
   const { url, method } = getRoute('branches', 'create')
 
@@ -52,4 +63,5 @@ export {
   activateBranch,
   deactivateBranch,
   createBranch,
+  deleteBranch,
 }

@@ -13,7 +13,7 @@ const Select = ({
   className,
   disabled,
   error: { error, errorMessage },
-
+  isDisabled,
 }) => {
   const onChange = ({ target }) => {
     const { options: inputOptions, options: { selectedIndex } } = target
@@ -30,7 +30,7 @@ const Select = ({
       <option
         value=""
         selected={!selected.name}
-        disabled
+        disabled={isDisabled}
         className={styles.placeholder}
       >
         {placeholder}
@@ -61,6 +61,7 @@ Select.propTypes = {
     error: PropTypes.bool.isRequired,
     errorMessage: PropTypes.string.isRequired,
   }),
+  isDisabled: PropTypes.bool,
 }
 
 Select.defaultProps = {
@@ -69,6 +70,7 @@ Select.defaultProps = {
   className: '',
   disabled: false,
   error: {},
+  isDisabled: true,
 }
 
 export default Select

@@ -9,6 +9,7 @@ export const errorText: string;
 export const fullPage: string;
 export const highlightText: string;
 export const list: string;
+export const listContainer: string;
 export const mainButton: string;
 export const mainInput: string;
 export const mainPage: string;

@@ -44,7 +44,7 @@
         font-size: $font-small;
       }
 
-      .subSectionContainer{
+      .subSectionContainer {
         @include flexBox(row, flex-start, flex-start);
         width: 100%;
 
@@ -75,29 +75,36 @@
             }
           }
 
-          .selectList {
+          &.selectList {
             width: 100%;
-            @include flexBox();
-            
-            .list {
-              @include flexBox();
-              text-align: center;
+  
+            .listContainer {
+              @include flexBox(column, flex-start);
               width: 100%;
-              
-              li {
-                @include boxShadow(2px, 3px);
-                font-size: $font-xsmall;
-                color: white;
-                min-width: 15%;
-                padding: 5px 15px;
-                margin: 1.5% 5%;
-                list-style-type: none;
-                border-radius: 10px;
-                background-color: $primary3;
+              gap: 15px;
+  
+              .list {
+                @include flexBox(row, flex-start);
+                text-align: center;
+                width: 100%;
+                gap: 20px;
+                
+                li {
+                  @include boxShadow(2px, 3px);
+                  font-size: $font-xsmall;
+                  color: white;
+                  min-width: 15%;
+                  padding: 5px 15px;
+                  list-style-type: none;
+                  border-radius: 10px;
+                  background-color: $primary3;
+                }
               }
             }
           }
         }
+
+
       }
     }
   }

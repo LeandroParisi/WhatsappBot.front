@@ -30,6 +30,12 @@ const EditModal = ({ entity, type, editRequest }) => {
     setState(setFormValues)(key, value)
   }
 
+  const handleSelectList = (key, value) => {
+    const newState = [...formValues[key]]
+    newState.push(value)
+    updateState(key, newState)
+  }
+
   const handleIconSelect = handleIconSelectFactory(formValues, updateState)
 
   const dispatchEdit = async () => {
@@ -121,18 +127,30 @@ const EditModal = ({ entity, type, editRequest }) => {
             className={styles.selectInput}
             setOption={(value) => updateState(key, value)}
             error={errors[key] || {}}
-
           />
         </>
 
       )
     }
     if (fieldType === inputTypes.SELECT_LIST) {
+      const { options } = subSection
+
       const values = formValues[key]
+      const currentProducts = new Set([...values.map(({ id }) => id)])
       return (
         <>
           <p>{sectionName}</p>
-          <div className={styles.selectList}>
+          <div className={styles.listContainer}>
+            <Select
+              selected={{ id: null, value: '' }}
+              isDisabled={false}
+              placeholder={`Adicione ${sectionName}`}
+              options={options.filter((option) => !currentProducts.has(option.id))}
+              color="white"
+              className={styles.selectInput}
+              setOption={(value) => handleSelectList(key, value)}
+              error={errors[key] || {}}
+            />
             <ul className={styles.list}>
               {values?.map(({ name, id }) => <li key={id} className={styles.listItem}>{name}</li>)}
             </ul>
@@ -172,7 +190,7 @@ const EditModal = ({ entity, type, editRequest }) => {
 
               <div className={styles.subSectionContainer}>
                 {subSections.map((subSection) => (
-                  <div className={styles.subSection}>
+                  <div className={classNames(styles.subSection, styles[subSection.fieldType])}>
                     {subSectionFactory(subSection)}
                   </div>
                 ))}

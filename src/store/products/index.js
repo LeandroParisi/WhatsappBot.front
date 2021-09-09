@@ -3,12 +3,15 @@ import { useRoot } from 'store/root'
 import storeActions from './actions'
 import storeSelectors from './selectors'
 import useCreateStore from '../useCreateStore'
+import { filterInterface } from './filters'
 
 const initialState = {
-
+  filters: filterInterface,
+  products: [],
+  query: '',
 }
 
-const TEMPLATESTORE = useCreateStore(() => {
+const productsStore = useCreateStore(() => {
   const [$TEMPLATE, setTEMPLATE] = useState(initialState)
   const actions = storeActions($TEMPLATE, setTEMPLATE, useRoot)
   const selectors = storeSelectors($TEMPLATE)
@@ -20,6 +23,6 @@ const TEMPLATESTORE = useCreateStore(() => {
   return { $TEMPLATE, ...actions, ...selectors }
 })
 
-export const useTEMPLATE = () => TEMPLATESTORE()
-export const TEMPLATEContext = TEMPLATESTORE.Context
-export const TEMPLATEProvider = TEMPLATESTORE.Provider
+export const useProducts = () => productsStore()
+export const ProductsContext = productsStore.Context
+export const ProductsProvider = productsStore.Provider

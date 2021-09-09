@@ -1,14 +1,12 @@
 import { groupedIcons } from 'assets/icons/iconsLib'
 import contentTypes from 'libs/sectionTypes'
 
-import { menusInterface } from 'interfaces/menus/menusInterface'
-import { inputTypes, customFieldTypes } from 'libs/inputTypes'
+import { menusInterface, defaultValues } from 'interfaces/menus/menusInterface'
+import { inputTypes } from 'libs/inputTypes'
 
 const {
   INPUT,
   IMAGE,
-  ICONS,
-  SELECT,
   SELECT_LIST,
 } = inputTypes
 
@@ -18,14 +16,15 @@ const {
   STORE,
 } = groupedIcons
 
-export const editMenusAdapter = (menu) => {
+export const editMenusAdapter = (menu, userProducts, userBranches) => {
   const {
-    id,
-    isActive,
-    image,
-    menuName,
-    description,
-    menuProducts,
+    id = defaultValues.id,
+    isActive = defaultValues.isActive,
+    image = defaultValues.image,
+    menuName = defaultValues.menuName,
+    description = defaultValues.description,
+    menuProducts = defaultValues.products,
+    branchesMenus = defaultValues.menuBranches,
   } = menu
 
   return {
@@ -60,8 +59,15 @@ export const editMenusAdapter = (menu) => {
         title: 'Relações',
         subSections: [
           {
+            value: branchesMenus.map(({ id, branchName }) => ({ id, name: branchName })),
+            options: userBranches.map(({ id, branchName }) => ({ id, name: branchName })),
+            key: menusInterface.menuBranches,
+            sectionName: 'Filiais',
+            fieldType: SELECT_LIST,
+          },
+          {
             value: menuProducts,
-            options: '',
+            options: userProducts.map(({ id, name }) => ({ id, name })),
             key: menusInterface.products,
             sectionName: 'Produtos',
             fieldType: SELECT_LIST,
@@ -115,5 +121,18 @@ export const menusAdapter = (menu) => {
       },
 
     ],
+  }
+}
+
+export const normalizeEditPayload = (body) => {
+  const {
+    menuBranches,
+    products,
+  } = body
+
+  return {
+    ...body,
+    menuBranches: menuBranches.map(({ id }) => id),
+    products: products.map(({ id }) => id),
   }
 }

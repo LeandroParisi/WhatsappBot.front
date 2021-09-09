@@ -9,6 +9,7 @@ import useCreateStore from '../useCreateStore'
 const initialState = {
   userMenus: [],
   userProducts: [],
+  userBranches: [],
   filters: filterInterface,
   query: '',
 }
@@ -24,6 +25,7 @@ const MenusStore = useCreateStore(() => {
 
   useEffect(() => {
     actions.fetchUserProducts()
+    actions.fetchUserBranches()
   }, [])
 
   return { $store, ...actions, ...selectors }
