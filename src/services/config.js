@@ -13,6 +13,7 @@ const routes = {
   branches: '/branches',
   orders: '/orders',
   menus: '/menus',
+  products: '/products',
 }
 
 const defaultEndpointsEnum = new Set(['findAll', 'activate', 'deactivate', 'updateOne'])

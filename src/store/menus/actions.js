@@ -22,9 +22,17 @@ export default (store, setStore, useRoot) => {
     }
   }
 
+  const fetchUserProducts = async (query = '') => {
+    const { response } = await errorHandler(sharedProviders.fetchUserProducts(query))
+
+    if (response) {
+      setField('userProducts', response)
+    }
+  }
+
   const activateMenu = activateEntityFactory(setField, errorHandler, providers.activateMenu, 'userMenus', store)
 
-  const deactivateMenu = deactivateEntityFactory(setField, errorHandler, providers.activateMenu, 'userMenus', store)
+  const deactivateMenu = deactivateEntityFactory(setField, errorHandler, providers.deactivateMenu, 'userMenus', store)
 
   return {
     setField,
@@ -32,5 +40,6 @@ export default (store, setStore, useRoot) => {
     fetchUserMenus,
     activateMenu,
     deactivateMenu,
+    fetchUserProducts,
   }
 }

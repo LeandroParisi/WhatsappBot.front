@@ -15,17 +15,15 @@ import styles from './EditModal.module.scss'
 import extractInitialValues from './helpers'
 
 const EditModal = ({ entity, type, editRequest }) => {
-  console.log({ entity })
   const [formValues, setFormValues] = useState(extractInitialValues(entity))
   const [errors, setErrors] = useState({})
   const { header, sections, id } = entity
 
-  console.log({ formValues })
   const updateState = setState(setFormValues)
 
   const handleIconSelect = handleIconSelectFactory(formValues, updateState)
 
-  const editEntity = async () => {
+  const dispatchEdit = async () => {
     const { hasErrors, errors: validationErrors } = await editRequest({ id, body: formValues })
 
     if (hasErrors) {
@@ -115,6 +113,21 @@ const EditModal = ({ entity, type, editRequest }) => {
 
       )
     }
+    if (fieldType === inputTypes.SELECT_LIST) {
+      const values = formValues[key]
+      console.log({ values })
+      return (
+        <>
+          <p>{sectionName}</p>
+          <div className={styles.selectList}>
+            <ul className={styles.list}>
+              {values?.map(({ name, id }) => <li key={id} className={styles.listItem}>{name}</li>)}
+            </ul>
+
+          </div>
+        </>
+      )
+    }
 
     if (customField) {
       return (
@@ -156,7 +169,7 @@ const EditModal = ({ entity, type, editRequest }) => {
           ))}
         </section>
       )}
-      <Button onClick={editEntity} className={styles.editButton}>Salvar</Button>
+      <Button onClick={dispatchEdit} className={styles.editButton}>Salvar</Button>
     </form>
   )
 }

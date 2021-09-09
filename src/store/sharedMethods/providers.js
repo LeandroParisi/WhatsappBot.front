@@ -13,6 +13,16 @@ export const fetchUserBranches = (query = '') => async () => {
   return response
 }
 
+export const fetchUserProducts = (query = '') => async () => {
+  const { url, method } = getRoute('products', 'findAll')
+
+  const response = await api({
+    url: `${url}${query}`,
+    method,
+  })
+  return response
+}
+
 export const validateCep = async (cep) => {
   const response = await api({
     url: `${VIA_CEP}/${cep}/json`,

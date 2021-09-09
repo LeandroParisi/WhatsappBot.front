@@ -6,6 +6,7 @@ const {
   IMAGE,
   ICONS,
   SELECT,
+  SELECT_LIST,
 } = inputTypes
 
 const menusEditAdapter = (menu) => {
@@ -15,10 +16,12 @@ const menusEditAdapter = (menu) => {
     image,
     menuName,
     description,
-
+    menuProducts,
   } = menu
 
   return {
+    id,
+    isActive,
     header: [
       {
         value: image,
@@ -44,14 +47,18 @@ const menusEditAdapter = (menu) => {
           },
         ],
       },
-      // {
-      //   title: 'Produtos',
-      //   subSections: [
-      //     {
-
-      //     }
-      //   ]
-      // }
+      {
+        title: 'Relações',
+        subSections: [
+          {
+            value: menuProducts,
+            options: '',
+            key: menusInterface.products,
+            sectionName: 'Produtos',
+            fieldType: SELECT_LIST,
+          },
+        ],
+      },
     ],
   }
 }

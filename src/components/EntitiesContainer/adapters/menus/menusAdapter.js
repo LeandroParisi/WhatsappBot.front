@@ -3,7 +3,8 @@ import contentTypes from 'libs/sectionTypes'
 
 const {
   DESCRIPTION,
-  LIST,
+  PRODUCT,
+  STORE,
 } = groupedIcons
 
 const menusAdapter = (menu) => {
@@ -14,7 +15,7 @@ const menusAdapter = (menu) => {
     isActive,
     description,
     menuProducts,
-
+    branchesMenus,
   } = menu
 
   return {
@@ -32,13 +33,22 @@ const menusAdapter = (menu) => {
         },
       },
       {
-        icon: LIST,
+        icon: PRODUCT,
         title: 'Produtos',
         content: {
           values: menuProducts.map((product) => product.name),
           type: contentTypes.LIST,
         },
       },
+      {
+        icon: STORE,
+        title: 'Filiais',
+        content: {
+          values: branchesMenus.map(({ branchName }) => branchName),
+          type: contentTypes.LIST,
+        },
+      },
+
     ],
   }
 }

@@ -7,6 +7,7 @@ export const inputTypes = {
   ICONS: 'icons',
   STATUS: 'status',
   IMAGE: 'image',
+  SELECT_LIST: 'selectList',
 }
 
 export const customFieldTypes = {

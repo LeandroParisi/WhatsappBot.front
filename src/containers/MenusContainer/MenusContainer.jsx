@@ -16,8 +16,6 @@ const MenusContainer = () => {
   const { getIsLoading } = useRoot()
   const filters = getFilters()
 
-  console.log(getMenus())
-
   return (
     <>
       <MainPageFilter

@@ -46,7 +46,7 @@ const EntitiesContainer = ({
       <Modal
         isOpened={openModal}
         close={() => setOpenModal(false)}
-        className={styles.editModal}
+        className={styles.addEntity}
       >
         <EditModal
           entity={editEntityAdapter({}, type)}
