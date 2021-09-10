@@ -9,11 +9,11 @@ export const menusInterface = {
 }
 
 export const defaultValues = {
-  [menusInterface.id]: '',
+  [menusInterface.id]: null,
   [menusInterface.description]: '',
-  [menusInterface.isActive]: '',
+  [menusInterface.isActive]: true,
   [menusInterface.menuName]: '',
-  [menusInterface.image]: '',
+  [menusInterface.image]: null,
   [menusInterface.products]: [],
   [menusInterface.menuBranches]: [],
 }

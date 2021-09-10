@@ -5,6 +5,7 @@ export { default as PriceTag } from './MainComponents/PriceTag/PriceTag'
 export { default as Tooltip } from './MainComponents/Tooltip/Tooltip'
 export { default as Checkbox } from './MainComponents/Checkbox/Checkbox'
 export { default as TimePicker } from './MainComponents/TimePicker/TimePicker'
+export { default as RangeInput } from './MainComponents/RangeInput/RangeInput'
 
 export { default as LoginInputs } from './LoginInputs/LoginInputs'
 export { default as DashboardColumn } from './DashboardColumn/DashboardColumn'

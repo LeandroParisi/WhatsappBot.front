@@ -10,3 +10,7 @@ export const editValidations = {
   [menusInterface.menuName]: (name) => isNotEmpty(name),
   [menusInterface.description]: (name) => isNotEmpty(name),
 }
+
+export const createValidations = {
+  ...editValidations,
+}

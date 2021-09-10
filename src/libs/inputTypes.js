@@ -8,6 +8,7 @@ export const inputTypes = {
   STATUS: 'status',
   IMAGE: 'image',
   SELECT_LIST: 'selectList',
+  RANGE: 'range',
 }
 
 export const customFieldTypes = {

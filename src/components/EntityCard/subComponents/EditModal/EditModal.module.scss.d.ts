@@ -18,6 +18,7 @@ export const optionIcon: string;
 export const optionsContainer: string;
 export const section: string;
 export const sectionsContainer: string;
+export const selectIcon: string;
 export const selectInput: string;
 export const selectList: string;
 export const subSection: string;

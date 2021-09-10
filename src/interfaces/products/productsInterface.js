@@ -11,4 +11,21 @@ const productsInterface = {
   isActive: 'isActive',
 }
 
+export const categories = {
+  FOOD: 'Comida',
+  DRINK: 'Sucos',
+  ALCOOHOLIC: 'Bebidas alcoólicas',
+}
+
+export const attributes = {
+  SIZES: 'sizes',
+  ADDITIONALS: 'additionals',
+}
+
+export const attributesTranslation = {
+  [attributes.SIZES]: 'Tamanhos',
+  [attributes.ADDITIONALS]: 'Adicionais',
+
+}
+
 export default productsInterface

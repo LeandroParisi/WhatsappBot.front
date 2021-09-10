@@ -58,12 +58,19 @@ const customEndpoints = {
       method: METHODS.GET,
     },
   },
+  products: {
+    categories: {
+      endpoint: '/categories',
+      method: METHODS.GET,
+    },
+  },
 }
 
 const getRoute = (route, ep) => {
   const { endpoint, method } = defaultEndpointsEnum.has(ep)
     ? defaultEndpoints[ep]
     : customEndpoints[route][ep]
+
   return {
     url: `${backendUrl[env]}${routes[route]}${endpoint}`,
     method,

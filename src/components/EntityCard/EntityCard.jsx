@@ -18,8 +18,6 @@ const EntityCard = ({
     id, name, image, sections, isActive,
   } = entity
 
-  console.log({ id })
-
   return (
     <>
       <Modal
@@ -46,6 +44,7 @@ const EntityCard = ({
           name={name}
         />
         <hr />
+
         <div className={classNames(styles.sectionsContainer, { [styles.focused]: isFocused })}>
           {sections.map((section, index) => (
             <>

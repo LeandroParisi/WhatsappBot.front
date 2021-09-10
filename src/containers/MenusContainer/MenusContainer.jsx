@@ -16,6 +16,7 @@ const MenusContainer = () => {
     updateMenu,
     getDefaultEntity,
     deleteMenu,
+    createMenu,
   } = useMenus()
 
   const { getIsLoading } = useRoot()
@@ -45,6 +46,7 @@ const MenusContainer = () => {
             createEntity={defaultCreateEntity}
             type={entitiesTypes.menus}
             editRequest={updateMenu}
+            createRequest={createMenu}
             activate={activateMenu}
             deactivate={deactivateMenu}
             deleteRequest={deleteMenu}

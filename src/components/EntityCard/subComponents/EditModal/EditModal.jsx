@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import defaultImages from 'libs/defaultImages'
@@ -6,7 +8,7 @@ import { Input } from 'components'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
 import Icon from 'assets/icons/Icon'
 import classNames from 'classnames'
-import { getIcon } from 'assets/icons/iconsLib'
+import { generalIcons, getIcon } from 'assets/icons/iconsLib'
 import { DARK_GRAY } from 'libs/colors'
 import { handleIconSelectFactory, setState } from 'store/sharedMethods/actions'
 import Button from 'components/MainComponents/Button/Button'
@@ -33,6 +35,11 @@ const EditModal = ({ entity, type, editRequest }) => {
   const handleSelectList = (key, value) => {
     const newState = [...formValues[key]]
     newState.push(value)
+    updateState(key, newState)
+  }
+
+  const removeSelectListItem = (id, key) => {
+    const newState = formValues[key].filter((option) => option.id !== id)
     updateState(key, newState)
   }
 
@@ -152,7 +159,21 @@ const EditModal = ({ entity, type, editRequest }) => {
               error={errors[key] || {}}
             />
             <ul className={styles.list}>
-              {values?.map(({ name, id }) => <li key={id} className={styles.listItem}>{name}</li>)}
+              {values?.map(({ name, id }) => (
+                <li
+                  key={id}
+                  className={styles.listItem}
+                >
+                  {name}
+                  <Icon
+                    icon={generalIcons.CLOSE}
+                    className={styles.selectIcon}
+                    size="12px"
+                    tooltipText="Remover"
+                    onClick={() => removeSelectListItem(id, key)}
+                  />
+                </li>
+              ))}
             </ul>
           </div>
         </>

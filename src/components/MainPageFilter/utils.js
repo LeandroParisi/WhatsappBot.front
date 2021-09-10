@@ -7,7 +7,11 @@ const {
   BOOL,
   ICONS,
   STATUS,
+  RANGE,
 } = inputTypes
+
+export const MIN_RANGE_VALUE = 0
+export const MAX_RANGE_VALUE = 500
 
 export const initialValuesSwitch = (type) => {
   switch (type) {
@@ -23,6 +27,8 @@ export const initialValuesSwitch = (type) => {
       return null
     case ICONS:
       return new Set([])
+    case RANGE:
+      return [MIN_RANGE_VALUE, MAX_RANGE_VALUE]
     default:
       throw new Error('Unknown type')
   }

@@ -12,7 +12,6 @@ const fetchUserMenus = (query = '') => async () => {
 }
 
 const activateMenu = (id) => async () => {
-  console.log(id)
   const { url, method } = getRoute('menus', 'activate')
 
   const response = await api({
@@ -47,7 +46,6 @@ const updateMenu = ({ id, body }) => async () => {
 }
 
 const deleteMenu = (id) => async () => {
-  console.log(id)
   const { url, method } = getRoute('menus', 'deleteOne')
 
   const response = await api({
@@ -58,8 +56,21 @@ const deleteMenu = (id) => async () => {
   return response
 }
 
+const createMenu = (body) => async () => {
+  const { url, method } = getRoute('menus', 'create')
+
+  const response = await api({
+    url,
+    method,
+    body,
+  })
+
+  return response
+}
+
 export {
   fetchUserMenus,
+  createMenu,
   activateMenu,
   deactivateMenu,
   updateMenu,

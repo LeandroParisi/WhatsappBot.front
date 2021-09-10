@@ -65,7 +65,6 @@ export default (store, setStore, useRoot) => {
       { id, body: normalizedBody },
     ))
 
-    console.log({ response })
     if (response) {
       await fetchUserBranches()
     }

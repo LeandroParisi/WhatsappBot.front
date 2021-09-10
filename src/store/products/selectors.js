@@ -1,10 +1,12 @@
+import { productsAdapter } from './serializers'
+
 export default ($store) => {
   const getProducts = () => $store.products
 
   const getFilters = () => $store.filters
 
-  // const getAdaptedBranches = () => $store.userBranches
-  //   .map((branch) => branchesAdapter(branch))
+  const getAdaptedProducts = () => $store.products
+    .map((product) => productsAdapter(product))
 
   // const getAdaptedEditBranches = () => $store.userBranches
   //   .map((branch) => editBranchesAdapter(branch))
@@ -12,6 +14,6 @@ export default ($store) => {
   // const getDefaultEntity = () => editBranchesAdapter({})
 
   return {
-    getProducts, getFilters,
+    getProducts, getFilters, getAdaptedProducts,
   }
 }

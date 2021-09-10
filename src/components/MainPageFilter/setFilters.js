@@ -7,6 +7,7 @@ const {
   BOOL,
   ICONS,
   STATUS,
+  RANGE,
 } = inputTypes
 
 export const extractStatusFilter = ({ name }) => {
@@ -27,17 +28,19 @@ export const extractFilterValues = (filterValue, type) => {
     case INPUT:
       return filterValue
     case SELECT:
-      throw new Error('Filter extraction logic not implemented')
+      throw new Error('Filter extraction logic not implemented: MainFilterPage - setFilters')
     case STATUS:
       return extractStatusFilter(filterValue)
     case DATE:
-      throw new Error('Filter extraction logic not implemented')
+      throw new Error('Filter extraction logic not implemented: MainFilterPage - setFilters')
     case BOOL:
-      throw new Error('Filter extraction logic not implemented')
+      throw new Error('Filter extraction logic not implemented: MainFilterPage - setFilters')
     case ICONS:
       return [...filterValue].join(',')
+    case RANGE:
+      return filterValue
     default:
-      throw new Error('Unknown type')
+      throw new Error('Unknown type: MainFilterPage - setFilters')
   }
 }
 
@@ -52,6 +55,8 @@ export const setFilters = (temporaryFilters, filters, saveFilters) => {
       delete extractedFilters[filterName]
     }
   })
+
+  console.log({ extractedFilters })
 
   saveFilters(extractedFilters)
 }

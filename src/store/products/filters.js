@@ -5,9 +5,10 @@ import productsInterface from '../../interfaces/products/productsInterface'
 const {
   INPUT,
   ICONS,
+  RANGE,
 } = inputTypes
 
-export const filterInterface = [
+export const getFilterInterface = (categories) => ([
   {
     key: productsInterface.name,
     type: INPUT,
@@ -15,12 +16,13 @@ export const filterInterface = [
   },
   {
     key: productsInterface.categoryId,
-    type: INPUT,
+    type: ICONS,
+    options: categories.map(({ id, categoryName }) => ({ id, name: categoryName })),
     placeholder: 'Categoria',
   },
   {
     key: productsInterface.basePrice,
-    type: INPUT,
+    type: RANGE,
     placeholder: 'Preço',
   },
   {
@@ -31,6 +33,6 @@ export const filterInterface = [
   {
     ...statusFilter,
   },
-]
+])
 
 export const teste = 0

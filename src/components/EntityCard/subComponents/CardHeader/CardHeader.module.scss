@@ -12,7 +12,7 @@
     width: fit-content;
   }
 
-  &.menus {
+  &.menus, &.products {
     width: 150px;
     height: 150px;
 
@@ -20,6 +20,7 @@
       width: 110px;
     }
   }
+
 
   .avatar {
     width: 200px;

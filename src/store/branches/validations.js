@@ -40,16 +40,16 @@ export const errorsLib = {
 }
 
 export const editValidations = {
-  [branchInterface.branchName]: (branchName) => isNotEmpty(branchName),
-  [branchInterface.managerName]: (branchName) => isNotEmpty(branchName),
+  [branchInterface.branchName]: (name) => isNotEmpty(name),
+  [branchInterface.managerName]: (name) => isNotEmpty(name),
 
   [branchInterface.countryName]: ({ id }) => id > 0,
   [branchInterface.stateName]: ({ id }) => id > 0,
   [branchInterface.cityName]: ({ id }) => id > 0,
   [branchInterface.postalCode]: validateCep,
-  [branchInterface.neighborhood]: (branchName) => isNotEmpty(branchName),
-  [branchInterface.street]: (branchName) => isNotEmpty(branchName),
-  [branchInterface.streetNumber]: (branchName) => isNotEmpty(branchName),
+  [branchInterface.neighborhood]: (name) => isNotEmpty(name),
+  [branchInterface.street]: (name) => isNotEmpty(name),
+  [branchInterface.streetNumber]: (name) => isNotEmpty(name),
 
   [branchInterface.deliveryFees]: validateDeliveryFees,
 }

@@ -12,18 +12,18 @@ const ProductsContainer = () => {
     updateBranch,
     activateBranch,
     deactivateBranch,
-    getAdaptedBranches,
+    getAdaptedProducts,
     getAdaptedEditBranches,
     getDefaultEntity,
     createBranch,
     deleteBranch,
   } = useProducts()
 
-  // const { getIsLoading } = useRoot()
+  const { getIsLoading } = useRoot()
 
   const filters = getFilters()
 
-  // const adaptedEntities = getAdaptedBranches()
+  const adaptedEntities = getAdaptedProducts()
 
   // const adaptedEditEntities = getAdaptedEditBranches()
 
@@ -35,22 +35,22 @@ const ProductsContainer = () => {
         filters={filters}
         saveFilters={saveFilters}
       />
-      {/* {getIsLoading()
+      {getIsLoading()
         ? (
           <ReactLoader />
         )
         : (
           <EntitiesContainer
             entities={adaptedEntities}
-            editEntities={adaptedEditEntities}
-            createEntity={defaultCreateEntity}
-            type={entitiesTypes.branches}
-            editRequest={updateBranch}
-            createRequest={createBranch}
-            activate={activateBranch}
-            deactivate={deactivateBranch}
+            editEntities={adaptedEntities}
+            // createEntity={defaultCreateEntity}
+            type={entitiesTypes.products}
+            // editRequest={updateBranch}
+            // createRequest={createBranch}
+            // activate={activateBranch}
+            // deactivate={deactivateBranch}
           />
-        )} */}
+        )}
     </>
   )
 }

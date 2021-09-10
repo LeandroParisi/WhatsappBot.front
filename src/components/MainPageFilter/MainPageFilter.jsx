@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { inputTypes } from 'libs/inputTypes'
-import { Button, Checkbox, Input } from 'components'
+import {
+  Button, Checkbox, Input, RangeInput,
+} from 'components'
 import { handleIconSelectFactory, setOption, setState } from 'store/sharedMethods/actions'
 import Select from 'components/MainComponents/Select/Select'
 import Icon from 'assets/icons/Icon'
 import { getIcon } from 'assets/icons/iconsLib'
 import { DARK_GRAY } from 'libs/colors'
 import { setFilters } from './setFilters'
-import { extractInitialValues } from './utils'
+import { extractInitialValues, MAX_RANGE_VALUE, MIN_RANGE_VALUE } from './utils'
 import styles from './MainPageFilter.module.scss'
 
 const {
@@ -18,6 +20,7 @@ const {
   BOOL,
   ICONS,
   STATUS,
+  RANGE,
 } = inputTypes
 
 const MainPageFilter = ({ filters, saveFilters }) => {
@@ -25,12 +28,23 @@ const MainPageFilter = ({ filters, saveFilters }) => {
 
   const [temporaryFilters, setTemporaryFilters] = useState(initialValues)
 
+  useEffect(() => {
+    const isFilterEmpty = Object.keys(temporaryFilters).length
+    if (!isFilterEmpty && filters.length) {
+      setTemporaryFilters(initialValues)
+    }
+  }, [temporaryFilters, filters])
+
   const updateState = setState(setTemporaryFilters)
 
   const handleIconSelect = handleIconSelectFactory(temporaryFilters, updateState)
 
   const handleChange = (field) => ({ target: { value } }) => {
     updateState(field, value)
+  }
+
+  const handleRangeChange = (key) => (values) => {
+    updateState(key, values)
   }
 
   const onSubmit = (e) => {
@@ -95,12 +109,23 @@ const MainPageFilter = ({ filters, saveFilters }) => {
             value={temporaryFilters[key]}
           />
         )
+      case RANGE:
+        return (
+          <RangeInput
+            values={temporaryFilters[key]}
+            min={MIN_RANGE_VALUE}
+            max={MAX_RANGE_VALUE}
+            onChange={handleRangeChange(key)}
+          />
+        )
       default:
         throw new Error('Unknown type')
     }
   }
 
   return (
+    !!Object.keys(temporaryFilters).length
+    && (
     <header className={styles.filterHeader}>
       <form onSubmit={onSubmit}>
         <div className={styles.fieldsSection}>
@@ -114,8 +139,8 @@ const MainPageFilter = ({ filters, saveFilters }) => {
         </div>
         <Button className={styles.filterButton} type="submit">Filtrar</Button>
       </form>
-
     </header>
+    )
   )
 }
 

@@ -6,7 +6,7 @@ import validationFactory from 'store/sharedMethods/validationFactory'
 import * as providers from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
 // import { normalizeEditPayload } from './serializers'
-import { editValidations, errorsLib } from './validations'
+import { editValidations, errorsLib, createValidations } from './validations'
 import { normalizeEditPayload } from './serializers'
 
 export default (store, setStore, useRoot) => {
@@ -41,7 +41,6 @@ export default (store, setStore, useRoot) => {
   }
 
   const updateMenu = async ({ id, body }) => {
-    console.log({ body })
     const { hasErrors, errors } = await validationFactory(body, editValidations, errorsLib)
 
     if (hasErrors) {
@@ -56,7 +55,24 @@ export default (store, setStore, useRoot) => {
       { id, body: normalizedBody },
     ))
 
-    console.log({ response })
+    if (response) {
+      await fetchUserMenus()
+    }
+
+    return { hasErrors }
+  }
+
+  const createMenu = async ({ body }) => {
+    const { hasErrors, errors } = await validationFactory(body, createValidations, errorsLib)
+
+    if (hasErrors) {
+      toast.error('Favor corrigir os campos inválidos')
+      return { hasErrors, errors }
+    }
+
+    const normalizedBody = normalizeEditPayload(body)
+
+    const { response } = await errorHandler(providers.createMenu(normalizedBody))
 
     if (response) {
       await fetchUserMenus()
@@ -87,5 +103,6 @@ export default (store, setStore, useRoot) => {
     fetchUserBranches,
     updateMenu,
     deleteMenu,
+    createMenu,
   }
 }

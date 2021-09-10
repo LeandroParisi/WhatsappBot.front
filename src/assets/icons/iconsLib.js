@@ -33,12 +33,13 @@ import {
   faLockOpen,
   faFileAlt,
   faTrash,
+  faCalendarAlt,
+  faRulerHorizontal,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
-import { categories } from 'interfaces/orders/orderCategories'
+import { categories, attributes } from 'interfaces/products/productsInterface'
 import { paymentMethods } from 'interfaces/paymentMethods/methods'
-import { attributes } from 'interfaces/products/attributes'
 
 export const menuIcons = {
   STORE: faStore,
@@ -77,6 +78,7 @@ export const generalIcons = {
 
   DESCRIPTION: faFileAlt,
   TRASH: faTrash,
+  CALENDAR: faCalendarAlt,
 }
 
 export const deliveryIcons = {
@@ -92,7 +94,7 @@ export const categoryIcons = {
 }
 
 export const attributeIcons = {
-  [attributes.SIZES]: faListUl,
+  [attributes.SIZES]: faRulerHorizontal,
   [attributes.ADDITIONALS]: faPlus,
 }
 
@@ -139,5 +141,9 @@ export const tooltips = {
   store: 'Consumo no local',
   [paymentMethods.PIX]: 'Pix',
   trash: 'Deletar',
+
+  utensils: 'Comida',
+  'glass-whiskey': 'Bebida',
+  'wine-glass-alt': 'Bebida Alcoolica',
 
 }

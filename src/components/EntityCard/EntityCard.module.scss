@@ -27,14 +27,16 @@ $sectionContainerMinHeight: 350px;
   .sectionsContainer {
     @include flexBox(column, flex-start, center, nowrap);
     width: 100%;
-    min-height: $sectionContainerMinHeight;
-    max-height: $sectionContainerMinHeight;
+    min-height: 0px;
+    max-height: 0px;
     overflow-y: scroll;
     overflow-x: hidden;
-    display: none;
+    transition: .7s;
 
     &.focused {
-      display: flex;
+      transition: .7s;
+      min-height: $sectionContainerMinHeight;
+      max-height: $sectionContainerMinHeight;
     }
   }
   
