@@ -1,6 +1,6 @@
 const productsInterface = {
   id: 'id',
-  branchId: 'branchId',
+  image: 'image',
   categoryId: 'categoryId',
   name: 'name',
   attributes: 'attributes',
@@ -9,6 +9,23 @@ const productsInterface = {
   ingredients: 'ingredients',
   avaiability: 'avaiability',
   isActive: 'isActive',
+  menuProducts: 'menuProducts',
+  branchesProducts: 'branchesProducts',
+}
+
+export const defaultValues = {
+  [productsInterface.id]: '',
+  [productsInterface.image]: '',
+  [productsInterface.categoryId]: '',
+  [productsInterface.name]: '',
+  [productsInterface.attributes]: '',
+  [productsInterface.basePrice]: '',
+  [productsInterface.description]: '',
+  [productsInterface.ingredients]: '',
+  [productsInterface.avaiability]: [],
+  [productsInterface.isActive]: '',
+  [productsInterface.menuProducts]: '',
+  [productsInterface.branchesProducts]: '',
 }
 
 export const categories = {

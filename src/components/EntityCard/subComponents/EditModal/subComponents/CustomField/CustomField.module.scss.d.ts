@@ -29,6 +29,7 @@ export const openingHours: string;
 export const optionIcon: string;
 export const optionsContainer: string;
 export const overnightCheck: string;
+export const products: string;
 export const section: string;
 export const sectionsContainer: string;
 export const selectIcon: string;

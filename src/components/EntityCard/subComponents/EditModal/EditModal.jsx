@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import defaultImages from 'libs/defaultImages'
 import { inputTypes } from 'libs/inputTypes'
-import { Input } from 'components'
+import { Input, BaseInput, ImageInput } from 'components'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
 import Icon from 'assets/icons/Icon'
 import classNames from 'classnames'
@@ -14,6 +14,7 @@ import { handleIconSelectFactory, setState } from 'store/sharedMethods/actions'
 import Button from 'components/MainComponents/Button/Button'
 import Select from 'components/MainComponents/Select/Select'
 import globalStyles from 'assets/scss/globals.module.scss'
+import { entitiesTypes } from 'interfaces/entities'
 import CustomField from './subComponents/CustomField/CustomField'
 import styles from './EditModal.module.scss'
 import extractInitialValues from './helpers'
@@ -23,6 +24,9 @@ const EditModal = ({ entity, type, editRequest }) => {
   const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   const { header, sections, id } = entity
+
+  const inputTest = new BaseInput('Base')
+  const imageTest = new ImageInput('Image', 'teste', entitiesTypes.menus)
 
   const updateState = (key, value) => {
     setErrors((prev) => ({
@@ -218,6 +222,11 @@ const EditModal = ({ entity, type, editRequest }) => {
               </div>
             </div>
           ))}
+          {console.log(inputTest.getInitialFilter())}
+          {console.log(imageTest.sectionName)}
+          {console.log(imageTest.initialFilterValue)}
+          {imageTest.render(errors)}
+
         </section>
       )}
       <Button onClick={dispatchEdit} className={styles.editButton}>

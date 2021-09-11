@@ -1,4 +1,4 @@
-import { productsAdapter } from './serializers'
+import { productsAdapter, editProductsAdapter } from './serializers'
 
 export default ($store) => {
   const getProducts = () => $store.products
@@ -8,12 +8,12 @@ export default ($store) => {
   const getAdaptedProducts = () => $store.products
     .map((product) => productsAdapter(product))
 
-  // const getAdaptedEditBranches = () => $store.userBranches
-  //   .map((branch) => editBranchesAdapter(branch))
+  const getAdaptedEditProducts = () => $store.products
+    .map((branch) => editProductsAdapter(branch))
 
   // const getDefaultEntity = () => editBranchesAdapter({})
 
   return {
-    getProducts, getFilters, getAdaptedProducts,
+    getProducts, getFilters, getAdaptedProducts, getAdaptedEditProducts,
   }
 }

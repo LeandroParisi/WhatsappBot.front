@@ -3,16 +3,26 @@ import contentTypes from 'libs/sectionTypes'
 import formatPrice from 'utils/formatPrice'
 import capitalize from 'utils/capitalize'
 import {
+  dayToNumber,
   dayTranslation,
 } from 'interfaces/openingHours/openingHoursInterface'
-import { attributesTranslation, categories } from 'interfaces/products/productsInterface'
+import productsInterface, { attributesTranslation, categories, defaultValues } from 'interfaces/products/productsInterface'
+import { inputTypes } from 'libs/inputTypes'
+import { Select } from 'components'
 
 const {
   LIST,
   DESCRIPTION,
   PRICE,
   CALENDAR,
+  STORE,
 } = groupedIcons
+
+const {
+  INPUT,
+  IMAGE,
+  SELECT_LIST,
+} = inputTypes
 
 const formatOption = ({ name, price }) => `${capitalize(name)} - ${formatPrice(price)}`
 
@@ -28,6 +38,8 @@ export const productsAdapter = (product) => {
     ingredients,
     image,
     productCategory: { categoryName },
+    menuProducts,
+    branchesProducts,
   } = product
 
   const adaptedProduct = {
@@ -94,7 +106,86 @@ export const productsAdapter = (product) => {
     })
   }
 
+  adaptedProduct.sections.push({
+    icon: LIST,
+    title: 'Menus',
+    content: {
+      values: menuProducts.map(({ menuName }) => menuName),
+      type: contentTypes.LIST,
+    },
+  })
+
+  adaptedProduct.sections.push({
+    icon: STORE,
+    title: 'Filiais',
+    content: {
+      values: branchesProducts.map(({ branchName }) => branchName),
+      type: contentTypes.LIST,
+    },
+  })
+
   return adaptedProduct
+}
+
+export const editProductsAdapter = (menu) => {
+  const {
+    id = defaultValues.id,
+    isActive = defaultValues.isActive,
+    image = defaultValues.image,
+    name = defaultValues.name,
+    basePrice = defaultValues.basePrice,
+    description = defaultValues.description,
+    menuProducts = defaultValues.products,
+    branchesMenus = defaultValues.menuBranches,
+    avaiability = defaultValues.avaiability,
+  } = menu
+
+  console.log({ avaiability })
+
+  return {
+    id,
+    isActive,
+    header: [
+      {
+        value: image,
+        key: productsInterface.image,
+        fieldType: IMAGE,
+      },
+      {
+        value: name,
+        key: productsInterface.name,
+        fieldType: INPUT,
+      },
+    ],
+
+    sections: [
+      {
+        title: 'Dados Gerais',
+        subSections: [
+          {
+            value: description,
+            key: productsInterface.description,
+            sectionName: 'Descrição',
+            fieldType: INPUT,
+          },
+          {
+            value: basePrice,
+            key: productsInterface.basePrice,
+            sectionName: 'Preço',
+            fieldType: INPUT,
+          },
+          {
+            value: avaiability?.map((day) => ({ id: day, name: dayTranslation[day] })),
+            options: Object.entries(dayTranslation).map(([id, name]) => ({ id, name })),
+            key: productsInterface.avaiability,
+            sectionName: 'Disponibilidade',
+            fieldType: SELECT_LIST,
+          },
+        ],
+      },
+
+    ],
+  }
 }
 
 export const teste = 0
