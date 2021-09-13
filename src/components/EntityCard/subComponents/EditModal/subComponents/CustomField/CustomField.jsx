@@ -39,7 +39,7 @@ const CustomField = ({
     if (customFields[customField]) {
       return customFields[customField]
     }
-    throw new Error('Invalid custom field type: <CustomField>: 35')
+    throw new Error('Invalid custom field type: <CustomField>')
   }
 
   return (
@@ -61,6 +61,7 @@ CustomField.propTypes = {
   }),
   updateState: PropTypes.func.isRequired,
   formValues: PropTypes.shape({}).isRequired,
+  errors: PropTypes.shape({}).isRequired,
 }
 
 CustomField.defaultProps = {

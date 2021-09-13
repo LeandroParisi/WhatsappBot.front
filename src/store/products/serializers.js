@@ -127,7 +127,7 @@ export const productsAdapter = (product) => {
   return adaptedProduct
 }
 
-export const editProductsAdapter = (menu) => {
+export const editProductsAdapter = (product, userMenus, userBranches) => {
   const {
     id = defaultValues.id,
     isActive = defaultValues.isActive,
@@ -135,13 +135,12 @@ export const editProductsAdapter = (menu) => {
     name = defaultValues.name,
     basePrice = defaultValues.basePrice,
     description = defaultValues.description,
-    menuProducts = defaultValues.products,
-    branchesMenus = defaultValues.menuBranches,
+    menuProducts = defaultValues.menuProducts,
+    branchesProducts = defaultValues.branchesProducts,
     avaiability = defaultValues.avaiability,
-  } = menu
+  } = product
 
-  console.log({ avaiability })
-
+  console.log({ branchesProducts })
   return {
     id,
     isActive,
@@ -175,10 +174,24 @@ export const editProductsAdapter = (menu) => {
             fieldType: INPUT,
           },
           {
-            value: avaiability?.map((day) => ({ id: day, name: dayTranslation[day] })),
+            value: avaiability?.map((day) => ({ id: day.toString(), name: dayTranslation[day] })),
             options: Object.entries(dayTranslation).map(([id, name]) => ({ id, name })),
             key: productsInterface.avaiability,
             sectionName: 'Disponibilidade',
+            fieldType: SELECT_LIST,
+          },
+          {
+            value: menuProducts?.map(({ id, menuName }) => ({ id, name: menuName })),
+            options: userMenus?.map(({ id, menuName }) => ({ id, name: menuName })),
+            key: productsInterface.menuProducts,
+            sectionName: 'Menus',
+            fieldType: SELECT_LIST,
+          },
+          {
+            value: branchesProducts?.map(({ id, branchName }) => ({ id, name: branchName })),
+            options: userBranches?.map(({ id, branchName }) => ({ id, name: branchName })),
+            key: productsInterface.branchesProducts,
+            sectionName: 'Filiais',
             fieldType: SELECT_LIST,
           },
         ],

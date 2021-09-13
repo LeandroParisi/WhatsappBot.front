@@ -99,7 +99,7 @@ Icon.propTypes = {
   icon: PropTypes.shape({
     iconName: PropTypes.string,
   }).isRequired,
-  type: PropTypes.oneOf('default', null),
+  type: PropTypes.oneOf(['default', null]),
   color: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.string,

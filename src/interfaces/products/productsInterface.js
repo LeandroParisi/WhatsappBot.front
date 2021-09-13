@@ -24,8 +24,8 @@ export const defaultValues = {
   [productsInterface.ingredients]: '',
   [productsInterface.avaiability]: [],
   [productsInterface.isActive]: '',
-  [productsInterface.menuProducts]: '',
-  [productsInterface.branchesProducts]: '',
+  [productsInterface.menuProducts]: [],
+  [productsInterface.branchesProducts]: [],
 }
 
 export const categories = {

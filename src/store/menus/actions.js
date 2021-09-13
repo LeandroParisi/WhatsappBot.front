@@ -17,7 +17,7 @@ export default (store, setStore, useRoot) => {
   const saveFilters = saveFiltersFactory(setField)
 
   const fetchUserMenus = async (query = '') => {
-    const { response } = await errorHandler(providers.fetchUserMenus(query))
+    const { response } = await errorHandler(sharedProviders.fetchUserMenus(query))
 
     if (response) {
       setField('userMenus', response)

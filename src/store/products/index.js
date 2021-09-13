@@ -9,6 +9,8 @@ const initialState = {
   filters: [],
   products: [],
   categories: [],
+  userMenus: [],
+  userBranches: [],
   query: '',
 }
 
@@ -19,15 +21,13 @@ const productsStore = useCreateStore(() => {
 
   useEffect(() => {
     actions.fetchCategories()
+    actions.fetchUserMenus()
+    actions.fetchUserBranches()
   }, [])
 
   useEffect(() => {
     actions.fetchUserProducts($store.query)
   }, [$store.query])
-
-  useEffect(() => {
-    console.log($store.query)
-  })
 
   useEffect(() => {
     if ($store.categories.length) {

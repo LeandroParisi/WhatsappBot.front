@@ -56,7 +56,5 @@ export const setFilters = (temporaryFilters, filters, saveFilters) => {
     }
   })
 
-  console.log({ extractedFilters })
-
   saveFilters(extractedFilters)
 }

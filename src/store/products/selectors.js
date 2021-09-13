@@ -9,7 +9,7 @@ export default ($store) => {
     .map((product) => productsAdapter(product))
 
   const getAdaptedEditProducts = () => $store.products
-    .map((branch) => editProductsAdapter(branch))
+    .map((branch) => editProductsAdapter(branch, $store.userMenus, $store.userBranches))
 
   // const getDefaultEntity = () => editBranchesAdapter({})
 

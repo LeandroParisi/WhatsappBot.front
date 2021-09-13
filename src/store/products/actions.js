@@ -1,6 +1,7 @@
 import { saveFiltersFactory, setState } from 'store/sharedMethods/actions'
 import { getFilterInterface } from './filters'
 import * as providers from './provider'
+import * as sharedProviders from '../sharedMethods/providers'
 
 export default (store, setStore, useRoot) => {
   const { errorHandler } = useRoot()
@@ -14,6 +15,22 @@ export default (store, setStore, useRoot) => {
 
     if (response) {
       setField('categories', response)
+    }
+  }
+
+  const fetchUserBranches = async () => {
+    const { response } = await errorHandler(sharedProviders.fetchUserBranches())
+
+    if (response) {
+      setField('userBranches', response)
+    }
+  }
+
+  const fetchUserMenus = async (query = '') => {
+    const { response } = await errorHandler(sharedProviders.fetchUserMenus(query))
+
+    if (response) {
+      setField('userMenus', response)
     }
   }
 
@@ -35,5 +52,7 @@ export default (store, setStore, useRoot) => {
     fetchCategories,
     filtersFactory,
     fetchUserProducts,
+    fetchUserMenus,
+    fetchUserBranches,
   }
 }

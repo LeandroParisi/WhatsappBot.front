@@ -1,16 +1,6 @@
 import api from 'services/api'
 import getRoute from 'services/config'
 
-const fetchUserMenus = (query = '') => async () => {
-  const { url, method } = getRoute('menus', 'findAll')
-
-  const response = await api({
-    url: `${url}${query}`,
-    method,
-  })
-  return response
-}
-
 const activateMenu = (id) => async () => {
   const { url, method } = getRoute('menus', 'activate')
 
@@ -69,7 +59,6 @@ const createMenu = (body) => async () => {
 }
 
 export {
-  fetchUserMenus,
   createMenu,
   activateMenu,
   deactivateMenu,

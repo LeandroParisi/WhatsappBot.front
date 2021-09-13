@@ -17,7 +17,6 @@ const EntityCard = ({
   const {
     id, name, image, sections, isActive,
   } = entity
-  console.log({ editEntity })
   return (
     <>
       <Modal

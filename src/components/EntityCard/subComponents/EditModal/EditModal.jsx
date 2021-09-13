@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import defaultImages from 'libs/defaultImages'
 import { inputTypes } from 'libs/inputTypes'
-import { Input, BaseInput, ImageInput } from 'components'
+import { Input } from 'components'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
 import Icon from 'assets/icons/Icon'
 import classNames from 'classnames'
@@ -24,9 +24,6 @@ const EditModal = ({ entity, type, editRequest }) => {
   const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   const { header, sections, id } = entity
-
-  const inputTest = new BaseInput('Base')
-  const imageTest = new ImageInput('Image', 'teste', entitiesTypes.menus)
 
   const updateState = (key, value) => {
     setErrors((prev) => ({
@@ -163,7 +160,7 @@ const EditModal = ({ entity, type, editRequest }) => {
               error={errors[key] || {}}
             />
             <ul className={styles.list}>
-              {values?.map(({ name, id }) => (
+              {values?.sort((a, b) => a.id - b.id).map(({ name, id }) => (
                 <li
                   key={id}
                   className={styles.listItem}
@@ -195,7 +192,7 @@ const EditModal = ({ entity, type, editRequest }) => {
       )
     }
 
-    throw new Error('Invalid Field Types: <EditModal>: 96')
+    throw new Error('Invalid Field Types: <EditModal>')
   }
 
   return (
@@ -222,11 +219,6 @@ const EditModal = ({ entity, type, editRequest }) => {
               </div>
             </div>
           ))}
-          {console.log(inputTest.getInitialFilter())}
-          {console.log(imageTest.sectionName)}
-          {console.log(imageTest.initialFilterValue)}
-          {imageTest.render(errors)}
-
         </section>
       )}
       <Button onClick={dispatchEdit} className={styles.editButton}>
