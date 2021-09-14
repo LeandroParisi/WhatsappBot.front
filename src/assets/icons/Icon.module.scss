@@ -17,4 +17,8 @@
       @include boxShadow(3px, 5px)
     }
   }
+
+  &.clickable {
+    cursor: pointer
+  }
 }

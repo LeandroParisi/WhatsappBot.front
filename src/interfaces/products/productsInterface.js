@@ -19,7 +19,7 @@ export const defaultValues = {
   [productsInterface.image]: '',
   [productsInterface.productCategory]: { id: 0, categoryName: '' },
   [productsInterface.name]: '',
-  [productsInterface.attributes]: '',
+  [productsInterface.attributes]: {},
   [productsInterface.basePrice]: '',
   [productsInterface.description]: '',
   [productsInterface.ingredients]: [],
@@ -43,7 +43,25 @@ export const attributes = {
 export const attributesTranslation = {
   [attributes.SIZES]: 'Tamanhos',
   [attributes.ADDITIONALS]: 'Adicionais',
+}
 
+export const attributesInterface = {
+  type: '',
+  options: [
+    {
+      description: null,
+      max: null,
+      min: null,
+      name: null,
+      price: null,
+    },
+  ],
+}
+
+export const createAttribute = (attribute) => {
+  const newAttribute = JSON.parse(JSON.stringify(attributesInterface))
+  newAttribute.type = attribute
+  return newAttribute
 }
 
 export default productsInterface

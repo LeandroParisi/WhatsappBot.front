@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import Icon from 'assets/icons/Icon'
+import { generalIcons } from 'assets/icons/iconsLib'
 import { Input, TagsList } from 'components'
 import globalStyles from 'assets/scss/globals.module.scss'
 import styles from './InputList.module.scss'
@@ -32,12 +34,21 @@ const InputList = ({
     <div className={styles.container}>
       <p>{sectionName}</p>
       <div className={styles.inputsContainer}>
-        <Input
-          placeholder={`Adicione ${sectionName}`}
-          value={newIngredient}
-          onChange={(e) => setNewIngredient(e.target.value)}
-          onEnter={saveIngredient}
-        />
+        <div className={styles.addContainer}>
+          <Input
+            placeholder={`Adicione ${sectionName}`}
+            value={newIngredient}
+            onChange={(e) => setNewIngredient(e.target.value)}
+            onEnter={saveIngredient}
+          />
+          <Icon
+            icon={generalIcons.ADD}
+            className={styles.selectIcon}
+            size="12px"
+            tooltipText="Adicionar"
+            onClick={() => saveIngredient(newIngredient)}
+          />
+        </div>
         <TagsList values={normalizeTags(values)} onClose={removeIngredient} />
       </div>
       { error && <p className={globalStyles.errorText}>{errorMessage}</p>}

@@ -7,7 +7,7 @@ import {
   dayTranslation,
 } from 'interfaces/openingHours/openingHoursInterface'
 import productsInterface, { attributesTranslation, defaultValues } from 'interfaces/products/productsInterface'
-import { inputTypes } from 'libs/inputTypes'
+import { customFieldTypes, inputTypes } from 'libs/inputTypes'
 import { Select } from 'components'
 
 const {
@@ -142,6 +142,7 @@ export const editProductsAdapter = (product, userMenus, userBranches, categories
     avaiability,
     productCategory,
     ingredients,
+    attributes,
   } = product
 
   return {
@@ -186,7 +187,12 @@ export const editProductsAdapter = (product, userMenus, userBranches, categories
             key: productsInterface.ingredients,
             sectionName: 'Ingredientes',
             fieldType: INPUT_LIST,
-
+          },
+          {
+            value: attributes,
+            key: productsInterface.attributes,
+            sectionName: 'Atributos',
+            customField: customFieldTypes.PRODUCT_ATTRIBUTES,
           },
           {
             value: [productCategory],

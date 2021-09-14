@@ -1,0 +1,29 @@
+@import '../../../../../../../../assets/scss/colors.scss';
+@import '../../../../../../../../assets/scss/mixins.scss';
+@import '../../../../../../../../assets/scss/fonts.scss';
+@import '../../../../../../../../assets/scss/globals.module.scss';
+@import '../../../../EditModal.module.scss';
+
+.productAttContainer {
+  @include flexBox(column, flex-start, flex-start);
+  gap: 8px;
+
+  .attributesContainer {
+    @include flexBox(column, flex-start, flex-start);
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 6px;
+    
+    > h2 {
+      font-size: $font-small;
+      align-self: flex-start;
+    }
+
+    .cardsContainer {
+      @include flexBox(row, space-around);
+      width: 100%;
+    }
+  }
+}

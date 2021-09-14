@@ -13,6 +13,7 @@
 
 .customField {
   margin: 10px 35px;
+  width: 100%;
 
   > p {
     @include subSectionTitle();

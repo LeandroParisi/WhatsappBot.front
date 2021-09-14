@@ -66,6 +66,7 @@ l-385 386 385 386 c254 255 399 392 425 405 33 15 64 19 185 19 l146 0 275
         styles.iconContainer,
         className,
         { [styles[type]]: type },
+        { [styles.clickable]: onClick },
       )}
       style={{ fontSize: size }}
       role="button"

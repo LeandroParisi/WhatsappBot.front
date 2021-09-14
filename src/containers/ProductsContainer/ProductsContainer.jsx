@@ -28,8 +28,6 @@ const ProductsContainer = () => {
   const adaptedEditEntities = getAdaptedEditProducts()
 
   const defaultCreateEntity = getDefaultEntity()
-  console.log({ defaultCreateEntity })
-  console.log({ adaptedEditEntities })
 
   return (
     <>

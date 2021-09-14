@@ -47,8 +47,6 @@ export default (store, setStore, useRoot) => {
   }
 
   const updateProduct = async ({ id, body }) => {
-    console.log({ body })
-
     const { hasErrors, errors } = await validationFactory(body, editValidations, errorsLib)
 
     if (hasErrors) {
@@ -58,7 +56,6 @@ export default (store, setStore, useRoot) => {
     }
 
     const normalizedBody = normalizeEditPayload(body)
-    console.log({ normalizedBody })
 
     const { response } = await errorHandler(providers.updateProduct(
       { id, body: normalizedBody },

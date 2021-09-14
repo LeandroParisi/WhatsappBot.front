@@ -3,10 +3,14 @@ import { customFieldTypes } from 'libs/inputTypes'
 import PropTypes from 'prop-types'
 import globalStyles from 'assets/scss/globals.module.scss'
 import classNames from 'classnames'
-import { DeliveryFeeField, OpeningHoursField, CitiesField } from './CustomFields'
+import {
+  DeliveryFeeField, OpeningHoursField, CitiesField, ProductAttributes,
+} from './CustomFields'
 import styles from './CustomField.module.scss'
 
-const { DELIVERY_FEES, OPENING_HOURS, CITIES } = customFieldTypes
+const {
+  DELIVERY_FEES, OPENING_HOURS, CITIES, PRODUCT_ATTRIBUTES,
+} = customFieldTypes
 
 const CustomField = ({
   subSection, updateState, formValues, errors,
@@ -30,6 +34,11 @@ const CustomField = ({
         formValues={formValues}
       />,
       [CITIES]: <CitiesField
+        subSection={subSection}
+        updateState={updateState}
+        formValues={formValues}
+      />,
+      [PRODUCT_ATTRIBUTES]: <ProductAttributes
         subSection={subSection}
         updateState={updateState}
         formValues={formValues}
