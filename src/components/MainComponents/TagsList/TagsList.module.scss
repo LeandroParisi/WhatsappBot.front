@@ -1,0 +1,33 @@
+@import '../../../assets/scss/mixins.scss';
+@import '../../../assets/scss/colors.scss';
+@import '../../../assets/scss/fonts.scss';
+
+
+
+
+  .list {
+    @include flexBox(row, flex-start);
+    text-align: center;
+    width: 100%;
+    gap: 20px;
+    overflow-y:visible;
+    
+    li {
+      @include boxShadow(2px, 3px);
+      font-size: $font-xsmall;
+      color: white;
+      min-width: 15%;
+      padding: 10px 20px 5px 10px;
+      list-style-type: none;
+      border-radius: 10px;
+      background-color: $primary3;
+      position: relative;
+
+      .selectIcon {
+        position: absolute;
+        cursor: pointer;
+        right: .5px;
+        top: .1px;
+      }
+    }
+  }

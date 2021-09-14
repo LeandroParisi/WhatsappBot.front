@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Select } from 'components'
+import { Select, TagsList } from 'components'
 import Icon from 'assets/icons/Icon'
 import { generalIcons } from 'assets/icons/iconsLib'
 import globalStyles from 'assets/scss/globals.module.scss'
@@ -42,23 +42,10 @@ const IconsField = ({
           setOption={(value) => handleSelectList(value)}
           error={errors[key] || {}}
         />
-        <ul className={styles.list}>
-          {values?.sort((a, b) => a.id - b.id).map(({ name, id }) => (
-            <li
-              key={id}
-              className={styles.listItem}
-            >
-              {name}
-              <Icon
-                icon={generalIcons.CLOSE}
-                className={styles.selectIcon}
-                size="12px"
-                tooltipText="Remover"
-                onClick={() => removeSelectListItem(id)}
-              />
-            </li>
-          ))}
-        </ul>
+        <TagsList
+          values={values}
+          onClose={removeSelectListItem}
+        />
       </div>
     </div>
   )

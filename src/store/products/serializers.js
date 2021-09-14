@@ -23,6 +23,7 @@ const {
   IMAGE,
   SELECT_LIST,
   ICONS,
+  INPUT_LIST,
 } = inputTypes
 
 const formatOption = ({ name, price }) => `${capitalize(name)} - ${formatPrice(price)}`
@@ -174,6 +175,18 @@ export const editProductsAdapter = (product, userMenus, userBranches, categories
             key: productsInterface.basePrice,
             sectionName: 'Preço',
             fieldType: INPUT,
+          },
+        ],
+      },
+      {
+        title: 'Características',
+        subSections: [
+          {
+            value: ingredients,
+            key: productsInterface.ingredients,
+            sectionName: 'Ingredientes',
+            fieldType: INPUT_LIST,
+
           },
           {
             value: [productCategory],

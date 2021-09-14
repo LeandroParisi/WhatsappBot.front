@@ -5,11 +5,10 @@
   @extend .subSection;
   width: 100%;
 
-  .listContainer {
-    @include flexBox(column, flex-start);
+  .inputsContainer {
+    @include flexBox(column, flex-start, flex-start);
     width: 100%;
     gap: 15px;
-
- 
   }
+
 }

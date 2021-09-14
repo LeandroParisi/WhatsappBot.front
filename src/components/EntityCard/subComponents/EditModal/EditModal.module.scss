@@ -11,6 +11,10 @@
   font-size: $font-xsmall;
 }
 
+@mixin smallField() {
+  max-width: 220px;
+}
+
 .container {
   @include flexBox();
   overflow-x: auto;
@@ -78,12 +82,13 @@
   @include flexBox(column);
   margin: 10px 35px;
   gap: 8px;
+  overflow-y:visible;
 
   > p {
     @include subSectionTitle()
   }
 
-  > div {
+  > div, select {
     align-self: flex-start;
   }
 }

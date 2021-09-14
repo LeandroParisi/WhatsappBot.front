@@ -1,25 +1,19 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import defaultImages from 'libs/defaultImages'
 import { inputTypes } from 'libs/inputTypes'
 import { Input } from 'components'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
-import Icon from 'assets/icons/Icon'
 import classNames from 'classnames'
-import { generalIcons, getIcon } from 'assets/icons/iconsLib'
-import { DARK_GRAY } from 'libs/colors'
-import { handleIconSelectFactory, setState } from 'store/sharedMethods/actions'
+import { setState } from 'store/sharedMethods/actions'
 import Button from 'components/MainComponents/Button/Button'
-import Select from 'components/MainComponents/Select/Select'
-import globalStyles from 'assets/scss/globals.module.scss'
-import { entitiesTypes } from 'interfaces/entities'
 import CustomField from './subComponents/CustomField/CustomField'
 import styles from './EditModal.module.scss'
 import extractInitialValues from './helpers'
 import {
-  IconsField, InputField, SelectField, SelectListField,
+  IconsField, InputField, InputList, SelectField, SelectListField,
 } from './subComponents/DefaultFields'
 
 const EditModal = ({ entity, type, editRequest }) => {
@@ -95,6 +89,12 @@ const EditModal = ({ entity, type, editRequest }) => {
         errors={errors}
       />,
       [inputTypes.SELECT_LIST]: <SelectListField
+        formValues={formValues}
+        subSection={subSection}
+        updateState={updateState}
+        errors={errors}
+      />,
+      [inputTypes.INPUT_LIST]: <InputList
         formValues={formValues}
         subSection={subSection}
         updateState={updateState}

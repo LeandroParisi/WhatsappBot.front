@@ -15,24 +15,34 @@ const Input = ({
   label,
   className,
   onMouseOut,
-}) => (
-  <div className={classNames(styles.inputContainer, className)}>
-    {label && <label htmlFor={value}>{label}</label>}
-    <input
-      id={value}
-      type={type}
-      className={classNames({ [globalStyles.errorInput]: error })}
-      placeholder={placeholder}
-      value={value}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
-      onMouseOut={onMouseOut}
-    />
-    {error && <p className={globalStyles.errorText}>{errorMessage}</p>}
-  </div>
+  onEnter,
+}) => {
+  const handleEnterClick = (e) => {
+    if (e.keyCode === 13 && onEnter) {
+      onEnter(value)
+    }
+  }
 
-)
+  return (
+    <div className={classNames(styles.inputContainer, className)}>
+      {label && <label htmlFor={value}>{label}</label>}
+      <input
+        id={value}
+        type={type}
+        className={classNames({ [globalStyles.errorInput]: error })}
+        placeholder={placeholder}
+        value={value}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onMouseOut={onMouseOut}
+        onKeyUp={handleEnterClick}
+      />
+      {error && <p className={globalStyles.errorText}>{errorMessage}</p>}
+    </div>
+
+  )
+}
 
 Input.propTypes = {
   type: PropTypes.string,
@@ -46,6 +56,7 @@ Input.propTypes = {
     errorMessage: PropTypes.string.isRequired,
   }),
   className: PropTypes.string,
+  onEnter: PropTypes.func,
 }
 
 Input.defaultProps = {
@@ -56,6 +67,7 @@ Input.defaultProps = {
   error: {},
   type: 'text',
   className: '',
+  onEnter: null,
 }
 
 export default Input

@@ -2,5 +2,5 @@
 
 .container {
   @extend .subSection;
-  width: 30%;
+  @include smallField();
 }

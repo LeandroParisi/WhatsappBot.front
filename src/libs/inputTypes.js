@@ -1,6 +1,6 @@
 export const inputTypes = {
   INPUT: 'input',
-  INPUT_ARRAY: 'inputArray',
+  INPUT_LIST: 'inputList',
   SELECT: 'select',
   DATE: 'date',
   BOOL: 'checkbox',

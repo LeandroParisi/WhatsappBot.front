@@ -3,6 +3,7 @@
 
 .container {
   @extend .subSection;
+  @include smallField();
 
   .selectInput {
     align-self: flex-start;
