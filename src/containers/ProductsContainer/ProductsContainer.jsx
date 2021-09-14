@@ -9,7 +9,7 @@ const ProductsContainer = () => {
   const {
     getFilters,
     saveFilters,
-    updateBranch,
+    updateProduct,
     activateBranch,
     deactivateBranch,
     getAdaptedProducts,
@@ -27,7 +27,9 @@ const ProductsContainer = () => {
 
   const adaptedEditEntities = getAdaptedEditProducts()
 
-  // const defaultCreateEntity = getDefaultEntity()
+  const defaultCreateEntity = getDefaultEntity()
+  console.log({ defaultCreateEntity })
+  console.log({ adaptedEditEntities })
 
   return (
     <>
@@ -43,9 +45,9 @@ const ProductsContainer = () => {
           <EntitiesContainer
             entities={adaptedEntities}
             editEntities={adaptedEditEntities}
-            // createEntity={defaultCreateEntity}
+            createEntity={defaultCreateEntity}
             type={entitiesTypes.products}
-            // editRequest={updateBranch}
+            editRequest={updateProduct}
             // createRequest={createBranch}
             // activate={activateBranch}
             // deactivate={deactivateBranch}

@@ -1,7 +1,11 @@
 import { saveFiltersFactory, setState } from 'store/sharedMethods/actions'
+import validationFactory from 'store/sharedMethods/validationFactory'
+import { toast } from 'react-toastify'
 import { getFilterInterface } from './filters'
 import * as providers from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
+import { errorsLib, editValidations } from './validations'
+import { normalizeEditPayload } from './serializers'
 
 export default (store, setStore, useRoot) => {
   const { errorHandler } = useRoot()
@@ -42,6 +46,31 @@ export default (store, setStore, useRoot) => {
     }
   }
 
+  const updateProduct = async ({ id, body }) => {
+    console.log({ body })
+
+    const { hasErrors, errors } = await validationFactory(body, editValidations, errorsLib)
+
+    if (hasErrors) {
+      toast.error('Favor corrigir os campos inválidos')
+
+      return { hasErrors, errors }
+    }
+
+    const normalizedBody = normalizeEditPayload(body)
+    console.log({ normalizedBody })
+
+    const { response } = await errorHandler(providers.updateProduct(
+      { id, body: normalizedBody },
+    ))
+
+    if (response) {
+      await fetchUserProducts()
+    }
+
+    return { hasErrors: false }
+  }
+
   const filtersFactory = () => {
     setField('filters', getFilterInterface(store.categories))
   }
@@ -54,5 +83,6 @@ export default (store, setStore, useRoot) => {
     fetchUserProducts,
     fetchUserMenus,
     fetchUserBranches,
+    updateProduct,
   }
 }

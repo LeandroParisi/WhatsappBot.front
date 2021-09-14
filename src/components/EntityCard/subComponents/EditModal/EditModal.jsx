@@ -18,6 +18,9 @@ import { entitiesTypes } from 'interfaces/entities'
 import CustomField from './subComponents/CustomField/CustomField'
 import styles from './EditModal.module.scss'
 import extractInitialValues from './helpers'
+import {
+  IconsField, InputField, SelectField, SelectListField,
+} from './subComponents/DefaultFields'
 
 const EditModal = ({ entity, type, editRequest }) => {
   const [formValues, setFormValues] = useState(extractInitialValues(entity))
@@ -32,19 +35,6 @@ const EditModal = ({ entity, type, editRequest }) => {
     }))
     setState(setFormValues)(key, value)
   }
-
-  const handleSelectList = (key, value) => {
-    const newState = [...formValues[key]]
-    newState.push(value)
-    updateState(key, newState)
-  }
-
-  const removeSelectListItem = (id, key) => {
-    const newState = formValues[key].filter((option) => option.id !== id)
-    updateState(key, newState)
-  }
-
-  const handleIconSelect = handleIconSelectFactory(formValues, updateState)
 
   const dispatchEdit = async () => {
     setIsLoading(true)
@@ -82,103 +72,38 @@ const EditModal = ({ entity, type, editRequest }) => {
 
   const subSectionFactory = (subSection) => {
     const {
-      key, sectionName, fieldType, customField,
+      fieldType, customField,
     } = subSection
 
-    if (fieldType === inputTypes.INPUT) {
-      return (
-        <>
-          <p>{sectionName}</p>
-          <Input
-            value={formValues[key]}
-            onChange={(e) => updateState(key, e.target.value)}
-            error={errors[key] || {}}
-          />
-        </>
-      )
+    const defaultFields = {
+      [inputTypes.INPUT]: <InputField
+        formValues={formValues}
+        updateState={updateState}
+        errors={errors}
+        subSection={subSection}
+      />,
+      [inputTypes.ICONS]: <IconsField
+        formValues={formValues}
+        subSection={subSection}
+        updateState={updateState}
+        errors={errors}
+      />,
+      [inputTypes.SELECT]: <SelectField
+        formValues={formValues}
+        subSection={subSection}
+        updateState={updateState}
+        errors={errors}
+      />,
+      [inputTypes.SELECT_LIST]: <SelectListField
+        formValues={formValues}
+        subSection={subSection}
+        updateState={updateState}
+        errors={errors}
+      />,
     }
-    if (fieldType === inputTypes.ICONS) {
-      const { options } = subSection
-      const { error = false, errorMessage = '' } = errors[key] || {}
-      return (
-        <>
-          <p>{sectionName}</p>
-          <div className={styles.optionsContainer}>
-            {options.map(({ name, id }) => {
-              const isSelected = formValues[key].has(id)
-              return (
-                <Icon
-                  icon={getIcon(name)}
-                  className={styles.optionIcon}
-                  size="20px"
-                  onClick={handleIconSelect(id, key)}
-                  color={isSelected ? 'white' : DARK_GRAY}
-                />
-              )
-            })}
-          </div>
-          { error && <p className={globalStyles.errorText}>{errorMessage}</p>}
-        </>
-      )
-    }
-    if (fieldType === inputTypes.SELECT) {
-      const { options } = subSection
 
-      return (
-        <>
-          <p>{sectionName}</p>
-          <Select
-            selected={formValues[key]}
-            placeholder={`Selecione um ${sectionName}`}
-            options={options}
-            color="white"
-            className={styles.selectInput}
-            setOption={(value) => updateState(key, value)}
-            error={errors[key] || {}}
-          />
-        </>
-
-      )
-    }
-    if (fieldType === inputTypes.SELECT_LIST) {
-      const { options } = subSection
-
-      const values = formValues[key]
-      const currentProducts = new Set([...values.map(({ id }) => id)])
-      return (
-        <>
-          <p>{sectionName}</p>
-          <div className={styles.listContainer}>
-            <Select
-              selected={{ id: null, value: '' }}
-              isDisabled={false}
-              placeholder={`Adicione ${sectionName}`}
-              options={options.filter((option) => !currentProducts.has(option.id))}
-              color="white"
-              className={styles.selectInput}
-              setOption={(value) => handleSelectList(key, value)}
-              error={errors[key] || {}}
-            />
-            <ul className={styles.list}>
-              {values?.sort((a, b) => a.id - b.id).map(({ name, id }) => (
-                <li
-                  key={id}
-                  className={styles.listItem}
-                >
-                  {name}
-                  <Icon
-                    icon={generalIcons.CLOSE}
-                    className={styles.selectIcon}
-                    size="12px"
-                    tooltipText="Remover"
-                    onClick={() => removeSelectListItem(id, key)}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
-      )
+    if (defaultFields[fieldType]) {
+      return defaultFields[fieldType]
     }
 
     if (customField) {
@@ -212,9 +137,7 @@ const EditModal = ({ entity, type, editRequest }) => {
 
               <div className={styles.subSectionContainer}>
                 {subSections.map((subSection) => (
-                  <div className={classNames(styles.subSection, styles[subSection.fieldType])}>
-                    {subSectionFactory(subSection)}
-                  </div>
+                  subSectionFactory(subSection)
                 ))}
               </div>
             </div>

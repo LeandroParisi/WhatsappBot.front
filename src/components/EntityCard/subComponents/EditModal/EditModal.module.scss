@@ -6,10 +6,11 @@
 
 
 @mixin subSectionTitle() {
-  margin-right: auto;
+  align-self: flex-start;
   color: $gray2;
   font-size: $font-xsmall;
 }
+
 .container {
   @include flexBox();
   overflow-x: auto;
@@ -47,72 +48,6 @@
       .subSectionContainer {
         @include flexBox(row, flex-start, flex-start);
         width: 100%;
-
-        .subSection {
-          @include flexBox(column);
-          margin: 10px 35px;
-          gap: 8px;
-
-          > p {
-            @include subSectionTitle()
-          }
-
-          > div, .selectInput {
-            align-self: flex-start;
-          }
-
-          .selectInput {
-            min-width: 200px;
-            text-align: center;
-          }
-
-     
-          .optionsContainer {
-            @include flexBox(row, flex-start);
-
-            > .optionIcon {
-              cursor: pointer;
-            }
-          }
-
-          &.selectList {
-            width: 100%;
-  
-            .listContainer {
-              @include flexBox(column, flex-start);
-              width: 100%;
-              gap: 15px;
-  
-              .list {
-                @include flexBox(row, flex-start);
-                text-align: center;
-                width: 100%;
-                gap: 20px;
-                
-                li {
-                  @include boxShadow(2px, 3px);
-                  font-size: $font-xsmall;
-                  color: white;
-                  min-width: 15%;
-                  padding: 10px 20px 5px 10px;
-                  list-style-type: none;
-                  border-radius: 10px;
-                  background-color: $primary3;
-                  position: relative;
-
-                  .selectIcon {
-                    position: absolute;
-                    cursor: pointer;
-                    right: .5px;
-                    top: .1px;
-                  }
-                }
-              }
-            }
-          }
-        }
-
-
       }
     }
   }
@@ -136,6 +71,20 @@
     position: sticky;
     bottom: 10px;
     left: 88%;
+  }
+}
+
+.subSection {
+  @include flexBox(column);
+  margin: 10px 35px;
+  gap: 8px;
+
+  > p {
+    @include subSectionTitle()
+  }
+
+  > div {
+    align-self: flex-start;
   }
 }
 

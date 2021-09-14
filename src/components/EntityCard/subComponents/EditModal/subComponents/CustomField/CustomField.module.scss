@@ -12,9 +12,11 @@
 
 
 .customField {
-  
+  margin: 10px 35px;
+
   > p {
-    @include subSectionTitle()
+    @include subSectionTitle();
+    margin-bottom: 8px;
   }
 
   &.error {

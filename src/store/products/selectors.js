@@ -1,3 +1,4 @@
+import { defaultValues } from 'interfaces/products/productsInterface'
 import { productsAdapter, editProductsAdapter } from './serializers'
 
 export default ($store) => {
@@ -9,11 +10,21 @@ export default ($store) => {
     .map((product) => productsAdapter(product))
 
   const getAdaptedEditProducts = () => $store.products
-    .map((branch) => editProductsAdapter(branch, $store.userMenus, $store.userBranches))
+    .map((branch) => editProductsAdapter(
+      branch,
+      $store.userMenus,
+      $store.userBranches,
+      $store.categories,
+    ))
 
-  // const getDefaultEntity = () => editBranchesAdapter({})
+  const getDefaultEntity = () => editProductsAdapter(
+    defaultValues,
+    $store.userMenus,
+    $store.userBranches,
+    $store.categories,
+  )
 
   return {
-    getProducts, getFilters, getAdaptedProducts, getAdaptedEditProducts,
+    getProducts, getFilters, getAdaptedProducts, getAdaptedEditProducts, getDefaultEntity,
   }
 }

@@ -11,17 +11,18 @@ const productsInterface = {
   isActive: 'isActive',
   menuProducts: 'menuProducts',
   branchesProducts: 'branchesProducts',
+  productCategory: 'productCategory',
 }
 
 export const defaultValues = {
   [productsInterface.id]: '',
   [productsInterface.image]: '',
-  [productsInterface.categoryId]: '',
+  [productsInterface.productCategory]: { id: 0, categoryName: '' },
   [productsInterface.name]: '',
   [productsInterface.attributes]: '',
   [productsInterface.basePrice]: '',
   [productsInterface.description]: '',
-  [productsInterface.ingredients]: '',
+  [productsInterface.ingredients]: [],
   [productsInterface.avaiability]: [],
   [productsInterface.isActive]: '',
   [productsInterface.menuProducts]: [],

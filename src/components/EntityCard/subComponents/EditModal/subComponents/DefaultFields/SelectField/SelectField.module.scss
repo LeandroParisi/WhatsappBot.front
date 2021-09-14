@@ -1,0 +1,12 @@
+@import '../../../../../../../assets/scss/mixins.scss';
+@import '../../../EditModal.module.scss';
+
+.container {
+  @extend .subSection;
+
+  .selectInput {
+    align-self: flex-start;
+    min-width: 200px;
+    text-align: center;
+  }
+}

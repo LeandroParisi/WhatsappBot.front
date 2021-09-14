@@ -1,0 +1,6 @@
+@import '../../../EditModal.module.scss';
+
+.container {
+  @extend .subSection;
+  width: 30%;
+}

@@ -22,4 +22,16 @@ const fetchUserProducts = (query = '') => async () => {
   return response
 }
 
-export { fetchCategories, fetchUserProducts }
+const updateProduct = ({ id, body }) => async () => {
+  const { url, method } = getRoute('products', 'updateOne')
+
+  const response = await api({
+    url: `${url}/${id}`,
+    method,
+    body,
+  })
+
+  return response
+}
+
+export { fetchCategories, fetchUserProducts, updateProduct }

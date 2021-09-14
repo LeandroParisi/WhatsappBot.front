@@ -6,7 +6,7 @@ import {
   dayToNumber,
   dayTranslation,
 } from 'interfaces/openingHours/openingHoursInterface'
-import productsInterface, { attributesTranslation, categories, defaultValues } from 'interfaces/products/productsInterface'
+import productsInterface, { attributesTranslation, defaultValues } from 'interfaces/products/productsInterface'
 import { inputTypes } from 'libs/inputTypes'
 import { Select } from 'components'
 
@@ -22,6 +22,7 @@ const {
   INPUT,
   IMAGE,
   SELECT_LIST,
+  ICONS,
 } = inputTypes
 
 const formatOption = ({ name, price }) => `${capitalize(name)} - ${formatPrice(price)}`
@@ -84,7 +85,7 @@ export const productsAdapter = (product) => {
         icon: CALENDAR,
         title: 'Disponibilidade',
         content: {
-          values: avaiability ? avaiability.map((a) => dayTranslation[a]) : ['Indisponível'],
+          values: avaiability.length ? avaiability.map((a) => dayTranslation[a]) : ['Indisponível'],
           type: contentTypes.LIST,
         },
       },
@@ -127,20 +128,21 @@ export const productsAdapter = (product) => {
   return adaptedProduct
 }
 
-export const editProductsAdapter = (product, userMenus, userBranches) => {
+export const editProductsAdapter = (product, userMenus, userBranches, categories) => {
   const {
-    id = defaultValues.id,
-    isActive = defaultValues.isActive,
-    image = defaultValues.image,
-    name = defaultValues.name,
-    basePrice = defaultValues.basePrice,
-    description = defaultValues.description,
-    menuProducts = defaultValues.menuProducts,
-    branchesProducts = defaultValues.branchesProducts,
-    avaiability = defaultValues.avaiability,
+    id,
+    isActive,
+    image,
+    name,
+    basePrice,
+    description,
+    menuProducts,
+    branchesProducts,
+    avaiability,
+    productCategory,
+    ingredients,
   } = product
 
-  console.log({ branchesProducts })
   return {
     id,
     isActive,
@@ -174,6 +176,19 @@ export const editProductsAdapter = (product, userMenus, userBranches) => {
             fieldType: INPUT,
           },
           {
+            value: [productCategory],
+            key: productsInterface.categoryId,
+            sectionName: 'Categoria',
+            fieldType: ICONS,
+            unique: true,
+            options: categories.map(({ categoryName, id }) => ({ id, name: categoryName })),
+          },
+        ],
+      },
+      {
+        title: 'Relações',
+        subSections: [
+          {
             value: avaiability?.map((day) => ({ id: day.toString(), name: dayTranslation[day] })),
             options: Object.entries(dayTranslation).map(([id, name]) => ({ id, name })),
             key: productsInterface.avaiability,
@@ -196,9 +211,20 @@ export const editProductsAdapter = (product, userMenus, userBranches) => {
           },
         ],
       },
-
     ],
   }
 }
 
-export const teste = 0
+export const normalizeEditPayload = (body) => {
+  const {
+    avaiability, branchesProducts, menuProducts, categoryId,
+  } = body
+
+  return {
+    ...body,
+    avaiability: avaiability.map(({ id }) => id),
+    branchesProducts: branchesProducts.map(({ id }) => id),
+    menuProducts: menuProducts.map(({ id }) => id),
+    categoryId: [...categoryId][0],
+  }
+}
