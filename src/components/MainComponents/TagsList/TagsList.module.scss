@@ -3,8 +3,6 @@
 @import '../../../assets/scss/fonts.scss';
 
 
-
-
   .list {
     @include flexBox(row, flex-start);
     text-align: center;
@@ -14,6 +12,7 @@
     
     li {
       @include boxShadow(2px, 3px);
+      display: flex;
       font-size: $font-xsmall;
       color: white;
       min-width: 15%;

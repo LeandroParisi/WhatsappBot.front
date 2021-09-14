@@ -8,7 +8,7 @@ import styles from './Icon.module.scss'
 import { tooltips, customIcons } from './iconsLib'
 
 const Icon = ({
-  icon, color, className, size, onClick, noTooltip, tooltipText, type,
+  icon, color, className, size, onClick, noTooltip, tooltipText, type, inlineTooltip,
 }) => {
   const [showTooltip, setShowTooltip] = useState(false)
   const { iconName } = icon
@@ -90,7 +90,8 @@ l-385 386 385 386 c254 255 399 392 425 405 33 15 64 19 185 19 l146 0 275
           </svg>
         )
         : <FontAwesomeIcon icon={icon} color={color} size={size} />}
-      {hasTooltip && showTooltip && <Tooltip text={tooltip} />}
+      {hasTooltip && showTooltip && <Tooltip text={tooltip} inlineTooltip />}
+
     </div>
   )
 }
@@ -106,9 +107,11 @@ Icon.propTypes = {
   onClick: PropTypes.func,
   noTooltip: PropTypes.bool,
   tooltipText: PropTypes.string,
+  inlineTooltip: PropTypes.bool,
 }
 
 Icon.defaultProps = {
+  inlineTooltip: false,
   color: 'white',
   className: '',
   size: '25px',

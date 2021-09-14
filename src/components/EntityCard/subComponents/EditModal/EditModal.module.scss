@@ -82,7 +82,9 @@
   @include flexBox(column);
   margin: 10px 35px;
   gap: 8px;
-  overflow-y:visible;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  height: fit-content;
 
   > p {
     @include subSectionTitle()

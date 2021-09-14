@@ -19,6 +19,7 @@ const TagsList = ({ values, onClose }) => (
             size="12px"
             tooltipText="Remover"
             onClick={() => onClose(id)}
+            inlineTooltip
           />
         )}
       </li>

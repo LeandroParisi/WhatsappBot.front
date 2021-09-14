@@ -13,6 +13,10 @@
   cursor: default;
   z-index: 2;
 
+  &.inline {
+    bottom: 0%;
+  }
+
   
   > p {
     font-size: $font-xxsmall !important;
