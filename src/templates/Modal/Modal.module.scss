@@ -5,19 +5,23 @@
 $padding: 15px;
 
 .modalContainer {
-  position: absolute;
+  @include flexBox(column);
+  position: fixed;
+  top: 5vh;
   width: 100vw;
+  height: 100vh;
+  z-index: 1;
 }
 
 .subContainer {
   @include flexBox(column);
-  position: fixed;
   width: calc(80vw - #{$padding * 2});
   height: calc(80vh - #{$padding * 2});
   background-color: $dark;
-  top: 15vh;
-  left: 10vw;
-  z-index: 1;
+  z-index: 2;
+  position: relative;
+  // top: 15vh;
+  // left: 10vw;
   border-radius: 15px;
   padding: $padding;
   color: white;

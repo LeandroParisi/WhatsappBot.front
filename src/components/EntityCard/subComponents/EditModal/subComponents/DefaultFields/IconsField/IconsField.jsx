@@ -35,6 +35,7 @@ const IconsField = ({
               size="20px"
               onClick={unique ? handleUniqueIconSelect(id, key) : handleIconSelect(id, key)}
               color={isSelected ? 'white' : DARK_GRAY}
+              inlineTooltip
             />
           )
         })}

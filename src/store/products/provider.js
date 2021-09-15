@@ -34,4 +34,18 @@ const updateProduct = ({ id, body }) => async () => {
   return response
 }
 
-export { fetchCategories, fetchUserProducts, updateProduct }
+const createProduct = (body) => async () => {
+  const { url, method } = getRoute('products', 'create')
+
+  const response = await api({
+    url: `${url}`,
+    method,
+    body,
+  })
+
+  return response
+}
+
+export {
+  fetchCategories, fetchUserProducts, updateProduct, createProduct,
+}

@@ -26,7 +26,7 @@ const {
   INPUT_LIST,
 } = inputTypes
 
-const formatOption = ({ name, price }) => `${capitalize(name)} - ${formatPrice(price)}`
+const formatOption = ({ name, price }) => `${capitalize(name)}: + ${formatPrice(price)}`
 
 export const productsAdapter = (product) => {
   const {
@@ -183,6 +183,14 @@ export const editProductsAdapter = (product, userMenus, userBranches, categories
         title: 'Características',
         subSections: [
           {
+            value: [productCategory],
+            key: productsInterface.categoryId,
+            sectionName: 'Categoria',
+            fieldType: ICONS,
+            unique: true,
+            options: categories.map(({ categoryName, id }) => ({ id, name: categoryName })),
+          },
+          {
             value: ingredients,
             key: productsInterface.ingredients,
             sectionName: 'Ingredientes',
@@ -193,14 +201,6 @@ export const editProductsAdapter = (product, userMenus, userBranches, categories
             key: productsInterface.attributes,
             sectionName: 'Atributos',
             customField: customFieldTypes.PRODUCT_ATTRIBUTES,
-          },
-          {
-            value: [productCategory],
-            key: productsInterface.categoryId,
-            sectionName: 'Categoria',
-            fieldType: ICONS,
-            unique: true,
-            options: categories.map(({ categoryName, id }) => ({ id, name: categoryName })),
           },
         ],
       },

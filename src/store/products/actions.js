@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { getFilterInterface } from './filters'
 import * as providers from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
-import { errorsLib, editValidations } from './validations'
+import { errorsLib, editValidations, createValidations } from './validations'
 import { normalizeEditPayload } from './serializers'
 
 export default (store, setStore, useRoot) => {
@@ -47,7 +47,9 @@ export default (store, setStore, useRoot) => {
   }
 
   const updateProduct = async ({ id, body }) => {
-    const { hasErrors, errors } = await validationFactory(body, editValidations, errorsLib)
+    const { hasErrors, errors } = await validationFactory(
+      body, editValidations, errorsLib,
+    )
 
     if (hasErrors) {
       toast.error('Favor corrigir os campos inválidos')
@@ -56,6 +58,8 @@ export default (store, setStore, useRoot) => {
     }
 
     const normalizedBody = normalizeEditPayload(body)
+
+    console.log({ normalizedBody })
 
     const { response } = await errorHandler(providers.updateProduct(
       { id, body: normalizedBody },
@@ -72,6 +76,28 @@ export default (store, setStore, useRoot) => {
     setField('filters', getFilterInterface(store.categories))
   }
 
+  const createProduct = async ({ body }) => {
+    console.log({ body })
+    const { hasErrors, errors } = await validationFactory(
+      body, createValidations, errorsLib,
+    )
+
+    if (hasErrors) {
+      toast.error('Favor corrigir os campos inválidos')
+      return { hasErrors, errors }
+    }
+
+    const normalizedBody = normalizeEditPayload(body)
+
+    const { response } = await errorHandler(providers.createProduct(normalizedBody))
+
+    if (response) {
+      await fetchUserProducts()
+    }
+
+    return { hasErrors }
+  }
+
   return {
     setField,
     saveFilters,
@@ -81,5 +107,6 @@ export default (store, setStore, useRoot) => {
     fetchUserMenus,
     fetchUserBranches,
     updateProduct,
+    createProduct,
   }
 }

@@ -15,7 +15,7 @@ const ProductsContainer = () => {
     getAdaptedProducts,
     getAdaptedEditProducts,
     getDefaultEntity,
-    createBranch,
+    createProduct,
     deleteBranch,
   } = useProducts()
 
@@ -46,7 +46,7 @@ const ProductsContainer = () => {
             createEntity={defaultCreateEntity}
             type={entitiesTypes.products}
             editRequest={updateProduct}
-            // createRequest={createBranch}
+            createRequest={createProduct}
             // activate={activateBranch}
             // deactivate={deactivateBranch}
           />

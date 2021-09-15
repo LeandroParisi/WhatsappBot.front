@@ -24,6 +24,66 @@
     .cardsContainer {
       @include flexBox(row, space-around);
       width: 100%;
+      gap: 50px;
+
+      .attributeCard {
+        padding: 10px;
+        background-color: $primary3;
+        border-radius: 10px;
+        position: relative;
+
+        .inputsContainer {
+          @include flexBox(column, flex-start, flex-start);
+          gap: 10px;
+
+          > span {
+            @include flexBox(row, flex-start);
+            gap: 3px;
+            
+            b, p, input {
+              font-size: $font-xsmall;
+            }
+          } 
+        }
+
+        .iconsContainer {
+          @include flexBox(column);
+          position: absolute;
+          top: 0px;
+          right: -30px;
+          background-color: $primary3;
+          border-radius: 10px;
+
+          .icon {
+            padding: 6px;
+          }
+
+          &.isOpened {
+            right: -35px;
+          }
+        }
+      }
+
+      .editModal {
+        > div {
+          z-index: 2;
+          margin: auto;
+          width: 32vw;
+          height: 32vw; 
+
+          b {
+            font-size: $font-small;
+            margin: 20px 0 5px 0; 
+            display: inline-block
+          }
+
+          .icon {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+          }
+        }
+      }
     }
   }
 }

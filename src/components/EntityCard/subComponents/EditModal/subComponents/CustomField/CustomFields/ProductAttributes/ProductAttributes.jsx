@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Select } from 'components'
-import { createAttribute, attributesTranslation } from 'interfaces/products/productsInterface'
+import { createAttribute, attributesTranslation, attributeOptionInterface } from 'interfaces/products/productsInterface'
+import Icon from 'assets/icons/Icon'
+import { generalIcons } from 'assets/icons/iconsLib'
 import customFieldStyles from '../../CustomField.module.scss'
+import AttributeCard from './AttributeCard'
 import styles from './ProductAttributes.module.scss'
 
 import { extractRemainingAttributeTypes } from './helpers'
@@ -17,6 +20,22 @@ const ProductAttributes = ({ updateState, formValues, subSection }) => {
     const newAttribute = createAttribute(id)
     const newState = [...stateField]
     newState.push(newAttribute)
+    updateState(key, newState)
+  }
+
+  const addAttributeOption = (type) => {
+    const oldState = [...stateField]
+    const newState = oldState.map((attribute) => {
+      if (attribute.type === type) {
+        const newOptions = [...attribute.options]
+        newOptions.push({ ...attributeOptionInterface })
+        return {
+          ...attribute,
+          options: newOptions,
+        }
+      }
+      return attribute
+    })
     updateState(key, newState)
   }
 
@@ -35,17 +54,24 @@ const ProductAttributes = ({ updateState, formValues, subSection }) => {
         <div className={styles.attributesContainer}>
           <h2>{attributesTranslation[type] }</h2>
           <div className={styles.cardsContainer}>
-            {options.map(({
-              max, min, description, name, price,
-            }) => (
-              <article className={styles.attributeCard}>
-                <p>{name}</p>
-                <p>{description}</p>
-                <p>{price}</p>
-                <p>{max}</p>
-                <p>{min}</p>
-              </article>
+            {options.map((card, index) => (
+              <AttributeCard
+                card={card}
+                updateState={updateState}
+                stateField={stateField}
+                index={index}
+                type={type}
+                stateKey={key}
+              />
             ))}
+            <Icon
+              icon={generalIcons.ADD}
+              size="15px"
+              className={styles.icon}
+              type="default"
+              onClick={() => addAttributeOption(type)}
+              tooltipText="Novo"
+            />
           </div>
         </div>
       ))}

@@ -14,6 +14,8 @@ const IconsField = ({
     key, sectionName, options,
   } = subSection
 
+  const { error = false, errorMessage = '' } = errors[key] || {}
+
   const values = formValues[key]
   const currentProducts = new Set([...values.map(({ id }) => id)])
 
@@ -47,6 +49,7 @@ const IconsField = ({
           onClose={removeSelectListItem}
         />
       </div>
+      { error && <p className={globalStyles.errorText}>{errorMessage}</p>}
     </div>
   )
 }

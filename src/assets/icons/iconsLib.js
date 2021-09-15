@@ -35,6 +35,8 @@ import {
   faTrash,
   faCalendarAlt,
   faRulerHorizontal,
+  faEllipsisH,
+  faEllipsisV,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
@@ -79,6 +81,9 @@ export const generalIcons = {
   DESCRIPTION: faFileAlt,
   TRASH: faTrash,
   CALENDAR: faCalendarAlt,
+
+  HORIZONTAL_DOTS: faEllipsisH,
+  VERTICAL_DOTS: faEllipsisV,
 }
 
 export const deliveryIcons = {
@@ -145,5 +150,7 @@ export const tooltips = {
   utensils: 'Comida',
   'glass-whiskey': 'Bebida',
   'wine-glass-alt': 'Bebida Alcoolica',
+  'ellipsis-v': 'Opções',
+  'ellipsis-h': 'Opções',
 
 }

@@ -30,6 +30,19 @@ p, h1, h2, h3, h4, h5, ul, li {
   padding: 0;
 }
 
+input {
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+}
 input:focus {
   outline: none;
 }
