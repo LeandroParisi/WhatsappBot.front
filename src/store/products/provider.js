@@ -46,6 +46,8 @@ const createProduct = (body) => async () => {
   return response
 }
 
+// TODO: activate / deactivate products
+
 export {
   fetchCategories, fetchUserProducts, updateProduct, createProduct,
 }

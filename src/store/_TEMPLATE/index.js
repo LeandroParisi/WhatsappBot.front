@@ -5,7 +5,9 @@ import storeSelectors from './selectors'
 import useCreateStore from '../useCreateStore'
 
 const initialState = {
-
+  userBranches: [],
+  // filters: filterInterface,
+  query: '',
 }
 
 const TEMPLATESTORE = useCreateStore(() => {
