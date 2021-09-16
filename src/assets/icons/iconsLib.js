@@ -37,6 +37,7 @@ import {
   faRulerHorizontal,
   faEllipsisH,
   faEllipsisV,
+  faCalendarCheck,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
@@ -81,6 +82,7 @@ export const generalIcons = {
   DESCRIPTION: faFileAlt,
   TRASH: faTrash,
   CALENDAR: faCalendarAlt,
+  CALENDAR_CHECK: faCalendarCheck,
 
   HORIZONTAL_DOTS: faEllipsisH,
   VERTICAL_DOTS: faEllipsisV,

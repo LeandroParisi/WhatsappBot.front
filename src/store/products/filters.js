@@ -24,6 +24,8 @@ export const getFilterInterface = (categories) => ([
     key: productsInterface.basePrice,
     type: RANGE,
     placeholder: 'Preço',
+    max: 200,
+    min: 0,
   },
   {
     key: productsInterface.description,

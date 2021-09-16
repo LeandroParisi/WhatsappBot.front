@@ -3,7 +3,7 @@ import {
   generalIcons,
   deliveryIcons,
 } from 'assets/icons/iconsLib'
-import formatDate from 'utils/formatDate'
+import { extractDateHour } from 'utils/formatDate'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
 
@@ -26,7 +26,6 @@ const OrderHeader = ({
     createdAt,
   } = order
 
-  formatDate(createdAt)
   return (
     <header className={styles.cardHeader}>
       <Icon icon={deliveryIcons[deliveryType]} className={styles.mainIcon} size="15px" />
@@ -41,7 +40,7 @@ const OrderHeader = ({
             size="15px"
             color="rgba(90, 90, 90)"
           />
-          <span className={styles.placeHour}>{formatDate(createdAt)}</span>
+          <span className={styles.placeHour}>{extractDateHour(createdAt)}</span>
         </div>
 
         <Icon

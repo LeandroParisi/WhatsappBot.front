@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { inputTypes } from 'libs/inputTypes'
 
 const {
@@ -10,10 +11,7 @@ const {
   RANGE,
 } = inputTypes
 
-export const MIN_RANGE_VALUE = 0
-export const MAX_RANGE_VALUE = 500
-
-export const initialValuesSwitch = (type) => {
+export const initialValuesSwitch = (type, filter) => {
   switch (type) {
     case INPUT:
       return ''
@@ -28,7 +26,8 @@ export const initialValuesSwitch = (type) => {
     case ICONS:
       return new Set([])
     case RANGE:
-      return [MIN_RANGE_VALUE, MAX_RANGE_VALUE]
+      const { max, min } = filter
+      return { limit: [min, max], currentLimit: [min, max] }
     default:
       throw new Error('Unknown type')
   }
@@ -37,8 +36,9 @@ export const initialValuesSwitch = (type) => {
 export const extractInitialValues = (filters) => {
   const initialValues = {}
 
-  filters.forEach(({ type, key }) => {
-    initialValues[key] = initialValuesSwitch(type)
+  filters.forEach((filter) => {
+    const { type, key } = filter
+    initialValues[key] = initialValuesSwitch(type, filter)
   })
 
   return initialValues

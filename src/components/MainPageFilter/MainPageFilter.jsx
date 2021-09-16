@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { inputTypes } from 'libs/inputTypes'
@@ -43,8 +44,13 @@ const MainPageFilter = ({ filters, saveFilters }) => {
     updateState(field, value)
   }
 
+  console.log(temporaryFilters)
   const handleRangeChange = (key) => (values) => {
-    updateState(key, values)
+    const newState = temporaryFilters[key]
+    updateState(key, {
+      ...newState,
+      currentLimit: values,
+    })
   }
 
   const onSubmit = (e) => {
@@ -110,11 +116,12 @@ const MainPageFilter = ({ filters, saveFilters }) => {
           />
         )
       case RANGE:
+        const { currentLimit, limit } = temporaryFilters[key]
         return (
           <RangeInput
-            values={temporaryFilters[key]}
-            min={MIN_RANGE_VALUE}
-            max={MAX_RANGE_VALUE}
+            values={currentLimit}
+            currentLimit={currentLimit}
+            limit={limit}
             onChange={handleRangeChange(key)}
           />
         )

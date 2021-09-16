@@ -1,5 +1,5 @@
 import moment from 'moment'
 
-const formatDate = (date) => moment(date).format('h:mm')
+export const extractDateHour = (date) => moment(date).format('h:mm')
 
-export default formatDate
+export const formatDate = (date) => moment(date).format('DD/MM/YYYY')

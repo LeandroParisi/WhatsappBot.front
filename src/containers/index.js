@@ -3,3 +3,4 @@ export { default as DashboardContainer } from './DashboardContainer/DashboardCon
 export { default as BranchesContainer } from './BranchesContainer/BranchesContainer'
 export { default as MenusContainer } from './MenusContainer/MenusContainer'
 export { default as ProductsContainer } from './ProductsContainer/ProductsContainer'
+export { default as PromotionsContainer } from './PromotionsContainer/PromotionsContainer'

@@ -9,8 +9,6 @@ class PromotionsActions extends BaseActions {
 export default (store, setStore, useRoot) => {
   const { errorHandler } = useRoot()
 
-  const setField = setState(setStore)
-
   const Actions = new PromotionsActions(Provider, errorHandler, setStore)
 
   // const fetchPromotions = async () => {

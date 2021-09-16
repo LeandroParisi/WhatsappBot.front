@@ -13,12 +13,13 @@ const PRICE_RANGES = {
 }
 
 const RangeInput = ({
-  min, max, values, onChange,
+  limit, values, onChange,
 }) => {
   const THUMB_SIZE = '15'
 
   const STEP = 1
 
+  const [min, max] = limit
   return (
     <div className={styles.sliderContainer}>
       <Range

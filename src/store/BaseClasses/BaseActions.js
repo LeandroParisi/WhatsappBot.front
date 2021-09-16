@@ -1,6 +1,7 @@
 import {
   setState,
 } from 'store/sharedMethods/actions'
+import { extractFiltersQuery } from 'store/sharedMethods/utils'
 
 class BaseActions {
   constructor(provider, errorHandler, setStore) {
@@ -15,6 +16,12 @@ class BaseActions {
 
     if (response) {
       this.setField('entities', response)
+    }
+  }
+
+  saveFilters() {
+    return async (filters) => {
+      this.setField('query', extractFiltersQuery(filters))
     }
   }
 

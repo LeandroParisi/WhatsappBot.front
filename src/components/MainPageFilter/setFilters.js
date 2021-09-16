@@ -20,7 +20,7 @@ export const extractStatusFilter = ({ name }) => {
   if (name === 'Inativo') {
     return 0
   }
-  throw new Error('Status não mapeado')
+  throw new Error('Status não mapeado - mainPageFilters - setFilters - extractStatusFilter')
 }
 
 export const extractFilterValues = (filterValue, type) => {
@@ -38,7 +38,7 @@ export const extractFilterValues = (filterValue, type) => {
     case ICONS:
       return [...filterValue].join(',')
     case RANGE:
-      return filterValue
+      return filterValue.currentLimit
     default:
       throw new Error('Unknown type: MainFilterPage - setFilters')
   }
