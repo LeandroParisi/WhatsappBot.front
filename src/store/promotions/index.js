@@ -6,7 +6,7 @@ import useCreateStore from '../useCreateStore'
 import filterInterface from './filters'
 
 const initialState = {
-  userBranches: [],
+  products: [],
   entities: [],
   filters: filterInterface,
   query: '',
@@ -18,13 +18,12 @@ const promotionsStore = useCreateStore(() => {
   const selectors = storeSelectors($store)
 
   useEffect(() => {
-    console.log('fetching')
     Actions.findAll($store.query)
   }, [$store.query])
 
   useEffect(() => {
-    console.log($store)
-  })
+    Actions.fetchUserProducts()
+  }, [])
 
   return { $store, Actions, ...selectors }
 })

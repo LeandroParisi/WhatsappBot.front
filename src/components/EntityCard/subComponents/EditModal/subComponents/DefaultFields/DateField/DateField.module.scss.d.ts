@@ -1,4 +1,3 @@
-export const addContainer: string;
 export const avatar: string;
 export const avatarContainer: string;
 export const branches: string;
@@ -7,9 +6,9 @@ export const editButton: string;
 export const entityHeader: string;
 export const errorInput: string;
 export const errorText: string;
+export const formContainer: string;
 export const fullPage: string;
 export const highlightText: string;
-export const inputsContainer: string;
 export const mainButton: string;
 export const mainInput: string;
 export const mainPage: string;

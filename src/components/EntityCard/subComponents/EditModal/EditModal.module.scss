@@ -15,7 +15,7 @@
   max-width: 220px;
 }
 
-.container {
+.formContainer {
   @include flexBox();
   overflow-x: auto;
   width: 100%;
@@ -82,7 +82,6 @@
   @include flexBox(column);
   margin: 10px 35px;
   gap: 8px;
-  overflow-y: hidden;
   box-sizing: border-box;
   height: fit-content;
 

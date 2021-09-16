@@ -1,8 +1,16 @@
 import { setState } from 'store/sharedMethods/actions'
 import Provider from './provider'
+import * as sharedProviders from '../sharedMethods/providers'
 import BaseActions from '../BaseClasses/BaseActions'
 
 class PromotionsActions extends BaseActions {
+  async fetchUserProducts() {
+    const { response } = await this.errorHandler(sharedProviders.fetchUserProducts())
+
+    if (response) {
+      this.setField('products', response)
+    }
+  }
   // no need to extend yet
 }
 

@@ -15,6 +15,7 @@ export const menus: string;
 export const optionIcon: string;
 export const optionsContainer: string;
 export const products: string;
+export const promotions: string;
 export const section: string;
 export const sectionsContainer: string;
 export const subSection: string;

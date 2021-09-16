@@ -12,4 +12,16 @@ const promotionsInterface = {
   image: 'image',
 }
 
+export const defaultValues = {
+  [promotionsInterface.id]: '',
+  [promotionsInterface.name]: '',
+  [promotionsInterface.totalPrice]: '',
+  [promotionsInterface.isActive]: '',
+  [promotionsInterface.avaiability]: [],
+  [promotionsInterface.dueDate]: null,
+  [promotionsInterface.promotionProducts]: [],
+  [promotionsInterface.branchPromotions]: [],
+  [promotionsInterface.image]: null,
+}
+
 export default promotionsInterface

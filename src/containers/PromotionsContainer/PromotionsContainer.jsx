@@ -11,6 +11,7 @@ const PromotionsContainer = () => {
     saveFilters,
     Actions,
     getAdaptedPromotions,
+    getAdaptedEditPromotions,
     // updateProduct,
     // activateBranch,
     // deactivateBranch,
@@ -27,7 +28,7 @@ const PromotionsContainer = () => {
 
   const adaptedEntities = getAdaptedPromotions()
 
-  // const adaptedEditEntities = getAdaptedEditProducts()
+  const adaptedEditEntities = getAdaptedEditPromotions()
 
   // const defaultCreateEntity = getDefaultEntity()
 
@@ -45,7 +46,7 @@ const PromotionsContainer = () => {
         : (
           <EntitiesContainer
             entities={adaptedEntities}
-            editEntities={adaptedEntities}
+            editEntities={adaptedEditEntities}
             // createEntity={defaultCreateEntity}
             type={entitiesTypes.promotions}
             // editRequest={updateProduct}

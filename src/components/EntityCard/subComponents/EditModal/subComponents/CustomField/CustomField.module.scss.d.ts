@@ -26,6 +26,7 @@ export const menus: string;
 export const openingHours: string;
 export const overnightCheck: string;
 export const products: string;
+export const promotions: string;
 export const section: string;
 export const sectionsContainer: string;
 export const subContainer: string;

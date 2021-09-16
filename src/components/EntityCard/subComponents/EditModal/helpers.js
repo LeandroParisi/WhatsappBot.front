@@ -10,11 +10,11 @@ const extractInitialValues = (entity) => {
     isActive,
   }
 
-  header.forEach(({ key, value }) => {
+  header?.forEach(({ key, value }) => {
     initialValues[key] = value
   })
 
-  sections.forEach(({ subSections }) => {
+  sections?.forEach(({ subSections }) => {
     subSections.forEach(({ key, value, fieldType }) => {
       if (fieldType === inputTypes.ICONS) {
         initialValues[key] = new Set(value.map(({ id: valueId }) => valueId))

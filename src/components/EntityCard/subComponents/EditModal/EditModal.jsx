@@ -13,7 +13,7 @@ import CustomField from './subComponents/CustomField/CustomField'
 import styles from './EditModal.module.scss'
 import extractInitialValues from './helpers'
 import {
-  IconsField, InputField, InputList, SelectField, SelectListField,
+  IconsField, InputField, InputList, SelectField, SelectListField, DateField,
 } from './subComponents/DefaultFields'
 
 const EditModal = ({ entity, type, editRequest }) => {
@@ -100,6 +100,13 @@ const EditModal = ({ entity, type, editRequest }) => {
         updateState={updateState}
         errors={errors}
       />,
+      [inputTypes.DATE]: <DateField
+        formValues={formValues}
+        subSection={subSection}
+        updateState={updateState}
+        errors={errors}
+      />,
+
     }
 
     if (defaultFields[fieldType]) {
@@ -117,11 +124,11 @@ const EditModal = ({ entity, type, editRequest }) => {
       )
     }
 
-    throw new Error('Invalid Field Types: <EditModal>')
+    throw new Error(`Invalid Field '${fieldType}' -> <EditModal>`)
   }
 
   return (
-    <form className={styles.container}>
+    <form className={styles.formContainer}>
       {header && (
       <header className={styles.entityHeader}>
         {header.map((field) => (

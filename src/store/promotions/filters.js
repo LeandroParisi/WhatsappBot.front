@@ -6,7 +6,6 @@ import promotionsInterface from '../../interfaces/promotions/promotionsInterface
 const {
   INPUT,
   RANGE,
-  ICONS,
 } = inputTypes
 
 const filterInterface = [
@@ -20,14 +19,9 @@ const filterInterface = [
     key: promotionsInterface.totalPrice,
     type: RANGE,
     placeholder: 'Preço',
-    max: 250,
+    max: 100,
     min: 0,
   },
-  // {
-  //   key: promotionsInterface.description,
-  //   type: INPUT,
-  //   placeholder: 'Descrição',
-  // },
   {
     ...statusFilter,
   },
