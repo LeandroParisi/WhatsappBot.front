@@ -16,8 +16,17 @@ const promotionsStore = useCreateStore(() => {
   const selectors = storeSelectors($store)
 
   useEffect(() => {
+    const teste = async () => {
+      const response = await actions.findAll()
+      console.log(response)
+    }
 
+    teste()
   }, [])
+
+  useEffect(() => {
+    console.log($store)
+  })
 
   return { $store, ...actions, ...selectors }
 })

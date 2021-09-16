@@ -8,17 +8,17 @@ const {
 } = inputTypes
 
 export const filterInterface = [
-  {
-    key: menusInterface.menuName,
-    type: INPUT,
-    placeholder: 'Nome do menu',
-  },
-  {
-    key: menusInterface.description,
-    type: INPUT,
-    placeholder: 'Descrição',
-  },
-  {
-    ...statusFilter,
-  },
+  // {
+  //   key: menusInterface.menuName,
+  //   type: INPUT,
+  //   placeholder: 'Nome do menu',
+  // },
+  // {
+  //   key: menusInterface.description,
+  //   type: INPUT,
+  //   placeholder: 'Descrição',
+  // },
+  // {
+  //   ...statusFilter,
+  // },
 ]

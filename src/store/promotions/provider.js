@@ -1,4 +1,9 @@
-import api from 'services/api'
-import getRoute from 'services/config'
+import BaseProvider from '../BaseClasses/BaseProvider'
 
-export { }
+class PromotionProvider extends BaseProvider {
+  // Not extended yet
+}
+
+const PromotionsProvider = new PromotionProvider('promotions')
+
+export default PromotionsProvider
