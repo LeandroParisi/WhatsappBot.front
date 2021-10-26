@@ -2,7 +2,7 @@ export default ($store, $root) => {
   const getOrders = () => $store.orders
 
   const getBranchesNames = () => $root.userBranches
-    .map(({ branchName, id }) => ({ name: branchName, id }))
+    .filter(({ isActive }) => isActive).map(({ branchName, id }) => ({ name: branchName, id }))
 
   const getUserBranches = () => $root.userBranches
 

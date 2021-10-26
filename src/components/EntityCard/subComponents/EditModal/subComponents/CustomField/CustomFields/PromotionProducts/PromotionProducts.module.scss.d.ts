@@ -4,6 +4,7 @@ export const attributeSubSection: string;
 export const avatar: string;
 export const avatarContainer: string;
 export const branches: string;
+export const coupons: string;
 export const editButton: string;
 export const entityHeader: string;
 export const errorInput: string;

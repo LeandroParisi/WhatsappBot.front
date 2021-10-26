@@ -21,16 +21,14 @@ const BranchesStore = useCreateStore(() => {
 
   useEffect(() => {
     if ($root.userBranches.length) {
-      setBranches((prev) => ({
-        ...prev,
-        userBranches: [...$root.userBranches],
-        isPageLoaded: true,
-      }))
+      actions.setField('userBranches', [...$root.userBranches])
+      actions.setField('isPageLoaded', true)
     }
   }, [$root.userBranches])
 
   useEffect(() => {
     if ($branches.isPageLoaded) {
+      console.log('query', $branches.query)
       actions.fetchUserBranches($branches.query)
     }
   }, [$branches.query])

@@ -4,6 +4,7 @@ export const avatar: string;
 export const avatarContainer: string;
 export const branches: string;
 export const cardsContainer: string;
+export const coupons: string;
 export const editButton: string;
 export const editModal: string;
 export const entityHeader: string;

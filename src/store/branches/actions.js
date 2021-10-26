@@ -2,14 +2,17 @@ import {
   activateEntityFactory, deactivateEntityFactory, saveFiltersFactory, setState,
 } from 'store/sharedMethods/actions'
 import { toast } from 'react-toastify'
-import * as providers from './provider'
+import Provider from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
 import { normalizeEditPayload } from './serializers'
 import validationFactory from '../sharedMethods/validationFactory'
 import { editValidations, createValidations, errorsLib } from './validations'
 
 export default (store, setStore, useRoot) => {
-  const { errorHandler, setField: setRootField } = useRoot()
+  const {
+    errorHandler,
+    fetchUserBranches: rootFetchUserBranches,
+  } = useRoot()
 
   const setField = setState(setStore)
 
@@ -20,7 +23,6 @@ export default (store, setStore, useRoot) => {
 
     if (response) {
       setField('userBranches', response)
-      setRootField('userBranches', response)
     }
   }
 
@@ -34,20 +36,20 @@ export default (store, setStore, useRoot) => {
 
     const normalizedBody = normalizeEditPayload(body)
 
-    const { response } = await errorHandler(providers.createBranch(normalizedBody))
+    const { response } = await errorHandler(Provider.create(normalizedBody))
 
     if (response) {
-      await fetchUserBranches()
+      await rootFetchUserBranches()
     }
 
     return { hasErrors }
   }
 
   const deleteBranch = async (id) => {
-    const { response } = await errorHandler(providers.deleteBranch(id))
+    const { response } = await errorHandler(Provider.delete(id))
 
     if (response) {
-      await fetchUserBranches()
+      await rootFetchUserBranches()
     }
   }
 
@@ -62,20 +64,32 @@ export default (store, setStore, useRoot) => {
 
     const normalizedBody = normalizeEditPayload(body)
 
-    const { response } = await errorHandler(providers.updateBranch(
+    const { response } = await errorHandler(Provider.update(
       { id, body: normalizedBody },
     ))
 
     if (response) {
-      await fetchUserBranches()
+      await rootFetchUserBranches()
     }
 
     return { hasErrors }
   }
 
-  const activateBranch = activateEntityFactory(setField, errorHandler, providers.activateBranch, 'userBranches', store)
+  const activateBranch = async (id) => {
+    const { response } = await errorHandler(Provider.activate(id))
 
-  const deactivateBranch = deactivateEntityFactory(setField, errorHandler, providers.deactivateBranch, 'userBranches', store)
+    if (response) {
+      await rootFetchUserBranches()
+    }
+  }
+
+  const deactivateBranch = async (id) => {
+    const { response } = await errorHandler(Provider.deactivate(id))
+
+    if (response) {
+      await rootFetchUserBranches()
+    }
+  }
 
   return {
     setField,

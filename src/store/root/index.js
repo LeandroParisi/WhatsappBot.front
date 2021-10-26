@@ -25,10 +25,7 @@ const RootStore = useCreateStore(() => {
     if (!$root.initialResourcesLoaded && initialResourcesPages.has(pathname)) {
       actions.fetchUserBranches()
       actions.fetchUserProducts()
-      setRoot((prev) => ({
-        ...prev,
-        initialResourcesLoaded: true,
-      }))
+      actions.setField('initialResourcesLoaded', true)
     }
   }, [pathname])
 

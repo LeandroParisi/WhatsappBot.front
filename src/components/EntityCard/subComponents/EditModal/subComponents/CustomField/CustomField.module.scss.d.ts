@@ -2,6 +2,7 @@ export const addFee: string;
 export const avatar: string;
 export const avatarContainer: string;
 export const branches: string;
+export const coupons: string;
 export const customField: string;
 export const deleteFee: string;
 export const disabled: string;
