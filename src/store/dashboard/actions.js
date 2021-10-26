@@ -11,7 +11,7 @@ export default (store, setStore, useRoot) => {
 
   const fetchBranchOrders = async (queryObject) => {
     const query = assembleQuery(queryObject)
-    const { response } = await errorHandler(providers.fetchBranchOrders(query))
+    const { response } = await errorHandler(providers.fetchBranchOrders(query), { loader: false })
 
     if (response) {
       delete response.fullfilled
@@ -23,7 +23,7 @@ export default (store, setStore, useRoot) => {
     const nextStatus = extractNextStatus(currentStep, type)
 
     const payload = { body: { status: nextStatus }, id }
-    const { response } = await errorHandler(providers.updateOrder(payload))
+    const { response } = await errorHandler(providers.updateOrder(payload), { loader: false })
 
     if (response) {
       await fetchBranchOrders({

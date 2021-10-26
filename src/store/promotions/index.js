@@ -7,7 +7,6 @@ import filterInterface from './filters'
 
 const initialState = {
   entities: [],
-
   filters: filterInterface,
   query: '',
 }

@@ -4,16 +4,22 @@ import responseHandler from 'services/responseHandler'
 import { setState } from 'store/sharedMethods/actions'
 import * as sharedProviders from '../sharedMethods/providers'
 
+const errorHandlerDefaultOptions = {
+  loader: true,
+}
+
 export default (setRoot) => {
   const history = useHistory()
 
   const setField = setState(setRoot)
 
-  const errorHandler = async (fetcher) => {
-    setField('isLoading', true)
+  const errorHandler = async (fetcher, options = {}) => {
+    const { loader } = { ...errorHandlerDefaultOptions, ...options }
+    console.log({ loader })
+    if (loader) setField('isLoading', true)
     const treatedResponse = responseHandler(fetcher)
     const response = await treatedResponse()
-    setField('isLoading', false)
+    if (loader) setField('isLoading', false)
 
     if (response.status >= 200 && response.status <= 299) {
       return response
