@@ -4,3 +4,4 @@ export { default as BranchesContainer } from './BranchesContainer/BranchesContai
 export { default as MenusContainer } from './MenusContainer/MenusContainer'
 export { default as ProductsContainer } from './ProductsContainer/ProductsContainer'
 export { default as PromotionsContainer } from './PromotionsContainer/PromotionsContainer'
+export { default as CouponsContainer } from './CouponsContainer/CouponsContainer'

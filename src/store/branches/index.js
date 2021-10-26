@@ -9,16 +9,30 @@ import useCreateStore from '../useCreateStore'
 const initialState = {
   userBranches: [],
   filters: filterInterface,
+  isPageLoaded: false,
   query: '',
 }
 
 const BranchesStore = useCreateStore(() => {
+  const { $root } = useRoot()
   const [$branches, setBranches] = useState(initialState)
   const actions = storeActions($branches, setBranches, useRoot)
   const selectors = storeSelectors($branches)
 
   useEffect(() => {
-    actions.fetchUserBranches($branches.query)
+    if ($root.userBranches.length) {
+      setBranches((prev) => ({
+        ...prev,
+        userBranches: [...$root.userBranches],
+        isPageLoaded: true,
+      }))
+    }
+  }, [$root.userBranches])
+
+  useEffect(() => {
+    if ($branches.isPageLoaded) {
+      actions.fetchUserBranches($branches.query)
+    }
   }, [$branches.query])
 
   return { $branches, ...actions, ...selectors }

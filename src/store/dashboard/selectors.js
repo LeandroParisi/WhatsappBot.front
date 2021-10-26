@@ -1,10 +1,10 @@
-export default ($store) => {
+export default ($store, $root) => {
   const getOrders = () => $store.orders
 
-  const getBranchesNames = () => $store.userBranches
+  const getBranchesNames = () => $root.userBranches
     .map(({ branchName, id }) => ({ name: branchName, id }))
 
-  const getUserBranches = () => $store.userBranches
+  const getUserBranches = () => $root.userBranches
 
   const getSelectedBranch = () => $store.selectedBranch
 

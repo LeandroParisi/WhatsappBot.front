@@ -133,7 +133,7 @@ const AttributeCard = ({
           <span>
             <b>Preço adicional:</b>
             <Input
-              onChange={({ target: { value } }) => updateField('price', value)}
+              onChange={({ target: { value } }) => updateField('price', Number(value))}
               value={price}
               type="number"
             />

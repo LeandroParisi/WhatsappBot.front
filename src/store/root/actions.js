@@ -1,7 +1,8 @@
-import routes from 'libs/routes'
+import routes from 'libs/routes/routes'
 import { useHistory } from 'react-router-dom'
 import responseHandler from 'services/responseHandler'
 import { setState } from 'store/sharedMethods/actions'
+import * as sharedProviders from '../sharedMethods/providers'
 
 export default (setRoot) => {
   const history = useHistory()
@@ -26,5 +27,26 @@ export default (setRoot) => {
     return { response: null }
   }
 
-  return { setField, errorHandler }
+  const fetchUserProducts = async () => {
+    const { response } = await errorHandler(sharedProviders.fetchUserProducts())
+
+    if (response) {
+      setField('userProducts', response)
+    }
+  }
+
+  const fetchUserBranches = async () => {
+    const { response } = await errorHandler(sharedProviders.fetchUserBranches())
+
+    if (response) {
+      setField('userBranches', response)
+    }
+  }
+
+  return {
+    setField,
+    errorHandler,
+    fetchUserProducts,
+    fetchUserBranches,
+  }
 }

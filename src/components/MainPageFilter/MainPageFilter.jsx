@@ -44,7 +44,6 @@ const MainPageFilter = ({ filters, saveFilters }) => {
     updateState(field, value)
   }
 
-  console.log(temporaryFilters)
   const handleRangeChange = (key) => (values) => {
     const newState = temporaryFilters[key]
     updateState(key, {
@@ -117,12 +116,14 @@ const MainPageFilter = ({ filters, saveFilters }) => {
         )
       case RANGE:
         const { currentLimit, limit } = temporaryFilters[key]
+        const { unmasked = false } = filters.find((filter) => filter.key === key)
         return (
           <RangeInput
             values={currentLimit}
             currentLimit={currentLimit}
             limit={limit}
             onChange={handleRangeChange(key)}
+            unmasked={unmasked}
           />
         )
       default:

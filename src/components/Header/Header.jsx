@@ -5,7 +5,7 @@ import logo from 'assets/images/logos/logo_transparent.png'
 import { Squash as Hamburger } from 'hamburger-react'
 import SideBar from 'components/SideBar/SideBar'
 import { Button } from 'components'
-import routes from 'libs/routes'
+import routes from 'libs/routes/routes'
 import styles from './Header.module.scss'
 
 const Header = ({

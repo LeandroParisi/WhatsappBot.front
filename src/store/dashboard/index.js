@@ -10,16 +10,16 @@ const initialState = {
     inProduction: [],
     dispatched: [],
   },
-  userBranches: [],
   selectedBranch: { name: '', id: '' },
 }
 
 const DashboardStore = useCreateStore(() => {
   const [$dashboard, setDashboard] = useState(initialState)
+  const { $root, $root: { userBranches } } = useRoot()
   const actions = storeActions($dashboard, setDashboard, useRoot)
-  const selectors = storeSelectors($dashboard)
+  const selectors = storeSelectors($dashboard, $root)
 
-  const { selectedBranch, userBranches } = $dashboard
+  const { selectedBranch } = $dashboard
 
   useEffect(() => {
     if (selectedBranch.name) {
@@ -28,10 +28,6 @@ const DashboardStore = useCreateStore(() => {
       })
     }
   }, [selectedBranch.name])
-
-  useEffect(() => {
-    actions.fetchUserBranches()
-  }, [])
 
   useEffect(() => {
     if (userBranches.length === 1) {

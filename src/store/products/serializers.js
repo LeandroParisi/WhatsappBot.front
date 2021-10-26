@@ -241,7 +241,7 @@ export const normalizeEditPayload = (body) => {
 
   return {
     ...body,
-    avaiability: avaiability.map(({ id }) => id),
+    avaiability: avaiability.map(({ id }) => Number(id)),
     branchesProducts: branchesProducts.map(({ id }) => id),
     menuProducts: menuProducts.map(({ id }) => id),
     categoryId: [...categoryId][0],

@@ -8,7 +8,7 @@ import styles from './Icon.module.scss'
 import { tooltips, customIcons } from './iconsLib'
 
 const Icon = ({
-  icon, color, className, size, onClick, noTooltip, tooltipText, type, inlineTooltip,
+  icon, color, className, size, onClick, noTooltip, tooltipText, type, inlineTooltip, isDisabled,
 }) => {
   const [showTooltip, setShowTooltip] = useState(false)
   const { iconName } = icon
@@ -61,12 +61,13 @@ l-385 386 385 386 c254 255 399 392 425 405 33 15 64 19 185 19 l146 0 275
 
   return (
     <div
-      onClick={onClick}
+      onClick={() => !isDisabled && onClick && onClick()}
       className={classNames(
         styles.iconContainer,
         className,
         { [styles[type]]: type },
         { [styles.clickable]: onClick },
+        { [styles.disabled]: isDisabled },
       )}
       style={{ fontSize: size }}
       role="button"
@@ -109,6 +110,7 @@ Icon.propTypes = {
   noTooltip: PropTypes.bool,
   tooltipText: PropTypes.string,
   inlineTooltip: PropTypes.bool,
+  isDisabled: PropTypes.bool,
 }
 
 Icon.defaultProps = {
@@ -120,6 +122,7 @@ Icon.defaultProps = {
   noTooltip: false,
   tooltipText: '',
   type: null,
+  isDisabled: false,
 }
 
 export default Icon

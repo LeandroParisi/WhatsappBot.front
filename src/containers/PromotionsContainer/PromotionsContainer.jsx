@@ -9,16 +9,19 @@ const PromotionsContainer = () => {
   const {
     getFilters,
     saveFilters,
-    Actions,
     getAdaptedPromotions,
     getAdaptedEditPromotions,
+    updatePromotion,
+    deletePromotion,
+    activatePromotion,
+    deactivatePromotion,
     // updateProduct,
     // activateBranch,
     // deactivateBranch,
     // getAdaptedProducts,
     // getAdaptedEditProducts,
-    // getDefaultEntity,
-    // createProduct,
+    getDefaultEntity,
+    createPromotion,
     // deleteBranch,
   } = usePromotions()
 
@@ -30,14 +33,14 @@ const PromotionsContainer = () => {
 
   const adaptedEditEntities = getAdaptedEditPromotions()
 
-  // const defaultCreateEntity = getDefaultEntity()
+  const defaultCreateEntity = getDefaultEntity()
 
   return (
     <>
       <MainPageFilter
         filters={filters}
         // actions={Actions}
-        saveFilters={Actions.saveFilters()}
+        saveFilters={saveFilters}
       />
       {getIsLoading()
         ? (
@@ -47,12 +50,13 @@ const PromotionsContainer = () => {
           <EntitiesContainer
             entities={adaptedEntities}
             editEntities={adaptedEditEntities}
-            // createEntity={defaultCreateEntity}
+            createEntity={defaultCreateEntity}
             type={entitiesTypes.promotions}
-            // editRequest={updateProduct}
-            // createRequest={createProduct}
-            // activate={activateBranch}
-            // deactivate={deactivateBranch}
+            editRequest={updatePromotion}
+            createRequest={createPromotion}
+            activate={activatePromotion}
+            deactivate={deactivatePromotion}
+            deleteRequest={deletePromotion}
           />
         )}
     </>

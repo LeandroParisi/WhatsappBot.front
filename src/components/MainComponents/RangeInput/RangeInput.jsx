@@ -13,7 +13,7 @@ const PRICE_RANGES = {
 }
 
 const RangeInput = ({
-  limit, values, onChange,
+  limit, values, onChange, unmasked,
 }) => {
   const THUMB_SIZE = '15'
 
@@ -88,7 +88,7 @@ const RangeInput = ({
         {values.map((value, index) => (
           <div>
             <span>{PRICE_RANGES[index]}</span>
-            <p>{formatPrice(value)}</p>
+            <p>{unmasked ? value : formatPrice(value)}</p>
           </div>
         ))}
       </div>
@@ -103,6 +103,7 @@ RangeInput.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
   styleType: PropTypes.oneOf(['main', 'white', '']),
+  unmasked: PropTypes.bool,
 }
 
 RangeInput.defaultProps = {
@@ -111,6 +112,7 @@ RangeInput.defaultProps = {
   type: 'button',
   className: '',
   styleType: '',
+  unmasked: false,
 }
 
 export default RangeInput

@@ -9,7 +9,7 @@ import validationFactory from '../sharedMethods/validationFactory'
 import { editValidations, createValidations, errorsLib } from './validations'
 
 export default (store, setStore, useRoot) => {
-  const { errorHandler } = useRoot()
+  const { errorHandler, setField: setRootField } = useRoot()
 
   const setField = setState(setStore)
 
@@ -20,6 +20,7 @@ export default (store, setStore, useRoot) => {
 
     if (response) {
       setField('userBranches', response)
+      setRootField('userBranches', response)
     }
   }
 

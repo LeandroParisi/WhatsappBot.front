@@ -16,13 +16,11 @@ const DateField = ({
 
   const value = formValues[key]
 
-  console.log({ formValues })
-
   return (
     <div className={styles.container}>
       <p>{sectionName}</p>
       <DatePicker
-        selected={value ? new Date(formValues[key]) : value}
+        selected={value ? new Date(value) : value}
         onChange={(date) => updateState(key, date)}
         locale="pt"
         placeholderText="Sem data limite"

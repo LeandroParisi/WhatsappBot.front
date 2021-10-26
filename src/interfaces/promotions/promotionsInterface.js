@@ -8,7 +8,7 @@ const promotionsInterface = {
   avaiability: 'avaiability',
   dueDate: 'dueDate',
   promotionProducts: 'promotionProducts',
-  branchPromotions: 'branchPromotions',
+  branchesPromotions: 'branchesPromotions',
   image: 'image',
 }
 
@@ -16,11 +16,11 @@ export const defaultValues = {
   [promotionsInterface.id]: '',
   [promotionsInterface.name]: '',
   [promotionsInterface.totalPrice]: '',
-  [promotionsInterface.isActive]: '',
+  [promotionsInterface.isActive]: true,
   [promotionsInterface.avaiability]: [],
   [promotionsInterface.dueDate]: null,
   [promotionsInterface.promotionProducts]: [],
-  [promotionsInterface.branchPromotions]: [],
+  [promotionsInterface.branchesPromotions]: [],
   [promotionsInterface.image]: null,
 }
 

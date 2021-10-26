@@ -10,13 +10,13 @@ const ProductsContainer = () => {
     getFilters,
     saveFilters,
     updateProduct,
-    activateBranch,
-    deactivateBranch,
+    deleteProduct,
+    activateProduct,
     getAdaptedProducts,
     getAdaptedEditProducts,
     getDefaultEntity,
     createProduct,
-    deleteBranch,
+    deactivateProduct,
   } = useProducts()
 
   const { getIsLoading } = useRoot()
@@ -47,8 +47,9 @@ const ProductsContainer = () => {
             type={entitiesTypes.products}
             editRequest={updateProduct}
             createRequest={createProduct}
-            // activate={activateBranch}
-            // deactivate={deactivateBranch}
+            activate={activateProduct}
+            deactivate={deactivateProduct}
+            deleteRequest={deleteProduct}
           />
         )}
     </>

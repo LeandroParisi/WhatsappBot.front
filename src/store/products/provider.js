@@ -46,8 +46,45 @@ const createProduct = (body) => async () => {
   return response
 }
 
-// TODO: activate / deactivate products
+const activateProduct = (id) => async () => {
+  const { url, method } = getRoute('products', 'activate')
+
+  const response = await api({
+    url: `${url}/${id}`,
+    method,
+  })
+
+  return response
+}
+
+const deactivateProduct = (id) => async () => {
+  const { url, method } = getRoute('products', 'deactivate')
+
+  const response = await api({
+    url: `${url}/${id}`,
+    method,
+  })
+
+  return response
+}
+
+const deleteProduct = (id) => async () => {
+  const { url, method } = getRoute('products', 'deleteOne')
+
+  const response = await api({
+    url: `${url}/${id}`,
+    method,
+  })
+
+  return response
+}
 
 export {
-  fetchCategories, fetchUserProducts, updateProduct, createProduct,
+  fetchCategories,
+  fetchUserProducts,
+  updateProduct,
+  createProduct,
+  activateProduct,
+  deactivateProduct,
+  deleteProduct,
 }

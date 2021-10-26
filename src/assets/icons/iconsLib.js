@@ -38,6 +38,9 @@ import {
   faEllipsisH,
   faEllipsisV,
   faCalendarCheck,
+  faMinus,
+  faFileSignature,
+  faStopwatch,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
@@ -78,6 +81,7 @@ export const generalIcons = {
   CLOSED: faLock,
 
   ADD: faPlus,
+  REMOVE: faMinus,
 
   DESCRIPTION: faFileAlt,
   TRASH: faTrash,
@@ -86,6 +90,10 @@ export const generalIcons = {
 
   HORIZONTAL_DOTS: faEllipsisH,
   VERTICAL_DOTS: faEllipsisV,
+
+  CONDITIONS: faFileSignature,
+
+  COUNTER: faStopwatch,
 }
 
 export const deliveryIcons = {

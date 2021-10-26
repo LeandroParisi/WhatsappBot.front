@@ -40,6 +40,8 @@ export const attributes = {
   ADDITIONALS: 'additionals',
 }
 
+export const singleAttributes = new Set([attributes.SIZES])
+
 export const attributesTranslation = {
   [attributes.SIZES]: 'Tamanhos',
   [attributes.ADDITIONALS]: 'Adicionais',

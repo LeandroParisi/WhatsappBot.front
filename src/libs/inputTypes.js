@@ -16,4 +16,6 @@ export const customFieldTypes = {
   OPENING_HOURS: 'opening_hours',
   CITIES: 'cities',
   PRODUCT_ATTRIBUTES: 'product_attributes',
+  PROMOTION_PRODUCTS: 'promotion_products',
+
 }

@@ -9,6 +9,7 @@ import {
 import promotionsInterface from 'interfaces/promotions/promotionsInterface'
 import { customFieldTypes, inputTypes } from 'libs/inputTypes'
 import { formatDate } from 'utils/formatDate'
+import { extractProductsCaracteristics } from './utils'
 
 const {
   PRICE,
@@ -17,6 +18,10 @@ const {
   CALENDAR_CHECK,
   STORE,
 } = groupedIcons
+
+const {
+  PROMOTION_PRODUCTS,
+} = customFieldTypes
 
 const {
   INPUT,
@@ -39,10 +44,8 @@ export const promotionsAdapter = (promotion) => {
     dueDate,
     image,
     promotionProducts,
-    branchPromotions,
+    branchesPromotions,
   } = promotion
-
-  console.log({ branchPromotions })
 
   return {
     id,
@@ -87,7 +90,7 @@ export const promotionsAdapter = (promotion) => {
         icon: STORE,
         title: 'Filiais',
         content: {
-          values: ['TRANSFORMAR EM MANY TO MANY'],
+          values: branchesPromotions.map(({ branchName }) => branchName),
           type: contentTypes.LIST,
         },
       },
@@ -95,7 +98,7 @@ export const promotionsAdapter = (promotion) => {
   }
 }
 
-export const editPromotionsAdapter = (promotion, products) => {
+export const editPromotionsAdapter = (promotion, userProducts, userBranches) => {
   const {
     id,
     name,
@@ -105,8 +108,10 @@ export const editPromotionsAdapter = (promotion, products) => {
     dueDate,
     image,
     promotionProducts,
-    branchPromotions,
+    branchesPromotions,
   } = promotion
+
+  let promotionProductTempId = 1
 
   return {
     id,
@@ -152,10 +157,24 @@ export const editPromotionsAdapter = (promotion, products) => {
         title: 'Relações',
         subSections: [
           {
-            value: promotionProducts?.map(({ id, name }) => ({ id, name })),
-            options: products?.map(({ id, name }) => ({ id, name })),
+            value: promotionProducts?.map((product) => {
+              const temporaryId = promotionProductTempId++
+
+              return {
+                ...product,
+                temporaryId,
+              }
+            }),
+            options: userProducts?.map(({ id, name, attributes }) => ({ id, name, attributes })),
             key: promotionsInterface.promotionProducts,
             sectionName: 'Produtos',
+            customField: PROMOTION_PRODUCTS,
+          },
+          {
+            value: branchesPromotions.map(({ id, branchName }) => ({ id, name: branchName })),
+            options: userBranches.map(({ id, branchName }) => ({ id, name: branchName })),
+            key: promotionsInterface.branchesPromotions,
+            sectionName: 'Filiais',
             fieldType: SELECT_LIST,
           },
         ],
@@ -165,5 +184,15 @@ export const editPromotionsAdapter = (promotion, products) => {
 }
 
 export const normalizeEditPayload = (body) => {
+  const {
+    avaiability, branchesPromotions, promotionProducts,
+  } = body
 
+  return {
+    ...body,
+    avaiability: avaiability.map(({ id }) => Number(id)),
+    branchesPromotions: branchesPromotions.map(({ id }) => id),
+    promotionProducts: promotionProducts
+      .map(({ productId, attributes }) => ({ productId, attributes })),
+  }
 }

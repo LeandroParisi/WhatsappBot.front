@@ -7,6 +7,7 @@ export const editButton: string;
 export const entityHeader: string;
 export const errorInput: string;
 export const errorText: string;
+export const formContainer: string;
 export const fullPage: string;
 export const highlightText: string;
 export const inputsContainer: string;

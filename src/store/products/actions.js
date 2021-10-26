@@ -1,4 +1,6 @@
-import { saveFiltersFactory, setState } from 'store/sharedMethods/actions'
+import {
+  activateEntityFactory, deactivateEntityFactory, saveFiltersFactory, setState,
+} from 'store/sharedMethods/actions'
 import validationFactory from 'store/sharedMethods/validationFactory'
 import { toast } from 'react-toastify'
 import { getFilterInterface } from './filters'
@@ -59,8 +61,6 @@ export default (store, setStore, useRoot) => {
 
     const normalizedBody = normalizeEditPayload(body)
 
-    console.log({ normalizedBody })
-
     const { response } = await errorHandler(providers.updateProduct(
       { id, body: normalizedBody },
     ))
@@ -77,7 +77,6 @@ export default (store, setStore, useRoot) => {
   }
 
   const createProduct = async ({ body }) => {
-    console.log({ body })
     const { hasErrors, errors } = await validationFactory(
       body, createValidations, errorsLib,
     )
@@ -98,6 +97,18 @@ export default (store, setStore, useRoot) => {
     return { hasErrors }
   }
 
+  const deleteProduct = async (id) => {
+    const { response } = await errorHandler(providers.deleteProduct(id))
+
+    if (response) {
+      await fetchUserProducts()
+    }
+  }
+
+  const activateProduct = activateEntityFactory(setField, errorHandler, providers.activateProduct, 'products', store)
+
+  const deactivateProduct = deactivateEntityFactory(setField, errorHandler, providers.deactivateProduct, 'products', store)
+
   return {
     setField,
     saveFilters,
@@ -108,5 +119,8 @@ export default (store, setStore, useRoot) => {
     fetchUserBranches,
     updateProduct,
     createProduct,
+    deleteProduct,
+    activateProduct,
+    deactivateProduct,
   }
 }

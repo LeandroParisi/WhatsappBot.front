@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import globalStyles from 'assets/scss/globals.module.scss'
 import classNames from 'classnames'
 import {
-  DeliveryFeeField, OpeningHoursField, CitiesField, ProductAttributes,
+  DeliveryFeeField, OpeningHoursField, CitiesField, ProductAttributes, PromotionProducts,
 } from './CustomFields'
 import styles from './CustomField.module.scss'
 
 const {
-  DELIVERY_FEES, OPENING_HOURS, CITIES, PRODUCT_ATTRIBUTES,
+  DELIVERY_FEES, OPENING_HOURS, CITIES, PRODUCT_ATTRIBUTES, PROMOTION_PRODUCTS,
 } = customFieldTypes
 
 const CustomField = ({
@@ -39,6 +39,11 @@ const CustomField = ({
         formValues={formValues}
       />,
       [PRODUCT_ATTRIBUTES]: <ProductAttributes
+        subSection={subSection}
+        updateState={updateState}
+        formValues={formValues}
+      />,
+      [PROMOTION_PRODUCTS]: <PromotionProducts
         subSection={subSection}
         updateState={updateState}
         formValues={formValues}

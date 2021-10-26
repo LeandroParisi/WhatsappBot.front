@@ -1,6 +1,7 @@
 @import '../../../EditModal.module.scss';
 @import '../../../../../../../assets/scss/globals.module.scss';
 @import '../../../../../../../assets/scss/colors.scss';
+@import '../../../../../../../assets/scss/fonts.scss';
 
 
 .container {
@@ -9,9 +10,10 @@
 
   input {
     @extend .whiteInput;
+    font-size: $font-small;
   }
 
   [class*='close-icon']::after {
-    background-color: $primary3;
+    background-color: transparent !important;
   }
 }

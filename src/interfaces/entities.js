@@ -3,6 +3,7 @@ export const entitiesTypes = {
   menus: 'menus',
   products: 'products',
   promotions: 'promotions',
+  coupons: 'coupons',
 }
 
 export const teste = 0

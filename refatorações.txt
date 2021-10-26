@@ -1,0 +1,2 @@
+1) Levar estados que são reutilizados para o root context
+2) utilizar o baseProvider e baseActions nos contextos locais

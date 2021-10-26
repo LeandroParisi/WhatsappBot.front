@@ -4,6 +4,7 @@ import { Select } from 'components'
 import { createAttribute, attributesTranslation, attributeOptionInterface } from 'interfaces/products/productsInterface'
 import Icon from 'assets/icons/Icon'
 import { generalIcons } from 'assets/icons/iconsLib'
+import { v4 as uuidv4 } from 'uuid'
 import customFieldStyles from '../../CustomField.module.scss'
 import AttributeCard from './AttributeCard'
 import styles from './ProductAttributes.module.scss'
@@ -28,7 +29,7 @@ const ProductAttributes = ({ updateState, formValues, subSection }) => {
     const newState = oldState.map((attribute) => {
       if (attribute.type === type) {
         const newOptions = [...attribute.options]
-        newOptions.push({ ...attributeOptionInterface })
+        newOptions.push({ ...attributeOptionInterface, id: uuidv4() })
         return {
           ...attribute,
           options: newOptions,

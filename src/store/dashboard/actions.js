@@ -31,15 +31,8 @@ export default (store, setStore, useRoot) => {
       })
     }
   }
-  const fetchUserBranches = async () => {
-    const { response } = await errorHandler(sharedProviders.fetchUserBranches())
-
-    if (response?.length) {
-      setField('userBranches', response)
-    }
-  }
 
   return {
-    setField, fetchBranchOrders, updateOrder, fetchUserBranches,
+    setField, fetchBranchOrders, updateOrder,
   }
 }
