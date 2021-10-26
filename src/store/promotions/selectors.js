@@ -1,30 +1,25 @@
 import { defaultValues } from 'interfaces/promotions/promotionsInterface'
 import { promotionsAdapter, editPromotionsAdapter } from './serializers'
 
-export default ($store) => {
-  // const getProducts = () => $store.products
-
+export default ($store, $root) => {
   const getFilters = () => $store.filters
 
   const getAdaptedPromotions = () => $store.entities
     .map((entity) => promotionsAdapter(entity))
 
   const getAdaptedEditPromotions = () => $store.entities
-    .map((promotion) => editPromotionsAdapter(promotion, $store.userProducts, $store.userBranches))
+    .map((promotion) => editPromotionsAdapter(promotion, $root.userProducts, $root.userBranches))
 
   const getDefaultEntity = () => editPromotionsAdapter(
     defaultValues,
-    $store.userProducts,
-    $store.userBranches,
+    $root.userProducts,
+    $root.userBranches,
   )
 
   return {
     getFilters,
     getAdaptedPromotions,
     getAdaptedEditPromotions,
-    // getProducts,
-    // getAdaptedProducts,
-    // getAdaptedEditProducts,
     getDefaultEntity,
   }
 }
