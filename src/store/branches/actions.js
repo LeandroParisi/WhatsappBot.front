@@ -1,5 +1,5 @@
 import {
-  activateEntityFactory, deactivateEntityFactory, saveFiltersFactory, setState,
+  saveFiltersFactory, setState,
 } from 'store/sharedMethods/actions'
 import { toast } from 'react-toastify'
 import Provider from './provider'

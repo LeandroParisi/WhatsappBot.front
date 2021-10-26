@@ -1,5 +1,5 @@
 import {
-  activateEntityFactory, deactivateEntityFactory, saveFiltersFactory, setState,
+  saveFiltersFactory, setState,
 } from 'store/sharedMethods/actions'
 import validationFactory from 'store/sharedMethods/validationFactory'
 import { toast } from 'react-toastify'
@@ -23,22 +23,6 @@ export default (store, setStore, useRoot) => {
       setField(MAIN_FIELD, response)
     }
   }
-
-  // const fetchUserProducts = async () => {
-  //   const { response } = await errorHandler(sharedProviders.fetchUserProducts())
-  //   await CoupomProvider.findAll()()
-  //   if (response) {
-  //     setField('userProducts', response)
-  //   }
-  // }
-
-  // const fetchUserBranches = async () => {
-  //   const { response } = await errorHandler(sharedProviders.fetchUserBranches())
-
-  //   if (response) {
-  //     setField('userBranches', response)
-  //   }
-  // }
 
   const update = async ({ id, body }) => {
     const { hasErrors, errors } = await validationFactory(

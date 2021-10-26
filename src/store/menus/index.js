@@ -8,25 +8,19 @@ import useCreateStore from '../useCreateStore'
 
 const initialState = {
   userMenus: [],
-  userProducts: [],
-  userBranches: [],
   filters: filterInterface,
   query: '',
 }
 
 const MenusStore = useCreateStore(() => {
+  const { $root } = useRoot()
   const [$store, setStore] = useState(initialState)
   const actions = storeActions($store, setStore, useRoot)
-  const selectors = storeSelectors($store)
+  const selectors = storeSelectors($store, $root)
 
   useEffect(() => {
     actions.fetchUserMenus($store.query)
   }, [$store.query])
-
-  useEffect(() => {
-    actions.fetchUserProducts()
-    actions.fetchUserBranches()
-  }, [])
 
   return { $store, ...actions, ...selectors }
 })

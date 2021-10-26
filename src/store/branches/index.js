@@ -28,7 +28,6 @@ const BranchesStore = useCreateStore(() => {
 
   useEffect(() => {
     if ($branches.isPageLoaded) {
-      console.log('query', $branches.query)
       actions.fetchUserBranches($branches.query)
     }
   }, [$branches.query])

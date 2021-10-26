@@ -24,22 +24,6 @@ export default (store, setStore, useRoot) => {
     }
   }
 
-  const fetchUserBranches = async () => {
-    const { response } = await errorHandler(sharedProviders.fetchUserBranches())
-
-    if (response) {
-      setField('userBranches', response)
-    }
-  }
-
-  const fetchUserProducts = async (query = '') => {
-    const { response } = await errorHandler(sharedProviders.fetchUserProducts(query))
-
-    if (response) {
-      setField('userProducts', response)
-    }
-  }
-
   const updateMenu = async ({ id, body }) => {
     const { hasErrors, errors } = await validationFactory(body, editValidations, errorsLib)
 
@@ -99,8 +83,6 @@ export default (store, setStore, useRoot) => {
     fetchUserMenus,
     activateMenu,
     deactivateMenu,
-    fetchUserProducts,
-    fetchUserBranches,
     updateMenu,
     deleteMenu,
     createMenu,
