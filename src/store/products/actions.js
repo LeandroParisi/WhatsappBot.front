@@ -10,7 +10,7 @@ import { errorsLib, editValidations, createValidations } from './validations'
 import { normalizeEditPayload } from './serializers'
 
 export default (store, setStore, useRoot) => {
-  const { errorHandler } = useRoot()
+  const { errorHandler, fetchUserProducts: rootFetchUserProducts } = useRoot()
 
   const setField = setState(setStore)
 
@@ -21,14 +21,6 @@ export default (store, setStore, useRoot) => {
 
     if (response) {
       setField('categories', response)
-    }
-  }
-
-  const fetchUserBranches = async () => {
-    const { response } = await errorHandler(sharedProviders.fetchUserBranches())
-
-    if (response) {
-      setField('userBranches', response)
     }
   }
 
@@ -66,7 +58,7 @@ export default (store, setStore, useRoot) => {
     ))
 
     if (response) {
-      await fetchUserProducts()
+      await rootFetchUserProducts()
     }
 
     return { hasErrors: false }
@@ -91,7 +83,7 @@ export default (store, setStore, useRoot) => {
     const { response } = await errorHandler(providers.createProduct(normalizedBody))
 
     if (response) {
-      await fetchUserProducts()
+      await rootFetchUserProducts()
     }
 
     return { hasErrors }
@@ -101,13 +93,25 @@ export default (store, setStore, useRoot) => {
     const { response } = await errorHandler(providers.deleteProduct(id))
 
     if (response) {
-      await fetchUserProducts()
+      await rootFetchUserProducts()
     }
   }
 
-  const activateProduct = activateEntityFactory(setField, errorHandler, providers.activateProduct, 'products', store)
+  const activateProduct = async (id) => {
+    const { response } = await errorHandler(providers.activateProduct(id))
 
-  const deactivateProduct = deactivateEntityFactory(setField, errorHandler, providers.deactivateProduct, 'products', store)
+    if (response) {
+      await rootFetchUserProducts()
+    }
+  }
+
+  const deactivateProduct = async (id) => {
+    const { response } = await errorHandler(providers.deactivateProduct(id))
+
+    if (response) {
+      await rootFetchUserProducts()
+    }
+  }
 
   return {
     setField,
@@ -116,7 +120,6 @@ export default (store, setStore, useRoot) => {
     filtersFactory,
     fetchUserProducts,
     fetchUserMenus,
-    fetchUserBranches,
     updateProduct,
     createProduct,
     deleteProduct,

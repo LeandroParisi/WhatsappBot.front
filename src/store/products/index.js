@@ -10,23 +10,33 @@ const initialState = {
   products: [],
   categories: [],
   userMenus: [],
-  userBranches: [],
+  isPageLoaded: false,
+  // userBranches: [],
   query: '',
 }
 
 const productsStore = useCreateStore(() => {
+  const { $root } = useRoot()
   const [$store, setStore] = useState(initialState)
   const actions = storeActions($store, setStore, useRoot)
-  const selectors = storeSelectors($store)
+  const selectors = storeSelectors($store, $root)
 
   useEffect(() => {
     actions.fetchCategories()
     actions.fetchUserMenus()
-    actions.fetchUserBranches()
   }, [])
 
   useEffect(() => {
-    actions.fetchUserProducts($store.query)
+    if ($root.userProducts.length) {
+      actions.setField('products', [...$root.userProducts])
+      actions.setField('isPageLoaded', true)
+    }
+  }, [$root.userProducts])
+
+  useEffect(() => {
+    if ($store.isPageLoaded) {
+      actions.fetchUserProducts($store.query)
+    }
   }, [$store.query])
 
   useEffect(() => {
