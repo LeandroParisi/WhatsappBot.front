@@ -15,6 +15,7 @@ const CustomTimePicker = ({
   return (
     <div className={classNames(styles.container, containerClass)}>
       {label && <p>{label}</p>}
+      {/* Package: https://www.npmjs.com/package/material-ui-time-picker */}
       <TimeInput
         mode="24h"
         value={convertedValue}

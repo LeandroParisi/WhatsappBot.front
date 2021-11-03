@@ -2,6 +2,7 @@ import branchInterface from 'interfaces/branches/branchesInterface'
 // import { validateCep } from 'store/sharedMethods/providers'
 import validateCepApi from 'cep-promise'
 import { deliveryFeeTypes } from 'interfaces/deliveryFees/deliveryFeeTypes'
+import { dayToNumber } from 'interfaces/openingHours/openingHoursInterface'
 import { isNotEmpty, isNumber, setNotEmpty } from '../sharedMethods/validations'
 
 const validateCep = async (cep) => {
@@ -23,6 +24,25 @@ const validateDeliveryFees = async ({ fees, type: { id } }) => {
       distance > 0 && value >= 0 && isNumber(distance) && isNumber(value)))
   }
 }
+
+// TODO
+// const validateOpeningHours = async (openingHours) => {
+//   const openingHoursEntries = Object
+//     .entries(openingHours)
+//     .sort(([a], [b]) => dayToNumber[a] - dayToNumber[b])
+
+//   openingHoursEntries.forEach(([day, currentDay], index) => {
+//     const dayAsNumber = dayToNumber[day]
+
+//     const [_nextDay, { hours: nextDayHours }] = dayAsNumber < 7
+//       ? openingHoursEntries[index + 1]
+//       : openingHoursEntries[openingHoursEntries.length - 1]
+
+//     console.log({ currentDay })
+//     console.log({ nextDay })
+//   })
+//   return true
+// }
 
 export const errorsLib = {
   [branchInterface.postalCode]: 'CEP inválido',
@@ -52,6 +72,7 @@ export const editValidations = {
   [branchInterface.streetNumber]: (name) => isNotEmpty(name),
 
   [branchInterface.deliveryFees]: validateDeliveryFees,
+  // [branchInterface.openingHours]: validateOpeningHours,
 }
 
 export const createValidations = {

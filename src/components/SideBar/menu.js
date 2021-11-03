@@ -9,8 +9,8 @@ const {
   PRODUCT,
   PROMOTION,
   COUPOM,
-  ACCOUNT,
-  CONFIGURATIONS,
+  // ACCOUNT,
+  // CONFIGURATIONS,
 } = menuIcons
 
 const menus = [
@@ -39,16 +39,16 @@ const menus = [
     path: routes.coupons,
     icon: COUPOM,
   },
-  {
-    name: 'Conta',
-    path: routes.account,
-    icon: ACCOUNT,
-  },
-  {
-    name: 'Configurações',
-    path: routes.settings,
-    icon: CONFIGURATIONS,
-  },
+  // {
+  //   name: 'Conta',
+  //   path: routes.account,
+  //   icon: ACCOUNT,
+  // },
+  // {
+  //   name: 'Configurações',
+  //   path: routes.settings,
+  //   icon: CONFIGURATIONS,
+  // },
 ]
 
 export default menus
