@@ -1,4 +1,4 @@
-import { attributes, attributesTranslation } from 'interfaces/products/productsInterface'
+import { attributes, attributesTranslation } from 'shared/interfaces/products/productsInterface'
 
 export const extractRemainingAttributeTypes = (stateField) => {
   const allowedAttributes = Object.values(attributes)

@@ -6,7 +6,7 @@ import {
 } from 'assets/icons/iconsLib'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
-import orderStatus from 'interfaces/orders/orderStatus'
+import orderStatus from 'shared/interfaces/orders/orderStatus'
 import styles from './OrderFooter.module.scss'
 
 const {

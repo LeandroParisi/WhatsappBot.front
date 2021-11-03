@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Select, Input } from 'components'
-import { deliveryFeeTypes } from 'interfaces/deliveryFees/deliveryFeeTypes'
+import { deliveryFeeTypes } from 'shared/interfaces/deliveryFees/deliveryFeeTypes'
 import Icon from 'assets/icons/Icon'
 import { getIcon } from 'assets/icons/iconsLib'
 import styles from '../CustomField.module.scss'

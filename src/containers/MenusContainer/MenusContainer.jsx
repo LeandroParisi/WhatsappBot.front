@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
 import { useMenus, useRoot } from 'store'
-import { entitiesTypes } from 'interfaces/entities'
+import { entitiesTypes } from 'shared/interfaces/entities'
 import EntitiesContainer from 'components/EntitiesContainer/EntitiesContainer'
 import { MainPageFilter } from 'components'
 

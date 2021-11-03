@@ -1,5 +1,5 @@
-import { menusInterface } from 'interfaces/menus/menusInterface'
-import promotionsInterface from 'interfaces/promotions/promotionsInterface'
+import { menusInterface } from 'shared/interfaces/menus/menusInterface'
+import promotionsInterface from 'shared/interfaces/promotions/promotionsInterface'
 import { arrayNotEmpty, isNotEmpty, isNumber } from 'store/sharedMethods/validations'
 
 export const errorsLib = {

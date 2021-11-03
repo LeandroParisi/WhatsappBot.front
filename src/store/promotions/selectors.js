@@ -1,4 +1,4 @@
-import { defaultValues } from 'interfaces/promotions/promotionsInterface'
+import { defaultValues } from 'shared/interfaces/promotions/promotionsInterface'
 import { promotionsAdapter, editPromotionsAdapter } from './serializers'
 
 export default ($store, $root) => {

@@ -4,7 +4,7 @@ import {
   dayToNumber,
   numberToDay,
   dayTranslation,
-} from 'interfaces/openingHours/openingHoursInterface'
+} from 'shared/interfaces/openingHours/openingHoursInterface'
 import { Checkbox, TimePicker } from 'components'
 import classNames from 'classnames'
 import { getIcon } from 'assets/icons/iconsLib'

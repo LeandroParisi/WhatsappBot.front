@@ -1,5 +1,5 @@
 // export const
-import couponsInterface, { discountType, conditionsTranslations, conditions } from 'interfaces/coupons/couponsInterface'
+import couponsInterface, { discountType, conditionsTranslations, conditions } from 'shared/interfaces/coupons/couponsInterface'
 import { formatDate } from 'utils/formatDate'
 import formatPercentage from 'utils/formatPercentage'
 import formatPrice from 'utils/formatPrice'

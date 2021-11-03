@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 
-import orderStatus from 'interfaces/orders/orderStatus'
+import orderStatus from 'shared/interfaces/orders/orderStatus'
 import toSnakeCase from 'services/utils/toSnakeCase'
 
 export const extractNextStatus = (currentStep, type) => {

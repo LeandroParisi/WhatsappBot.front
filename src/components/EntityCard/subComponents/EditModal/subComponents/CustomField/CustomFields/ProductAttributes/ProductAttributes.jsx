@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Select } from 'components'
-import { createAttribute, attributesTranslation, attributeOptionInterface } from 'interfaces/products/productsInterface'
+import { createAttribute, attributesTranslation, attributeOptionInterface } from 'shared/interfaces/products/productsInterface'
 import Icon from 'assets/icons/Icon'
 import { generalIcons } from 'assets/icons/iconsLib'
 import { v4 as uuidv4 } from 'uuid'

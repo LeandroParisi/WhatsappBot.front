@@ -1,6 +1,6 @@
 import { inputTypes } from 'libs/inputTypes'
-import { deliveryTypesInterface } from 'interfaces/deliveryTypes/deliveryTypes'
-import { paymentMethodInterface } from 'interfaces/paymentMethods/methods'
+import { deliveryTypesInterface } from 'shared/interfaces/deliveryTypes/deliveryTypes'
+import { paymentMethodInterface } from 'shared/interfaces/paymentMethods/methods'
 import * as Yup from 'yup'
 import { statusFilter } from '../generalFilters/generalFilters'
 

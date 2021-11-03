@@ -1,4 +1,4 @@
-import { deliveryFeeTypes } from 'interfaces/deliveryFees/deliveryFeeTypes'
+import { deliveryFeeTypes } from 'shared/interfaces/deliveryFees/deliveryFeeTypes'
 
 export const mapDeliveryFees = (type, fees) => {
   switch (type) {

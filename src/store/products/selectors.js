@@ -1,4 +1,4 @@
-import { defaultValues } from 'interfaces/products/productsInterface'
+import { defaultValues } from 'shared/interfaces/products/productsInterface'
 import { productsAdapter, editProductsAdapter } from './serializers'
 
 export default ($store, $root) => {

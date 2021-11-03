@@ -1,6 +1,6 @@
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable consistent-return */
-import productsInterface from 'interfaces/products/productsInterface'
+import productsInterface from 'shared/interfaces/products/productsInterface'
 import {
   arrayNotEmpty,
   isNotEmpty, isNumber, isPositiveNumber, setNotEmpty,

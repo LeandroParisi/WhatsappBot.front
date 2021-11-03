@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import orderStatus from 'interfaces/orders/orderStatus'
+import orderStatus from 'shared/interfaces/orders/orderStatus'
 import { OrderHeader, OrderFooter, OrderBody } from './subComponents'
 import styles from './OrderCard.module.scss'
 

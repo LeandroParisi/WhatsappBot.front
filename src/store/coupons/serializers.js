@@ -6,8 +6,8 @@ import formatPercentage from 'utils/formatPercentage'
 import {
   dayToNumber,
   dayTranslation,
-} from 'interfaces/openingHours/openingHoursInterface'
-import couponsInterface, { discountType, conditions } from 'interfaces/coupons/couponsInterface'
+} from 'shared/interfaces/openingHours/openingHoursInterface'
+import couponsInterface, { discountType, conditions } from 'shared/interfaces/coupons/couponsInterface'
 import { customFieldTypes, inputTypes } from 'libs/inputTypes'
 import { formatDate } from 'utils/formatDate'
 import { formatDiscount, extractProductsCaracteristics, formatConditions } from './utils'

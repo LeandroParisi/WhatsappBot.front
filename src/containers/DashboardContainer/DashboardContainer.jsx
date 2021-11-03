@@ -1,4 +1,4 @@
-import orderStatus from 'interfaces/orders/orderStatus'
+import orderStatus from 'shared/interfaces/orders/orderStatus'
 import React from 'react'
 import { useDashboard } from 'store'
 import DashboardColumn from '../../components/DashboardColumn/DashboardColumn'

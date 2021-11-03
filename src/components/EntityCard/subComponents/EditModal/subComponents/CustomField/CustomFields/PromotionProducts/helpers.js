@@ -1,4 +1,4 @@
-import { attributes as attributeOptions, singleAttributes } from 'interfaces/products/productsInterface'
+import { attributes as attributeOptions, singleAttributes } from 'shared/interfaces/products/productsInterface'
 
 const newAttributeFactory = (attribute, type, quantity) => {
   const newAttr = { ...attribute, quantity, type }

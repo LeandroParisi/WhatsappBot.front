@@ -5,8 +5,8 @@ import formatPrice from 'utils/formatPrice'
 import {
   dayToNumber,
   dayTranslation,
-} from 'interfaces/openingHours/openingHoursInterface'
-import promotionsInterface from 'interfaces/promotions/promotionsInterface'
+} from 'shared/interfaces/openingHours/openingHoursInterface'
+import promotionsInterface from 'shared/interfaces/promotions/promotionsInterface'
 import { customFieldTypes, inputTypes } from 'libs/inputTypes'
 import { formatDate } from 'utils/formatDate'
 import { extractProductsCaracteristics } from './utils'

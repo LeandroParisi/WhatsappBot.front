@@ -1,5 +1,5 @@
 import { inputTypes } from 'libs/inputTypes'
-import { menusInterface } from 'interfaces/menus/menusInterface'
+import { menusInterface } from 'shared/interfaces/menus/menusInterface'
 import { statusFilter } from '../generalFilters/generalFilters'
 
 const {

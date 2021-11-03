@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRoot } from 'store/root'
-import { categories } from 'interfaces/products/productsInterface'
+import { categories } from 'shared/interfaces/products/productsInterface'
 import storeActions from './actions'
 import storeSelectors from './selectors'
 import useCreateStore from '../useCreateStore'

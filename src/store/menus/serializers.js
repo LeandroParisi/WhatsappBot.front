@@ -1,7 +1,7 @@
 import { groupedIcons } from 'assets/icons/iconsLib'
 import contentTypes from 'libs/sectionTypes'
 
-import { menusInterface, defaultValues } from 'interfaces/menus/menusInterface'
+import { menusInterface, defaultValues } from 'shared/interfaces/menus/menusInterface'
 import { inputTypes } from 'libs/inputTypes'
 
 const {

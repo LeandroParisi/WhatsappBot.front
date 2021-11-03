@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
 import { useCoupons, useRoot } from 'store'
 import EntitiesContainer from 'components/EntitiesContainer/EntitiesContainer'
-import { entitiesTypes } from 'interfaces/entities'
+import { entitiesTypes } from 'shared/interfaces/entities'
 import { MainPageFilter } from 'components'
 
 const CouponsContainer = () => {

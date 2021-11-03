@@ -1,4 +1,4 @@
-import { entitiesTypes } from 'interfaces/entities'
+import { entitiesTypes } from 'shared/interfaces/entities'
 import branch from 'assets/images/defaultImages/branch.png'
 import menu from 'assets/images/defaultImages/menu.png'
 import product from 'assets/images/defaultImages/product.png'

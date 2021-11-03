@@ -43,9 +43,9 @@ import {
   faStopwatch,
 } from '@fortawesome/free-solid-svg-icons'
 
-import { deliveryTypes } from 'interfaces/deliveryTypes/deliveryTypes'
-import { categories, attributes } from 'interfaces/products/productsInterface'
-import { paymentMethods } from 'interfaces/paymentMethods/methods'
+import { deliveryTypes } from 'shared/interfaces/deliveryTypes/deliveryTypes'
+import { categories, attributes } from 'shared/interfaces/products/productsInterface'
+import { paymentMethods } from 'shared/interfaces/paymentMethods/methods'
 
 export const menuIcons = {
   STORE: faStore,

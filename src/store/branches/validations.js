@@ -1,8 +1,8 @@
-import branchInterface from 'interfaces/branches/branchesInterface'
+import branchInterface from 'shared/interfaces/branches/branchesInterface'
 // import { validateCep } from 'store/sharedMethods/providers'
 import validateCepApi from 'cep-promise'
-import { deliveryFeeTypes } from 'interfaces/deliveryFees/deliveryFeeTypes'
-import { dayToNumber } from 'interfaces/openingHours/openingHoursInterface'
+import { deliveryFeeTypes } from 'shared/interfaces/deliveryFees/deliveryFeeTypes'
+import { dayToNumber } from 'shared/interfaces/openingHours/openingHoursInterface'
 import { isNotEmpty, isNumber, setNotEmpty } from '../sharedMethods/validations'
 
 const validateCep = async (cep) => {

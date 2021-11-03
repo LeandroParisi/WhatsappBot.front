@@ -1,4 +1,4 @@
-import { menusInterface } from 'interfaces/menus/menusInterface'
+import { menusInterface } from 'shared/interfaces/menus/menusInterface'
 import { isNotEmpty } from 'store/sharedMethods/validations'
 
 export const errorsLib = {

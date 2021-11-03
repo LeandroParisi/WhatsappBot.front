@@ -5,8 +5,8 @@ import capitalize from 'utils/capitalize'
 import {
   dayToNumber,
   dayTranslation,
-} from 'interfaces/openingHours/openingHoursInterface'
-import productsInterface, { attributesTranslation, defaultValues } from 'interfaces/products/productsInterface'
+} from 'shared/interfaces/openingHours/openingHoursInterface'
+import productsInterface, { attributesTranslation, defaultValues } from 'shared/interfaces/products/productsInterface'
 import { customFieldTypes, inputTypes } from 'libs/inputTypes'
 import { Select } from 'components'
 
