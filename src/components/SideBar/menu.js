@@ -1,4 +1,4 @@
-import routes from 'libs/routes/routes'
+import routes from 'shared/libs/routes/routes'
 import {
   menuIcons,
 } from 'assets/icons/iconsLib'

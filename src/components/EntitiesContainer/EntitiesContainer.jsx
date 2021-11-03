@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Icon from 'assets/icons/Icon'
 import { entitiesTypes } from 'shared/interfaces/entities'
 import { generalIcons } from 'assets/icons/iconsLib'
-import Modal from 'templates/Modal/Modal'
+import Modal from 'shared/templates/Modal/Modal'
 import styles from './EntitiesContainer.module.scss'
 import EditModal from '../EntityCard/subComponents/EditModal/EditModal'
 

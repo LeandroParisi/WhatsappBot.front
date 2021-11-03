@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import initialResourcesPages from 'libs/routes/initialResourcesPages'
+import initialResourcesPages from 'shared/libs/routes/initialResourcesPages'
 import rootActions from './actions'
 import rootSelectors from './selectors'
 import useCreateStore from '../useCreateStore'

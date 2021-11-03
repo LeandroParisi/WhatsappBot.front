@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Modal from 'templates/Modal/Modal'
+import Modal from 'shared/templates/Modal/Modal'
 import classNames from 'classnames'
 import { entitiesTypes } from 'shared/interfaces/entities'
 import CardHeader from './subComponents/CardHeader/CardHeader'

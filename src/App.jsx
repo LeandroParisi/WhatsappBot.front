@@ -3,8 +3,8 @@ import {
   BrowserRouter, Redirect, Route, Switch,
 } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-import routes from 'libs/routes/routes'
-import ProtectedRoute from 'templates/ProtectedRoute'
+import routes from 'shared/libs/routes/routes'
+import ProtectedRoute from 'shared/templates/ProtectedRoute'
 import { RootProvider } from './store'
 import {
   Login,

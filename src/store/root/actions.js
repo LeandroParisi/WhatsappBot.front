@@ -1,4 +1,4 @@
-import routes from 'libs/routes/routes'
+import routes from 'shared/libs/routes/routes'
 import { useHistory } from 'react-router-dom'
 import responseHandler from 'shared/services/responseHandler'
 import { setState } from 'store/sharedMethods/actions'

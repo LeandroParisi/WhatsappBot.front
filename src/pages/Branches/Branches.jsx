@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseLayout from 'templates/BaseLayout/BaseLayout'
+import BaseLayout from 'shared/templates/BaseLayout/BaseLayout'
 import { BranchesProvider } from 'store'
 import { BranchesContainer } from 'containers'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseLayout from 'templates/BaseLayout/BaseLayout'
+import BaseLayout from 'shared/templates/BaseLayout/BaseLayout'
 import { MenusProvider } from 'store'
 import { MenusContainer } from 'containers'
 

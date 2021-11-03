@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import logo from 'assets/images/logos/logo_transparent.png'
-import routes from 'libs/routes/routes'
+import routes from 'shared/libs/routes/routes'
 
 import { Button, LoginInputs } from 'components'
 import useLoader from 'hooks/useLoader'

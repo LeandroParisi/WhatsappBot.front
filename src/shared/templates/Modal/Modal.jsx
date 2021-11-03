@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { getIcon } from 'assets/icons/iconsLib'
 import Icon from 'assets/icons/Icon'
-import Overlay from 'templates/Overlay/Overlay'
+import Overlay from 'shared/templates/Overlay/Overlay'
 import { Button } from 'components'
 import styles from './Modal.module.scss'
 

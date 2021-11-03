@@ -7,7 +7,7 @@ import Icon from 'assets/icons/Icon'
 import { DARK } from 'libs/colors'
 import { getIcon, generalIcons, groupedIcons } from 'assets/icons/iconsLib'
 import classNames from 'classnames'
-import Modal from 'templates/Modal/Modal'
+import Modal from 'shared/templates/Modal/Modal'
 import styles from './PromotionProducts.module.scss'
 import {
   extractSelectedQuantity, isAttributeMaxedOut, findAttribute, updateProduct,

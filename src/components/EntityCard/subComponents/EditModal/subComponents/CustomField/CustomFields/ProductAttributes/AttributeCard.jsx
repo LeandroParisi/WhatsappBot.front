@@ -6,7 +6,7 @@ import { attributes } from 'shared/interfaces/products/productsInterface'
 import Icon from 'assets/icons/Icon'
 import { getIcon, generalIcons } from 'assets/icons/iconsLib'
 import classNames from 'classnames'
-import Modal from 'templates/Modal/Modal'
+import Modal from 'shared/templates/Modal/Modal'
 import styles from './ProductAttributes.module.scss'
 
 const {
