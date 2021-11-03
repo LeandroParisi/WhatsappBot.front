@@ -1,5 +1,5 @@
-import api from 'services/api'
-import getRoute from 'services/config'
+import api from 'shared/services/api'
+import getRoute from 'shared/services/config'
 
 const fetchBranchOrders = (query) => async () => {
   const { url, method } = getRoute('orders', 'findAll')

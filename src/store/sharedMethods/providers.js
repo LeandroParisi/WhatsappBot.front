@@ -1,7 +1,7 @@
-import api from 'services/api'
-import getRoute from 'services/config'
-import { VIA_CEP } from 'services/externalRoutes'
-import METHODS from 'services/methods'
+import api from 'shared/services/api'
+import getRoute from 'shared/services/config'
+import { VIA_CEP } from 'shared/services/externalRoutes'
+import METHODS from 'shared/services/methods'
 
 export const fetchUserBranches = (query = '') => async () => {
   const { url, method } = getRoute('branches', 'findAll')

@@ -1,5 +1,5 @@
 import { setState } from 'store/sharedMethods/actions'
-import assembleQuery from 'services/helpers/assembleQuery'
+import assembleQuery from 'shared/services/helpers/assembleQuery'
 import { extractNextStatus } from './utils'
 import * as sharedProviders from '../sharedMethods/providers'
 import * as providers from './provider'

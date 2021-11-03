@@ -5,7 +5,7 @@ import routes from 'libs/routes/routes'
 
 import { Button, LoginInputs } from 'components'
 import useLoader from 'hooks/useLoader'
-import userLogin from 'services/users/userLogin'
+import userLogin from 'shared/services/users/userLogin'
 import styles from './Login.module.scss'
 import inputs from './validations'
 
