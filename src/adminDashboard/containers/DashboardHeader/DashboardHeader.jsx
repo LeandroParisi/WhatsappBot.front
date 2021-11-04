@@ -1,7 +1,7 @@
 import React from 'react'
 import { Select } from 'adminDashboard/components'
-import { useRoot, useDashboard } from 'store'
-import { setOption } from 'store/sharedMethods/actions'
+import { useRoot, useDashboard } from 'adminDashboard/store'
+import { setOption } from 'adminDashboard/store/sharedMethods/actions'
 import PropTypes from 'prop-types'
 import styles from './DashboardHeader.module.scss'
 

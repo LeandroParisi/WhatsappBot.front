@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
-import { DashboardProvider, useRoot } from 'store'
+import { DashboardProvider, useRoot } from 'adminDashboard/store'
 import BaseLayout from 'shared/templates/BaseLayout/BaseLayout'
 import { DashboardContainer, DashboardHeader } from 'adminDashboard/containers'
 

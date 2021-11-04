@@ -1,4 +1,4 @@
-import { setState } from 'store/sharedMethods/actions'
+import { setState } from 'adminDashboard/store/sharedMethods/actions'
 import * as providers from './provider'
 
 export default (store, setStore, useRoot) => {

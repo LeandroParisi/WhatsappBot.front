@@ -4,7 +4,7 @@ import productsInterface from 'shared/interfaces/products/productsInterface'
 import {
   arrayNotEmpty,
   isNotEmpty, isNumber, isPositiveNumber, setNotEmpty,
-} from 'store/sharedMethods/validations'
+} from 'adminDashboard/store/sharedMethods/validations'
 
 const validateAttributes = (attributes) => {
   if (attributes.length) {

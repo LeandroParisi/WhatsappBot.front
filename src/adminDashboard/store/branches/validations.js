@@ -1,5 +1,5 @@
 import branchInterface from 'shared/interfaces/branches/branchesInterface'
-// import { validateCep } from 'store/sharedMethods/providers'
+// import { validateCep } from 'adminDashboard/store/sharedMethods/providers'
 import validateCepApi from 'cep-promise'
 import { deliveryFeeTypes } from 'shared/interfaces/deliveryFees/deliveryFeeTypes'
 import { dayToNumber } from 'shared/interfaces/openingHours/openingHoursInterface'

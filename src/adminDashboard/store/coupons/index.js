@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useRoot } from 'store/root'
+import { useRoot } from 'adminDashboard/store/root'
 import storeActions from './actions'
 import storeSelectors from './selectors'
 import useCreateStore from '../useCreateStore'

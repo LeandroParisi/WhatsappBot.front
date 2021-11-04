@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
-import { useCoupons, useRoot } from 'store'
+import { useCoupons, useRoot } from 'adminDashboard/store'
 import EntitiesContainer from 'adminDashboard/components/EntitiesContainer/EntitiesContainer'
 import { entitiesTypes } from 'shared/interfaces/entities'
 import { MainPageFilter } from 'adminDashboard/components'

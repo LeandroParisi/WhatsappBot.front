@@ -1,12 +1,13 @@
 import {
-  activateEntityFactory, deactivateEntityFactory, saveFiltersFactory, setState,
-} from 'store/sharedMethods/actions'
-import validationFactory from 'store/sharedMethods/validationFactory'
+  saveFiltersFactory, setState,
+} from 'adminDashboard/store/sharedMethods/actions'
+import validationFactory from 'adminDashboard/store/sharedMethods/validationFactory'
 import { toast } from 'react-toastify'
 import Provider from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
 import { editValidations, errorsLib, createValidations } from './validations'
 import { normalizeEditPayload } from './serializers'
+import { MAIN_FIELD } from './config'
 
 export default (store, setStore, useRoot) => {
   const { errorHandler } = useRoot()
@@ -19,27 +20,11 @@ export default (store, setStore, useRoot) => {
     const { response } = await errorHandler(Provider.findAll(query))
 
     if (response) {
-      setField('entities', response)
+      setField(MAIN_FIELD, response)
     }
   }
 
-  const fetchUserProducts = async () => {
-    const { response } = await errorHandler(sharedProviders.fetchUserProducts())
-
-    if (response) {
-      setField('userProducts', response)
-    }
-  }
-
-  const fetchUserBranches = async () => {
-    const { response } = await errorHandler(sharedProviders.fetchUserBranches())
-
-    if (response) {
-      setField('userBranches', response)
-    }
-  }
-
-  const updatePromotion = async ({ id, body }) => {
+  const update = async ({ id, body }) => {
     const { hasErrors, errors } = await validationFactory(
       body, editValidations, errorsLib,
     )
@@ -61,7 +46,7 @@ export default (store, setStore, useRoot) => {
     return { hasErrors }
   }
 
-  const createPromotion = async ({ body }) => {
+  const create = async ({ body }) => {
     const { hasErrors, errors } = await validationFactory(
       body, createValidations, errorsLib,
     )
@@ -82,7 +67,7 @@ export default (store, setStore, useRoot) => {
     return { hasErrors }
   }
 
-  const deletePromotion = async (id) => {
+  const destroy = async (id) => {
     const { response } = await errorHandler(Provider.delete(id))
 
     if (response) {
@@ -90,11 +75,11 @@ export default (store, setStore, useRoot) => {
     }
   }
 
-  const activatePromotion = async (id) => {
+  const activate = async (id) => {
     const { response } = await errorHandler(Provider.activate(id))
 
     if (response) {
-      const updatedEntities = store.entities.map((entity) => {
+      const updatedEntities = store[MAIN_FIELD].map((entity) => {
         if (entity.id === id) {
           return {
             ...entity,
@@ -104,15 +89,15 @@ export default (store, setStore, useRoot) => {
         return entity
       })
 
-      setField('entities', updatedEntities)
+      setField(MAIN_FIELD, updatedEntities)
     }
   }
 
-  const deactivatePromotion = async (id) => {
+  const deactivate = async (id) => {
     const { response } = await errorHandler(Provider.deactivate(id))
 
     if (response) {
-      const updatedEntities = store.entities.map((entity) => {
+      const updatedEntities = store[MAIN_FIELD].map((entity) => {
         if (entity.id === id) {
           return {
             ...entity,
@@ -122,19 +107,17 @@ export default (store, setStore, useRoot) => {
         return entity
       })
 
-      setField('entities', updatedEntities)
+      setField(MAIN_FIELD, updatedEntities)
     }
   }
 
   return {
     saveFilters,
     findAll,
-    fetchUserProducts,
-    fetchUserBranches,
-    updatePromotion,
-    createPromotion,
-    deletePromotion,
-    activatePromotion,
-    deactivatePromotion,
+    update,
+    create,
+    destroy,
+    activate,
+    deactivate,
   }
 }

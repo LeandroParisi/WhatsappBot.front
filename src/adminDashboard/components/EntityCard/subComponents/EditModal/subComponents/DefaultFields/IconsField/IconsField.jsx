@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { DARK_GRAY } from 'libs/colors'
-import { handleIconSelectFactory } from 'store/sharedMethods/actions'
+import { handleIconSelectFactory } from 'adminDashboard/store/sharedMethods/actions'
 import Icon from 'assets/icons/Icon'
 import { getIcon } from 'assets/icons/iconsLib'
 import globalStyles from 'assets/scss/globals.module.scss'

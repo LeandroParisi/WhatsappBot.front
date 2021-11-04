@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useRoot } from 'store/root'
+import { useRoot } from 'adminDashboard/store/root'
 import { filterInterface } from './filters'
 // import { extractInitialFilters } from '../filterMethods/extractInitialFilters'
 import storeActions from './actions'

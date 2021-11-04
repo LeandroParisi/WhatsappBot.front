@@ -1,8 +1,8 @@
 import {
   activateEntityFactory, deactivateEntityFactory, saveFiltersFactory, setState,
-} from 'store/sharedMethods/actions'
+} from 'adminDashboard/store/sharedMethods/actions'
 import { toast } from 'react-toastify'
-import validationFactory from 'store/sharedMethods/validationFactory'
+import validationFactory from 'adminDashboard/store/sharedMethods/validationFactory'
 import * as providers from './provider'
 import * as sharedProviders from '../sharedMethods/providers'
 // import { normalizeEditPayload } from './serializers'

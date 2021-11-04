@@ -1,6 +1,6 @@
 import React from 'react'
 import BaseLayout from 'shared/templates/BaseLayout/BaseLayout'
-import { ProductsProvider } from 'store'
+import { ProductsProvider } from 'adminDashboard/store'
 import { ProductsContainer } from 'adminDashboard/containers'
 
 const Products = () => (

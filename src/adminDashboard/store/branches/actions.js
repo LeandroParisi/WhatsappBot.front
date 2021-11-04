@@ -1,6 +1,6 @@
 import {
   saveFiltersFactory, setState,
-} from 'store/sharedMethods/actions'
+} from 'adminDashboard/store/sharedMethods/actions'
 import { toast } from 'react-toastify'
 import Provider from './provider'
 import * as sharedProviders from '../sharedMethods/providers'

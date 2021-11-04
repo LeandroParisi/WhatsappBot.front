@@ -5,7 +5,7 @@ import { inputTypes } from 'libs/inputTypes'
 import {
   Button, Checkbox, Input, RangeInput,
 } from 'adminDashboard/components'
-import { handleIconSelectFactory, setOption, setState } from 'store/sharedMethods/actions'
+import { handleIconSelectFactory, setOption, setState } from 'adminDashboard/store/sharedMethods/actions'
 import Select from 'adminDashboard/components/MainComponents/Select/Select'
 import Icon from 'assets/icons/Icon'
 import { getIcon } from 'assets/icons/iconsLib'

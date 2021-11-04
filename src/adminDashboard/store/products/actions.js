@@ -1,7 +1,7 @@
 import {
   activateEntityFactory, deactivateEntityFactory, saveFiltersFactory, setState,
-} from 'store/sharedMethods/actions'
-import validationFactory from 'store/sharedMethods/validationFactory'
+} from 'adminDashboard/store/sharedMethods/actions'
+import validationFactory from 'adminDashboard/store/sharedMethods/validationFactory'
 import { toast } from 'react-toastify'
 import { getFilterInterface } from './filters'
 import * as providers from './provider'

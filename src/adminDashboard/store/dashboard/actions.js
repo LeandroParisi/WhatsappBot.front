@@ -1,4 +1,4 @@
-import { setState } from 'store/sharedMethods/actions'
+import { setState } from 'adminDashboard/store/sharedMethods/actions'
 import assembleQuery from 'shared/services/helpers/assembleQuery'
 import { extractNextStatus } from './utils'
 import * as sharedProviders from '../sharedMethods/providers'

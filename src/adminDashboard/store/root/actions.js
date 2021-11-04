@@ -1,7 +1,7 @@
 import routes from 'shared/libs/routes/routes'
 import { useHistory } from 'react-router-dom'
 import responseHandler from 'shared/services/responseHandler'
-import { setState } from 'store/sharedMethods/actions'
+import { setState } from 'adminDashboard/store/sharedMethods/actions'
 import * as sharedProviders from '../sharedMethods/providers'
 
 const errorHandlerDefaultOptions = {

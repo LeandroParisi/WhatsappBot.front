@@ -1,6 +1,6 @@
 import { menusInterface } from 'shared/interfaces/menus/menusInterface'
 import promotionsInterface from 'shared/interfaces/promotions/promotionsInterface'
-import { arrayNotEmpty, isNotEmpty, isNumber } from 'store/sharedMethods/validations'
+import { arrayNotEmpty, isNotEmpty, isNumber } from 'adminDashboard/store/sharedMethods/validations'
 
 export const errorsLib = {
   [promotionsInterface.name]: 'Favor escolher um nome',

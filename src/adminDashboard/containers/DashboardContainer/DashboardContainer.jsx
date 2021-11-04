@@ -1,6 +1,6 @@
 import orderStatus from 'shared/interfaces/orders/orderStatus'
 import React from 'react'
-import { useDashboard } from 'store'
+import { useDashboard } from 'adminDashboard/store'
 import DashboardColumn from 'adminDashboard/components/DashboardColumn/DashboardColumn'
 import styles from './DashboardContainer.module.scss'
 

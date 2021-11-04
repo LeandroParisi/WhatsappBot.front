@@ -1,5 +1,5 @@
 import { menusInterface } from 'shared/interfaces/menus/menusInterface'
-import { isNotEmpty } from 'store/sharedMethods/validations'
+import { isNotEmpty } from 'adminDashboard/store/sharedMethods/validations'
 
 export const errorsLib = {
   [menusInterface.menuName]: 'Favor definir o nome para o menu',

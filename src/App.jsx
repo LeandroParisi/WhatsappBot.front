@@ -5,7 +5,7 @@ import {
 import { ToastContainer } from 'react-toastify'
 import routes from 'shared/libs/routes/routes'
 import ProtectedRoute from 'shared/templates/ProtectedRoute'
-import { RootProvider } from './store'
+import { RootProvider } from 'adminDashboard/store'
 import {
   Login,
   Dashboard,

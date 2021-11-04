@@ -1,7 +1,7 @@
 import React from 'react'
 import Input from 'adminDashboard/components/MainComponents/Input/Input'
 import PropTypes from 'prop-types'
-import { setState, validateInput } from 'store/sharedMethods/actions'
+import { setState, validateInput } from 'adminDashboard/store/sharedMethods/actions'
 import styles from './LoginInputs.module.scss'
 
 const LoginInputs = ({
