@@ -1,14 +1,14 @@
 /* eslint-disable no-shadow */
 import { groupedIcons } from 'assets/icons/iconsLib'
 import contentTypes from 'libs/sectionTypes'
-import formatPrice from 'utils/formatPrice'
+import formatPrice from 'shared/utils/formatPrice'
 import {
   dayToNumber,
   dayTranslation,
 } from 'shared/interfaces/openingHours/openingHoursInterface'
 import promotionsInterface from 'shared/interfaces/promotions/promotionsInterface'
 import { customFieldTypes, inputTypes } from 'libs/inputTypes'
-import { formatDate } from 'utils/formatDate'
+import { formatDate } from 'shared/utils/formatDate'
 import { extractProductsCaracteristics } from './utils'
 
 const {

@@ -1,8 +1,8 @@
 // export const
 import couponsInterface, { discountType, conditionsTranslations, conditions } from 'shared/interfaces/coupons/couponsInterface'
-import { formatDate } from 'utils/formatDate'
-import formatPercentage from 'utils/formatPercentage'
-import formatPrice from 'utils/formatPrice'
+import { formatDate } from 'shared/utils/formatDate'
+import formatPercentage from 'shared/utils/formatPercentage'
+import formatPrice from 'shared/utils/formatPrice'
 
 export const formatDiscount = (discount, type) => {
   if (type === discountType.absolute_value) return formatPrice(discount, true)

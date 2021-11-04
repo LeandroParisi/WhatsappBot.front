@@ -3,13 +3,13 @@ import classNames from 'classnames'
 import {
   generalIcons,
 } from 'assets/icons/iconsLib'
-import assembleUserName from 'utils/assembleUserName'
-import assemblePhoneNumber from 'utils/assemblePhoneNumber'
+import assembleUserName from 'shared/utils/assembleUserName'
+import assemblePhoneNumber from 'shared/utils/assemblePhoneNumber'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
 import { deliveryTranslation } from 'shared/interfaces/deliveryTypes/deliveryTypes'
 import styles from './OrderBody.module.scss'
-import assembleAddress from '../../../../utils/assembleAddress'
+import assembleAddress from '../../../../shared/utils/assembleAddress'
 import ProductSection from './ProductSection/ProductSection'
 import PriceTag from '../../../MainComponents/PriceTag/PriceTag'
 

@@ -1,5 +1,5 @@
 import { generalIcons } from 'assets/icons/iconsLib'
-import assembleAddress from 'utils/assembleAddress'
+import assembleAddress from 'shared/utils/assembleAddress'
 import { deliveryFeeInterface, deliveryFeeTranslations } from 'shared/interfaces/deliveryFees/deliveryFeeTypes'
 import contentTypes from 'libs/sectionTypes'
 import { deliveryTypesInterface } from 'shared/interfaces/deliveryTypes/deliveryTypes'

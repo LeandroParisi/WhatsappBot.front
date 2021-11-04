@@ -1,7 +1,7 @@
 import { getIcon, groupedIcons } from 'assets/icons/iconsLib'
 import contentTypes from 'libs/sectionTypes'
-import formatPrice from 'utils/formatPrice'
-import capitalize from 'utils/capitalize'
+import formatPrice from 'shared/utils/formatPrice'
+import capitalize from 'shared/utils/capitalize'
 import {
   dayToNumber,
   dayTranslation,

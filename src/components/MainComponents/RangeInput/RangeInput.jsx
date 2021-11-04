@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Range, getTrackBackground } from 'react-range'
 import { PRIMARY3 } from 'libs/colors'
 import styles from './RangeInput.module.scss'
-import formatPrice from '../../../utils/formatPrice'
+import formatPrice from '../../../shared/utils/formatPrice'
 
 const PRICE_RANGES = {
   0: 'Min',

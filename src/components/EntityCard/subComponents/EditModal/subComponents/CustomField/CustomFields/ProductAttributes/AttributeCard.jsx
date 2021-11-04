@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import formatPrice from 'utils/formatPrice'
+import formatPrice from 'shared/utils/formatPrice'
 import { Input } from 'components'
 import { attributes } from 'shared/interfaces/products/productsInterface'
 import Icon from 'assets/icons/Icon'

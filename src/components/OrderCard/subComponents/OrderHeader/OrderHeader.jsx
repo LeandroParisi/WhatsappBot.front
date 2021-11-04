@@ -3,7 +3,7 @@ import {
   generalIcons,
   deliveryIcons,
 } from 'assets/icons/iconsLib'
-import { extractDateHour } from 'utils/formatDate'
+import { extractDateHour } from 'shared/utils/formatDate'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
 

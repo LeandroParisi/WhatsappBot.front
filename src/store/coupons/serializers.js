@@ -1,15 +1,15 @@
 /* eslint-disable no-shadow */
 import { groupedIcons } from 'assets/icons/iconsLib'
 import contentTypes from 'libs/sectionTypes'
-import formatPrice from 'utils/formatPrice'
-import formatPercentage from 'utils/formatPercentage'
+import formatPrice from 'shared/utils/formatPrice'
+import formatPercentage from 'shared/utils/formatPercentage'
 import {
   dayToNumber,
   dayTranslation,
 } from 'shared/interfaces/openingHours/openingHoursInterface'
 import couponsInterface, { discountType, conditions } from 'shared/interfaces/coupons/couponsInterface'
 import { customFieldTypes, inputTypes } from 'libs/inputTypes'
-import { formatDate } from 'utils/formatDate'
+import { formatDate } from 'shared/utils/formatDate'
 import { formatDiscount, extractProductsCaracteristics, formatConditions } from './utils'
 
 const {

@@ -1,4 +1,4 @@
-import validateEmail from 'utils/validateEmail'
+import validateEmail from 'shared/utils/validateEmail'
 
 const inputs = {
   emailInput: {
