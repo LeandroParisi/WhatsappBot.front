@@ -4,7 +4,7 @@ import Icon from 'assets/icons/Icon'
 import { groupedIcons } from 'assets/icons/iconsLib'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
-import contentTypes from 'libs/sectionTypes'
+import contentTypes from 'shared/libs/sectionTypes'
 import styles from './EntityCardSection.module.scss'
 
 const EntityCardSection = ({ section }) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Loader from 'react-loader-spinner'
-import { DARK } from '../../../libs/colors'
+import { DARK } from 'shared/libs/colors'
 import styles from './ReactLoader.module.scss'
 
 const ReactLoader = ({ size }) => (

@@ -2,8 +2,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import defaultImages from 'libs/defaultImages'
-import { inputTypes } from 'libs/inputTypes'
+import defaultImages from 'shared/libs/defaultImages'
+import { inputTypes } from 'shared/libs/inputTypes'
 import { Input } from 'adminDashboard/components'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
 import classNames from 'classnames'

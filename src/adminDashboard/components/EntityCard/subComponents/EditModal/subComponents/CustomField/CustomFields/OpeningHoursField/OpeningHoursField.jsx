@@ -9,7 +9,7 @@ import { Checkbox, TimePicker } from 'adminDashboard/components'
 import classNames from 'classnames'
 import { getIcon } from 'assets/icons/iconsLib'
 import Icon from 'assets/icons/Icon'
-import { DARK_GRAY } from 'libs/colors'
+import { DARK_GRAY } from 'shared/libs/colors'
 import styles from '../../CustomField.module.scss'
 
 const labels = {

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { Range, getTrackBackground } from 'react-range'
-import { PRIMARY3 } from 'libs/colors'
+import { PRIMARY3 } from 'shared/libs/colors'
 import formatPrice from 'shared/utils/formatPrice'
 import styles from './RangeInput.module.scss'
 

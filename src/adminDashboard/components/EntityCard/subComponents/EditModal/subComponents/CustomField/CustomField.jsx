@@ -1,5 +1,5 @@
 import React from 'react'
-import { customFieldTypes } from 'libs/inputTypes'
+import { customFieldTypes } from 'shared/libs/inputTypes'
 import PropTypes from 'prop-types'
 import globalStyles from 'assets/scss/globals.module.scss'
 import classNames from 'classnames'

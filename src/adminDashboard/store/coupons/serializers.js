@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
 import { groupedIcons } from 'assets/icons/iconsLib'
-import contentTypes from 'libs/sectionTypes'
+import contentTypes from 'shared/libs/sectionTypes'
 import formatPrice from 'shared/utils/formatPrice'
 import formatPercentage from 'shared/utils/formatPercentage'
 import {
@@ -8,7 +8,7 @@ import {
   dayTranslation,
 } from 'shared/interfaces/openingHours/openingHoursInterface'
 import couponsInterface, { discountType, conditions } from 'shared/interfaces/coupons/couponsInterface'
-import { customFieldTypes, inputTypes } from 'libs/inputTypes'
+import { customFieldTypes, inputTypes } from 'shared/libs/inputTypes'
 import { formatDate } from 'shared/utils/formatDate'
 import { formatDiscount, extractProductsCaracteristics, formatConditions } from './utils'
 

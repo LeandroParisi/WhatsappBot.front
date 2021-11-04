@@ -1,5 +1,5 @@
 import { getIcon, groupedIcons } from 'assets/icons/iconsLib'
-import contentTypes from 'libs/sectionTypes'
+import contentTypes from 'shared/libs/sectionTypes'
 import formatPrice from 'shared/utils/formatPrice'
 import capitalize from 'shared/utils/capitalize'
 import {
@@ -7,7 +7,7 @@ import {
   dayTranslation,
 } from 'shared/interfaces/openingHours/openingHoursInterface'
 import productsInterface, { attributesTranslation, defaultValues } from 'shared/interfaces/products/productsInterface'
-import { customFieldTypes, inputTypes } from 'libs/inputTypes'
+import { customFieldTypes, inputTypes } from 'shared/libs/inputTypes'
 
 const {
   LIST,

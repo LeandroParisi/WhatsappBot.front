@@ -1,5 +1,5 @@
 import React from 'react'
-import defaultImages from 'libs/defaultImages'
+import defaultImages from 'shared/libs/defaultImages'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import styles from './CardHeader.module.scss'

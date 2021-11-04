@@ -1,4 +1,4 @@
-import { inputTypes } from 'libs/inputTypes'
+import { inputTypes } from 'shared/libs/inputTypes'
 
 export const statusOptions = [
   {

@@ -1,4 +1,4 @@
-import { inputTypes } from 'libs/inputTypes'
+import { inputTypes } from 'shared/libs/inputTypes'
 import { deliveryTypesInterface } from 'shared/interfaces/deliveryTypes/deliveryTypes'
 import { paymentMethodInterface } from 'shared/interfaces/paymentMethods/methods'
 import * as Yup from 'yup'

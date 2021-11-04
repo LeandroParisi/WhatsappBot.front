@@ -17,5 +17,4 @@ export const customFieldTypes = {
   CITIES: 'cities',
   PRODUCT_ATTRIBUTES: 'product_attributes',
   PROMOTION_PRODUCTS: 'promotion_products',
-
 }

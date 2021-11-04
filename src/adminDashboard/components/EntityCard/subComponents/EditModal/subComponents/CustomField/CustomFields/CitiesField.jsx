@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Select } from 'adminDashboard/components'
 import classNames from 'classnames'
-import { brazilianCities } from 'libs/brazilianCities'
+import { brazilianCities } from 'shared/libs/brazilianCities'
 import styles from '../CustomField.module.scss'
 import editModalStyles from '../../../EditModal.module.scss'
 

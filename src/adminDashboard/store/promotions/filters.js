@@ -1,4 +1,4 @@
-import { inputTypes } from 'libs/inputTypes'
+import { inputTypes } from 'shared/libs/inputTypes'
 import { menusInterface } from 'shared/interfaces/menus/menusInterface'
 import promotionsInterface from 'shared/interfaces/promotions/promotionsInterface'
 import { statusFilter } from '../generalFilters/generalFilters'

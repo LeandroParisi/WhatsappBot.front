@@ -1,7 +1,7 @@
 /* eslint-disable no-case-declarations */
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { inputTypes } from 'libs/inputTypes'
+import { inputTypes } from 'shared/libs/inputTypes'
 import {
   Button, Checkbox, Input, RangeInput,
 } from 'adminDashboard/components'
@@ -9,7 +9,7 @@ import { handleIconSelectFactory, setOption, setState } from 'adminDashboard/sto
 import Select from 'adminDashboard/components/MainComponents/Select/Select'
 import Icon from 'assets/icons/Icon'
 import { getIcon } from 'assets/icons/iconsLib'
-import { DARK_GRAY } from 'libs/colors'
+import { DARK_GRAY } from 'shared/libs/colors'
 import { setFilters } from './setFilters'
 import { extractInitialValues, MAX_RANGE_VALUE, MIN_RANGE_VALUE } from './utils'
 import styles from './MainPageFilter.module.scss'
