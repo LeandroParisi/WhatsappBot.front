@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseLayout from 'shared/templates/BaseLayout/BaseLayout'
 import { BranchesProvider } from 'store'
-import { BranchesContainer } from 'containers'
+import { BranchesContainer } from 'adminDashboard/containers'
 
 const Branches = () => (
   <BaseLayout>

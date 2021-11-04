@@ -1,7 +1,7 @@
 import { inputTypes } from 'libs/inputTypes'
 import { menusInterface } from 'shared/interfaces/menus/menusInterface'
+import couponsInterface from 'shared/interfaces/coupons/couponsInterface'
 import { statusFilter } from '../generalFilters/generalFilters'
-import couponsInterface from '../../interfaces/coupons/couponsInterface'
 
 const {
   INPUT,

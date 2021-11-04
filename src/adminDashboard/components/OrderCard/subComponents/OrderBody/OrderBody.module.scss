@@ -1,0 +1,81 @@
+@import '../../../../../assets/scss/colors.scss';
+@import '../../../../../assets/scss/mixins.scss';
+@import '../../../../../assets/scss/fonts.scss';
+@import '../../OrderCard.module.scss';
+
+.cardBody {
+  @include flexBox(column, center, flex-start);
+  width: calc(100% - 30px);
+  padding: 0 15px;
+
+
+  > div {
+    @include flexBox(row, flex-start, center);
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: $grayBorder 1px solid;
+  }
+
+  .addressContainer {
+    @include flexBox(row, flex-start, center);
+    position: relative;
+
+    .addressDisplay {
+      background-color: rgba(155, 155, 155, 0.2);
+      border-radius: 15px;
+      padding: 10px;
+      width: 80%;
+    };
+
+    .priceTag {
+      position: absolute;
+      right: -10px;
+      margin-left: auto;
+      
+      > div  {
+        padding: 3px;
+
+      }
+    }
+
+    strong {
+      font-size: $font-small;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+      line-height: 1.3rem;
+      font-size: $font-xsmall
+    }
+
+  }
+
+  .productsContainer {
+    @include flexBox(row, flex-start, flex-start)
+  }
+
+  .customerSection {
+    @include flexBox(column, center, flex-start);
+    width: 100%;
+
+    .userHeader {
+      @include flexBox(row, flex-start);
+    }
+
+    .userInfo {
+      @include flexBox();
+      margin-left: 35px;
+
+      > p {
+        font-size: $font-xsmall;
+      }
+
+    }
+
+  }
+  
+  &.closed {
+    display: none;
+  }
+}

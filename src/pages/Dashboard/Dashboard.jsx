@@ -2,7 +2,7 @@ import React from 'react'
 import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
 import { DashboardProvider, useRoot } from 'store'
 import BaseLayout from 'shared/templates/BaseLayout/BaseLayout'
-import { DashboardContainer, DashboardHeader } from 'containers'
+import { DashboardContainer, DashboardHeader } from 'adminDashboard/containers'
 
 const Dashboard = () => {
   const { getIsLoading } = useRoot()

@@ -1,6 +1,6 @@
 import { inputTypes } from 'libs/inputTypes'
+import productsInterface from 'shared/interfaces/products/productsInterface'
 import { statusFilter } from '../generalFilters/generalFilters'
-import productsInterface from '../../interfaces/products/productsInterface'
 
 const {
   INPUT,

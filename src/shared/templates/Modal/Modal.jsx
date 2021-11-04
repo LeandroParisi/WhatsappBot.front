@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { getIcon } from 'assets/icons/iconsLib'
 import Icon from 'assets/icons/Icon'
 import Overlay from 'shared/templates/Overlay/Overlay'
-import { Button } from 'components'
+import { Button } from 'adminDashboard/components'
 import styles from './Modal.module.scss'
 
 const Modal = ({

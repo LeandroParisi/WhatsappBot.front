@@ -1,0 +1,55 @@
+@import '../../../../../../assets/scss/colors.scss';
+@import '../../../../../../assets/scss/mixins.scss';
+@import '../../../../../../assets/scss/fonts.scss';
+
+$sidePadding: 5px;
+$verticalPadding: 15px;
+
+.productSection {
+  @include flexBox(column, center, flex-start );
+  border: rgb(215, 215, 215) solid 1px;
+  border-radius: 10px;
+  width: calc(48% - #{$sidePadding * 2} - 10px);
+  padding: $verticalPadding $sidePadding;
+  margin: 10px 0 5px 10px;
+
+  .productHeader {
+    @include flexBox(row);
+
+    h3 {
+      font-size: $font-xsmall;
+    }
+  }
+
+  .attributeContainer { 
+    @include flexBox(row, flex-start, flex-start);
+    width: 90%;
+    margin-top: 15px;
+
+    .attributeIcon {
+      margin-left: 5px;
+      padding: 0;
+
+      &.centered {
+        margin: auto 0 auto 5px;
+      }
+    }
+
+    .attributesList {
+      max-width: 90%;
+      margin-left: 10px;
+
+      li {
+        font-size: $font-xxsmall;
+        list-style-type: none;
+      }
+    }
+  }
+
+  .productFooter {
+    @include flexBox(column);
+    margin-top: 10px;
+    width: 100%;
+  }
+
+}

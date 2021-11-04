@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import logo from 'assets/images/logos/logo_transparent.png'
 import routes from 'shared/libs/routes/routes'
 
-import { Button, LoginInputs } from 'components'
+import { Button, LoginInputs } from 'adminDashboard/components'
 import useLoader from 'hooks/useLoader'
 import userLogin from 'shared/services/users/userLogin'
 import styles from './Login.module.scss'

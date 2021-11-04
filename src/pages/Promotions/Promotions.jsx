@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseLayout from 'shared/templates/BaseLayout/BaseLayout'
 import { PromotionsProvider } from 'store'
-import { PromotionsContainer } from 'containers'
+import { PromotionsContainer } from 'adminDashboard/containers'
 
 const Promotions = () => (
   <BaseLayout>

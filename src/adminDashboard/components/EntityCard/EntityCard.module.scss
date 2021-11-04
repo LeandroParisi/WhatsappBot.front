@@ -1,0 +1,53 @@
+@import '../../../assets/scss/colors.scss';
+@import '../../../assets/scss/mixins.scss';
+@import '../../../assets/scss/fonts.scss';
+
+$padding: 25px;
+$entityCardMinHeight: 500px;
+$sectionContainerMinHeight: 350px;
+
+.entity {
+  @include flexBox(column, flex-start, center);
+  @include boxShadow(3px, 5px);
+  border-radius: 5px;
+  border: $primary2 solid 1px;
+  width: 35%;
+  padding: $padding;
+  position: relative;
+  
+  hr {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 40%;
+    border-bottom: $grayBorder solid 1px;
+  }
+
+
+  .sectionsContainer {
+    @include flexBox(column, flex-start, center, nowrap);
+    width: 100%;
+    min-height: 0px;
+    max-height: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: .7s;
+
+    &.focused {
+      transition: .7s;
+      min-height: $sectionContainerMinHeight;
+      max-height: $sectionContainerMinHeight;
+    }
+  }
+  
+
+
+  &:hover {
+    @include boxShadow(4px, 9px)
+  }
+
+  &.inactive {
+    filter: grayscale(100%);
+  }
+}
+

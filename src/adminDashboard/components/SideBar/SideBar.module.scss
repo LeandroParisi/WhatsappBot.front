@@ -1,0 +1,54 @@
+@import '../../../assets/scss/colors.scss';
+@import '../../../assets/scss/mixins.scss';
+@import '../../../assets/scss/fonts.scss';
+@import '../../../assets/scss/globals.module.scss';
+
+$verticalPadding: 30px;
+$horizontalPadding: 20px;
+
+
+.sideBar{
+  @include flexBox(column, space-between, flex-start);
+  padding: $verticalPadding $horizontalPadding;
+  position: fixed;
+  height: calc(100vh - #{$header-height} - #{$verticalPadding * 2});
+  background-color: $headerColor;
+  top: $header-height;
+  border-top: 2px solid $overlay;
+  width: $sideBar-width;
+  z-index: 2;
+  transform: translateX(-$sideBar-width -$horizontalPadding * 2);
+  transition: transform 0.5s ease-out;
+  
+  &.opened {
+    transform: translateY(0);
+  }
+  
+  > ul {
+    li {
+      @include flexBox();
+      list-style: none;
+
+      .menuIcon {
+        cursor: pointer;
+
+
+      }
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      margin-left: 10px;
+      transition: 0.5s;
+  
+      &:hover {
+        @include textShadow(rgba(220, 220, 220, 0.8))
+      }
+  
+      &:visited {
+        color: white;
+      }
+    }
+  }
+}

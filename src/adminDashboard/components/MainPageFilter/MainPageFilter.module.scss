@@ -1,0 +1,73 @@
+@import '../../../assets/scss/colors.scss';
+@import '../../../assets/scss/mixins.scss';
+@import '../../../assets/scss/fonts.scss';
+@import '../../../assets/scss/globals.module.scss';
+
+
+$padding: 15px;
+
+.filterHeader {
+  @include flexBox(row, flex-start);
+  @include boxShadow(3px, 7px);
+  width: calc(100% - #{$padding * 2});
+  padding: $padding;
+  border-radius: 5px;
+  background-color: $dark;
+  color: white;
+
+  > form {
+    @include flexBox(column);
+    width: 100%;
+
+    .fieldsSection {
+      @include flexBox(row, space-around);
+      width: 100%;
+
+      input {
+        @extend .whiteInput;
+      }
+
+      > div, button {
+        min-width: 200px;
+        color: white;
+      }
+      
+      *:not(svg) {
+        font-size: $font-small;
+      }
+  
+      .fieldSection {
+        @include flexBox(column, flex-start);
+        margin-bottom: 30px;
+
+        > div, select {
+          margin-top: 10px;
+          min-height: 40px;
+        }
+
+        select {
+          background-color: transparent;
+          color: white;
+          border: none;
+
+          option:not(:disabled) {
+            color: black
+          }
+        }
+    
+        .iconsContainer {
+          @include flexBox();
+        }
+    
+        .optionIcon {
+          cursor: pointer;
+          font-size: $font-med;
+        }
+      }
+    }
+
+    .filterButton {
+      @extend .whiteButton;
+    }
+  }
+}

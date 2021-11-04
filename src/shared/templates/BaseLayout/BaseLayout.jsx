@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Header from 'components/Header/Header'
+import Header from 'adminDashboard/components/Header/Header'
 import { useRoot } from 'store'
 import globalStyles from 'assets/scss/globals.module.scss'
 import Overlay from 'shared/templates/Overlay/Overlay'

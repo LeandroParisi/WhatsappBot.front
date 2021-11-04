@@ -1,0 +1,14 @@
+@import '../../../../../../../../assets/scss/mixins.scss';
+@import '../../../EditModal.module.scss';
+
+.container {
+  @extend .subSection;
+
+  .optionsContainer {
+    @include flexBox(row, flex-start);
+  
+    > .optionIcon {
+      cursor: pointer;
+    }
+  }
+}

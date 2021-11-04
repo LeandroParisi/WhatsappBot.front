@@ -1,0 +1,26 @@
+@import '../../../../assets/scss/colors.scss';
+@import '../../../../assets/scss/mixins.scss';
+@import '../../../../assets/scss/fonts.scss';
+
+.tooltip {
+  position: absolute;
+  left: 75%;
+  bottom: -35%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  width: max-content;
+  padding: 4px;
+  cursor: default;
+  z-index: 2;
+
+  &.inline {
+    bottom: 0%;
+  }
+
+  
+  > p {
+    font-size: $font-xxsmall !important;
+    color: white;
+    display: block;
+  }
+}

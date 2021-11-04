@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseLayout from 'shared/templates/BaseLayout/BaseLayout'
 import { CouponsProvider } from 'store'
-import { CouponsContainer } from 'containers'
+import { CouponsContainer } from 'adminDashboard/containers'
 
 const Coupons = () => (
   <BaseLayout>

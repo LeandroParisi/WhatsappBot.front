@@ -1,0 +1,15 @@
+@import '../../../../../../../../assets/scss/mixins.scss';
+@import '../../../EditModal.module.scss';
+
+.container {
+  @extend .subSection;
+  width: 100%;
+
+  .listContainer {
+    @include flexBox(column, flex-start);
+    width: 100%;
+    gap: 15px;
+
+ 
+  }
+}

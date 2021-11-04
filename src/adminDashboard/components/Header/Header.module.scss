@@ -1,0 +1,30 @@
+@import '../../../assets/scss/colors.scss';
+@import '../../../assets/scss/mixins.scss';
+@import '../../../assets/scss/globals.module.scss';
+@import '../../../assets/scss/fonts.scss';
+
+.header {
+  @include flexBox(row, flex-start);
+  position: fixed;
+  height: $header-height;
+  background-color: $headerColor;
+  color: white;
+  z-index: 2;
+  width: 100vw;
+  top: 0;
+
+  .logoContainer {
+    background-color: transparent;
+    margin-left: 30px;
+    width: fit-content;
+    padding: 0;
+    
+    &:hover {
+      background-color: transparent;
+    }
+    
+    img {
+      width: 120px;
+    }
+  }
+}

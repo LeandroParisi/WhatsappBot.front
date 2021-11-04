@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
-import { Tooltip } from 'components'
+import { Tooltip } from 'adminDashboard/components'
 import styles from './Icon.module.scss'
 import { tooltips, customIcons } from './iconsLib'
 

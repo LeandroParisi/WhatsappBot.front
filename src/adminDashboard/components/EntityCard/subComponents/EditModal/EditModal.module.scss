@@ -1,0 +1,97 @@
+@import '../../../../../assets/scss/colors.scss';
+@import '../../../../../assets/scss/mixins.scss';
+@import '../../../../../assets/scss/fonts.scss';
+@import '../../../../../assets/scss/globals.module.scss';
+@import '../CardHeader/CardHeader.module.scss';
+
+
+@mixin subSectionTitle() {
+  align-self: flex-start;
+  color: $gray2;
+  font-size: $font-xsmall;
+}
+
+@mixin smallField() {
+  max-width: 220px;
+}
+
+.formContainer {
+  @include flexBox();
+  overflow-x: auto;
+  width: 100%;
+  height: 100%;
+
+  .entityHeader {
+    @include flexBox(column);
+    margin: auto;
+    margin-bottom: 15px;
+    gap: 20px;
+
+    .avatarContainer {
+      @include avatarContainer()
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+  }
+
+  .sectionsContainer {
+    width: 100%;
+
+    .section {
+      @include flexBox(column, flex-start, flex-start);
+      margin-bottom: 55px;
+      width: 100%;
+
+      > h2 {
+        margin-bottom: 15px;
+        font-size: $font-small;
+      }
+
+      .subSectionContainer {
+        @include flexBox(row, flex-start, flex-start);
+        width: 100%;
+      }
+    }
+  }
+
+  [class*='inputContainer'] > input, select {
+    font-size: $font-small;
+  }
+
+  [class*='inputContainer'] > input {
+    @extend .whiteInput;
+    border-color: $gray2;
+    
+    &:focus {
+      color: white;
+    }
+
+  }
+
+  .editButton {
+    @extend .whiteButton;
+    position: sticky;
+    bottom: 10px;
+    left: 88%;
+  }
+}
+
+.subSection {
+  @include flexBox(column);
+  margin: 10px 35px;
+  gap: 8px;
+  box-sizing: border-box;
+  height: fit-content;
+
+  > p {
+    @include subSectionTitle()
+  }
+
+  > div, select {
+    align-self: flex-start;
+  }
+}
+
+

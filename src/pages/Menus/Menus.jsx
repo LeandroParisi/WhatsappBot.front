@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseLayout from 'shared/templates/BaseLayout/BaseLayout'
 import { MenusProvider } from 'store'
-import { MenusContainer } from 'containers'
+import { MenusContainer } from 'adminDashboard/containers'
 
 const Menus = () => (
   <BaseLayout>

@@ -1,0 +1,19 @@
+@import '../../../EditModal.module.scss';
+@import '../../../../../../../../assets/scss/globals.module.scss';
+@import '../../../../../../../../assets/scss/colors.scss';
+@import '../../../../../../../../assets/scss/fonts.scss';
+
+
+.container {
+  @extend .subSection;
+  @include smallField();
+
+  input {
+    @extend .whiteInput;
+    font-size: $font-small;
+  }
+
+  [class*='close-icon']::after {
+    background-color: transparent !important;
+  }
+}

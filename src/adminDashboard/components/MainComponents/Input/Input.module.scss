@@ -1,0 +1,7 @@
+@import '../../../../assets/scss/mixins.scss';
+@import '../../../../assets/scss/colors.scss';
+@import '../../../../assets/scss/fonts.scss';
+
+.inputContainer {
+  @include flexBox(column);
+}

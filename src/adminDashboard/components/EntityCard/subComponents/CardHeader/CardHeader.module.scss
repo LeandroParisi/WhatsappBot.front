@@ -1,0 +1,42 @@
+@import '../../../../../assets/scss/colors.scss';
+@import '../../../../../assets/scss/mixins.scss';
+@import '../../../../../assets/scss/fonts.scss';
+
+@mixin avatarContainer() {
+  @include flexBox();
+  background-color: $primary2;
+  border-radius: 100%;
+  border: $dark 5px outset;
+
+  &.branches {
+    width: fit-content;
+  }
+
+  &.menus, &.products, &.promotions, &.coupons {
+    width: 150px;
+    height: 150px;
+
+    .avatar {
+      width: 110px;
+    }
+  }
+
+
+  .avatar {
+    width: 200px;
+  }
+}
+
+.entityHeader {
+  @include flexBox(column);
+  margin-bottom: 15px;
+
+
+  .avatarContainer {
+    @include avatarContainer()
+  }
+
+  h2 {
+    margin-top: 10px;
+  }
+}
