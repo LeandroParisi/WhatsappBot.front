@@ -4,7 +4,7 @@ import logo from 'assets/images/logos/logo_transparent.png'
 import routes from 'shared/libs/routes/routes'
 
 import { Button, LoginInputs } from 'adminDashboard/components'
-import useLoader from 'hooks/useLoader'
+import useLoader from 'shared/hooks/useLoader'
 import userLogin from 'shared/services/users/userLogin'
 import styles from './Login.module.scss'
 import inputs from './validations'

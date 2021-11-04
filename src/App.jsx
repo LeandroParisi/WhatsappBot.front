@@ -16,7 +16,7 @@ import {
   Coupons,
   Account,
   Configurations,
-} from './pages'
+} from './adminDashboard/pages'
 import 'react-toastify/dist/ReactToastify.css'
 import 'assets/scss/reset.scss'
 
