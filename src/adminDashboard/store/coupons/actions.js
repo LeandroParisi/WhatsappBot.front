@@ -26,7 +26,7 @@ export default (store, setStore, useRoot) => {
 
   const update = async ({ id, body }) => {
     const { hasErrors, errors } = await validationFactory(
-      body, editValidations, errorsLib,
+      body, editValidations, errorsLib, { conditions: store.conditions },
     )
 
     if (hasErrors) {
@@ -111,6 +111,14 @@ export default (store, setStore, useRoot) => {
     }
   }
 
+  const getConditions = async () => {
+    const { response } = await errorHandler(Provider.getConditions())
+
+    if (response) {
+      setField('conditions', response)
+    }
+  }
+
   return {
     saveFilters,
     findAll,
@@ -119,5 +127,6 @@ export default (store, setStore, useRoot) => {
     destroy,
     activate,
     deactivate,
+    getConditions,
   }
 }

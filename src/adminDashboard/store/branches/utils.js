@@ -1,11 +1,13 @@
 import { deliveryFeeTypes } from 'shared/interfaces/deliveryFees/deliveryFeeTypes'
 
+const formatRadiusFee = (fees) => fees.map(([range, p]) => (`${range} KM - R$ ${p}`))
+
 export const mapDeliveryFees = (type, fees) => {
   switch (type) {
     case deliveryFeeTypes.unique:
       return [`R$ ${fees}`]
     case deliveryFeeTypes.radius:
-      return fees?.map(([range, p]) => (`${range} KM - R$ ${p}`))
+      return formatRadiusFee(fees)
     case deliveryFeeTypes.neighborhood:
       throw new Error('Not implemented yet')
     default:

@@ -7,10 +7,12 @@ import {
   dayToNumber,
   dayTranslation,
 } from 'shared/interfaces/openingHours/openingHoursInterface'
-import couponsInterface, { discountType, conditions } from 'shared/interfaces/coupons/couponsInterface'
+import couponsInterface, { discountType, conditionsInterface, discountTypesInterface } from 'shared/interfaces/coupons/couponsInterface'
 import { customFieldTypes, inputTypes } from 'shared/libs/inputTypes'
 import { formatDate } from 'shared/utils/formatDate'
-import { formatDiscount, extractProductsCaracteristics, formatConditions } from './utils'
+import {
+  formatDiscount, extractProductsCaracteristics, formatConditions, checkConditionExists,
+} from './utils'
 
 const {
   PRICE,
@@ -30,9 +32,11 @@ const {
   INPUT,
   IMAGE,
   SELECT_LIST,
+  SELECT,
   ICONS,
   INPUT_LIST,
   DATE,
+  NUMBER,
 } = inputTypes
 
 // const formatOption = ({ name, price }) => `${capitalize(name)}: + ${formatPrice(price)}`
@@ -54,10 +58,10 @@ export const entityAdapter = (coupom) => {
   } = coupom
 
   const conditionsLimits = {
-    [conditions.price_limit]: priceLimit,
-    [conditions.date_limit]: dateLimit,
-    [conditions.distance_limit]: distanceLimit,
-    [conditions.uses_limit]: usesLimit,
+    [conditionsInterface.price_limit]: priceLimit,
+    [conditionsInterface.date_limit]: dateLimit,
+    [conditionsInterface.distance_limit]: distanceLimit,
+    [conditionsInterface.uses_limit]: usesLimit,
   }
 
   return {
@@ -103,7 +107,7 @@ export const entityAdapter = (coupom) => {
   }
 }
 
-export const editEntityAdapter = (coupom, userProducts, userBranches) => {
+export const editEntityAdapter = (coupom, userBranches, conditions) => {
   const {
     id,
     coupomCode,
@@ -118,6 +122,18 @@ export const editEntityAdapter = (coupom, userProducts, userBranches) => {
     usesLimit,
     isActive,
   } = coupom
+
+  console.log({ discountType })
+  console.log(
+    {
+      value: discountTypesInterface.find((dti) => dti.payloadValue === discountType),
+      key: couponsInterface.discountType,
+      sectionName: 'Tipo do desconto',
+      fieldType: SELECT,
+      options: discountTypesInterface,
+    },
+
+  )
 
   return {
     id,
@@ -135,21 +151,98 @@ export const editEntityAdapter = (coupom, userProducts, userBranches) => {
       },
     ],
     sections: [
-
+      {
+        title: 'Condições',
+        subSections: [
+          {
+            value: coupomConditions,
+            key: couponsInterface.coupomConditions,
+            sectionName: 'Tipo do limite',
+            fieldType: ICONS,
+            options: conditions,
+          },
+          {
+            value: discountTypesInterface.find((dti) => dti.payloadValue === discountType),
+            key: couponsInterface.discountType,
+            sectionName: 'Tipo do desconto',
+            fieldType: SELECT,
+            options: discountTypesInterface,
+          },
+        ],
+      },
+      {
+        title: 'Limites das condições',
+        subSections: [
+          {
+            value: priceLimit,
+            key: couponsInterface.priceLimit,
+            sectionName: 'Valor',
+            fieldType: NUMBER,
+            isDisabled:
+              (store) => !checkConditionExists(conditions, conditionsInterface.price_limit)(store),
+          },
+          {
+            value: usesLimit,
+            key: couponsInterface.usesLimit,
+            sectionName: 'Usos',
+            fieldType: NUMBER,
+            isDisabled:
+              (store) => !checkConditionExists(conditions, conditionsInterface.uses_limit)(store),
+          },
+          {
+            value: dateLimit,
+            key: couponsInterface.dateLimit,
+            sectionName: 'Data',
+            fieldType: DATE,
+            isDisabled:
+              (store) => !checkConditionExists(conditions, conditionsInterface.date_limit)(store),
+          },
+          {
+            value: distanceLimit,
+            key: couponsInterface.distanceLimit,
+            sectionName: 'Distância (KM)',
+            fieldType: NUMBER,
+            isDisabled:
+              (store) => (
+                !checkConditionExists(conditions, conditionsInterface.distance_limit)(store)),
+          },
+          {
+            value: discount,
+            key: couponsInterface.discount,
+            sectionName: 'Valor do desconto',
+            fieldType: NUMBER,
+          },
+        ],
+      },
+      {
+        title: 'Relações',
+        subSections: [
+          {
+            value: coupomBranches.map(({ id, branchName }) => ({ id, name: branchName })),
+            options: userBranches.map(({ id, branchName }) => ({ id, name: branchName })),
+            key: couponsInterface.coupomBranches,
+            sectionName: 'Filiais',
+            fieldType: SELECT_LIST,
+          },
+        ],
+      },
     ],
   }
 }
 
 export const normalizeEditPayload = (body) => {
   const {
-    avaiability, branchesPromotions, promotionProducts,
+    coupomCode,
+    discountType,
+    coupomConditions,
+    coupomBranches,
   } = body
 
   return {
     ...body,
-    avaiability: avaiability.map(({ id }) => Number(id)),
-    branchesPromotions: branchesPromotions.map(({ id }) => id),
-    promotionProducts: promotionProducts
-      .map(({ productId, attributes }) => ({ productId, attributes })),
+    discountType: discountType.payloadValue,
+    coupomCode: coupomCode.trim(),
+    coupomConditions: [...coupomConditions],
+    coupomBranches: coupomBranches.map(({ id }) => id),
   }
 }

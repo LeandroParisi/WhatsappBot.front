@@ -3,6 +3,7 @@ export const avatarContainer: string;
 export const branches: string;
 export const container: string;
 export const coupons: string;
+export const disabled: string;
 export const editButton: string;
 export const entityHeader: string;
 export const errorInput: string;

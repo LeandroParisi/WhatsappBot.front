@@ -1,23 +1,23 @@
 // export const
-import couponsInterface, { discountType, conditionsTranslations, conditions } from 'shared/interfaces/coupons/couponsInterface'
+import couponsInterface, { discountTypes, conditionsTranslations, conditionsInterface } from 'shared/interfaces/coupons/couponsInterface'
 import { formatDate } from 'shared/utils/formatDate'
 import formatPercentage from 'shared/utils/formatPercentage'
 import formatPrice from 'shared/utils/formatPrice'
 
 export const formatDiscount = (discount, type) => {
-  if (type === discountType.absolute_value) return formatPrice(discount, true)
+  if (type === discountTypes.absolute_value) return formatPrice(discount, true)
   return formatPercentage(discount, true)
 }
 
 const parseConditionByType = (type, value) => {
   switch (type) {
-    case conditions.price_limit:
+    case conditionsInterface.price_limit:
       return formatPrice(value, true)
-    case conditions.date_limit:
+    case conditionsInterface.date_limit:
       return formatDate(value)
-    case conditions.distance_limit:
+    case conditionsInterface.distance_limit:
       return `${value} KM`
-    case conditions.uses_limit:
+    case conditionsInterface.uses_limit:
       return value
     default:
       throw new Error('Tipo de promoção não mapeado: Coupons/utils')
@@ -25,8 +25,18 @@ const parseConditionByType = (type, value) => {
 }
 
 export const formatConditions = (coupomConditions, conditionsLimits) => {
-  const formatedConditions = coupomConditions.map(({ condition }) => (
-    `${conditionsTranslations[condition]}: ${parseConditionByType(condition, conditionsLimits[condition])}`
+  const formatedConditions = coupomConditions.map(({ name }) => (
+    `${conditionsTranslations[name]}: ${parseConditionByType(name, conditionsLimits[name])}`
   ))
   return formatedConditions
 }
+
+const getConditionId = (conditions, conditionName) => (
+  conditions
+    .find((c) => c.name === conditionName).id
+)
+
+export const checkConditionExists = (conditions, condition) => (store) => (
+  store[couponsInterface.coupomConditions]
+    .has(getConditionId(conditions, condition))
+)

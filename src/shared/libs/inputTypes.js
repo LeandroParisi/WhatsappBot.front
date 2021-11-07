@@ -9,6 +9,7 @@ export const inputTypes = {
   IMAGE: 'image',
   SELECT_LIST: 'selectList',
   RANGE: 'range',
+  NUMBER: 'number',
 }
 
 export const customFieldTypes = {

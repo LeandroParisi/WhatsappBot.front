@@ -10,21 +10,22 @@ const initialState = {
   [MAIN_FIELD]: [],
   filters: filterInterface,
   query: '',
+  conditions: [],
 }
 
 const couponsStore = useCreateStore(() => {
+  const { $root } = useRoot()
   const [$store, setStore] = useState(initialState)
   const actions = storeActions($store, setStore, useRoot)
-  const selectors = storeSelectors($store)
+  const selectors = storeSelectors($store, $root)
 
   useEffect(() => {
     actions.findAll($store.query)
   }, [$store.query])
 
-  // useEffect(() => {
-  //   actions.fetchUserProducts()
-  //   actions.fetchUserBranches()
-  // }, [])
+  useEffect(() => {
+    actions.getConditions()
+  }, [])
 
   return {
     $store, ...selectors, ...actions,

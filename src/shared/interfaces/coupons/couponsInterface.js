@@ -11,19 +11,33 @@ const couponsInterface = {
   distanceLimit: 'distanceLimit',
   usesLimit: 'usesLimit',
   isActive: 'isActive',
+  image: 'image',
 }
 
-export const discountType = {
+export const discountTypes = {
   percentage: 'percentage',
   absolute_value: 'absolute_value',
 }
 
-export const discounTypeTranslation = {
-  [discountType.percentage]: 'Porcentagem',
-  [discountType.absoluteValue]: 'Valor',
+export const discountTypeTranslation = {
+  [discountTypes.percentage]: 'Porcentagem',
+  [discountTypes.absolute_value]: 'Valor',
 }
 
-export const conditions = {
+export const discountTypesInterface = [
+  {
+    id: 1,
+    name: discountTypeTranslation[discountTypes.percentage],
+    payloadValue: discountTypes.percentage,
+  },
+  {
+    id: 2,
+    name: discountTypeTranslation[discountTypes.absolute_value],
+    payloadValue: discountTypes.absolute_value,
+  },
+]
+
+export const conditionsInterface = {
   price_limit: 'price_limit',
   date_limit: 'date_limit',
   distance_limit: 'distance_limit',
@@ -31,10 +45,10 @@ export const conditions = {
 }
 
 export const conditionsTranslations = {
-  [conditions.price_limit]: 'Preço',
-  [conditions.date_limit]: 'Data',
-  [conditions.distance_limit]: 'Distância',
-  [conditions.uses_limit]: 'Usos',
+  [conditionsInterface.price_limit]: 'Preço',
+  [conditionsInterface.date_limit]: 'Data',
+  [conditionsInterface.distance_limit]: 'Distância',
+  [conditionsInterface.uses_limit]: 'Usos',
 }
 
 export default couponsInterface

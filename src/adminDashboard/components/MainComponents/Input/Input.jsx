@@ -16,6 +16,7 @@ const Input = ({
   className,
   onMouseOut,
   onEnter,
+  isDisabled,
 }) => {
   const handleEnterClick = (e) => {
     if (e.keyCode === 13 && onEnter) {
@@ -37,6 +38,7 @@ const Input = ({
         onFocus={onFocus}
         onMouseOut={onMouseOut}
         onKeyUp={handleEnterClick}
+        disabled={isDisabled}
       />
       {error && <p className={globalStyles.errorText}>{errorMessage}</p>}
     </div>

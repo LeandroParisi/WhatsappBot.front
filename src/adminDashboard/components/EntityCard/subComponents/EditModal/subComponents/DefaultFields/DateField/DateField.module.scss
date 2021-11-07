@@ -16,4 +16,8 @@
   [class*='close-icon']::after {
     background-color: transparent !important;
   }
+
+  &.disabled {
+    opacity: 35%;
+  } 
 }

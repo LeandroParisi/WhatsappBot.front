@@ -1,12 +1,12 @@
 import { formatErrorMessages } from './utils'
 
-const validationFactory = async (body, validations, errorsLib) => {
+const validationFactory = async (body, validations, errorsLib, options = {}) => {
   const errors = {}
 
   const validationsArray = Object.entries(validations)
 
   const validationResults = await Promise.all(
-    validationsArray.map(([key, validation]) => validation(body[key])),
+    validationsArray.map(([key, validation]) => validation(body[key], { body, ...options })),
   )
 
   validationResults.forEach((isValid, index) => {

@@ -66,7 +66,9 @@ const EditModal = ({ entity, type, editRequest }) => {
 
   const subSectionFactory = (subSection) => {
     const {
-      fieldType, customField,
+      fieldType,
+      customField,
+      isDisabled = () => false,
     } = subSection
 
     const defaultFields = {
@@ -75,6 +77,7 @@ const EditModal = ({ entity, type, editRequest }) => {
         updateState={updateState}
         errors={errors}
         subSection={subSection}
+        isDisabled={isDisabled(formValues)}
       />,
       [inputTypes.ICONS]: <IconsField
         formValues={formValues}
@@ -105,6 +108,15 @@ const EditModal = ({ entity, type, editRequest }) => {
         subSection={subSection}
         updateState={updateState}
         errors={errors}
+        isDisabled={isDisabled(formValues)}
+      />,
+      [inputTypes.NUMBER]: <InputField
+        formValues={formValues}
+        updateState={updateState}
+        errors={errors}
+        subSection={subSection}
+        type="number"
+        isDisabled={isDisabled(formValues)}
       />,
 
     }

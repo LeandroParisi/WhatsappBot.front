@@ -41,11 +41,16 @@ import {
   faMinus,
   faFileSignature,
   faStopwatch,
+  faMoneyBill,
+  faCalendarMinus,
+  faStopwatch20,
+  faTachometerAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { deliveryTypes } from 'shared/interfaces/deliveryTypes/deliveryTypes'
 import { categories, attributes } from 'shared/interfaces/products/productsInterface'
 import { paymentMethods } from 'shared/interfaces/paymentMethods/methods'
+import { conditionsInterface } from 'shared/interfaces/coupons/couponsInterface'
 
 export const menuIcons = {
   STORE: faStore,
@@ -113,6 +118,13 @@ export const attributeIcons = {
   [attributes.ADDITIONALS]: faPlus,
 }
 
+export const conditionIcons = {
+  [conditionsInterface.date_limit]: faCalendarMinus,
+  [conditionsInterface.distance_limit]: faTachometerAlt,
+  [conditionsInterface.price_limit]: faMoneyBill,
+  [conditionsInterface.uses_limit]: faStopwatch20,
+}
+
 export const paymentIcons = {
   [paymentMethods.CREDIT]: faCreditCard,
   [paymentMethods.DEBIT]: faCreditCard,
@@ -132,6 +144,7 @@ export const groupedIcons = {
   ...attributeIcons,
   ...paymentIcons,
   ...entityMenuIcons,
+  ...conditionIcons,
 }
 
 export const customIcons = new Set([paymentMethods.PIX])
@@ -163,4 +176,8 @@ export const tooltips = {
   'ellipsis-v': 'Opções',
   'ellipsis-h': 'Opções',
 
+  'money-bill': 'Valor',
+  'calendar-minus': 'Data',
+  'stopwatch-20': 'Usos',
+  'tachometer-alt': 'Distância',
 }

@@ -23,6 +23,7 @@ const {
   SELECT_LIST,
   ICONS,
   INPUT_LIST,
+  NUMBER,
 } = inputTypes
 
 const formatOption = ({ name, price }) => `${capitalize(name)}: + ${formatPrice(price)}`
@@ -174,7 +175,7 @@ export const editProductsAdapter = (product, userMenus, userBranches, categories
             value: basePrice,
             key: productsInterface.basePrice,
             sectionName: 'Preço',
-            fieldType: INPUT,
+            fieldType: NUMBER,
           },
         ],
       },

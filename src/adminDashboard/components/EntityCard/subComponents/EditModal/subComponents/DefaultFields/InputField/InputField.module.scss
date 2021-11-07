@@ -3,4 +3,8 @@
 .container {
   @extend .subSection;
   @include smallField();
+
+  &.disabled {
+    opacity: 35%;
+  } 
 }

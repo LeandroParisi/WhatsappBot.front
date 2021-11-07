@@ -172,7 +172,8 @@ export const editBranchesAdapter = (branch) => {
             sectionName: 'Métodos de pagamento',
             fieldType: ICONS,
             options: paymentMethodInterface,
-          }],
+          },
+        ],
       },
 
     ],

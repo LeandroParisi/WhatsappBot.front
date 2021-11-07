@@ -66,6 +66,12 @@ const customEndpoints = {
       method: METHODS.GET,
     },
   },
+  coupons: {
+    conditions: {
+      endpoint: '/conditions',
+      method: METHODS.GET,
+    },
+  },
 }
 
 const getRoute = (route, ep) => {

@@ -14,7 +14,7 @@ const CouponsContainer = () => {
     destroy,
     activate,
     deactivate,
-    // updatePromotion,
+    update,
     // deletePromotion,
     // activatePromotion,
     // deactivatePromotion,
@@ -56,9 +56,9 @@ const CouponsContainer = () => {
             activate={activate}
             deactivate={deactivate}
             deleteRequest={destroy}
+            editRequest={update}
 
             // createEntity={defaultCreateEntity}
-            // editRequest={updatePromotion}
             // createRequest={createPromotion}
 
           />

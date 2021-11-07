@@ -2,7 +2,7 @@ import { defaultValues } from 'shared/interfaces/promotions/promotionsInterface'
 import { MAIN_FIELD } from './config'
 import { entityAdapter, editEntityAdapter } from './serializers'
 
-export default ($store) => {
+export default ($store, $root) => {
   // const getProducts = () => $store.products
 
   const getFilters = () => $store.filters
@@ -11,7 +11,7 @@ export default ($store) => {
     .map((entity) => entityAdapter(entity))
 
   const getAdaptedEditEntities = () => $store[MAIN_FIELD]
-    .map((entity) => editEntityAdapter(entity, $store.userProducts, $store.userBranches))
+    .map((entity) => editEntityAdapter(entity, $root.userBranches, $store.conditions))
 
   const getDefaultEntity = () => editEntityAdapter(
     defaultValues,
