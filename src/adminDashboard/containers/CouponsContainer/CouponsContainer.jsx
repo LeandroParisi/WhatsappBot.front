@@ -15,17 +15,8 @@ const CouponsContainer = () => {
     activate,
     deactivate,
     update,
-    // deletePromotion,
-    // activatePromotion,
-    // deactivatePromotion,
-    // updateProduct,
-    // activateBranch,
-    // deactivateBranch,
-    // getAdaptedProducts,
-    // getAdaptedEditProducts,
-    // getDefaultEntity,
-    // createPromotion,
-    // deleteBranch,
+    getDefaultEntity,
+    create,
   } = useCoupons()
 
   const { getIsLoading } = useRoot()
@@ -36,7 +27,7 @@ const CouponsContainer = () => {
 
   const adaptedEditEntities = getAdaptedEditEntities()
 
-  // const defaultCreateEntity = getDefaultEntity()
+  const defaultCreateEntity = getDefaultEntity()
 
   return (
     <>
@@ -57,10 +48,8 @@ const CouponsContainer = () => {
             deactivate={deactivate}
             deleteRequest={destroy}
             editRequest={update}
-
-            // createEntity={defaultCreateEntity}
-            // createRequest={createPromotion}
-
+            createEntity={defaultCreateEntity}
+            createRequest={create}
           />
         )}
     </>

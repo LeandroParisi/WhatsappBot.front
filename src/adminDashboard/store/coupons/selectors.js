@@ -1,4 +1,4 @@
-import { defaultValues } from 'shared/interfaces/promotions/promotionsInterface'
+import { defaultValues } from 'shared/interfaces/coupons/couponsInterface'
 import { MAIN_FIELD } from './config'
 import { entityAdapter, editEntityAdapter } from './serializers'
 
@@ -15,8 +15,8 @@ export default ($store, $root) => {
 
   const getDefaultEntity = () => editEntityAdapter(
     defaultValues,
-    $store.userProducts,
-    $store.userBranches,
+    $root.userBranches,
+    $store.conditions,
   )
 
   return {

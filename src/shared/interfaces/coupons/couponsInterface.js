@@ -51,4 +51,20 @@ export const conditionsTranslations = {
   [conditionsInterface.uses_limit]: 'Usos',
 }
 
+export const defaultValues = {
+  [couponsInterface.id]: '',
+  [couponsInterface.coupomCode]: '',
+  [couponsInterface.coupomBranches]: [],
+  [couponsInterface.coupomConditions]: [{ id: 0, name: '' }],
+  [couponsInterface.discountType]: discountTypes.absolute_value,
+  [couponsInterface.discount]: '',
+  [couponsInterface.used]: '',
+  [couponsInterface.priceLimit]: '',
+  [couponsInterface.dateLimit]: '',
+  [couponsInterface.distanceLimit]: '',
+  [couponsInterface.usesLimit]: '',
+  [couponsInterface.isActive]: true,
+  [couponsInterface.image]: '',
+}
+
 export default couponsInterface

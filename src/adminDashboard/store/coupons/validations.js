@@ -30,7 +30,7 @@ export const errorsLib = {
 }
 
 export const editValidations = {
-  [couponsInterface.coupomCode]: (code) => !/[ ]/.test(code.trim()),
+  [couponsInterface.coupomCode]: (code) => !/[ ]/.test(code.trim()) && isNotEmpty(code),
   [couponsInterface.discount]: (value) => isNumber(value),
   [couponsInterface.priceLimit]: (value, { body, conditions }) => (
     validateConditionLimit(value, body, couponsInterface.priceLimit, conditions)),

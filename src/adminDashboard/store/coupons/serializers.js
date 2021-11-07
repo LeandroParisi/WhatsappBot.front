@@ -39,8 +39,6 @@ const {
   NUMBER,
 } = inputTypes
 
-// const formatOption = ({ name, price }) => `${capitalize(name)}: + ${formatPrice(price)}`
-
 export const entityAdapter = (coupom) => {
   const {
     id,
@@ -115,25 +113,12 @@ export const editEntityAdapter = (coupom, userBranches, conditions) => {
     coupomConditions,
     discountType,
     discount,
-    used,
     priceLimit,
     dateLimit,
     distanceLimit,
     usesLimit,
     isActive,
   } = coupom
-
-  console.log({ discountType })
-  console.log(
-    {
-      value: discountTypesInterface.find((dti) => dti.payloadValue === discountType),
-      key: couponsInterface.discountType,
-      sectionName: 'Tipo do desconto',
-      fieldType: SELECT,
-      options: discountTypesInterface,
-    },
-
-  )
 
   return {
     id,
