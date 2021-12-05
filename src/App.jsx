@@ -20,6 +20,7 @@ import {
 } from './adminDashboard/pages'
 import 'react-toastify/dist/ReactToastify.css'
 import 'assets/scss/reset.scss'
+import LandingPage from 'landingPage/pages/LandingPage'
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
         <RootProvider>
           <Switch>
             <Route exact path={routes.login} component={Login} />
-            <Route exact path="teste" component={Teste} />
+            <Route exact path={routes.landingPage} component={LandingPage} />
 
             <ProtectedRoute exact path={routes.dashboard} component={Dashboard} />
             <ProtectedRoute exact path={routes.menus} component={Menus} />
