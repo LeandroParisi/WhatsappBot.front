@@ -11,7 +11,6 @@ import { Team } from '../components/Team'
 import { Contact } from '../components/contact'
 import JsonData from '../data/data.json'
 import './LandingPage.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
