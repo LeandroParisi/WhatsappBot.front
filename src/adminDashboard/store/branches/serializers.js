@@ -11,6 +11,7 @@ import { brazilianCities } from 'shared/libs/brazilianCities'
 import branchInterface, { defaultValues } from 'shared/interfaces/branches/branchesInterface'
 import { mapDeliveryFees } from './utils'
 import { getOptions, getInitialSelect } from './helpers'
+import { normalizeDeliveryFees } from './payloadHooks'
 
 const {
   INPUT,
@@ -259,10 +260,7 @@ export const normalizeEditPayload = (branch) => {
 
   const normalizedBranch = {
     ...branch,
-    deliveryFees: {
-      fees,
-      type: id,
-    },
+    deliveryFees: normalizeDeliveryFees({ fees, type: id }),
     deliveryTypes: [...deliveryTypes],
     paymentMethods: [...paymentMethods],
     [branchInterface.countryId]: +countryName.id,

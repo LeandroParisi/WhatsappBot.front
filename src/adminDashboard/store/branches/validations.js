@@ -25,7 +25,7 @@ const validateDeliveryFees = async ({ fees, type: { id } }) => {
   }
 }
 
-// TODO
+// TODO: Validação das horas de abertura!!
 // const validateOpeningHours = async (openingHours) => {
 //   const openingHoursEntries = Object
 //     .entries(openingHours)
