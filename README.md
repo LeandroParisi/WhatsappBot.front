@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Description
+Monolity repo with both admin dashboard and client app for managing restaurante orders
+
 ## Setup
 
 1) Clone this repository
