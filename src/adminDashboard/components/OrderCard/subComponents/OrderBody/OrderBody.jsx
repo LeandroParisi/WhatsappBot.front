@@ -8,8 +8,8 @@ import assemblePhoneNumber from 'shared/utils/assemblePhoneNumber'
 import Icon from 'assets/icons/Icon'
 import PropTypes from 'prop-types'
 import { deliveryTranslation } from 'shared/interfaces/deliveryTypes/deliveryTypes'
-import styles from './OrderBody.module.scss'
 import assembleAddress from 'shared/utils/assembleAddress'
+import styles from './OrderBody.module.scss'
 import ProductSection from './ProductSection/ProductSection'
 import PriceTag from '../../../MainComponents/PriceTag/PriceTag'
 
@@ -19,7 +19,7 @@ const OrderBody = ({
   isOpened,
 }) => {
   const {
-    deliveryType, customer, deliveryFee, ordersProducts,
+    deliveryType, orderAddress, deliveryFee, ordersProducts, customer,
   } = order
 
   const renderAddress = () => {
@@ -27,7 +27,7 @@ const OrderBody = ({
       return (
         <p>
           <strong>Entrega: </strong>
-          {assembleAddress(customer)}
+          {assembleAddress(orderAddress)}
         </p>
       )
     }
@@ -83,6 +83,7 @@ OrderBody.propTypes = {
     customer: PropTypes.shape({}).isRequired,
     deliveryFee: PropTypes.string.isRequired,
     ordersProducts: PropTypes.arrayOf(PropTypes.any).isRequired,
+    orderAddress: PropTypes.shape({}).isRequired,
   }).isRequired,
   isOpened: PropTypes.bool.isRequired,
 }
