@@ -9,8 +9,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2) npm install
 
 3) Create .env file on project root with the following variables:
-REACT_APP_ENV=dev
-REACT_APP_LOCAL_URL=http://localhost:3030
+**REACT_APP_ENV=dev
+**REACT_APP_LOCAL_URL=http://localhost:3030
 
 4) npm start
 
