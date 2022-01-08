@@ -8,9 +8,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 2) npm install
 
-3) creates env var (request your team leader or check Google drive document sent during onBoarding)
+3) Create .env file on project root with the following variables:
+REACT_APP_ENV=dev
+REACT_APP_LOCAL_URL=http://localhost:3030
 
-3) npm start
+4) npm start
+
+Attention!
+There may be some bugs since it's a project beeing developed
 
 # IMPORTANT:
 

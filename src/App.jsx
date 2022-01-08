@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify'
 import routes from 'shared/libs/routes/routes'
 import ProtectedRoute from 'shared/templates/ProtectedRoute'
 import { RootProvider } from 'adminDashboard/store'
+import Teste from 'landingPage/Teste'
 import {
   Login,
   Dashboard,
@@ -28,6 +29,8 @@ function App() {
         <RootProvider>
           <Switch>
             <Route exact path={routes.login} component={Login} />
+            <Route exact path="teste" component={Teste} />
+
             <ProtectedRoute exact path={routes.dashboard} component={Dashboard} />
             <ProtectedRoute exact path={routes.menus} component={Menus} />
             <ProtectedRoute exact path={routes.products} component={Products} />
