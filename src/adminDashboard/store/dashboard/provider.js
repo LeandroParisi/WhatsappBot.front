@@ -1,11 +1,11 @@
 import api from 'shared/services/api'
 import getRoute from 'shared/services/config'
 
-const fetchBranchOrders = (query) => async () => {
-  const { url, method } = getRoute('orders', 'findAll')
+const fetchBranchOrders = (branchId, query) => async () => {
+  const { url, method } = getRoute('orders', 'byBranch')
 
   const response = await api({
-    url: `${url}${query}`,
+    url: `${url}/${branchId}${query}`,
     method,
   })
   return response

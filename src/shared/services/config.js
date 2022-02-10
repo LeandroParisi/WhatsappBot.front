@@ -72,6 +72,13 @@ const customEndpoints = {
       method: METHODS.GET,
     },
   },
+
+  orders: {
+    byBranch: {
+      endpoint: '/byBranch',
+      method: METHODS.GET,
+    },
+  },
 }
 
 const getRoute = (route, ep) => {

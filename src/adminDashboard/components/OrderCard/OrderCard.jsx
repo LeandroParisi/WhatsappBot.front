@@ -11,7 +11,7 @@ const OrderCard = ({
   updateOrder,
 }) => {
   const [isOpened, setIsOpened] = useState(false)
-  const { id } = order
+  const { id, status } = order
 
   const openCard = () => {
     setIsOpened(!isOpened)
@@ -19,10 +19,10 @@ const OrderCard = ({
 
   const changeOrderStatus = async (type) => {
     if (type === 'back') {
-      await updateOrder(id, column, type)
+      await updateOrder(id, status, type)
       return
     }
-    await updateOrder(id, column)
+    await updateOrder(id, status)
   }
 
   return (

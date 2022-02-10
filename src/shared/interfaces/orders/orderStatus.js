@@ -1,10 +1,14 @@
-const orderStatus = [
-  'placed',
-  // 'toDo',
-  'inProduction',
-  // 'readyToDeliver',
-  'dispatched',
-  // 'fullfilled',
+const orderStatusEnum = {
+  PLACED: 1,
+  IN_PRODUCTION: 2,
+  DISPATCHED: 3,
+  FULLFILLED: 4,
+}
+
+const dashboardOrderStatus = [
+  orderStatusEnum.PLACED,
+  orderStatusEnum.IN_PRODUCTION,
+  orderStatusEnum.DISPATCHED,
 ]
 
-export default orderStatus
+export default dashboardOrderStatus

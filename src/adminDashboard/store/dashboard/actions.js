@@ -9,9 +9,11 @@ export default (store, setStore, useRoot) => {
 
   const setField = setState(setStore)
 
-  const fetchBranchOrders = async (queryObject) => {
+  const fetchBranchOrders = async (branchId, queryObject) => {
     const query = assembleQuery(queryObject)
-    const { response } = await errorHandler(providers.fetchBranchOrders(query), { loader: false })
+    const { response } = await errorHandler(
+      providers.fetchBranchOrders(branchId, query), { loader: false },
+    )
 
     if (response) {
       delete response.fullfilled
@@ -26,9 +28,13 @@ export default (store, setStore, useRoot) => {
     const { response } = await errorHandler(providers.updateOrder(payload), { loader: false })
 
     if (response) {
-      await fetchBranchOrders({
-        branchId: store.selectedBranch.id, status: '!fullfilled',
-      })
+      await fetchBranchOrders(
+        store.selectedBranch.id,
+        {
+          status: '1,2,3',
+          groupedByStatus: '1',
+        },
+      )
     }
   }
 

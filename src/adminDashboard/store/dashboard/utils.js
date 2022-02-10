@@ -1,15 +1,12 @@
 /* eslint-disable import/prefer-default-export */
 
-import orderStatus from 'shared/interfaces/orders/orderStatus'
-import toSnakeCase from 'shared/services/utils/toSnakeCase'
-
 export const extractNextStatus = (currentStep, type) => {
-  let nextStatus = ''
+  let nextStatus = 0
   if (type === 'back') {
-    nextStatus = orderStatus[currentStep - 1] || 'placed'
+    nextStatus = currentStep - 1
   } else {
-    nextStatus = orderStatus[currentStep + 1] || 'fullfilled'
+    nextStatus = currentStep + 1
   }
 
-  return toSnakeCase(nextStatus)
+  return nextStatus
 }

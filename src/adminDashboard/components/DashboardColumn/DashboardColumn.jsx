@@ -6,26 +6,28 @@ import OrderCard from '../OrderCard/OrderCard'
 import stepNames from './libs'
 import styles from './DashboardColumn.module.scss'
 
-const DashboardColumn = ({ orders, step, updateOrder }) => {
-  const nothing = 0
-
-  return (
-    <div className={styles.column}>
-      <header className={classNames(styles.columnHeader, styles[orderStatus[step]])}>
-        <h2 className={styles.columnTitle}>
-          {stepNames[step]}
-        </h2>
-        <span className={styles.ordersCount}>
-          {orders.length}
-        </span>
-      </header>
-
-      {orders.map((order) => (
-        <OrderCard order={order} column={step} updateOrder={updateOrder} />
-      ))}
-    </div>
-  )
+const orderStyles = {
+  1: 'placed',
+  2: 'inProduction',
+  3: 'dispatched',
 }
+
+const DashboardColumn = ({ orders, step, updateOrder }) => (
+  <div className={styles.column}>
+    <header className={classNames(styles.columnHeader, styles[orderStyles[orderStatus[step]]])}>
+      <h2 className={styles.columnTitle}>
+        {stepNames[step]}
+      </h2>
+      <span className={styles.ordersCount}>
+        {orders.length}
+      </span>
+    </header>
+
+    {orders.map((order) => (
+      <OrderCard order={order} column={step} updateOrder={updateOrder} />
+    ))}
+  </div>
+)
 
 DashboardColumn.propTypes = {
   orders: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
