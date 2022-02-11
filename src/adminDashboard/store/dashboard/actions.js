@@ -1,5 +1,6 @@
 import { setState } from 'adminDashboard/store/sharedMethods/actions'
 import assembleQuery from 'shared/services/helpers/assembleQuery'
+import { orderStatusEnum } from 'shared/interfaces/orders/orderStatus'
 import { extractNextStatus } from './utils'
 import * as sharedProviders from '../sharedMethods/providers'
 import * as providers from './provider'
@@ -16,7 +17,7 @@ export default (store, setStore, useRoot) => {
     )
 
     if (response) {
-      delete response.fullfilled
+      delete response[orderStatusEnum.FULLFILLED]
       setField('orders', response)
     }
   }
@@ -26,6 +27,8 @@ export default (store, setStore, useRoot) => {
 
     const payload = { body: { status: nextStatus }, id }
     const { response } = await errorHandler(providers.updateOrder(payload), { loader: false })
+
+    console.log({ response })
 
     if (response) {
       await fetchBranchOrders(

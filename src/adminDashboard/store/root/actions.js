@@ -15,10 +15,11 @@ export default (setRoot) => {
 
   const errorHandler = async (fetcher, options = {}) => {
     const { loader } = { ...errorHandlerDefaultOptions, ...options }
-    console.log({ loader })
+
     if (loader) setField('isLoading', true)
     const treatedResponse = responseHandler(fetcher)
     const response = await treatedResponse()
+
     if (loader) setField('isLoading', false)
 
     if (response.status >= 200 && response.status <= 299) {
