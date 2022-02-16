@@ -16,7 +16,7 @@ export const Navigation = (props) => {
             <span className='icon-bar'></span>{' '}
           </button>
           <a className='navbar-brand page-scroll' href='#page-top'>
-            TÁ ON
+            Tá ON
           </a>{' '}
         </div>
 
@@ -26,18 +26,18 @@ export const Navigation = (props) => {
         >
           <ul className='nav navbar-nav navbar-right'>
           <li>
-            <a href='#features' className='page-scroll'>
+            <a href='#feature' className='page-scroll'>
               Como Funciona
             </a>
           </li>
           <li>
               <a href='#about' className='page-scroll'>
-                Sobre
+                Vantagens
               </a>
             </li>
             <li>
               <a href='#services' className='page-scroll'>
-                Serviços
+                Planos
               </a>
             </li>
             <li>
@@ -50,11 +50,11 @@ export const Navigation = (props) => {
                 Testemunhos
               </a>
             </li> */}
-            <li>
+            {/* <li>
               <a href='#team' className='page-scroll'>
                 Time
               </a>
-            </li>
+            </li> */}
             <li>
               <a href='#contact' className='page-scroll'>
                 Contato

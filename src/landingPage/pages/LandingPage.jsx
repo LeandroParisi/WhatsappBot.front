@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import SmoothScroll from 'smooth-scroll'
 import { Navigation } from '../components/navigation'
 import { Header } from '../components/header'
@@ -6,8 +6,8 @@ import { Features } from '../components/features'
 import { About } from '../components/about'
 import { Services } from '../components/services'
 import { Gallery } from '../components/gallery'
-import { Testimonials } from '../components/testimonials'
-import { Team } from '../components/Team'
+// import { Testimonials } from "../components/testimonials";
+// import { Team } from "../components/Team";
 import { Contact } from '../components/contact'
 import JsonData from '../data/data.json'
 import './LandingPage.css'
@@ -17,7 +17,7 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
   speedAsDuration: true,
 })
 
-const LandingPage = () => {
+const App = () => {
   const [landingPageData, setLandingPageData] = useState({})
   useEffect(() => {
     setLandingPageData(JsonData)
@@ -33,10 +33,10 @@ const LandingPage = () => {
       <Services data={landingPageData.Services} />
       <Gallery />
       {/* <Testimonials data={landingPageData.Testimonials} /> */}
-      <Team data={landingPageData.Team} />
+      {/* <Team data={landingPageData.Team} /> */}
       <Contact data={landingPageData.Contact} />
     </div>
   )
 }
 
-export default LandingPage
+export default App

@@ -58,8 +58,6 @@ ol {
 ul,
 ol {
   padding: 0;
-  webkit-padding: 0;
-  moz-padding: 0;
 }
 hr {
   height: 2px;
@@ -145,8 +143,8 @@ hr {
 }
 .section-title h2 {
   position: relative;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin-top: 40px;
+  margin-bottom: 0px;
   padding-bottom: 15px;
 }
 .section-title h2::after {
@@ -208,7 +206,7 @@ a:focus,
   display: table;
   width: 100%;
   padding: 0;
-  background: url(../img/fundo-verde-com-quadrado.jpg) center center no-repeat;
+  background: url(../img/mulher-segurando-smartphone-com-conversa-no-whatsa.jpeg) center center no-repeat;
   background-color: #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -240,7 +238,7 @@ a:focus,
   margin-bottom: 60px;
 }
 header .intro-text {
-  padding-top: 350px;
+  padding-top: 250px;
   padding-bottom: 200px;
   text-align: center;
 }
@@ -308,16 +306,89 @@ header .intro-text {
   margin: 30px 0;
 }
 /* Services Section */
+#pricing {
+  padding: 0px 0 60px 0;
+  overflow: hidden;
+}
+
+#pricing .box {
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15);
+  background: #fff;
+  text-align: center;
+}
+
+#pricing h3 {
+  font-weight: 400;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+#pricing h4 {
+  font-size: 46px;
+  color: #1dc8cd;
+  font-weight: 300;
+}
+
+#pricing h4 sup {
+  font-size: 20px;
+  top: -20px;
+}
+
+#pricing h4 span {
+  color: #bababa;
+  font-size: 20px;
+}
+
+#pricing ul {
+  padding: 0;
+  list-style: none;
+  color: #999;
+  text-align: left;
+  line-height: 20px;
+}
+
+#pricing ul li {
+  padding-bottom: 12px;
+}
+
+#pricing ul i {
+  color: #1dc8cd;
+  font-size: 18px;
+  padding-right: 4px;
+}
+
+#pricing .get-started-btn {
+  background: #515e61;
+  display: inline-block;
+  padding: 6px 30px;
+  border-radius: 20px;
+  color: #fff;
+  transition: none;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+#pricing .featured {
+  border: 2px solid #1dc8cd;
+}
+
+#pricing .featured .get-started-btn {
+  background: linear-gradient(45deg, #1de099, #1dc8cd);
+}
+
 #services {
   padding: 100px 0;
   background: linear-gradient(to right, #23e98d 0%, #18d140 100%);
-  color: #fff;
+  color: rgb(106, 212, 97);
 }
 #services .service-desc {
   margin: 10px 10px 20px;
 }
 #services h2 {
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 #services .section-title h2::after {
   position: absolute;
@@ -342,7 +413,7 @@ header .intro-text {
 #services h3 {
   font-weight: 500;
   padding: 5px 0;
-  color: #fff;
+  color: #1aac3a;
 }
 #services p {
   color: rgba(255, 255, 255, 0.75);
@@ -392,7 +463,6 @@ header .intro-text {
 }
 .hover-bg:hover .hover-text > h4 {
   opacity: 1;
-  -webkit-backface-visibility: hidden;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
