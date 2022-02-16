@@ -1,53 +1,34 @@
 {
   "Header": {
-    "title": "TÁ ON",
-    "paragraph": "Automatize seu whatsapp como nosso robô personalizado"
+    "title": "Tá ON",
+    "paragraph": "Atenda seu cliente de maneira rápida e eficiente com nossa automação."
   },
   "About": {
-    "paragraph": "Uma plataforma de gerenciamento e automatização para whatsapp. Com relatório de pedidos, gerenciamento de estoque, etc.",
+    "paragraph": "Já pensou para quantos clientes o seu negócio deixa de vender por falta de um atendimento ágil? E o quanto isso pode impactar no seu faturamento? Deixe que o Tá ON pode te ajudar!",
     "Why": [
-      "Eficiência",
-      "Modernidade",
-      "Tecnologia",
-      "Automatização"
+      "Nosso robô pode te ajudar a acelerar o processo do seu atendimento. Assim, atendendo mais clientes em menos tempo e trazendo mais rapidez para sua operação.",
+      "Atrelado a um dashboard inteligente."
     ],
     "Why2": [
-      "Bom atendimento",
-      "Relatórios mensais",
-      "Gereciamento",
-      "Qualidade"
+      "Informações de qual é a sua taxa de conversão, quantas pessoas visitaram seu cardápio digital e quantos compraram!",
+      "Além disso você tem acesso aos contatos dos seus clientes."
     ]
   },
   "Services": [
     {
       "icon": "fa fa-wordpress",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "name": "Whatsapp bot",
+      "text": "Criação de um robô para comunicação automática pelo whatsapp."
     },
     {
       "icon": "fa fa-cart-arrow-down",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "name": "Criação de Web Site",
+      "text": "Criação de sites para sua empresa."
     },
     {
       "icon": "fa fa-cloud-download",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-    },
-    {
-      "icon": "fa fa-language",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-    },
-    {
-      "icon": "fa fa-plane",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-    },
-    {
-      "icon": "fa fa-pie-chart",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "name": "Cardápio Online",
+      "text": "Criação de cardápio virtual para integração com whatsapp bot.  "
     }
   ],
   "Testimonials": [
@@ -115,23 +96,23 @@
   "Features": [
     {
       "icon": "fa fa-comments-o",
-      "title": "Entre em contato",
-      "text": "Se tem interesse em automatizar seu whatsapp entre em contato"
+      "title": "Cliente entra em contato...",
+      "text": "Será atendido em poucos segundos pelo nosso robô, onde será redirecionado para o cardápio digital."
     },
     {
       "icon": "fa fa-bullhorn",
-      "title": "Aponte suas necessidades",
-      "text": "Mostre tudo que procura e te auxiliamos na melhor forma"
+      "title": "Cardápio digital",
+      "text": "Verá todas suas opções de lanches, pagamentos, promoções e cupons."
     },
     {
       "icon": "fa fa-group",
-      "title": "Configure as ferramentas",
-      "text": "Faça configuração das ferramentas no seu whatsapp"
+      "title": "Cadastro Facilitado",
+      "text": "Com poucas informações o cliente consegue finalizar o seu pedido de maneira rápida e simples."
     },
     {
       "icon": "fa fa-magic",
-      "title": "TÁ ON funcionando",
-      "text": "Tenha nosso robô funcionando e respondendo seus clientes de forma automática"
+      "title": "Confirmação do pedido",
+      "text": "Será enviado para o cliente uma confirmação do seu pedido via whatsapp e também incluirá no seu sistema o pedido em formato de comanda."
     }
   ]
 }

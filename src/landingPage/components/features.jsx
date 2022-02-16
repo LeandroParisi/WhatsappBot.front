@@ -1,9 +1,9 @@
 export const Features = (props) => {
   return (
-    <div id='features' className='text-center'>
+    <div  id='features' className='text-center'>
       <div className='container'>
         <div className='col-md-10 col-md-offset-1 section-title'>
-          <h2>Como funciona</h2>
+          <h2 id='feature'>Como funciona</h2>
         </div>
         <div className='row'>
           {props.data

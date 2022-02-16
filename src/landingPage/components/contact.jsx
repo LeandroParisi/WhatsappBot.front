@@ -20,7 +20,7 @@ export const Contact = (props) => {
     console.log(name, email, message)
     emailjs
       .sendForm(
-        'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID',
+        'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID'
       )
       .then(
         (result) => {
@@ -29,123 +29,115 @@ export const Contact = (props) => {
         },
         (error) => {
           console.log(error.text)
-        },
+        }
       )
   }
   return (
     <div>
-      <div id="contact">
-        <div className="container">
-          <div className="col-md-8">
-            <div className="row">
-              <div className="section-title">
+      <div id='contact'>
+        <div className='container'>
+          <div className='col-md-8'>
+            <div className='row'>
+              <div className='section-title'>
                 <h2>Entre em contato</h2>
                 <p>
                   Escreva aqui sua mensagem que entraremos em contato em breve
                 </p>
               </div>
-              <form name="sentMessage" validate onSubmit={handleSubmit}>
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="form-group">
+              <form name='sentMessage' validate onSubmit={handleSubmit}>
+                <div className='row'>
+                  <div className='col-md-6'>
+                    <div className='form-group'>
                       <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="form-control"
-                        placeholder="Nome"
+                        type='text'
+                        id='name'
+                        name='name'
+                        className='form-control'
+                        placeholder='Nome'
                         required
                         onChange={handleChange}
                       />
-                      <p className="help-block text-danger" />
+                      <p className='help-block text-danger'></p>
                     </div>
                   </div>
-                  <div className="col-md-6">
-                    <div className="form-group">
+                  <div className='col-md-6'>
+                    <div className='form-group'>
                       <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="form-control"
-                        placeholder="E-mail"
+                        type='email'
+                        id='email'
+                        name='email'
+                        className='form-control'
+                        placeholder='E-mail'
                         required
                         onChange={handleChange}
                       />
-                      <p className="help-block text-danger" />
+                      <p className='help-block text-danger'></p>
                     </div>
                   </div>
                 </div>
-                <div className="form-group">
+                <div className='form-group'>
                   <textarea
-                    name="message"
-                    id="message"
-                    className="form-control"
-                    rows="4"
-                    placeholder="Mensagem"
+                    name='message'
+                    id='message'
+                    className='form-control'
+                    rows='4'
+                    placeholder='Mensagem'
                     required
                     onChange={handleChange}
-                  />
-                  <p className="help-block text-danger" />
+                  ></textarea>
+                  <p className='help-block text-danger'></p>
                 </div>
-                <div id="success" />
-                <button type="submit" className="btn btn-custom btn-lg">
+                <div id='success'></div>
+                <button type='submit' className='btn btn-custom btn-lg'>
                   Enviar mensagem
                 </button>
               </form>
             </div>
           </div>
-          <div className="col-md-3 col-md-offset-1 contact-info">
-            <div className="contact-item">
+          <div className='col-md-3 col-md-offset-1 contact-info'>
+            <div className='contact-item'>
               <h3>Contato</h3>
               <p>
                 <span>
-                  <i className="fa fa-map-marker" />
-                  {' '}
-                  Endereço
+                  <i className='fa fa-map-marker'></i> Endereço
                 </span>
                 {props.data ? props.data.address : 'loading'}
               </p>
             </div>
-            <div className="contact-item">
+            <div className='contact-item'>
               <p>
                 <span>
-                  <i className="fa fa-phone" />
-                  {' '}
-                  Telefone
-                </span>
-                {' '}
+                  <i className='fa fa-phone'></i> Telefone
+                </span>{' '}
                 {props.data ? props.data.phone : 'loading'}
               </p>
             </div>
-            <div className="contact-item">
+            <div className='contact-item'>
               <p>
                 <span>
-                  <i className="fa fa-envelope-o" />
-                  {' '}
-                  E-mail
-                </span>
-                {' '}
+                  <i className='fa fa-envelope-o'></i> E-mail
+                </span>{' '}
                 {props.data ? props.data.email : 'loading'}
               </p>
             </div>
           </div>
-          <div className="col-md-12">
-            <div className="row">
-              <div className="social">
+          <div className='col-md-12'>
+            <div className='row'>
+              <div className='social'>
                 <ul>
                   <li>
                     <a href={props.data ? props.data.facebook : '/'}>
-                      <i className="fa fa-facebook" />
+                      <i className='fa fa-facebook'></i>
                     </a>
                   </li>
                   <li>
                     <a href={props.data ? props.data.twitter : '/'}>
-                      <i className="fa fa-twitter" />
+                      <i className='fa fa-twitter'></i>
                     </a>
                   </li>
                   <li>
                     <a href={props.data ? props.data.youtube : '/'}>
-                      <i className="fa fa-youtube" />
+                      <i className='fa fa-youtube'></i>
                     </a>
                   </li>
                 </ul>
@@ -154,10 +146,10 @@ export const Contact = (props) => {
           </div>
         </div>
       </div>
-      <div id="footer">
-        <div className="container text-center">
+      <div id='footer'>
+        <div className='container text-center'>
           <p>
-            &copy; 2021 TÁ ON
+          &copy; 2022 Tá ON
             {/* &copy; 2020 Issaaf Kattan React Land Page Template. Design by{' '}
             <a href='http://www.templatewire.com' rel='nofollow'>
               TemplateWire
