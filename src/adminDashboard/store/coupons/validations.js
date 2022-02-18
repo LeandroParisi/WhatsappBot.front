@@ -23,7 +23,7 @@ export const errorsLib = {
   [couponsInterface.coupomCode]: 'O código não pode conter espaços',
   [couponsInterface.discount]: 'Deve conter somente números e pontos',
   [couponsInterface.priceLimit]: 'Deve conter somente números e pontos',
-  [couponsInterface.distanceLimit]: 'Deve conter somente números e pontos',
+  [couponsInterface.distanceLimitInKm]: 'Deve conter somente números e pontos',
   [couponsInterface.usesLimit]: 'Deve conter somente números e pontos',
   [couponsInterface.dateLimit]: 'Deve ser uma data válida',
 
@@ -34,8 +34,8 @@ export const editValidations = {
   [couponsInterface.discount]: (value) => isNumber(value),
   [couponsInterface.priceLimit]: (value, { body, conditions }) => (
     validateConditionLimit(value, body, couponsInterface.priceLimit, conditions)),
-  [couponsInterface.distanceLimit]: (value, { body, conditions }) => (
-    validateConditionLimit(value, body, couponsInterface.distanceLimit, conditions)),
+  [couponsInterface.distanceLimitInKm]: (value, { body, conditions }) => (
+    validateConditionLimit(value, body, couponsInterface.distanceLimitInKm, conditions)),
   [couponsInterface.usesLimit]: (value, { body, conditions }) => (
     validateConditionLimit(value, body, couponsInterface.usesLimit, conditions)),
   [couponsInterface.dateLimit]: (value, { body, conditions }) => (

@@ -50,7 +50,7 @@ export const entityAdapter = (coupom) => {
     used,
     priceLimit,
     dateLimit,
-    distanceLimit,
+    distanceLimitInKm,
     usesLimit,
     isActive,
   } = coupom
@@ -58,7 +58,7 @@ export const entityAdapter = (coupom) => {
   const conditionsLimits = {
     [conditionsInterface.price_limit]: priceLimit,
     [conditionsInterface.date_limit]: dateLimit,
-    [conditionsInterface.distance_limit]: distanceLimit,
+    [conditionsInterface.distanceLimitInKm]: distanceLimitInKm,
     [conditionsInterface.uses_limit]: usesLimit,
   }
 
@@ -115,7 +115,7 @@ export const editEntityAdapter = (coupom, userBranches, conditions) => {
     discount,
     priceLimit,
     dateLimit,
-    distanceLimit,
+    distanceLimitInKm,
     usesLimit,
     isActive,
   } = coupom
@@ -183,8 +183,8 @@ export const editEntityAdapter = (coupom, userBranches, conditions) => {
               (store) => !checkConditionExists(conditions, conditionsInterface.date_limit)(store),
           },
           {
-            value: distanceLimit,
-            key: couponsInterface.distanceLimit,
+            value: distanceLimitInKm,
+            key: couponsInterface.distanceLimitInKm,
             sectionName: 'Distância (KM)',
             fieldType: NUMBER,
             isDisabled:
