@@ -6,7 +6,13 @@ const assemblePhoneNumber = ({ whatsappNumber }, code = false) => {
     ? /^(\d{2})(\d{2})(\d{5})(\d{4})$/
     : /^(\d{2})(\d{2})(\d{4})(\d{4})$/
 
-  const [_, countryCode, stateCode, phonePrefix, phoneSufix] = whatsappNumber.match(regex)
+  const separatedNumber = whatsappNumber.match(regex)
+
+  if (!separatedNumber) {
+    return whatsappNumber
+  }
+
+  const [_, countryCode, stateCode, phonePrefix, phoneSufix] = separatedNumber
   const formatedPhone = `(${stateCode}) ${phonePrefix}-${phoneSufix}`
   if (code) {
     return `+${countryCode} ${formatedPhone}`
