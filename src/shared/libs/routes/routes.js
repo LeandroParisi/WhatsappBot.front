@@ -8,7 +8,7 @@ const routes = {
   branches: '/app/branches',
   account: '/app/account',
   settings: '/app/settings',
-  landingPage: '/'
+  landingPage: '/',
 }
 
 export default routes
