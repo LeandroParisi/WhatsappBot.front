@@ -81,6 +81,7 @@ const customEndpoints = {
   },
 }
 
+
 const getRoute = (route, ep) => {
   const { endpoint, method } = defaultEndpointsEnum.has(ep)
     ? defaultEndpoints[ep]
