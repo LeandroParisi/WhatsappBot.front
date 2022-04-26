@@ -9,6 +9,7 @@ import ReactLoader from 'assets/Loaders/ReactLoader/ReactLoader'
 import classNames from 'classnames'
 import { setState } from 'adminDashboard/store/sharedMethods/actions'
 import Button from 'adminDashboard/components/MainComponents/Button/Button'
+import ImageUpload from 'adminDashboard/components/MainComponents/ImageUpload/ImageUpload'
 import CustomField from './subComponents/CustomField/CustomField'
 import styles from './EditModal.module.scss'
 import extractInitialValues from './helpers'
@@ -40,16 +41,20 @@ const EditModal = ({ entity, type, editRequest }) => {
     setIsLoading(false)
   }
 
+  console.log({ formValues })
   const headerFactory = ({ value, key, fieldType }) => {
     if (fieldType === inputTypes.IMAGE) {
+      const isPhoto = !!value
+
       return (
-        <div className={classNames(styles.avatarContainer, styles[type])}>
-          <img
-            src={value || defaultImages[type]}
-            alt={key}
-            className={styles.avatar}
-          />
-        </div>
+        <ImageUpload
+          imageClassName={styles.avatar}
+          initialFile={value || defaultImages[type]}
+          containerClassName={
+            classNames(styles.avatarContainer, styles[type], { [styles.isPhoto]: isPhoto })
+          }
+          updateState={(image) => updateState(key, image)}
+        />
       )
     }
     if (fieldType === inputTypes.INPUT) {

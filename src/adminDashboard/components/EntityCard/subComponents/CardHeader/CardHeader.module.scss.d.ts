@@ -3,6 +3,7 @@ export const avatarContainer: string;
 export const branches: string;
 export const coupons: string;
 export const entityHeader: string;
+export const isPhoto: string;
 export const menus: string;
 export const products: string;
 export const promotions: string;

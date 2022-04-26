@@ -13,17 +13,19 @@
   }
 
   &.menus, &.products, &.promotions, &.coupons {
-    width: 150px;
-    height: 150px;
+    padding: 30px;
 
     .avatar {
       width: 110px;
     }
   }
 
-
   .avatar {
     width: 200px;
+    
+    &.isPhoto {
+      border-radius: 50%;
+    }
   }
 }
 

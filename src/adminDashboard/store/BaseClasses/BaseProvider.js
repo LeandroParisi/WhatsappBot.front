@@ -22,10 +22,26 @@ class BaseProvider {
     return async () => {
       const { url, method } = getRoute(this.baseRoute, 'updateOne')
 
+      // const formData = new FormData()
+
+      // Object.entries(body).forEach(([key, value]) => {
+      //   if (key !== 'image') {
+      //     formData.append(key, value)
+      //   }
+      // })
+
+      // if (body.image) {
+      //   formData.append('file', body.image)
+      // }
+
       const response = await api({
         url: `${url}/${id}`,
         method,
         body,
+        // body: formData,
+        // headers: {
+        //   'Content-Type': 'multipart/form-data; boundary=------WebKitFormBoundaryg7okV37G7Gfll2hf--',
+        // },
       })
 
       return response
