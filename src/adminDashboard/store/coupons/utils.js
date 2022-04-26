@@ -15,7 +15,7 @@ const parseConditionByType = (type, value) => {
       return formatPrice(value, true)
     case conditionsInterface.date_limit:
       return formatDate(value)
-    case conditionsInterface.distance_limit:
+    case conditionsInterface.distance_limit_in_km:
       return `${value} KM`
     case conditionsInterface.uses_limit:
       return value

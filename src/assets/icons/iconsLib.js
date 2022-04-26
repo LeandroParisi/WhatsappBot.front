@@ -120,7 +120,7 @@ export const attributeIcons = {
 
 export const conditionIcons = {
   [conditionsInterface.date_limit]: faCalendarMinus,
-  [conditionsInterface.distance_limit]: faTachometerAlt,
+  [conditionsInterface.distance_limit_in_km]: faTachometerAlt,
   [conditionsInterface.price_limit]: faMoneyBill,
   [conditionsInterface.uses_limit]: faStopwatch20,
 }

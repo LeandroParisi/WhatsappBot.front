@@ -3,7 +3,6 @@ import { toast } from 'react-toastify'
 const responseHandler = (fetcher) => async (options) => {
   try {
     const response = await fetcher(options)
-    console.log({ response })
     if (response?.data?.message) {
       toast.success(response.data.message)
     }

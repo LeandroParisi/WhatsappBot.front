@@ -12,6 +12,7 @@ const couponsInterface = {
   usesLimit: 'usesLimit',
   isActive: 'isActive',
   image: 'image',
+  freeDelivery: 'freeDelivery',
 }
 
 export const discountTypes = {
@@ -40,14 +41,14 @@ export const discountTypesInterface = [
 export const conditionsInterface = {
   price_limit: 'price_limit',
   date_limit: 'date_limit',
-  distance_limit: 'distance_limit',
+  distance_limit_in_km: 'distance_limit_in_km',
   uses_limit: 'uses_limit',
 }
 
 export const conditionsTranslations = {
   [conditionsInterface.price_limit]: 'Preço',
   [conditionsInterface.date_limit]: 'Data',
-  [conditionsInterface.distance_limit]: 'Distância',
+  [conditionsInterface.distance_limit_in_km]: 'Distância',
   [conditionsInterface.uses_limit]: 'Usos',
 }
 

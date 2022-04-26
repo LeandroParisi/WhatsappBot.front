@@ -19,8 +19,6 @@ export default (store, setStore, useRoot) => {
   const findAll = async (query = '') => {
     const { response } = await errorHandler(Provider.findAll(query))
 
-    console.log({ response })
-
     if (response) {
       setField(MAIN_FIELD, response)
     }
@@ -40,7 +38,6 @@ export default (store, setStore, useRoot) => {
     const normalizedBody = normalizeEditPayload(body)
 
     const { response } = await errorHandler(Provider.update({ id, body: normalizedBody }))
-    console.log({ response })
 
     if (response) {
       await findAll()
@@ -50,7 +47,6 @@ export default (store, setStore, useRoot) => {
   }
 
   const create = async ({ body }) => {
-    console.log({ body })
     const { hasErrors, errors } = await validationFactory(
       body, createValidations, errorsLib, { conditions: store.conditions },
     )
@@ -63,7 +59,6 @@ export default (store, setStore, useRoot) => {
     const normalizedBody = normalizeEditPayload(body)
 
     const { response } = await errorHandler(Provider.create(normalizedBody))
-    console.log({ response })
 
     if (response) {
       await findAll()
@@ -74,7 +69,6 @@ export default (store, setStore, useRoot) => {
 
   const destroy = async (id) => {
     const { response } = await errorHandler(Provider.delete(id))
-    console.log({ response })
 
     if (response) {
       await findAll()
@@ -83,7 +77,6 @@ export default (store, setStore, useRoot) => {
 
   const activate = async (id) => {
     const { response } = await errorHandler(Provider.activate(id))
-    console.log({ response })
 
     if (response) {
       const updatedEntities = store[MAIN_FIELD].map((entity) => {
@@ -102,7 +95,6 @@ export default (store, setStore, useRoot) => {
 
   const deactivate = async (id) => {
     const { response } = await errorHandler(Provider.deactivate(id))
-    console.log({ response })
 
     if (response) {
       const updatedEntities = store[MAIN_FIELD].map((entity) => {
@@ -121,7 +113,6 @@ export default (store, setStore, useRoot) => {
 
   const getConditions = async () => {
     const { response } = await errorHandler(Provider.getConditions())
-    console.log({ response })
 
     if (response) {
       setField('conditions', response)

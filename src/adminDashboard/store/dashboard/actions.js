@@ -28,8 +28,6 @@ export default (store, setStore, useRoot) => {
     const payload = { body: { status: nextStatus }, id }
     const { response } = await errorHandler(providers.updateOrder(payload), { loader: false })
 
-    console.log({ response })
-
     if (response) {
       await fetchBranchOrders(
         store.selectedBranch.id,

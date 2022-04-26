@@ -24,6 +24,7 @@ const extractInitialValues = (entity) => {
     })
   })
 
+  console.log({ initialValues })
   return initialValues
 }
 

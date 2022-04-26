@@ -13,7 +13,7 @@ import CustomField from './subComponents/CustomField/CustomField'
 import styles from './EditModal.module.scss'
 import extractInitialValues from './helpers'
 import {
-  IconsField, InputField, InputList, SelectField, SelectListField, DateField,
+  IconsField, InputField, InputList, SelectField, SelectListField, DateField, CheckBoxField,
 } from './subComponents/DefaultFields'
 
 const EditModal = ({ entity, type, editRequest }) => {
@@ -111,6 +111,14 @@ const EditModal = ({ entity, type, editRequest }) => {
         isDisabled={isDisabled(formValues)}
       />,
       [inputTypes.NUMBER]: <InputField
+        formValues={formValues}
+        updateState={updateState}
+        errors={errors}
+        subSection={subSection}
+        type="number"
+        isDisabled={isDisabled(formValues)}
+      />,
+      [inputTypes.BOOL]: <CheckBoxField
         formValues={formValues}
         updateState={updateState}
         errors={errors}

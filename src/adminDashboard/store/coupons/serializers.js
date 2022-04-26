@@ -37,6 +37,7 @@ const {
   INPUT_LIST,
   DATE,
   NUMBER,
+  BOOL,
 } = inputTypes
 
 export const entityAdapter = (coupom) => {
@@ -53,12 +54,13 @@ export const entityAdapter = (coupom) => {
     distanceLimitInKm,
     usesLimit,
     isActive,
+    freeDelivery,
   } = coupom
 
   const conditionsLimits = {
     [conditionsInterface.price_limit]: priceLimit,
     [conditionsInterface.date_limit]: dateLimit,
-    [conditionsInterface.distanceLimitInKm]: distanceLimitInKm,
+    [conditionsInterface.distance_limit_in_km]: distanceLimitInKm,
     [conditionsInterface.uses_limit]: usesLimit,
   }
 
@@ -72,7 +74,7 @@ export const entityAdapter = (coupom) => {
         icon: PRICE,
         title: 'Desconto',
         content: {
-          values: [formatDiscount(discount, discountType)],
+          values: [`${formatDiscount(discount, discountType)}${freeDelivery && ' + Frete grátis'}`],
           type: contentTypes.UNIQUE,
         },
       },
@@ -118,6 +120,7 @@ export const editEntityAdapter = (coupom, userBranches, conditions) => {
     distanceLimitInKm,
     usesLimit,
     isActive,
+    freeDelivery,
   } = coupom
 
   return {
@@ -152,6 +155,12 @@ export const editEntityAdapter = (coupom, userBranches, conditions) => {
             sectionName: 'Tipo do desconto',
             fieldType: SELECT,
             options: discountTypesInterface,
+          },
+          {
+            value: freeDelivery,
+            key: couponsInterface.freeDelivery,
+            sectionName: 'Frete Grátis',
+            fieldType: BOOL,
           },
         ],
       },
@@ -189,7 +198,7 @@ export const editEntityAdapter = (coupom, userBranches, conditions) => {
             fieldType: NUMBER,
             isDisabled:
               (store) => (
-                !checkConditionExists(conditions, conditionsInterface.distance_limit)(store)),
+                !checkConditionExists(conditions, conditionsInterface.distance_limit_in_km)(store)),
           },
           {
             value: discount,
@@ -221,13 +230,26 @@ export const normalizeEditPayload = (body) => {
     discountType,
     coupomConditions,
     coupomBranches,
+    discount,
+    priceLimit,
+    usesLimit,
+    distanceLimitInKm,
+    dateLimit,
   } = body
 
+  console.log({ body })
+
+  delete body.id
   return {
     ...body,
-    discountType: discountType.payloadValue,
+    discount: +discount,
+    priceLimit: +priceLimit,
+    usesLimit: +usesLimit,
+    distanceLimitInKm: +distanceLimitInKm,
+    discountType: discountTypesInterface.find((dti) => dti.id == discountType.id).payloadValue,
     coupomCode: coupomCode.trim(),
-    coupomConditions: [...coupomConditions],
+    dateLimit: dateLimit || null,
+    coupomConditions: [...[...coupomConditions].filter((x) => x !== 0)],
     coupomBranches: coupomBranches.map(({ id }) => id),
   }
 }

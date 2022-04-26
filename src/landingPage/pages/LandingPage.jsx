@@ -23,7 +23,6 @@ const App = () => {
     setLandingPageData(JsonData)
   }, [])
 
-  console.log(landingPageData)
   return (
     <div>
       <Navigation />

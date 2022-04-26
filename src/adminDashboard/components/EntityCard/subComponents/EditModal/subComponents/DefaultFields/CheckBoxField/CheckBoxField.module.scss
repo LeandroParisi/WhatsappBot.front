@@ -1,0 +1,11 @@
+@import '../../../EditModal.module.scss';
+
+.container {
+  @extend .subSection;
+  @include smallField();
+  flex-direction: row;
+
+  &.disabled {
+    opacity: 35%;
+  } 
+}

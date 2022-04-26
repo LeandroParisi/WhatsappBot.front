@@ -6,6 +6,7 @@ import styles from './SelectField.module.scss'
 const SelectField = ({
   formValues, subSection, updateState, errors,
 }) => {
+  console.log({ formValues })
   const {
     key, sectionName, options,
   } = subSection

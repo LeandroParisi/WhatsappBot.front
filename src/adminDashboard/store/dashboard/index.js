@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useRoot } from 'adminDashboard/store/root'
+import useInterval from 'shared/hooks/useInterval'
 import storeActions from './actions'
 import storeSelectors from './selectors'
 import useCreateStore from '../useCreateStore'
+import appConfig from '../../config'
 
 const initialState = {
   orders: {
@@ -21,7 +23,7 @@ const DashboardStore = useCreateStore(() => {
 
   const { selectedBranch } = $dashboard
 
-  useEffect(() => {
+  const fetchCurrentOrders = () => {
     if (selectedBranch.name) {
       actions.fetchBranchOrders(
         selectedBranch.id,
@@ -31,6 +33,12 @@ const DashboardStore = useCreateStore(() => {
         },
       )
     }
+  }
+
+  useInterval(fetchCurrentOrders, appConfig.dashboardPoolingInSeconds * 1000)
+
+  useEffect(() => {
+    fetchCurrentOrders()
   }, [selectedBranch.name])
 
   useEffect(() => {
