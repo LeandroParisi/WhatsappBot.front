@@ -7,6 +7,7 @@ import routes from 'shared/libs/routes/routes'
 import ProtectedRoute from 'shared/templates/ProtectedRoute'
 import { RootProvider } from 'adminDashboard/store'
 import Teste from 'landingPage/Teste'
+import LandingPage from 'landingPage/pages/LandingPage'
 import {
   Login,
   Dashboard,
@@ -20,7 +21,6 @@ import {
 } from './adminDashboard/pages'
 import 'react-toastify/dist/ReactToastify.css'
 import 'assets/scss/reset.scss'
-import LandingPage from 'landingPage/pages/LandingPage'
 
 function App() {
   return (
@@ -40,6 +40,7 @@ function App() {
             <ProtectedRoute exact path={routes.branches} component={Branches} />
             <ProtectedRoute exact path={routes.account} component={Account} />
             <ProtectedRoute exact path={routes.settings} component={Configurations} />
+
             <Route exact path="*">
               <Redirect to={routes.login} />
             </Route>
